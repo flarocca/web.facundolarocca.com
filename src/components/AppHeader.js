@@ -1,23 +1,17 @@
 import React, { Component } from 'react';
 import '../css/App.css';
-import AppHeader from './AppHeader';
-import AppFooter from './AppFooter';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <AppHeader translationProvider={this.props.translationProvider} imageProvider={this.props.imageProvider}/>
-        <h2>Facundo La Rocca</h2>
-        <p className="App-intro">
-          This page is being built.
-        </p>
-        <AppFooter translationProvider={this.props.translationProvider} imageProvider={this.props.imageProvider}/>
-      </div>
-    );
+export default class AppHeader extends Component {
+  constructor(props) {
+    super(props);
+
+    this._changeLanguague = this._changeLanguague.bind(this);
+    this.state = {
+      translation: this.props.translationProvider.getTranslation('DEFAULT')
+    }
   }
 
-  _renderHeader() {
+  render() {
     return (
       <div className="App-header">
         <a className="App-header-item"><b>{this.state.translation.WHO_I_AM}</b></a>
@@ -28,6 +22,9 @@ class App extends Component {
       </div>
     );
   }
-}
 
-export default App;
+  _changeLanguague(languague) {
+    var translation = this.props.translationProvider.getTranslation(languague);
+    this.setState({ translation });
+  }
+}

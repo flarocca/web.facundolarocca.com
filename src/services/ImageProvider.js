@@ -17,6 +17,8 @@ export default class ImageProvider {
                 return ARGENTINA_ICON;
             case 'ENG':
                 return BRITAIN_ICON;
+            default:
+                return null;
         }
     }
 }
