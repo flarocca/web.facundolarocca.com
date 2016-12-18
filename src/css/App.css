@@ -5,7 +5,14 @@
 .App-logo {
   /*animation: App-logo-spin infinite 20s linear;*/
   height: 40px;
+  width: 40px;
   margin: 10px;
+}
+
+.App-lan-icon {
+  height: 25px;
+  width: 25px;
+  margin: 5px;
 }
 
 .App-header {
@@ -29,6 +36,11 @@
 .App-header-item {
   margin: 20px;
   font-size: large;
+}
+
+.App-footer-text {
+  font-size: large;
+  color: black;
 }
 
 /*@keyframes App-logo-spin {
