@@ -1,0 +1,49 @@
+.App-intro {
+  font-size: large;
+}
+
+.App-whoiam {
+  position: absolute;
+  height: 500px;
+  width: 100%;
+  left: 0px;
+  background-color: green;
+}
+
+.App-experience {
+  position: absolute;
+  height: 500px;
+  width: 100%;
+  left: 0px;
+  background-color: red;
+}
+
+.App-contact {
+  position: absolute;
+  height: 500px;
+  width: 100%;
+  left: 0px;
+  background-color: gray;
+}
+
+.App-contact-input{
+  font-size: large;
+  height: 40px;
+  width: 150px;
+  border-radius: 5px;
+  margin: 40px;
+}
+
+.App-contact-textarea{
+  font-size: large;
+  height: 150px;
+  width: 150px;
+  border-radius: 5px;
+  margin: 40px;
+}
+
+.App-button {
+  background-color: deepskyblue;
+  height: 40px;
+  width: 80px;
+}

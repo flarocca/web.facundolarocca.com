@@ -1,0 +1,19 @@
+.App-logo {
+  /*animation: App-logo-spin infinite 20s linear;*/
+  height: 40px;
+  width: 40px;
+  margin: 10px;
+}
+
+.App-footer {
+  position: fixed;
+  bottom: 0px;
+  height: 80px;
+  width: 100%;
+  display: block;
+}
+
+.App-footer-text {
+  font-size: large;
+  color: black;
+}

@@ -6,8 +6,11 @@
     "react-scripts": "0.8.4"
   },
   "dependencies": {
+    "flux": "^3.1.2",
+    "keymirror": "^0.1.1",
     "react": "^15.4.1",
-    "react-dom": "^15.4.1"
+    "react-dom": "^15.4.1",
+    "sync-queue": "0.0.2"
   },
   "scripts": {
     "start": "react-scripts start",

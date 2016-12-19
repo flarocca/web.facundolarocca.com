@@ -1,30 +1,34 @@
 import React, { Component } from 'react';
-import '../css/App.css';
+import AppLanguagueSelector from './AppLanguagueSelector';
+import AppStore from '../stores/AppStore';
+import '../css/App-header.css';
 
 export default class AppHeader extends Component {
   constructor(props) {
     super(props);
 
-    this._changeLanguague = this._changeLanguague.bind(this);
+    this._onAppSessionChange = this._onAppSessionChange.bind(this);
     this.state = {
-      translation: this.props.translationProvider.getTranslation('DEFAULT')
+      languageSet: this.props.languageSet
     }
+  }
+
+  componentDidMount() {
+    AppStore.addChangeListener(this._onAppSessionChange);
   }
 
   render() {
     return (
       <div className="App-header">
-        <a className="App-header-item"><b>{this.state.translation.WHO_I_AM}</b></a>
-        <a className="App-header-item"><b>{this.state.translation.EXPERIENCE}</b></a>
-        <a className="App-header-item"><b>{this.state.translation.CONTACT}</b></a>
-        <span><a href="#" onClick={() => this._changeLanguague('ARG')}><img src={this.props.imageProvider.getImage('ARG')} className="App-lan-icon" alt="logo" /></a></span>
-        <span><a href="#" onClick={() => this._changeLanguague('ENG')}><img src={this.props.imageProvider.getImage('ENG')} className="App-lan-icon" alt="logo" /></a></span>
+        <a href="#whoiam" className="App-header-item"><b>{this.state.languageSet.WHO_I_AM}</b></a>
+        <a href="#experience" className="App-header-item"><b>{this.state.languageSet.EXPERIENCE}</b></a>
+        <a href="#contact" className="App-header-item"><b>{this.state.languageSet.CONTACT}</b></a>
+        <AppLanguagueSelector />
       </div>
     );
   }
 
-  _changeLanguague(languague) {
-    var translation = this.props.translationProvider.getTranslation(languague);
-    this.setState({ translation });
+ _onAppSessionChange() {
+    this.setState({languageSet: AppStore.getLanguageSet()});
   }
 }

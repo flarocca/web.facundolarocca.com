@@ -1,0 +1,13 @@
+.App-header {
+  background-color: #222;
+  height: 60px;
+  padding: 20px;
+  color: white;
+}
+
+.App-header-item {
+  margin: 20px;
+  font-size: large;
+  text-decoration: none;
+  color: white;
+}
