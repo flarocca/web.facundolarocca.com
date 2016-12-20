@@ -49,7 +49,7 @@ export default class AppBody extends Component {
         </span>
         <Element name="CONTACT" />
         <div id="contact" className="App-contact">
-          <h2 style={{color: '#ffffff', paddingBottom: '10px'}}>{this.state.languageSet.CONTACT}</h2>
+          <h2 style={{color: '#ffffff', marginTop: '50px', marginBottom: '50px'}}>{this.state.languageSet.CONTACT}</h2>
           <input id="first-name" type="text" placeholder={this.state.languageSet.FIRST_NAME} className="App-contact-input" />
           <input id="last-name" type="text" placeholder={this.state.languageSet.LAST_NAME} className="App-contact-input" />
           <input id="mail" type="text" placeholder={this.state.languageSet.MAIL} className="App-contact-input" />
