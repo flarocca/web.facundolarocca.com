@@ -3,6 +3,7 @@ import LINKEDIN_ICON from '../images/linkedin-icon.png';
 import GITHUB_ICON from '../images/github-icon.png';
 import ARGENTINA_ICON from '../images/argentina-icon.png';
 import BRITAIN_ICON from '../images/britain-icon.png';
+import REACT from '../images/react-logo.svg';
 
 export default class ImageProvider {
     getImage(languague) {
@@ -17,6 +18,8 @@ export default class ImageProvider {
                 return ARGENTINA_ICON;
             case 'ENG':
                 return BRITAIN_ICON;
+            case 'REC':
+                return REACT;
             default:
                 return null;
         }

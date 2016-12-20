@@ -1,4 +1,4 @@
-.App-logo {
+.App-img {
   /*animation: App-logo-spin infinite 20s linear;*/
   height: 40px;
   width: 40px;
@@ -9,15 +9,28 @@
 }
 
 .App-footer {
-  position: fixed;
   bottom: 0px;
-  height: 80px;
+  height: 160px;
   width: 100%;
   display: block;
-  color: black;
+  background-color: #222222;
 }
 
 .App-footer-text {
   font-size: small;
-  color: black;
+  color: white;
+  font-family: Courier New, Courier, monospace;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 10s linear;
+  height: 20px;
+  display: inline-block;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }

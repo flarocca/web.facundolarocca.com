@@ -13,7 +13,7 @@ export default class AppLanguagueSelector extends Component {
 
   render() {
     return (
-      <span>
+      <span style={{marginRight: '10px'}}>
         <span><a href="#" onClick={() => this._changeLanguage('ARG')}><img src={this._imageProvider.getImage('ARG')} className="App-lan-icon" alt="logo" /></a></span>
         <span><a href="#" onClick={() => this._changeLanguage('ENG')}><img src={this._imageProvider.getImage('ENG')} className="App-lan-icon" alt="logo" /></a></span>
       </span>
