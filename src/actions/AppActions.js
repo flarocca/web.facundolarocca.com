@@ -8,11 +8,16 @@ var AppActions = {
       actionType: AppConstants.INIT_APP,
     });
   },
-
   languageChanged(language) {
     Dispatcher.handleViewAction({
       actionType: AppConstants.LANGUAGE_CHANGED,
       data: language
+    });
+  },
+  menuSelected(menu){
+    Dispatcher.handleViewAction({
+      actionType: AppConstants.MENU_SELECTED,
+      data: menu
     });
   }
 }

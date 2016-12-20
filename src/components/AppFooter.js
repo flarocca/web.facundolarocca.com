@@ -16,9 +16,7 @@ export default class AppFooter extends Component {
         <span><a href={ImageSources.STACKOVERFLOW_PROFILE}><img src={this._imageProvider.getImage('STK')} className="App-logo" alt="logo" /></a></span>
         <span><a href={ImageSources.LINKEDIN_PROFILE}><img src={this._imageProvider.getImage('LIN')} className="App-logo" alt="logo" /></a></span>
         <span><a href={ImageSources.GITHUB_PROFILE}><img src={this._imageProvider.getImage('GIT')} className="App-logo" alt="logo" /></a></span>
-        <p className="App-footer-text">
-          Powered by <k>Facundo La Rocca</k>.
-        </p>
+        <span><p className="App-footer-text">Powered by <i>Facundo La Rocca</i>.</p></span>
       </div>
     );
   }

@@ -8,6 +8,7 @@ var _translationProvider = new TranslationProvider();
 
 var CHANGE_EVENT = 'change';
 var _languageSet = null;
+var _menuSelected = null;
 
 var AppStore = assign({}, EventEmitter.prototype, {
   emitChange: function () {
@@ -24,6 +25,9 @@ var AppStore = assign({}, EventEmitter.prototype, {
       _languageSet = _translationProvider.getTranslation('DEFAULT');
 
     return _languageSet;
+  },
+  getMenuSelected() {
+    return _menuSelected;
   }
 });
 
@@ -36,6 +40,12 @@ AppStore.dispatchToken = AppDispatcher.register(function (action) {
 
     case AppConstants.LANGUAGE_CHANGED:
       _languageSet = _translationProvider.getTranslation(action.data);
+      _menuSelected = null;
+      AppStore.emitChange();
+      break;
+
+    case AppConstants.MENU_SELECTED:
+      _menuSelected = action.data;
       AppStore.emitChange();
       break;
   }

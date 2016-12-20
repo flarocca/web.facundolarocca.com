@@ -2,7 +2,10 @@
   /*animation: App-logo-spin infinite 20s linear;*/
   height: 40px;
   width: 40px;
-  margin: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 0px;
 }
 
 .App-footer {
@@ -11,9 +14,10 @@
   height: 80px;
   width: 100%;
   display: block;
+  color: black;
 }
 
 .App-footer-text {
-  font-size: large;
+  font-size: small;
   color: black;
 }
