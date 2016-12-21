@@ -5,6 +5,7 @@ import GITHUB_WHITE_ICON from '../images/github-white-icon.png';
 import ARGENTINA_ICON from '../images/argentina-icon.png';
 import BRITAIN_ICON from '../images/britain-icon.png';
 import REACT from '../images/react-logo.svg';
+import UP_WHITE from '../images/up-gray-icon.png';
 
 export default class ImageProvider {
     getImage(languague) {
@@ -23,6 +24,8 @@ export default class ImageProvider {
                 return BRITAIN_ICON;
             case 'REC':
                 return REACT;
+            case 'UPW':
+                return UP_WHITE;
             default:
                 return null;
         }

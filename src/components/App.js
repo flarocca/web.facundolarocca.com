@@ -3,10 +3,11 @@ import '../css/App.css';
 import AppHeader from './AppHeader';
 import AppFooter from './AppFooter';
 import AppBody from './AppBody';
+import UpButton from './UpButton';
 import AppActions from '../actions/AppActions';
 import AppStore from '../stores/AppStore';
 
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
 
@@ -31,9 +32,8 @@ class App extends Component {
         <AppHeader languageSet={this.state.languageSet} />
         <AppBody languageSet={this.state.languageSet} />
         <AppFooter languageSet={this.state.languageSet} />
+        <UpButton/>
       </div>
     );
   }
 }
-
-export default App;
