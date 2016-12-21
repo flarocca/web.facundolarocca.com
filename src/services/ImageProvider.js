@@ -6,6 +6,7 @@ import ARGENTINA_ICON from '../images/argentina-icon.png';
 import BRITAIN_ICON from '../images/britain-icon.png';
 import REACT from '../images/react-logo.svg';
 import UP_WHITE from '../images/up-gray-icon.png';
+import MENU from '../images/menu-icon.png';
 
 export default class ImageProvider {
     getImage(languague) {
@@ -26,6 +27,8 @@ export default class ImageProvider {
                 return REACT;
             case 'UPW':
                 return UP_WHITE;
+            case 'MNU':
+                return MENU;
             default:
                 return null;
         }

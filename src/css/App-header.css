@@ -1,6 +1,6 @@
 .App-header {
-  background-color: #222;
-  height: 5%;
+  background-color: rgba(34, 34, 34, 1);
+  height: 20px;
   width: 100%;
   padding: 20px;
   color: white;
@@ -12,4 +12,20 @@
   font-size: large;
   text-decoration: none;
   color: white;
+  align-self: center;
+  position: relative;
+
+}
+
+.App-menu {
+  background-color: rgba(255,255,255,0.15);
+  width: 35px;
+  height: 35px;
+  position: relative;
+  left: -28%;
+  top: -40%;
+}
+
+.App-menu:hover {
+  background-color: rgba(71,105,160,1);
 }
