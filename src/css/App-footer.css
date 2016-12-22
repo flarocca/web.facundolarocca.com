@@ -1,31 +1,42 @@
-.App-img {
-  height: 40px;
-  width: 40px;
-  margin-top: 10px;
-  margin-right: 10px;
-  margin-left: 10px;
-  margin-bottom: 0px;
+.Footer {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(34, 34, 34, 1);
+  justify-content: center;
 }
 
-.App-img:hover {
-  transform: scale(1.3, 1.3);
-  transition: all 200ms ease-in;
+.Links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 1%;
 }
 
-.App-footer {
-  bottom: 0px;
-  height: 230px;
-  width: 100%;
-  display: block;
-  background-color: #222222;
-}
-
-.App-footer-text {
+.Text {
   font-size: small;
   color: white;
   font-family: Courier New, Courier, monospace;
   display: inline-block;
   text-decoration: none;
+}
+
+.React {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.Img {
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.Img:hover {
+  transform: scale(1.3, 1.3);
+  transition: all 200ms ease-in;
 }
 
 .App-logo {

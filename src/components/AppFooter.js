@@ -12,14 +12,19 @@ export default class AppFooter extends Component {
 
   render() {
     return (
-      <div className="App-footer">
-        <br /><br /><br /><br />
-        <span><a href={ImageSources.STACKOVERFLOW_PROFILE}><img src={this._imageProvider.getImage('STK')} className="App-img" alt="logo" /></a></span>
-        <span><a href={ImageSources.LINKEDIN_PROFILE}><img src={this._imageProvider.getImage('LIN')} className="App-img" alt="logo" /></a></span>
-        <span><a href={ImageSources.GITHUB_PROFILE}><img src={this._imageProvider.getImage('GITW')} className="App-img" alt="logo" /></a></span>
-        <p style={{ fontSize: 'larger', fontFamily: '"Courier New", Courier, monospace', color: 'white' }}>Software developer & engineer.</p>
-        <span>
-          <p className="App-footer-text">Made with <i><a href={ImageSources.REACT} className="App-footer-text">ReactJS.</a></i></p>
+      <div className="Footer">
+        <hr style={{ width: "75%", height: "3px", border: "0", boxShadow: "0 10px 10px -10px #8c8b8b inset", marginTop: "5%", marginBottom: "2%" }} />
+        <p style={{ fontSize: "larger", fontFamily: '"Courier New", Courier, monospace', color: 'white' }}>
+          <span style={{ fontSize: "25px", fontFamily: '"Courier New", Courier, monospace', color: 'white' }}>Facundo La Rocca</span> <br /><br />
+          Software developer & engineer.
+        </p>
+        <span className="Links">
+          <span><a href={ImageSources.STACKOVERFLOW_PROFILE}><img src={this._imageProvider.getImage('STK')} className="Img" alt="logo" /></a></span>
+          <span><a href={ImageSources.LINKEDIN_PROFILE}><img src={this._imageProvider.getImage('LIN')} className="Img" alt="logo" /></a></span>
+          <span><a href={ImageSources.GITHUB_PROFILE}><img src={this._imageProvider.getImage('GITW')} className="Img" alt="logo" /></a></span>
+        </span>
+        <span className="React">
+          <p className="Text">Made with <i><a href={ImageSources.REACT} className="Text">ReactJS.</a></i></p>
           <a href={ImageSources.REACT}><img src={this._imageProvider.getImage('REC')} className="App-logo" alt="logo" /></a>
         </span>
       </div>

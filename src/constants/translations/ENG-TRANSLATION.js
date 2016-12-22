@@ -7,5 +7,7 @@ export default {
     LAST_NAME: 'Last Name',
     MAIL: 'EMail',
     MESSAGE: 'Message',
-    SEND: 'Send'
+    SEND: 'Send',
+    MESSAGE_SENT: 'Message has been sent.',
+    MESSAGE_ERROR: '* You must complete all fields.'
 } 

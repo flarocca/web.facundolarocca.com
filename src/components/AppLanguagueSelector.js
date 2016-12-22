@@ -26,7 +26,7 @@ export default class AppLanguagueSelector extends Component {
   }
 
   _changeLanguage(language) {
-    if (language == 'ENG') {
+    if (language === 'ENG') {
       this.setState({ engSelectedClass: 'App-header-lan-selec' });
       this.setState({ argSelectedClass: 'App-header-lan' });
     } else {

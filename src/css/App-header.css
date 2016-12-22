@@ -1,31 +1,27 @@
-.App-header {
+.Header {
   background-color: rgba(34, 34, 34, 1);
   height: 20px;
   width: 100%;
   padding: 20px;
-  color: white;
   position: fixed;
   z-index: 1;
+  display: flex;
+  justify-content: center;
 }
 
-.App-header-item {
+.Menu {
+  flex: 1;
+}
+
+.Language {
+  color: rgba(255,255,255,0.50);
+  float: right;
+  margin-right: 4%;
+}
+
+.Menu-item {
   margin: 20px;
   font-size: large;
   text-decoration: none;
   color: white;
-  align-self: center;
-  position: relative;
-}
-
-.App-menu {
-  background-color: rgba(255,255,255,0.15);
-  width: 35px;
-  height: 35px;
-  position: relative;
-  left: -28%;
-  top: -40%;
-}
-
-.App-menu:hover {
-  background-color: rgba(71,105,160,1);
 }

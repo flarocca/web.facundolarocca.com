@@ -1,19 +1,7 @@
-.App-lan-icon {
-  height: 25px;
-  width: 25px;
-  margin: 5px;
-  position: relative;
-  right: -25%;
-}
-
 .App-header-lan {
-  margin: 10px;
   font-size: large;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.15);
-  align-self: center;
-  position: relative;
-  float: left;
 }
 
 .App-header-lan:hover {
@@ -21,11 +9,7 @@
 }
 
 .App-header-lan-selec {
-  margin: 10px;
   font-size: large;
   text-decoration: none;
   color: rgba(0,191,255,0.75);
-  align-self: center;
-  position: relative;
-  float: left;
 }

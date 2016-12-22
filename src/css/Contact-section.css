@@ -1,0 +1,115 @@
+.App-contact {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(34, 34, 34, 1);
+  justify-content: center;
+}
+
+.Contact {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(34, 34, 34, 1);
+  border: solid 2px red;
+  width: 600px;
+}
+
+.Input{
+  flex: 1;
+  font-size: large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 40px;
+  border-radius: 5px;
+  border: rgba(255, 255, 255, 0) solid 4px;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding-inline-start: 1%;
+  padding-inline-end: 1%;
+  margin-block-end: 2%;
+  color: white;
+}
+
+.Input-error{
+  flex: 1;
+  font-size: large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 40px;
+  border-radius: 5px;
+  border: red solid 4px;
+  background-color: rgba(255,255,255,0.15);
+  padding-inline-start: 1%;
+  padding-inline-end: 1%;
+  margin-block-end: 2%;
+  color: white;
+  transition: border 500ms linear;
+}
+
+.Textarea{
+  flex: 1;
+  font-size: large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 150px;
+  border-radius: 5px;
+  border: rgba(255, 255, 255, 0) solid 4px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  padding-inline-start: 1%;
+  padding-inline-end: 1%;
+  margin-block-end: 2%;
+}
+
+.Textarea-error{
+  flex: 1;
+  font-size: large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 150px;
+  border-radius: 5px;
+  border: red solid 4px;
+  background-color: rgba(255,255,255,0.15);
+  padding-inline-start: 1%;
+  padding-inline-end: 1%;
+  margin-block-end: 2%;
+  color: white;
+  transition: border 500ms linear;
+}
+
+.Send {
+  background-color: deepskyblue;
+  height: 40px;
+  width: 100px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: medium;
+  align-self: flex-end;
+}
+
+.Send:hover {
+  background-color: rgba(0,191,255,0.75);
+}
+
+.Send:active {
+  background-color: rgba(0,191,255,0.75);
+  transform: translateY(1px);
+}
+
+.Mail-sent{
+  flex: 4;
+  color: mediumspringgreen;
+  font-size: large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  align-self: flex-start;
+}
+
+.Mail-error{
+  flex: 4;
+  color: red;
+  font-size: large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  align-self: flex-start;
+}
+
+.Footer{
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}

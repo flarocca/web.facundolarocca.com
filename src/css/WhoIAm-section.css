@@ -1,0 +1,28 @@
+.Whoiam {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(233,233,233,1);
+  justify-content: center;
+}
+
+.Title {
+  flex: 1;
+}
+
+.Detail {
+  flex: 3;
+}
+
+.App-avatar {
+  border-radius: 50%;
+  display: inline-flex;
+  position: relative;
+  margin-top: 80px;
+  margin-right: 80px;
+  top: 13%;
+}
+
+.App-intro {
+  font-size: large;
+  display: inline-block;
+}
