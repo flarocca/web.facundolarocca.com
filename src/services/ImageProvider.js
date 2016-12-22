@@ -7,6 +7,7 @@ import BRITAIN_ICON from '../images/britain-icon.png';
 import REACT from '../images/react-logo.svg';
 import UP_WHITE from '../images/up-gray-icon.png';
 import MENU from '../images/menu-icon.png';
+import AVATAR from '../images/avatar.jpg';
 
 export default class ImageProvider {
     getImage(languague) {
@@ -29,6 +30,8 @@ export default class ImageProvider {
                 return UP_WHITE;
             case 'MNU':
                 return MENU;
+            case 'AVA':
+                return AVATAR;
             default:
                 return null;
         }

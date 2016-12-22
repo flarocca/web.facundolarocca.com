@@ -24,7 +24,6 @@ export default class AppHeader extends Component {
   render() {
     return (
       <div className="App-header">
-        <img src={this._imageProvider.getImage('MNU')} className="App-menu" alt="logo" />
         <a href="#" onClick={() => this._onClick('WHO_I_AM')} className="App-header-item"><b className="text">{this.state.languageSet.WHO_I_AM}</b></a>
         <a href="#" onClick={() => this._onClick('EXPERIENCE')} className="App-header-item"><b>{this.state.languageSet.EXPERIENCE}</b></a>
         <a href="#" onClick={() => this._onClick('CONTACT')} className="App-header-item"><b>{this.state.languageSet.CONTACT}</b></a>

@@ -9,18 +9,30 @@ export default class AppLanguagueSelector extends Component {
 
     this._changeLanguage = this._changeLanguage.bind(this);
     this._imageProvider = new ImageProvider();
+
+    this.state = {
+      argSelectedClass: 'App-header-lan-selec',
+      engSelectedClass: 'App-header-lan'
+    }
   }
 
   render() {
     return (
       <span>
-        <span><a href="#" onClick={() => this._changeLanguage('ARG')}><img src={this._imageProvider.getImage('ARG')} className="App-lan-icon" alt="logo" /></a></span>
-        <span><a href="#" onClick={() => this._changeLanguage('ENG')}><img src={this._imageProvider.getImage('ENG')} className="App-lan-icon" alt="logo" /></a></span>
+        <span><a className={this.state.argSelectedClass} href="#" onClick={() => this._changeLanguage('ARG')}><b>ARG</b></a></span>
+        <span><a className={this.state.engSelectedClass} href="#" onClick={() => this._changeLanguage('ENG')}><b>ENG</b></a></span>
       </span>
     );
   }
 
   _changeLanguage(language) {
+    if (language == 'ENG') {
+      this.setState({ engSelectedClass: 'App-header-lan-selec' });
+      this.setState({ argSelectedClass: 'App-header-lan' });
+    } else {
+      this.setState({ argSelectedClass: 'App-header-lan-selec' });
+      this.setState({ engSelectedClass: 'App-header-lan' });
+    }
     AppActions.languageChanged(language);
   }
 }

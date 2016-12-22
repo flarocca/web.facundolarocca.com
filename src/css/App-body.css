@@ -1,5 +1,6 @@
 .App-intro {
   font-size: large;
+  display: inline-block;
 }
 
 .App-whoiam {
@@ -109,4 +110,21 @@
 
 .App-contact-span {
   display: block;
+}
+
+.App-avatar {
+  border-radius: 50%;
+  display: inline-flex;
+  position: relative;
+  margin-top: 80px;
+  margin-right: 80px;
+  top: 13%;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 40px;
+  width: 80%;
+  color: #333;
+  background: #419be0;
 }
