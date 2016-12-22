@@ -53,7 +53,7 @@ export default class Experience extends Component {
           <h2 style={{ color: '#ffffff', marginTop: '50px', marginBottom: '50px' }}>{this.state.languageSet.EXPERIENCE}</h2>
           <div style={{margin: "0 auto", padding: "40px", height: "60%", width: "80%", color: "#333", background: "#419be0"}}>
             <Slider {...settings}>
-              <div><img src='http://placekitten.com/g/400/200' /></div>
+              <div style={{height: "400px"}}><img src='http://placekitten.com/g/400/200' /></div>
               <div><img src='http://placekitten.com/g/400/200' /></div>
               <div><img src='http://placekitten.com/g/400/200' /></div>
               <div><img src='http://placekitten.com/g/400/200' /></div>
