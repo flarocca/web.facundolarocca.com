@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import '../css/Contact-section.css';
 import AppStore from '../stores/AppStore';
 import { Element, scroller } from 'react-scroll';
+const INPUT_CLASS = 'App-contact-input';
+const TEXTAREA_CLASS = 'App-contact-textarea';
+const INPUT_ERROR_CLASS = 'App-contact-input-error';
+const TEXTAREA_ERROR_CLASS = 'App-contact-textarea-error';
 
 export default class Contact extends Component {
   constructor(props) {
@@ -22,10 +26,10 @@ export default class Contact extends Component {
       lastName: '',
       email: '',
       message: '',
-      firstNameClass: 'Input',
-      lastNameClass: 'Input',
-      emailNameClass: 'Input',
-      messageNameClass: 'Textarea'
+      firstNameClass: INPUT_CLASS,
+      lastNameClass: INPUT_CLASS,
+      emailNameClass: INPUT_CLASS,
+      messageNameClass: TEXTAREA_CLASS
     }
   }
 
@@ -34,47 +38,28 @@ export default class Contact extends Component {
   }
 
   _onClick() {
-    if (!this.state.firstName) {
-      this.setState({ firstNameClass: 'Input-error' });
-    } else {
-      this.setState({ firstNameClass: 'Input' });
-    }
-
-    if (!this.state.lastName) {
-      this.setState({ lastNameClass: 'Input-error' });
-    } else {
-      this.setState({ lastNameClass: 'Input' });
-    }
-
-    if (!this.state.email) {
-      this.setState({ emailNameClass: 'Input-error' });
-    } else {
-      this.setState({ emailNameClass: 'Input' });
-    }
-
-    if (!this.state.message) {
-      this.setState({ messageNameClass: 'Textarea-error' });
-    } else {
-      this.setState({ messageNameClass: 'Textarea' });
-    }
+    this.setState({firstNameClass: !this.state.firstName ? INPUT_ERROR_CLASS : INPUT_CLASS});
+    this.setState({lastNameClass: !this.state.lastName ? INPUT_ERROR_CLASS : INPUT_CLASS});
+    this.setState({emailNameClass: !this.state.email ? INPUT_ERROR_CLASS : INPUT_CLASS});
+    this.setState({messageNameClass: !this.state.message ? TEXTAREA_ERROR_CLASS : TEXTAREA_CLASS});
 
     if (this.state.firstName && this.state.lastName && this.state.email && this.state.message) {
       this.setState({
         resultMessage: this.state.languageSet.MESSAGE_SENT,
-        resultClass: 'Mail-sent',
+        resultClass: 'App-contact-mail-sent',
         firstName: '',
         lastName: '',
         email: '',
         message: '',
-        firstNameClass: 'Input',
-        lastNameClass: 'Input',
-        emailNameClass: 'Input',
-        messageNameClass: 'Textarea'
+        firstNameClass: INPUT_CLASS,
+        lastNameClass: INPUT_CLASS,
+        emailNameClass: INPUT_CLASS,
+        messageNameClass: TEXTAREA_CLASS
       });
     } else {
       this.setState({
         resultMessage: this.state.languageSet.MESSAGE_ERROR,
-        resultClass: 'Mail-error'
+        resultClass: 'App-contact-mail-error'
       });
     }
   }
@@ -122,14 +107,14 @@ export default class Contact extends Component {
       <div className="App-contact">
         <Element name="CONTACT" />
         <h2 style={{ color: '#ffffff', marginTop: '50px', marginBottom: '50px' }}>{this.state.languageSet.CONTACT}</h2>
-        <div className="Contact">
+        <div className="App-contact-frame">
           <input value={this.state.firstName} onChange={this._firstNameChange} id="first-name" type="text" placeholder={this.state.languageSet.FIRST_NAME} className={this.state.firstNameClass} />
           <input value={this.state.lastName} onChange={this._lastNameChange} id="last-name" type="text" placeholder={this.state.languageSet.LAST_NAME} className={this.state.lastNameClass} />
           <input value={this.state.email} onChange={this._emailChange} id="mail" type="text" placeholder={this.state.languageSet.MAIL} className={this.state.emailNameClass} />
           <textarea value={this.state.message} onChange={this._messageChange} id="message" rows="5" placeholder={this.state.languageSet.MESSAGE} className={this.state.messageNameClass} />
-          <span className="Footer">
+          <span className="App-contact-footer">
             {this._renderMessageResult()}
-            <button onClick={this._onClick} type='button' className="Send"><b>{this.state.languageSet.SEND}</b></button>
+            <button onClick={this._onClick} type='button' className="App-contact-send"><b>{this.state.languageSet.SEND}</b></button>
           </span>
         </div>
       </div>

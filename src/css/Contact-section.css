@@ -5,15 +5,14 @@
   justify-content: center;
 }
 
-.Contact {
+.App-contact-frame {
   display: flex;
   flex-direction: column;
   background-color: rgba(34, 34, 34, 1);
-  border: solid 2px red;
   width: 600px;
 }
 
-.Input{
+.App-contact-input{
   flex: 1;
   font-size: large;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -27,7 +26,7 @@
   color: white;
 }
 
-.Input-error{
+.App-contact-input-error{
   flex: 1;
   font-size: large;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -42,7 +41,7 @@
   transition: border 500ms linear;
 }
 
-.Textarea{
+.App-contact-textarea{
   flex: 1;
   font-size: large;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -56,7 +55,7 @@
   margin-block-end: 2%;
 }
 
-.Textarea-error{
+.App-contact-textarea-error{
   flex: 1;
   font-size: large;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -71,7 +70,7 @@
   transition: border 500ms linear;
 }
 
-.Send {
+.App-contact-send {
   background-color: deepskyblue;
   height: 40px;
   width: 100px;
@@ -83,7 +82,7 @@
   align-self: flex-end;
 }
 
-.Send:hover {
+.App-contact-send:hover {
   background-color: rgba(0,191,255,0.75);
 }
 
@@ -92,7 +91,7 @@
   transform: translateY(1px);
 }
 
-.Mail-sent{
+.App-contact-mail-sent{
   flex: 4;
   color: mediumspringgreen;
   font-size: large;
@@ -100,7 +99,7 @@
   align-self: flex-start;
 }
 
-.Mail-error{
+.App-contact-mail-error{
   flex: 4;
   color: red;
   font-size: large;
@@ -108,7 +107,7 @@
   align-self: flex-start;
 }
 
-.Footer{
+.App-contact-footer{
   flex: 1;
   display: flex;
   justify-content: flex-end;

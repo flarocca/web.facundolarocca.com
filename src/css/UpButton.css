@@ -1,24 +1,15 @@
 .App-up-btn {
-  height: 40px auto;
-  width: 40px;
-  position: relative;
-}
-
-.App-up-btn-span {
-  background-color: #222222;
+  background-color: transparent;
   height: 40px;
-  width: 50px;
+  width: 40px;
   position: fixed;
   bottom: 30px;
   right: 30px;
   border-radius: 5px;
-  border: 2px solid rgba(255,255,255,0.15);
+  border: 2px solid transparent;
 }
 
-.App-up-btn-span:hover{
+.App-up-btn:hover{
   border: 2px solid rgba(71,105,160,1);
-}
-
-.App-up-btn-link {
-  text-decoration: none;
+  background-color: rgba(71,105,160,1);
 }

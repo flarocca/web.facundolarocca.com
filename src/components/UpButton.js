@@ -25,11 +25,9 @@ export default class UpButton extends Component {
 
   render() {
     return (
-      <span className="App-up-btn-span">
-        <a href="#" onClick={this._goToHome} className="App-up-btn-link">
-          <img title="Go to home" src={this._imageProvider.getImage('UPW')} className="App-up-btn" alt="logo" />
-        </a>
-      </span>
+      <a href="#" onClick={this._goToHome} className="App-up-btn-link">
+        <img title="Go to home" src={this._imageProvider.getImage('UPW')} className="App-up-btn" alt="logo" />
+      </a>
     );
   }
 }

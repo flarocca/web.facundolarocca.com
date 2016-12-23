@@ -48,6 +48,9 @@ AppStore.dispatchToken = AppDispatcher.register(function (action) {
       _menuSelected = action.data;
       AppStore.emitChange();
       break;
+    default:
+      AppStore.emitChange();
+      break;
   }
 });
 

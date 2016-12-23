@@ -1,4 +1,4 @@
-.Header {
+.App-header {
   background-color: rgba(34, 34, 34, 1);
   height: 20px;
   width: 100%;
@@ -9,19 +9,50 @@
   justify-content: center;
 }
 
-.Menu {
+.App-header-menu {
   flex: 1;
 }
 
-.Language {
+.App-header-language {
   color: rgba(255,255,255,0.50);
   float: right;
   margin-right: 4%;
 }
 
-.Menu-item {
+.App-header-menu-item {
   margin: 20px;
   font-size: large;
   text-decoration: none;
   color: white;
+}
+
+.App-header-toogle-menu {
+  display: flex;
+  position: fixed;
+  float: left;
+  background-color: rgba(34, 34, 34, 1);
+  border: 2px solid rgba(255,255,255,0.50);
+  border-radius: 5px;
+}
+
+.example-enter {
+  height: 0px;
+  width: 0px;
+}
+
+.example-enter.example-enter-active {
+  height: 52px;
+  width: 100px;
+  transition: all 400ms ease-in;
+}
+
+.example-leave {
+  height: 52px;
+  width: 100px;
+}
+
+.example-leave.example-leave-active {
+  height: 0px;
+  width: 0px;
+  transition: all 400ms ease-in;
 }

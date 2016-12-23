@@ -1,9 +1,4 @@
-.App-intro {
-  font-size: large;
-  display: inline-block;
-}
-
-.App-whoiam {
+.App-body-whoiam {
   display: inline-block;
   height: 500px;
   width: 100%;
@@ -11,7 +6,7 @@
   background-color: rgba(233,233,233,1);
 }
 
-.App-experience {
+.App-body-experience {
   display: inline-block;
   height: 700px;
   width: 100%;
@@ -19,7 +14,7 @@
   background-color: rgba(56,199,141,1);
 }
 
-.App-avatar {
+.App-body-avatar {
   border-radius: 50%;
   display: inline-flex;
   position: relative;
