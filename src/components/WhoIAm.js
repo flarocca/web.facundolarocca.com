@@ -26,7 +26,8 @@ export default class WhoIAm extends Component {
       scroller.scrollTo(menu, {
         duration: 1000,
         delay: 0,
-        smooth: true
+        smooth: true,
+        offset: -40
       });
     }
   }
@@ -35,15 +36,11 @@ export default class WhoIAm extends Component {
     return (
       <div className="Whoiam">
         <Element name="WHO_I_AM" />
-        <span className="Title">
-          <h2 style={{ color: '#ffffff', marginTop: '50px', marginBottom: '50px' }}>{this.state.languageSet.WHO_I_AM}</h2>
-        </span>
-        <span className="Detail">
-          <img src={this._imageProvider.getImage('AVA')} className="App-avatar" alt="logo" />
-          <span style={{ display: "inline-flex", position: "relative", border: "black solid 2px", height: "300px", width: "60%", top: "20%" }}>
-
-          </span>
-        </span>
+        <div className="Whoiam-Detail-Text">
+          <p className="Whoiam-Detail-Title-Text">{this.state.languageSet.WHO_I_AM}</p>
+          <hr style={{ width: "50%", height: "3px", border: "0", boxShadow: "0 10px 10px -10px rgba(193, 193, 193, 1) inset" }} />
+          {this.state.languageSet.MY_DESCRIPTION}
+        </div>
       </div>
     );
   }

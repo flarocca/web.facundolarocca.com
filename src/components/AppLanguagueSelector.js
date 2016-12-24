@@ -18,9 +18,9 @@ export default class AppLanguagueSelector extends Component {
 
   render() {
     return (
-      <span className="App-header-lan-frame">
-        <span><a className={this.state.argSelectedClass} href="#" onClick={() => this._changeLanguage('ARG')}><b>ESPAÑOL</b></a></span>
-        <span><a className={this.state.engSelectedClass} href="#" onClick={() => this._changeLanguage('ENG')}><b>ENGLISH</b></a></span>
+      <span className="App-header-lan-frame ">
+        <span><a href="#" onClick={() => this._changeLanguage('ARG')}><img src={this._imageProvider.getImage('ARG')} className="App-lan-icon" alt="lan-icon" /></a></span>
+        <span><a href="#" onClick={() => this._changeLanguage('ENG')}><img src={this._imageProvider.getImage('ENG')} className="App-lan-icon" alt="lan-icon" /></a></span>
       </span>
     );
   }

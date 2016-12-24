@@ -1,28 +1,30 @@
 .Whoiam {
   display: flex;
   flex-direction: column;
-  background-color: rgba(233,233,233,1);
+  background-color: rgba(252,110,81,1);
   justify-content: center;
 }
 
-.Title {
+.Whoiam-Detail-Title-Text {
   flex: 1;
+  color: white;
+  font-size: 40px;
+  font-family: Courier New, Courier, monospace;
 }
 
-.Detail {
+.Whoiam-Detail {
   flex: 3;
+  display: flex;
+  flex-direction: row;
 }
 
-.App-avatar {
-  border-radius: 50%;
-  display: inline-flex;
-  position: relative;
-  margin-top: 80px;
-  margin-right: 80px;
-  top: 13%;
+.Whoiam-Detail-Avatar{
+  margin: 5%;
 }
 
-.App-intro {
-  font-size: large;
-  display: inline-block;
+.Whoiam-Detail-Text{
+  font-size: 20px;
+  font-family: Courier New, Courier, monospace;
+  line-height: 130%;
+  color: white;
 }

@@ -4,19 +4,12 @@
   width: 100%;
   padding: 20px;
   position: fixed;
-  z-index: 1;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
 }
 
 .App-header-menu {
-  flex: 1;
-}
-
-.App-header-language {
-  color: rgba(255,255,255,0.50);
-  float: right;
-  margin-right: 4%;
+  flex: 5;
 }
 
 .App-header-menu-item {
@@ -26,33 +19,7 @@
   color: white;
 }
 
-.App-header-toogle-menu {
-  display: flex;
-  position: fixed;
-  float: left;
-  background-color: rgba(34, 34, 34, 1);
-  border: 2px solid rgba(255,255,255,0.50);
-  border-radius: 5px;
-}
-
-.example-enter {
-  height: 0px;
-  width: 0px;
-}
-
-.example-enter.example-enter-active {
-  height: 52px;
-  width: 100px;
-  transition: all 400ms ease-in;
-}
-
-.example-leave {
-  height: 52px;
-  width: 100px;
-}
-
-.example-leave.example-leave-active {
-  height: 0px;
-  width: 0px;
-  transition: all 400ms ease-in;
+.App-header-lan {
+  flex: 1;
+  margin-right: 10%;
 }
