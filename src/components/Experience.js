@@ -3,8 +3,7 @@ import '../css/Experience-section.css';
 import AppStore from '../stores/AppStore';
 import { Element, scroller } from 'react-scroll';
 import ImageProvider from '../services/ImageProvider';
-// import Slider from 'react-slick';
-import WEB from '../images/web.png';
+import { Link } from 'react-router'
 
 export default class Experience extends Component {
   constructor(props) {
@@ -33,6 +32,7 @@ export default class Experience extends Component {
       });
     }
   }
+//<a href="#"><em>{this.state.languageSet.VIEW_MORE}</em></a>
 
   render() {
     return (
@@ -45,12 +45,12 @@ export default class Experience extends Component {
             <div className="Experience-Detail-List-Item">
               <h2>{this.state.languageSet.PROFESSIONAL}</h2>
               {this.state.languageSet.PROF_DESC}
-              <a href="#"><em>{this.state.languageSet.VIEW_MORE}</em></a>
+              <Link to="/experience/professional"><em>{this.state.languageSet.VIEW_MORE}</em></Link>
             </div>
             <div className="Experience-Detail-List-Item">
               <h2>{this.state.languageSet.PERSONAL}</h2>
               {this.state.languageSet.PER_DESC}
-              <a href="#"><em>{this.state.languageSet.VIEW_MORE}</em></a>
+              <Link to="/experience/personal"><em>{this.state.languageSet.VIEW_MORE}</em></Link>
             </div>
           </div>
         </div>
