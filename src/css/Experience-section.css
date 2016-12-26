@@ -1,13 +1,36 @@
-.Experience {
+.App-experience {
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-color: rgba(200,191,231,1);
 }
 
-.Slider-content {
+.Experience-Detail-Title > p {
   flex: 1;
-  color: #333;
-  width: 80%;
-  padding: 4%;
+  color: white;
+  font-size: 40px;
+  font-family: Courier New, Courier, monospace;
+}
+
+.Experience-Detail-List{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-block-start: 5%;
+  margin-block-end: 5%;
+}
+
+.Experience-Detail-List-Item {
+  font-size: 20px;
+  font-family: Courier New, Courier, monospace;
+  line-height: 130%;
+  color: white;
+  margin-left: 5%; 
+  margin-right: 5%; 
+  width: 30%;
+}
+
+.Experience-Detail-List-Item > a {
+  color: white;
+  float: right;
 }

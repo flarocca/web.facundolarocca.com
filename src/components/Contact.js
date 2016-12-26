@@ -106,7 +106,8 @@ export default class Contact extends Component {
     return (
       <div className="App-contact">
         <Element name="CONTACT" />
-        <h2 style={{ color: '#ffffff', marginTop: '50px', marginBottom: '50px' }}>{this.state.languageSet.CONTACT}</h2>
+        <h2 style={{ color: '#ffffff', marginTop: '50px' }}>{this.state.languageSet.CONTACT}</h2>
+        <hr />
         <div className="App-contact-frame">
           <input value={this.state.firstName} onChange={this._firstNameChange} id="first-name" type="text" placeholder={this.state.languageSet.FIRST_NAME} className={this.state.firstNameClass} />
           <input value={this.state.lastName} onChange={this._lastNameChange} id="last-name" type="text" placeholder={this.state.languageSet.LAST_NAME} className={this.state.lastNameClass} />

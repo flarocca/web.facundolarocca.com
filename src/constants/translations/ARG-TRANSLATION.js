@@ -13,6 +13,7 @@ export default {
     SEND: 'Enviar',
     MESSAGE_SENT: 'El mensaje ha sido enviado.',
     MESSAGE_ERROR: '* Debe completar todos los campos.',
+    VIEW_MORE: 'Ver mas',
     MY_DESCRIPTION: (
         <p>
             This is a line of text. This is a line of text.<br />
@@ -23,8 +24,8 @@ export default {
             <br />FACUNDO LA ROCCA
         </p>
     ),
-    MOBILE_APPS: 'APLICATIONES MÓVILES',
-    WEB_APPS: 'APLICATIONES WEB',
+    MOBILE_APPS: 'APLICACIONES MÓVILES',
+    WEB_APPS: 'APLICACIONES WEB',
     WEB_APPS_DESC: (
         <p>
             Desarrollo de soluciones web<br />
@@ -34,7 +35,23 @@ export default {
     ),
     MOBILE_APPS_DESC: (
         <p>
-            Desarrollo de aplicaiones para mobiles y tablets<br/>
+            Desarrollo de aplicaiones para mobiles y tablets<br />
+        </p>
+    ),
+    PROFESSIONAL: 'PROFESIONAL',
+    PERSONAL: 'PERSONAL',
+    PROF_DESC: (
+        <p>
+            Actualmente trabajo como Engineer III Fullstack .NET en Web.com, <br />
+            una compañia con fuerte posición en el mercado norteamericano de eCommerce. <br />
+            Realizo mantenimiento y nuevos desarrollos tanto back-end como front-end <br />
+            del portal de ticketing de la compañia. <br />
+        </p>
+    ),
+    PER_DESC: (
+        <p>
+            Desarrollo de aplicaciones web y móviles con <em>NodeJS</em>, <em>ReactJS</em> y <em>ReactNative</em> <br />
+            y bases de datos relacionales como <em>ElasticSearch</em> y <em>MongoDB</em>
         </p>
     )
 }

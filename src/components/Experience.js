@@ -35,28 +35,22 @@ export default class Experience extends Component {
   }
 
   render() {
-    // var settings = {
-    //   dots: true,
-    //   infinite: true,
-    //   speed: 2000,
-    //   slidesToShow: 1,
-    //   slidesToScroll: 1,
-    //   autoplay: true,
-    //   autoplaySpeed: 2000
-    // };
     return (
-      <div>
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+      <div className="App-experience">
         <Element name="EXPERIENCE" />
-        <div className="Experience">
-          <h2 style={{ color: '#ffffff', marginTop: '50px', marginBottom: '50px' }}>{this.state.languageSet.EXPERIENCE}</h2>
-          <div className="Slider-content">
-            <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'flex-start', border: "white solid 2px", height: "400px", width: "100%" }}>
-              <img style={{}} src={WEB} alt="web"/>
-              <span>
-                <p>some text</p>
-              </span>
+        <div className="Experience-Detail-Title">
+          <p>{this.state.languageSet.EXPERIENCE}</p>
+          <hr />
+          <div className="Experience-Detail-List">
+            <div className="Experience-Detail-List-Item">
+              <h2>{this.state.languageSet.PROFESSIONAL}</h2>
+              {this.state.languageSet.PROF_DESC}
+              <a href="#"><em>{this.state.languageSet.VIEW_MORE}</em></a>
+            </div>
+            <div className="Experience-Detail-List-Item">
+              <h2>{this.state.languageSet.PERSONAL}</h2>
+              {this.state.languageSet.PER_DESC}
+              <a href="#"><em>{this.state.languageSet.VIEW_MORE}</em></a>
             </div>
           </div>
         </div>
@@ -64,15 +58,3 @@ export default class Experience extends Component {
     );
   }
 }
-/*
-<div className="Slider-content">
-            <Slider {...settings}>
-              <div>
-                <img src='http://placekitten.com/g/400/200' />
-              </div>
-              <div><img src='http://placekitten.com/g/400/200' /></div>
-              <div><img src='http://placekitten.com/g/400/200' /></div>
-              <div><img src='http://placekitten.com/g/400/200' /></div>
-            </Slider>
-</div>
-*/

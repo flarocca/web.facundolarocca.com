@@ -40,7 +40,7 @@ export default class WhatIDo extends Component {
         <Element name="WHAT_I_DO" />
         <div className="Whatido-Detail-Title">
           <p>{this.state.languageSet.WHAT_I_DO}</p>
-          <hr style={{ width: "50%", height: "3px", border: "0", boxShadow: "0 10px 10px -10px #8c8b8b inset" }} />
+          <hr />
         </div>
         <div className="Whatido-Detail-List">
           <div className="Whatido-Detail-List-Item">

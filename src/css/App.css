@@ -1,5 +1,10 @@
 .App {
-
-
   text-align: center;
+}
+
+hr {
+   width: 50%; 
+   height: 3px; 
+   border: 0; 
+   box-shadow: 0 10px 10px -10px white inset;
 }
