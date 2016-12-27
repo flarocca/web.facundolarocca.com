@@ -5,13 +5,6 @@
   justify-content: center;
 }
 
-.Whoiam-Detail-Title-Text {
-  flex: 1;
-  color: white;
-  font-size: 40px;
-  font-family: Courier New, Courier, monospace;
-}
-
 .Whoiam-Detail {
   flex: 3;
   display: flex;
@@ -20,11 +13,4 @@
 
 .Whoiam-Detail-Avatar{
   margin: 5%;
-}
-
-.Whoiam-Detail-Text{
-  font-size: 20px;
-  font-family: Courier New, Courier, monospace;
-  line-height: 130%;
-  color: white;
 }

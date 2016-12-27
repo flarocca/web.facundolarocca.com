@@ -15,7 +15,7 @@ export default {
     MESSAGE_ERROR: '* Debe completar todos los campos.',
     VIEW_MORE: 'Ver mas',
     MY_DESCRIPTION: (
-        <p>
+        <p className="Section-Text">
             This is a line of text. This is a line of text.<br />
             This is a line of text. This is a line of text.<br />
             This is a line of text. This is a line of text.<br />
@@ -27,21 +27,21 @@ export default {
     MOBILE_APPS: 'APLICACIONES MÓVILES',
     WEB_APPS: 'APLICACIONES WEB',
     WEB_APPS_DESC: (
-        <p>
+        <p className="Section-Text">
             Desarrollo de soluciones web<br />
             dinamicas y versatiles para generar <br />
             el valor que tu negocio necesita
         </p>
     ),
     MOBILE_APPS_DESC: (
-        <p>
+        <p className="Section-Text">
             Desarrollo de aplicaiones para mobiles y tablets<br />
         </p>
     ),
     PROFESSIONAL: 'PROFESIONAL',
     PERSONAL: 'PERSONAL',
     PROF_DESC: (
-        <p>
+        <p className="Section-Text">
             Actualmente trabajo como Engineer III Fullstack .NET en Web.com, <br />
             una compañia con fuerte posición en el mercado norteamericano de eCommerce. <br />
             Realizo mantenimiento y nuevos desarrollos tanto back-end como front-end <br />
@@ -49,9 +49,10 @@ export default {
         </p>
     ),
     PER_DESC: (
-        <p>
+        <p className="Section-Text">
             Desarrollo de aplicaciones web y móviles con <em>NodeJS</em>, <em>ReactJS</em> y <em>ReactNative</em> <br />
             y bases de datos relacionales como <em>ElasticSearch</em> y <em>MongoDB</em>
         </p>
-    )
+    ),
+    FIELD_REQUIRED_MSG: 'Este campo es obligatorio.'
 }

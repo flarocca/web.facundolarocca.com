@@ -32,14 +32,13 @@ export default class Experience extends Component {
       });
     }
   }
-//<a href="#"><em>{this.state.languageSet.VIEW_MORE}</em></a>
 
   render() {
     return (
       <div className="App-experience">
         <Element name="EXPERIENCE" />
         <div className="Experience-Detail-Title">
-          <p>{this.state.languageSet.EXPERIENCE}</p>
+          <p className="Section-title">{this.state.languageSet.EXPERIENCE}</p>
           <hr />
           <div className="Experience-Detail-List">
             <div className="Experience-Detail-List-Item">
@@ -50,7 +49,6 @@ export default class Experience extends Component {
             <div className="Experience-Detail-List-Item">
               <h2>{this.state.languageSet.PERSONAL}</h2>
               {this.state.languageSet.PER_DESC}
-              <Link to="/experience/personal"><em>{this.state.languageSet.VIEW_MORE}</em></Link>
             </div>
           </div>
         </div>

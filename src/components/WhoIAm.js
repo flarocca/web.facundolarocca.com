@@ -37,7 +37,7 @@ export default class WhoIAm extends Component {
       <div className="Whoiam">
         <Element name="WHO_I_AM" />
         <div className="Whoiam-Detail-Text">
-          <p className="Whoiam-Detail-Title-Text">{this.state.languageSet.WHO_I_AM}</p>
+          <p className="Section-title">{this.state.languageSet.WHO_I_AM}</p>
           <hr />
           {this.state.languageSet.MY_DESCRIPTION}
         </div>

@@ -3,6 +3,7 @@
   flex-direction: column;
   background-color: rgba(34, 34, 34, 1);
   justify-content: center;
+  text-align: center;
 }
 
 .App-contact-frame {
@@ -10,64 +11,36 @@
   flex-direction: column;
   background-color: rgba(34, 34, 34, 1);
   width: 40%;
+  margin-top: 3%;
+  align-self: center;
 }
 
 .App-contact-input{
   flex: 1;
   font-size: large;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  height: 30px;
+  height: 25px;
   border-radius: 5px;
   border: rgba(255, 255, 255, 0) solid 4px;
   background-color: rgba(255, 255, 255, 0.15);
   padding-inline-start: 1%;
   padding-inline-end: 1%;
-  margin-block-end: 2%;
+  margin-block-start: 3%;
   color: white;
-}
-
-.App-contact-input-error{
-  flex: 1;
-  font-size: large;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  height: 30px;
-  border-radius: 5px;
-  border: red solid 4px;
-  background-color: rgba(255,255,255,0.15);
-  padding-inline-start: 1%;
-  padding-inline-end: 1%;
-  margin-block-end: 2%;
-  color: white;
-  transition: border 500ms linear;
 }
 
 .App-contact-textarea{
   flex: 1;
   font-size: large;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  height: 150px;
+  height: 130px;
   border-radius: 5px;
   border: rgba(255, 255, 255, 0) solid 4px;
   background-color: rgba(255, 255, 255, 0.15);
   color: white;
   padding-inline-start: 1%;
   padding-inline-end: 1%;
-  margin-block-end: 2%;
-}
-
-.App-contact-textarea-error{
-  flex: 1;
-  font-size: large;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  height: 150px;
-  border-radius: 5px;
-  border: red solid 4px;
-  background-color: rgba(255,255,255,0.15);
-  padding-inline-start: 1%;
-  padding-inline-end: 1%;
-  margin-block-end: 2%;
-  color: white;
-  transition: border 500ms linear;
+  margin-block-start: 3%;
 }
 
 .App-contact-send {
@@ -80,6 +53,7 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: medium;
   align-self: flex-end;
+  margin-block-start: 3%;
 }
 
 .App-contact-send:hover {

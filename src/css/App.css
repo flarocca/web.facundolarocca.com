@@ -8,3 +8,25 @@ hr {
    border: 0; 
    box-shadow: 0 10px 10px -10px white inset;
 }
+
+.Section-title { 
+  flex: 1;
+  color: white;
+  font-size: 40px;
+  font-family: Courier New, Courier, monospace;
+}
+
+.Section-Text {
+  font-size: 20px;
+  font-family: Courier New, Courier, monospace;
+  line-height: 130%;
+  color: white;
+}
+
+.Error-label {
+  color: red;
+  align-self: flex-start;
+  margin-top: 1%;
+  margin-bottom: 5px;
+  margin-left: 5px;
+}

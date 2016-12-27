@@ -39,7 +39,7 @@ export default class WhatIDo extends Component {
       <div className="Whatido">
         <Element name="WHAT_I_DO" />
         <div className="Whatido-Detail-Title">
-          <p>{this.state.languageSet.WHAT_I_DO}</p>
+          <p className="Section-title">{this.state.languageSet.WHAT_I_DO}</p>
           <hr />
         </div>
         <div className="Whatido-Detail-List">
