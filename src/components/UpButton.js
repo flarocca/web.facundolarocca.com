@@ -20,6 +20,7 @@ export default class UpButton extends Component {
       duration: 1000,
       delay: 0,
       smooth: true,
+      offset: -40
     });
   }
 

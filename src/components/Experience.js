@@ -44,7 +44,7 @@ export default class Experience extends Component {
             <div className="Experience-Detail-List-Item">
               <h2>{this.state.languageSet.PROFESSIONAL}</h2>
               {this.state.languageSet.PROF_DESC}
-              <Link to="/experience/professional"><em>{this.state.languageSet.VIEW_MORE}</em></Link>
+              <span className="Experience-Detail-More"><Link to="/experience/professional">{this.state.languageSet.VIEW_MORE}</Link></span>
             </div>
             <div className="Experience-Detail-List-Item">
               <h2>{this.state.languageSet.PERSONAL}</h2>

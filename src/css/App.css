@@ -1,3 +1,7 @@
+* {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -13,12 +17,10 @@ hr {
   flex: 1;
   color: white;
   font-size: 40px;
-  font-family: Courier New, Courier, monospace;
 }
 
 .Section-Text {
   font-size: 20px;
-  font-family: Courier New, Courier, monospace;
   line-height: 130%;
   color: white;
 }

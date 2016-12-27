@@ -26,12 +26,12 @@ export default class AppHeader extends Component {
   render() {
     return (
       <div className="App-header">
-        <span className="App-header-menu">
+        <div className="App-header-menu">
           <a href="#" onClick={() => this._onClick('WHO_I_AM')} className="App-header-menu-item"><b>{this.state.languageSet.WHO_I_AM}</b></a>
           <a href="#" onClick={() => this._onClick('WHAT_I_DO')} className="App-header-menu-item"><b>{this.state.languageSet.WHAT_I_DO}</b></a>
           <a href="#" onClick={() => this._onClick('EXPERIENCE')} className="App-header-menu-item"><b>{this.state.languageSet.EXPERIENCE}</b></a>
           <a href="#" onClick={() => this._onClick('CONTACT')} className="App-header-menu-item"><b>{this.state.languageSet.CONTACT}</b></a>
-        </span>
+        </div>
         <AppLanguagueSelector className="App-header-lan" />
       </div>
     );

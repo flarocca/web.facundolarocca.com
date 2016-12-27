@@ -15,7 +15,6 @@
 
 .Experience-Detail-List-Item {
   font-size: 20px;
-  font-family: Courier New, Courier, monospace;
   line-height: 130%;
   color: white;
   margin-left: 5%; 
@@ -23,7 +22,31 @@
   width: 30%;
 }
 
-.Experience-Detail-List-Item > a {
+.Experience-Detail-More {
+  font-size: 20px;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 10px;
+  transition: all 200ms ease-in;
+  text-align: center;
+}
+
+.Experience-Detail-More:hover {
+  background-color: white;
+  transition: all 200ms ease-in;
+}
+
+.Experience-Detail-More > a {
+  font-size: 20px;
+  text-decoration: none;
   color: white;
-  float: right;
+  transition: all 200ms ease-in;
+}
+
+.Experience-Detail-More:hover > a {
+  color: rgba(200,191,231,1);
+  transition: all 200ms ease-in;
 }

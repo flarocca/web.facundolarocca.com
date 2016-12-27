@@ -15,7 +15,6 @@
 .App-footer-text {
   font-size: small;
   color: white;
-  font-family: Courier New, Courier, monospace;
   display: inline-block;
   text-decoration: none;
 }
@@ -32,6 +31,7 @@
   width: 40px;
   margin-right: 10px;
   margin-left: 10px;
+  transition: all 200ms ease-in;
 }
 
 .App-footer-img:hover {

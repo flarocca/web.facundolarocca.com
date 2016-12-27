@@ -81,11 +81,8 @@ export default class Contact extends Component {
   }
 
   _renderRequiredFieldMsg(field, message) {
-    if (field)
-      return null;
-
     return (
-      <em className="Error-label">{message}</em>
+      <em className="Error-label">{field ? '' : message}</em>
     );
   }
 
