@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../css/Contact-section.css';
 import AppStore from '../stores/AppStore';
 import { Element, scroller } from 'react-scroll';
 
@@ -82,30 +81,84 @@ export default class Contact extends Component {
 
   _renderRequiredFieldMsg(field, message) {
     return (
-      <em className="Error-label">{field ? '' : message}</em>
+      <em style={styles.errorLabel}>{field ? '' : message}</em>
     );
   }
 
   render() {
     return (
-      <div className="App-contact">
+      <div style={styles.container}>
         <Element name="CONTACT" />
         <p className="Section-title">{this.state.languageSet.CONTACT}</p>
         <hr />
-        <div className="App-contact-frame">
-          <input value={this.state.firstName} onChange={this._firstNameChange} id="first-name" type="text" placeholder={this.state.languageSet.FIRST_NAME} className="App-contact-input" />
+        <div style={styles.frame}>
+          <input value={this.state.firstName} onChange={this._firstNameChange} id="first-name" type="text" placeholder={this.state.languageSet.FIRST_NAME} style={styles.input} />
           {this._renderRequiredFieldMsg(this.state.firstName, this.state.firstNameErrorMsg)}
-          <input value={this.state.lastName} onChange={this._lastNameChange} id="last-name" type="text" placeholder={this.state.languageSet.LAST_NAME} className="App-contact-input" />
+          <input value={this.state.lastName} onChange={this._lastNameChange} id="last-name" type="text" placeholder={this.state.languageSet.LAST_NAME} style={styles.input} />
           {this._renderRequiredFieldMsg(this.state.lastName, this.state.lastNameErrorMsg)}
-          <input value={this.state.email} onChange={this._emailChange} id="mail" type="text" placeholder={this.state.languageSet.MAIL} className="App-contact-input" />
+          <input value={this.state.email} onChange={this._emailChange} id="mail" type="text" placeholder={this.state.languageSet.MAIL} style={styles.input} />
           {this._renderRequiredFieldMsg(this.state.email, this.state.emailNameErrorMsg)}
-          <textarea value={this.state.message} onChange={this._messageChange} id="message" rows="5" placeholder={this.state.languageSet.MESSAGE} className="App-contact-textarea" />
+          <textarea value={this.state.message} onChange={this._messageChange} id="message" rows="5" placeholder={this.state.languageSet.MESSAGE} style={{ ...styles.input, ...{ height: "150px" } }} />
           {this._renderRequiredFieldMsg(this.state.message, this.state.messageNameErrorMsg)}
-          <span className="App-contact-footer">
+          <span style={styles.footer}>
             <button onClick={this._onClick} type='button' className="App-contact-send"><b>{this.state.languageSet.SEND}</b></button>
           </span>
         </div>
       </div>
     );
   }
+}
+
+var styles = {
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    backgroundColor: "rgba(34, 34, 34, 1)",
+    justifyContent: "center",
+    textAlign: "center"
+  },
+  frame: {
+    display: "flex",
+    flexDirection: "column",
+    backgroundColor: "rgba(34, 34, 34, 1)",
+    width: "40%",
+    marginTop: "3%",
+    alignSelf: "center"
+  },
+  input: {
+    flex: 1,
+    fontSize: "large",
+    height: "25px",
+    borderRadius: "5px",
+    border: "rgba(255, 255, 255, 0) solid",
+    backgroundColor: "rgba(255, 255, 255, 0.15)",
+    paddingLeft: "1%",
+    paddingRight: "1%",
+    marginTop: "3%",
+    color: "white"
+  },
+  errorLabel: {
+    color: "red",
+    alignSelf: "flex-start",
+    marginTop: "1%",
+    marginBottom: "0.5%",
+    marginLeft: "2%"
+  },
+  footer: {
+    flex: 1,
+    display: "flex",
+    justifyContent: "flex-end"
+  }
+  // send: {
+  //   display: "block",
+  //   backgroundColor: "transparent",
+  //   height: "40px",
+  //   width: "100px",
+  //   border: "2px solid rgba(255, 255, 255, 0.50)",
+  //   borderRadius: "10px",
+  //   color: "rgba(255, 255, 255, 0.50)",
+  //   fontSize: "medium",
+  //   alignSelf: "flex-end",
+  //   transition: "all 200ms ease-in"
+  // }
 }

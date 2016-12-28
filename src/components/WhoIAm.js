@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../css/WhoIAm-section.css';
 import AppStore from '../stores/AppStore';
 import ImageProvider from '../services/ImageProvider';
 import { Element, scroller } from 'react-scroll';
@@ -34,14 +33,23 @@ export default class WhoIAm extends Component {
 
   render() {
     return (
-      <div className="Whoiam">
+      <div style={styles.container}>
         <Element name="WHO_I_AM" />
-        <div className="Whoiam-Detail-Text">
+        <div>
           <p className="Section-title">{this.state.languageSet.WHO_I_AM}</p>
           <hr />
           {this.state.languageSet.MY_DESCRIPTION}
         </div>
       </div>
     );
+  }
+}
+
+var styles = {
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    backgroundColor: "rgba(252,110,81,1)",
+    justifyContent: "center"
   }
 }

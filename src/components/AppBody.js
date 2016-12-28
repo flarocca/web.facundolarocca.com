@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../css/App-body.css';
 import AppStore from '../stores/AppStore';
 import { Element, scroller } from 'react-scroll';
 import Experience from './Experience';
@@ -39,20 +38,45 @@ export default class AppBody extends Component {
   render() {
     return (
       <div>
-        <div className="App-header-back"></div>
+        <div style={styles.back}></div>
         <Element name="HOME" />
         <WhoIAm languageSet={this.state.languageSet} />
         <WhatIDo languageSet={this.state.languageSet} />
-        <div className="App-body-tools">
-          <span><img src={VS} className="App-body-tools-img" alt="logo" /></span>
-          <span><img src={SQL} className="App-body-tools-img" alt="logo" /></span>
-          <span><img src={REACT} className="App-body-tools-img" alt="logo" /></span>
-          <span><img src={ELASTIC} className="App-body-tools-img" alt="logo" /></span>
-          <span><img src={NODE} className="App-body-tools-img" alt="logo" /></span>
+        <div style={styles.tools}>
+          <span><img src={VS} style={styles.image} alt="logo" /></span>
+          <span><img src={SQL} style={styles.image} alt="logo" /></span>
+          <span><img src={REACT} style={styles.image} alt="logo" /></span>
+          <span><img src={ELASTIC} style={styles.image} alt="logo" /></span>
+          <span><img src={NODE} style={styles.image} alt="logo" /></span>
         </div>
         <Experience languageSet={this.state.languageSet} />
         <Contact languageSet={this.state.languageSet} />
       </div>
     );
+  }
+}
+
+var styles = {
+  back: {
+    backgroundColor: "rgba(252,110,81,1)",
+    height: "20px",
+    padding: "20px",
+    display: "block"
+  },
+  tools: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(34, 34, 34, 1)",
+    width: "100%",
+    height: "200px"
+  },
+  image: {
+    backgroundColor: "transparent",
+    height: "130px",
+    marginLeft: "50px",
+    marginRight: "50px"
   }
 }

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import '../css/WhatIDo-section.css';
 import AppStore from '../stores/AppStore';
 import ImageProvider from '../services/ImageProvider';
 import { Element, scroller } from 'react-scroll';
-import WEB from '../images/cloud.png';
-import MOBILE from '../images/mobile.png';
+import WEB from '../images/cloud.svg';
+import MOBILE from '../images/mobile.svg';
 
 export default class WhatIDo extends Component {
   constructor(props) {
@@ -36,25 +35,53 @@ export default class WhatIDo extends Component {
 
   render() {
     return (
-      <div className="Whatido">
+      <div style={styles.container}>
         <Element name="WHAT_I_DO" />
         <div className="Whatido-Detail-Title">
           <p className="Section-title">{this.state.languageSet.WHAT_I_DO}</p>
           <hr />
         </div>
-        <div className="Whatido-Detail-List">
-          <div className="Whatido-Detail-List-Item">
-            <img src={WEB} className="Whatido-Detail-List-img" alt="logo" />
-            <h2>{this.state.languageSet.WEB_APPS}</h2>
+        <div style={styles.detailList}>
+          <div style={styles.detailListItem}>
+            <img src={WEB} style={styles.image} alt="logo" />
+            <h2 style={styles.title}>{this.state.languageSet.WEB_APPS}</h2>
             {this.state.languageSet.WEB_APPS_DESC}
           </div>
-          <div className="Whatido-Detail-List-Item">
-            <img src={MOBILE} className="Whatido-Detail-List-img" alt="logo" />
-            <h2>{this.state.languageSet.MOBILE_APPS}</h2>
+          <div style={styles.detailListItem}>
+            <img src={MOBILE} style={styles.image} alt="logo" />
+            <h2 style={styles.title}>{this.state.languageSet.MOBILE_APPS}</h2>
             {this.state.languageSet.MOBILE_APPS_DESC}
           </div>
         </div>
       </div>
     );
+  }
+}
+
+var styles = {
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    backgroundColor: "rgba(67,207,176,1)",
+    justifyContent: "center"
+  },
+  detailList: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    marginTop: "5%",
+    marginBottom: "5%"
+  },
+  detailListItem: {
+    marginLeft: "5%",
+    marginRight: "5%",
+    width: "30%"
+  },
+  title: {
+    color: "white"
+  },
+  image: {
+    height: "40%",
+    width: "40%"
   }
 }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import AppActions from '../actions/AppActions';
 import ImageProvider from '../services/ImageProvider';
-import '../css/App-language-selector.css';
 
 export default class AppLanguagueSelector extends Component {
   constructor(props) {
@@ -18,9 +17,9 @@ export default class AppLanguagueSelector extends Component {
 
   render() {
     return (
-      <span className="App-header-lan-frame ">
-        <span><a href="#" onClick={() => this._changeLanguage('ARG')}><img src={this._imageProvider.getImage('ARG')} className="App-lan-icon" alt="lan-icon" /></a></span>
-        <span><a href="#" onClick={() => this._changeLanguage('ENG')}><img src={this._imageProvider.getImage('ENG')} className="App-lan-icon" alt="lan-icon" /></a></span>
+      <span style={styles.container}>
+        <span><a href="#" onClick={() => this._changeLanguage('ARG')}><img src={this._imageProvider.getImage('ARG')} style={styles.icon} alt="lan-icon" /></a></span>
+        <span><a href="#" onClick={() => this._changeLanguage('ENG')}><img src={this._imageProvider.getImage('ENG')} style={styles.icon} alt="lan-icon" /></a></span>
       </span>
     );
   }
@@ -34,5 +33,19 @@ export default class AppLanguagueSelector extends Component {
       this.setState({ engSelectedClass: 'App-header-lan' });
     }
     AppActions.languageChanged(language);
+  }
+}
+
+var styles = {
+  container: {
+    display: "flex",
+    flexDirection: "row",
+    position: "fixed",
+    right: "1%"
+  },
+  icon: {
+    height: "20px",
+    width: "30px",
+    margin: "5px"
   }
 }

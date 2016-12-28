@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../css/Experience-section.css';
 import AppStore from '../stores/AppStore';
 import { Element, scroller } from 'react-scroll';
 import ImageProvider from '../services/ImageProvider';
@@ -35,18 +34,18 @@ export default class Experience extends Component {
 
   render() {
     return (
-      <div className="App-experience">
+      <div style={styles.container}>
         <Element name="EXPERIENCE" />
-        <div className="Experience-Detail-Title">
+        <div>
           <p className="Section-title">{this.state.languageSet.EXPERIENCE}</p>
           <hr />
-          <div className="Experience-Detail-List">
-            <div className="Experience-Detail-List-Item">
+          <div style={styles.detailList}>
+            <div style={styles.detailListItem}>
               <h2>{this.state.languageSet.PROFESSIONAL}</h2>
               {this.state.languageSet.PROF_DESC}
               <span className="Experience-Detail-More"><Link to="/experience/professional">{this.state.languageSet.VIEW_MORE}</Link></span>
             </div>
-            <div className="Experience-Detail-List-Item">
+            <div style={styles.detailListItem}>
               <h2>{this.state.languageSet.PERSONAL}</h2>
               {this.state.languageSet.PER_DESC}
             </div>
@@ -54,5 +53,28 @@ export default class Experience extends Component {
         </div>
       </div>
     );
+  }
+}
+
+var styles = {
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    backgroundColor: "rgba(200,191,231,1)"
+  },
+  detailList: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    marginTop: "5%",
+    marginBottom: "5%"
+  },
+  detailListItem: {
+    fontSize: "medium",
+    color: "white",
+    marginLeft: "5%",
+    marginRight: "5%",
+    width: "30%"
   }
 }
