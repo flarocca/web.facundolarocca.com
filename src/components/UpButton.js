@@ -15,7 +15,7 @@ export default class UpButton extends Component {
   }
 
   _goToHome() {
-    scroller.scrollTo('HOME', {
+    scroller.scrollTo('TOP', {
       duration: 1000,
       delay: 0,
       smooth: true,

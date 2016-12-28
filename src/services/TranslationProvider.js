@@ -7,9 +7,8 @@ export default class TranslationProvider {
             case 'ARG':
                 return ARG_TRANSLATION;
             case 'ENG':
-                return ENG_TRANSLATION;
             default:
-                return ARG_TRANSLATION;
+                return ENG_TRANSLATION;
         }
     }
 }
