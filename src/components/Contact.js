@@ -81,28 +81,39 @@ export default class Contact extends Component {
 
   _renderRequiredFieldMsg(field, message) {
     return (
-      <em style={styles.errorLabel}>{field ? '' : message}</em>
+      <em className="err-lbl">{field ? '' : message}</em>
     );
   }
-
+  //alignSelf: "center", marginTop: "3%", width: "40%"
   render() {
     return (
-      <div className="Container column" style={{ marginBottom:"5%" }}>
+      <div className="Container column jc-center" style={{ marginBottom: "5%" }}>
         <Element name="CONTACT" />
         <h1 style={{ color: "rgba(76, 165, 208, 1)" }}>{this.state.languageSet.CONTACT}</h1>
         <hr />
-        <div className="Container column" style={{ color: "rgba(76, 165, 208, 1)", alignSelf: "center", marginTop: "3%", width: "40%" }}>
-          <input className="input" style={{ border: "1px solid gray", backgroundColor: "white", color: "dimgray" }} value={this.state.firstName} onChange={this._firstNameChange} id="first-name" type="text" placeholder={this.state.languageSet.FIRST_NAME} />
-          {this._renderRequiredFieldMsg(this.state.firstName, this.state.firstNameErrorMsg)}
-          <input className="input" style={{ border: "1px solid gray", backgroundColor: "white", color: "dimgray" }} value={this.state.lastName} onChange={this._lastNameChange} id="last-name" type="text" placeholder={this.state.languageSet.LAST_NAME} />
-          {this._renderRequiredFieldMsg(this.state.lastName, this.state.lastNameErrorMsg)}
-          <input className="input" style={{ border: "1px solid gray", backgroundColor: "white", color: "dimgray" }} value={this.state.email} onChange={this._emailChange} id="mail" type="text" placeholder={this.state.languageSet.MAIL} />
-          {this._renderRequiredFieldMsg(this.state.email, this.state.emailNameErrorMsg)}
-          <textarea className="input" style={{ border: "1px solid gray", backgroundColor: "white", color: "dimgray", height: "120px" }} value={this.state.message} onChange={this._messageChange} id="message" rows="5" placeholder={this.state.languageSet.MESSAGE} />
-          {this._renderRequiredFieldMsg(this.state.message, this.state.messageNameErrorMsg)}
-          <span style={styles.footer}>
-            <button onClick={this._onClick} type='button' className="container row jc-center button" style={{ width: "20%" }}><b style={{ color: "white" }}>{this.state.languageSet.SEND}</b></button>
-          </span>
+        <div className="Container row" style={{ width: "70%", marginTop: "7%", alignSelf: "center"}}>
+          <div className="Container column jc-left" style={{ width: "45%" }}>
+            <p className="text-special" style={{ textAlign: "left", color: "gray" }}>
+              <b style={{ color: "dimgray" }}>Facundo La Rocca</b>
+              <br /><br />
+              Software developer & engineer.
+           </p>
+          </div>
+          <div className="Container column jc-left" style={{ width: "55%" }}>
+            <div className="Container column" style={{ width: "60%" }}>
+              <input className="input" style={{ border: "1px solid gray", backgroundColor: "white", color: "dimgray" }} value={this.state.firstName} onChange={this._firstNameChange} id="first-name" type="text" placeholder={this.state.languageSet.FIRST_NAME} />
+              {this._renderRequiredFieldMsg(this.state.firstName, this.state.firstNameErrorMsg)}
+              <input className="input" style={{ border: "1px solid gray", backgroundColor: "white", color: "dimgray" }} value={this.state.lastName} onChange={this._lastNameChange} id="last-name" type="text" placeholder={this.state.languageSet.LAST_NAME} />
+              {this._renderRequiredFieldMsg(this.state.lastName, this.state.lastNameErrorMsg)}
+              <input className="input" style={{ border: "1px solid gray", backgroundColor: "white", color: "dimgray" }} value={this.state.email} onChange={this._emailChange} id="mail" type="text" placeholder={this.state.languageSet.MAIL} />
+              {this._renderRequiredFieldMsg(this.state.email, this.state.emailNameErrorMsg)}
+              <textarea className="input" style={{ border: "1px solid gray", backgroundColor: "white", color: "dimgray", height: "120px" }} value={this.state.message} onChange={this._messageChange} id="message" rows="5" placeholder={this.state.languageSet.MESSAGE} />
+              {this._renderRequiredFieldMsg(this.state.message, this.state.messageNameErrorMsg)}
+              <span style={styles.footer}>
+                <button onClick={this._onClick} type='button' className="container row jc-center button" style={{ width: "20%" }}><b style={{ color: "white" }}>{this.state.languageSet.SEND}</b></button>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -110,13 +121,6 @@ export default class Contact extends Component {
 }
 
 var styles = {
-  errorLabel: {
-    color: "red",
-    alignSelf: "flex-start",
-    marginTop: "1%",
-    marginBottom: "0.5%",
-    marginLeft: "2%"
-  },
   footer: {
     flex: 1,
     display: "flex",

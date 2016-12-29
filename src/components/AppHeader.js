@@ -28,7 +28,7 @@ export default class AppHeader extends Component {
   }
 
   _fixHeader(event) {
-    if (event.srcElement.body.scrollTop >= 400) {
+    if (event.srcElement.body.scrollTop >= 580) {
       this.setState({ headerClass: 'hdr-fix' });
     } else {
       this.setState({ headerClass: 'hdr' });

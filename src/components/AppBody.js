@@ -5,11 +5,6 @@ import Experience from './Experience';
 import Contact from './Contact';
 import WhoIAm from './WhoIAm';
 import WhatIDo from './WhatIDo';
-import VS from '../images/vs_1.png';
-import SQL from '../images/sql_1.png';
-import REACT from '../images/react.png';
-import ELASTIC from '../images/elastic.png';
-import NODE from '../images/nodejs.png';
 
 export default class AppBody extends Component {
   constructor(props) {
@@ -41,13 +36,6 @@ export default class AppBody extends Component {
         <Element name="HOME" />
         <WhoIAm languageSet={this.state.languageSet} />
         <WhatIDo languageSet={this.state.languageSet} />
-        <div style={styles.tools}>
-          <span><img src={VS} style={styles.image} alt="logo" /></span>
-          <span><img src={SQL} style={styles.image} alt="logo" /></span>
-          <span><img src={REACT} style={styles.image} alt="logo" /></span>
-          <span><img src={ELASTIC} style={styles.image} alt="logo" /></span>
-          <span><img src={NODE} style={styles.image} alt="logo" /></span>
-        </div>
         <Experience languageSet={this.state.languageSet} />
         <Contact languageSet={this.state.languageSet} />
       </div>

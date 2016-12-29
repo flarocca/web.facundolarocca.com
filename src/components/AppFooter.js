@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import Facebook from '../images/svg/Facebook'
+import GitHub from '../images/svg/GitHub';
+import LinkedIn from '../images/svg/LinkedIn';
+import StackOverflow from '../images/svg/StackOverflow'
 import ImageSources from '../constants/ImageSources';
 import ImageProvider from '../services/ImageProvider';
 
@@ -11,51 +15,21 @@ export default class AppFooter extends Component {
 
   render() {
     return (
-      <div style={styles.container}>
-        <hr style={{ width: "75%", height: "3px", border: "0", boxShadow: "0 10px 10px -10px #8c8b8b inset", marginTop: "5%", marginBottom: "2%" }} />
-        <p style={{ fontSize: "larger", fontFamily: '"Courier New", Courier, monospace', color: 'white' }}>
-          <span style={{ fontSize: "25px", fontFamily: '"Courier New", Courier, monospace', color: 'white' }}>Facundo La Rocca</span>
-          <br /><br />
-          Software developer & engineer.
-        </p>
-        <span style={styles.linksContainer}>
-          <span><a href={ImageSources.STACKOVERFLOW_PROFILE}><img src={this._imageProvider.getImage('STK')} className="App-footer-img" alt="logo" /></a></span>
-          <span><a href={ImageSources.LINKEDIN_PROFILE}><img src={this._imageProvider.getImage('LIN')} className="App-footer-img" alt="logo" /></a></span>
-          <span><a href={ImageSources.GITHUB_PROFILE}><img src={this._imageProvider.getImage('GITW')} className="App-footer-img" alt="logo" /></a></span>
-        </span>
-        <span style={styles.react}>
-          <p style={styles.text}>Made with <i><a href={ImageSources.REACT} style={styles.text}>ReactJS.</a></i></p>
-          <a href={ImageSources.REACT}><img src={this._imageProvider.getImage('REC')} className="App-footer-logo" alt="logo" /></a>
-        </span>
+      <div className="Container row" style={{ justifyContent: "space-between", backgroundColor: "rgba(76, 165, 208, 1)" }}>
+        <div className="Container row" style={{ width: "75%" }}>
+          <p className="text" style={{ marginLeft: "5%", fontSize: "small", color: "white" }}>
+            Copyright &copy; 2017 Facundo La Rocca. All right reserved.
+            Made with <i><a href={ImageSources.REACT} className="text" style={{ fontSize: "small", color: "white" }}>ReactJS.</a></i>
+            <a href={ImageSources.REACT}><img src={this._imageProvider.getImage('REC')} className="logo" alt="ReactJs" style={{ height: "20px" }} /></a>
+          </p>
+        </div>
+        <div className="Container row" style={{ marginRight: "2%" }}>
+          <a className="Container column jc-center" href={ImageSources.FACEBOOK_PROFILE}><Facebook className="icon" innerColor="white" outerColor="transparent" /></a>
+          <a className="Container column jc-center" href={ImageSources.STACKOVERFLOW_PROFILE}><StackOverflow className="icon-med" innerColor="white" outerColor="transparent" /></a>
+          <a className="Container column jc-center" href={ImageSources.LINKEDIN_PROFILE}><LinkedIn className="icon-large" innerColor="white" outerColor="transparent" /></a>
+          <a className="Container column jc-center" href={ImageSources.GITHUB_PROFILE}><GitHub className="icon" innerColor="white" outerColor="rgba(76, 165, 208, 1)" /></a>
+        </div>
       </div>
     );
-  }
-}
-
-var styles = {
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    backgroundColor: "rgba(245, 245, 245, 1)" ,
-    justifyContent: "center"
-  },
-  linksContainer: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    marginTop: "1%"
-  },
-  text: {
-    fontSize: "small",
-    color: "white",
-    display: "inline-block",
-    textDecoration: "none",
-    fontFamily: '"Courier New", Courier, monospace'
-  },
-  react: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center"
   }
 }

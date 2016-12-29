@@ -5,6 +5,17 @@ import { Element, scroller } from 'react-scroll';
 import WEB from '../images/cloud.svg';
 import MOBILE from '../images/mobile.svg';
 
+import VisualStudio from '../images/svg/VisualStudio';
+import ElasticSearch from '../images/svg/ElasticSearch';
+import NodeJS from '../images/svg/NodeJS';
+import ReactImg from '../images/svg/ReactImg';
+import Cloud from '../images/svg/Cloud';
+
+import VS from '../images/vs_1.png';
+import SQL from '../images/sql_1.png';
+import ELASTIC from '../images/elastic.png';
+import NODE from '../images/nodejs.png';
+
 export default class WhatIDo extends Component {
   constructor(props) {
     super(props);
@@ -35,7 +46,7 @@ export default class WhatIDo extends Component {
 
   render() {
     return (
-      <div className="Container column">
+      <div className="Container column jc-center">
         <Element name="WHAT_I_DO" />
         <div>
           <h1 style={{ color: "rgba(76, 165, 208, 1)" }}>{this.state.languageSet.WHAT_I_DO}</h1>
@@ -43,7 +54,7 @@ export default class WhatIDo extends Component {
         </div>
         <div className="Container row jc-center detail-list">
           <div className="detail-list-item" style={{ color: "rgba(76, 165, 208, 1)" }}>
-            <img src={WEB} style={styles.image} alt="logo" />
+            <Cloud className="image-desc" innerColor="rgba(245, 245, 245, 1)" outerColor="rgba(76, 165, 208, 1)" />
             <h2 style={{ color: "rgba(76, 165, 208, 1)" }}>{this.state.languageSet.WEB_APPS}</h2>
             <p className="text" style={{ color: "dimgray" }}>
               Development of dynamic and versatile <br />
@@ -60,6 +71,15 @@ export default class WhatIDo extends Component {
             </p>
           </div>
         </div>
+        <div className="Container row jc-center" style={{ height: "25%"}}>
+          <div className="nav-bar" style={{ width: "30%"}}>
+            <span className="column column-item-x5 nav-bar-item "><VisualStudio innerColor="dimgray" outerColor="transparent" /></span>
+            <span className="column column-item-x5 nav-bar-item "><ElasticSearch innerColor="dimgray" outerColor="transparent" /></span>
+            <span className="column column-item-x5 nav-bar-item "><NodeJS innerColor="dimgray" outerColor="transparent" /></span>
+            <span className="column column-item-x5 nav-bar-item "><ReactImg innerColor="dimgray" outerColor="transparent" /></span>
+            <span className="column column-item-x5 nav-bar-item "><VisualStudio innerColor="dimgray" outerColor="transparent" /></span>
+          </div>
+        </div>
       </div>
     );
   }
@@ -67,7 +87,9 @@ export default class WhatIDo extends Component {
 
 var styles = {
   image: {
-    height: "40%",
-    width: "40%"
+    backgroundColor: "transparent",
+    height: "130px",
+    marginLeft: "50px",
+    marginRight: "50px"
   }
 }
