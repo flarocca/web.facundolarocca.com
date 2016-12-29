@@ -87,7 +87,7 @@ export default class Contact extends Component {
 
   render() {
     return (
-      <div className="Container column">
+      <div className="Container column" style={{ marginBottom:"5%" }}>
         <Element name="CONTACT" />
         <h1 style={{ color: "rgba(76, 165, 208, 1)" }}>{this.state.languageSet.CONTACT}</h1>
         <hr />
@@ -101,7 +101,7 @@ export default class Contact extends Component {
           <textarea className="input" style={{ border: "1px solid gray", backgroundColor: "white", color: "dimgray", height: "120px" }} value={this.state.message} onChange={this._messageChange} id="message" rows="5" placeholder={this.state.languageSet.MESSAGE} />
           {this._renderRequiredFieldMsg(this.state.message, this.state.messageNameErrorMsg)}
           <span style={styles.footer}>
-            <button onClick={this._onClick} type='button' className="App-contact-send"><b>{this.state.languageSet.SEND}</b></button>
+            <button onClick={this._onClick} type='button' className="container row jc-center button" style={{ width: "20%" }}><b style={{ color: "white" }}>{this.state.languageSet.SEND}</b></button>
           </span>
         </div>
       </div>

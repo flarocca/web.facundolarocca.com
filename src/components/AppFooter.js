@@ -36,7 +36,7 @@ var styles = {
   container: {
     display: "flex",
     flexDirection: "column",
-    backgroundColor: "rgba(34, 34, 34, 1)",
+    backgroundColor: "rgba(245, 245, 245, 1)" ,
     justifyContent: "center"
   },
   linksContainer: {
