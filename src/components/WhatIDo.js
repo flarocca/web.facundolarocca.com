@@ -35,22 +35,29 @@ export default class WhatIDo extends Component {
 
   render() {
     return (
-      <div style={styles.container}>
+      <div className="Container column">
         <Element name="WHAT_I_DO" />
-        <div className="Whatido-Detail-Title">
-          <p className="Section-title">{this.state.languageSet.WHAT_I_DO}</p>
+        <div>
+          <h1 style={{ color: "rgba(76, 165, 208, 1)" }}>{this.state.languageSet.WHAT_I_DO}</h1>
           <hr />
         </div>
-        <div style={styles.detailList}>
-          <div style={styles.detailListItem}>
+        <div className="Container row jc-center detail-list">
+          <div className="detail-list-item" style={{ color: "rgba(76, 165, 208, 1)" }}>
             <img src={WEB} style={styles.image} alt="logo" />
-            <h2 style={styles.title}>{this.state.languageSet.WEB_APPS}</h2>
-            {this.state.languageSet.WEB_APPS_DESC}
+            <h2 style={{ color: "rgba(76, 165, 208, 1)" }}>{this.state.languageSet.WEB_APPS}</h2>
+            <p className="text" style={{ color: "dimgray" }}>
+              Development of dynamic and versatile <br />
+              web solutions to generate the value <br />
+              your business needs
+            </p>
           </div>
-          <div style={styles.detailListItem}>
+          <div className="detail-list-item" style={{ color: "rgba(76, 165, 208, 1)" }}>
             <img src={MOBILE} style={styles.image} alt="logo" />
-            <h2 style={styles.title}>{this.state.languageSet.MOBILE_APPS}</h2>
-            {this.state.languageSet.MOBILE_APPS_DESC}
+            <h2 style={{ color: "rgba(76, 165, 208, 1)" }}>{this.state.languageSet.MOBILE_APPS}</h2>
+            <p className="text" style={{ color: "dimgray" }}>
+              Development of mobile solutions<br />
+              for mobile phones and tablets
+            </p>
           </div>
         </div>
       </div>
@@ -59,27 +66,6 @@ export default class WhatIDo extends Component {
 }
 
 var styles = {
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    backgroundColor: "rgba(67,207,176,1)",
-    justifyContent: "center"
-  },
-  detailList: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    marginTop: "5%",
-    marginBottom: "5%"
-  },
-  detailListItem: {
-    marginLeft: "5%",
-    marginRight: "5%",
-    width: "30%"
-  },
-  title: {
-    color: "white"
-  },
   image: {
     height: "40%",
     width: "40%"

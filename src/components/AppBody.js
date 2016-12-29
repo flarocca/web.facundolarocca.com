@@ -38,7 +38,6 @@ export default class AppBody extends Component {
   render() {
     return (
       <div>
-        <div style={styles.back}></div>
         <Element name="HOME" />
         <WhoIAm languageSet={this.state.languageSet} />
         <WhatIDo languageSet={this.state.languageSet} />

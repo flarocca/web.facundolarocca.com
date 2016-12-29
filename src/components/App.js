@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../css/App.css';
+import profilePic from '../images/profile-pic.jpg';
 import AppHeader from './AppHeader';
 import AppFooter from './AppFooter';
 import AppBody from './AppBody';
@@ -31,8 +32,16 @@ export default class App extends Component {
     return (
       <div className="App" style={{ backgroundColor: "rgba(60, 60, 60, 1)" }}>
         <Element name="TOP" />
-        <div className="Container column co-medium" style={{backgroundColor: "rgba(245, 245, 245, 1)"}}>
-          <div className="pre-hdr">This is a pre header section</div>
+        <div className="Container column co-medium" style={{ backgroundColor: "rgba(245, 245, 245, 1)" }}>
+          <div className="pre-hdr row">
+            <div className="profile-pic">
+              <img src={profilePic} height="180" width="180" alt="Profile picture." style={{ borderRadius: "90px" }} />
+            </div>
+            <div className="tagline column">
+              <h1>Facundo La Rocca</h1>
+              <h3><em>As better you think, as better you are...</em></h3>
+            </div>
+          </div>
           <AppHeader languageSet={this.state.languageSet} />
           <AppBody languageSet={this.state.languageSet} />
           <AppFooter languageSet={this.state.languageSet} />

@@ -33,23 +33,21 @@ export default class WhoIAm extends Component {
 
   render() {
     return (
-      <div style={styles.container}>
+      <div className="Container column" style={{ backgroundColor: "rgba(245, 245, 245, 1)" }}>
         <Element name="WHO_I_AM" />
         <div>
-          <p className="Section-title">{this.state.languageSet.WHO_I_AM}</p>
+          <h1 style={{ color: "rgba(76, 165, 208, 1)" }}>{this.state.languageSet.WHO_I_AM}</h1>
           <hr />
-          {this.state.languageSet.MY_DESCRIPTION}
+          <p className="text" style={{ color: "dimgray" }}>
+            This is a line of text. This is a line of text.<br />
+            This is a line of text. This is a line of text.<br />
+            This is a line of text. This is a line of text.<br />
+            This is a line of text. This is a line of text.<br />
+            This is a line of text. This is a line of text.<br />
+            <br />FACUNDO LA ROCCA
+        </p>
         </div>
       </div>
     );
-  }
-}
-
-var styles = {
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    backgroundColor: "rgba(252,110,81,1)",
-    justifyContent: "center"
   }
 }

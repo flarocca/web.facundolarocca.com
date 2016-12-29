@@ -34,47 +34,32 @@ export default class Experience extends Component {
 
   render() {
     return (
-      <div style={styles.container}>
+      <div className="Container column">
         <Element name="EXPERIENCE" />
         <div>
-          <p className="Section-title">{this.state.languageSet.EXPERIENCE}</p>
+          <h1 style={{ color: "rgba(76, 165, 208, 1)" }}>{this.state.languageSet.EXPERIENCE}</h1>
           <hr />
-          <div style={styles.detailList}>
-            <div style={styles.detailListItem}>
-              <h2>{this.state.languageSet.PROFESSIONAL}</h2>
-              {this.state.languageSet.PROF_DESC}
-              <span className="Experience-Detail-More"><Link to="/experience/professional">{this.state.languageSet.VIEW_MORE}</Link></span>
+          <div className="Container row jc-center detail-list">
+            <div className="detail-list-item" style={{ color: "rgba(76, 165, 208, 1)" }}>
+              <h2 style={{ color: "rgba(76, 165, 208, 1)" }}>{this.state.languageSet.PROFESSIONAL}</h2>
+              <p className="text" style={{ color: "dimgray" }}>
+                I Actually work as Fullstack .NET Engineer III for Web.com, <br />
+                a company with a strong position in the North American eCommerce market. <br />
+                Maintenance and new software requirements both back-end and front-end <br />
+                of the ticketing web portal of the company. <br />
+              </p>
+              <span className="container column jc-center button"><Link className="link-btn" style={{ color: "white" }} to="/experience/professional">{this.state.languageSet.VIEW_MORE}</Link></span>
             </div>
-            <div style={styles.detailListItem}>
-              <h2>{this.state.languageSet.PERSONAL}</h2>
-              {this.state.languageSet.PER_DESC}
+            <div className="detail-list-item" style={{ color: "rgba(76, 165, 208, 1)" }}>
+              <h2 style={{ color: "rgba(76, 165, 208, 1)" }}>{this.state.languageSet.PERSONAL}</h2>
+              <p className="text" style={{ color: "dimgray" }}>
+                Web and mobile applications development using <em>NodeJS</em>, <em>ReactJS</em>, <em>ReactNative</em> <br />
+                and non-relational databases such as <em>ElasticSearch</em> and <em>MongoDB</em>
+              </p>
             </div>
           </div>
         </div>
       </div>
     );
-  }
-}
-
-var styles = {
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    backgroundColor: "rgba(200,191,231,1)"
-  },
-  detailList: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    marginTop: "5%",
-    marginBottom: "5%"
-  },
-  detailListItem: {
-    fontSize: "medium",
-    color: "white",
-    marginLeft: "5%",
-    marginRight: "5%",
-    width: "30%"
   }
 }

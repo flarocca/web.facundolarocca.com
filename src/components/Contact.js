@@ -87,18 +87,18 @@ export default class Contact extends Component {
 
   render() {
     return (
-      <div style={styles.container}>
+      <div className="Container column">
         <Element name="CONTACT" />
-        <p className="Section-title">{this.state.languageSet.CONTACT}</p>
+        <h1 style={{ color: "rgba(76, 165, 208, 1)" }}>{this.state.languageSet.CONTACT}</h1>
         <hr />
-        <div style={styles.frame}>
-          <input value={this.state.firstName} onChange={this._firstNameChange} id="first-name" type="text" placeholder={this.state.languageSet.FIRST_NAME} style={styles.input} />
+        <div className="Container column" style={{ color: "rgba(76, 165, 208, 1)", alignSelf: "center", marginTop: "3%", width: "40%" }}>
+          <input className="input" style={{ border: "1px solid gray", backgroundColor: "white", color: "dimgray" }} value={this.state.firstName} onChange={this._firstNameChange} id="first-name" type="text" placeholder={this.state.languageSet.FIRST_NAME} />
           {this._renderRequiredFieldMsg(this.state.firstName, this.state.firstNameErrorMsg)}
-          <input value={this.state.lastName} onChange={this._lastNameChange} id="last-name" type="text" placeholder={this.state.languageSet.LAST_NAME} style={styles.input} />
+          <input className="input" style={{ border: "1px solid gray", backgroundColor: "white", color: "dimgray" }} value={this.state.lastName} onChange={this._lastNameChange} id="last-name" type="text" placeholder={this.state.languageSet.LAST_NAME} />
           {this._renderRequiredFieldMsg(this.state.lastName, this.state.lastNameErrorMsg)}
-          <input value={this.state.email} onChange={this._emailChange} id="mail" type="text" placeholder={this.state.languageSet.MAIL} style={styles.input} />
+          <input className="input" style={{ border: "1px solid gray", backgroundColor: "white", color: "dimgray" }} value={this.state.email} onChange={this._emailChange} id="mail" type="text" placeholder={this.state.languageSet.MAIL} />
           {this._renderRequiredFieldMsg(this.state.email, this.state.emailNameErrorMsg)}
-          <textarea value={this.state.message} onChange={this._messageChange} id="message" rows="5" placeholder={this.state.languageSet.MESSAGE} style={{ ...styles.input, ...{ height: "150px" } }} />
+          <textarea className="input" style={{ border: "1px solid gray", backgroundColor: "white", color: "dimgray", height: "120px" }} value={this.state.message} onChange={this._messageChange} id="message" rows="5" placeholder={this.state.languageSet.MESSAGE} />
           {this._renderRequiredFieldMsg(this.state.message, this.state.messageNameErrorMsg)}
           <span style={styles.footer}>
             <button onClick={this._onClick} type='button' className="App-contact-send"><b>{this.state.languageSet.SEND}</b></button>
@@ -110,33 +110,6 @@ export default class Contact extends Component {
 }
 
 var styles = {
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    backgroundColor: "rgba(34, 34, 34, 1)",
-    justifyContent: "center",
-    textAlign: "center"
-  },
-  frame: {
-    display: "flex",
-    flexDirection: "column",
-    backgroundColor: "rgba(34, 34, 34, 1)",
-    width: "40%",
-    marginTop: "3%",
-    alignSelf: "center"
-  },
-  input: {
-    flex: 1,
-    fontSize: "large",
-    height: "25px",
-    borderRadius: "5px",
-    border: "rgba(255, 255, 255, 0) solid",
-    backgroundColor: "rgba(255, 255, 255, 0.15)",
-    paddingLeft: "1%",
-    paddingRight: "1%",
-    marginTop: "3%",
-    color: "white"
-  },
   errorLabel: {
     color: "red",
     alignSelf: "flex-start",
@@ -149,16 +122,4 @@ var styles = {
     display: "flex",
     justifyContent: "flex-end"
   }
-  // send: {
-  //   display: "block",
-  //   backgroundColor: "transparent",
-  //   height: "40px",
-  //   width: "100px",
-  //   border: "2px solid rgba(255, 255, 255, 0.50)",
-  //   borderRadius: "10px",
-  //   color: "rgba(255, 255, 255, 0.50)",
-  //   fontSize: "medium",
-  //   alignSelf: "flex-end",
-  //   transition: "all 200ms ease-in"
-  // }
 }
