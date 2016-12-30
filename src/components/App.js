@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '../css/App.css';
+import '../font-awesome/css/font-awesome.min.css';
 import profilePic from '../images/profile-pic.jpg';
+import BackgroundImage from '../images/background.png';
 import Facebook from '../images/svg/Facebook'
 import GitHub from '../images/svg/GitHub';
 import LinkedIn from '../images/svg/LinkedIn';
@@ -35,33 +37,39 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="App" style={{ backgroundColor: "rgba(60, 60, 60, 1)" }}>
+      <div className="App column" style={{ color:"dimgray", backgroundImage: `url(${BackgroundImage})`, backgroundRepeat: "repeat" }}>
         <Element name="TOP" />
-        <div className="Container column co-medium" style={{ backgroundColor: "rgba(245, 245, 245, 1)" }}>
-          <div className="Container row jc-right" style={{ paddingRight:"1%", backgroundColor: "rgba(60, 60, 60, 1)" }}>
-            <a className="Container column jc-center" href={ImageSources.FACEBOOK_PROFILE}><Facebook className="icon" innerColor="white" outerColor="transparent" /></a>
-            <a className="Container column jc-center" href={ImageSources.STACKOVERFLOW_PROFILE}><StackOverflow className="icon-med" innerColor="white" outerColor="transparent" /></a>
-            <a className="Container column jc-center" href={ImageSources.LINKEDIN_PROFILE}><LinkedIn className="icon-large" innerColor="white" outerColor="transparent" /></a>
-            <a className="Container column jc-center" href={ImageSources.GITHUB_PROFILE}><GitHub className="icon" innerColor="white" outerColor="rgba(60, 60, 60, 1)" /></a>
+        <div className="Container column co-medium" style={{ alignSelf: "center" }}>
+          <div className="Container row jc-right" style={{ paddingRight: "1%" }}>
+            <a className="Container column jc-center" href={ImageSources.FACEBOOK_PROFILE}><Facebook className="icon" innerColor="dimgray" outerColor="transparent" /></a>
+            <a className="Container column jc-center" href={ImageSources.STACKOVERFLOW_PROFILE}><StackOverflow className="icon-med" innerColor="dimgray" outerColor="transparent" /></a>
+            <a className="Container column jc-center" href={ImageSources.LINKEDIN_PROFILE}><LinkedIn className="icon-large" innerColor="dimgray" outerColor="transparent" /></a>
+            <a className="Container column jc-center" href={ImageSources.GITHUB_PROFILE}><GitHub className="icon" innerColor="dimgray" outerColor="transparent" /></a>
           </div>
-          <div className="pre-hdr row">
-            <div className="profile-pic">
-              <img src={profilePic} height="180" width="180" alt="Profile picture." style={{ borderRadius: "90px" }} />
+          <div style={{ backgroundColor: "rgba(245, 245, 245, 1)" }}>
+            <div className="pre-hdr row">
+              <div className="profile-pic">
+                <img src={profilePic} height="180" width="180" alt="Profile picture." style={{ borderRadius: "90px" }} />
+              </div>
+              <div className="tagline column jc-left" style={{ textAlign: "left" }}>
+                <h1 style={{ fontSize: "60px" }}>Facundo La Rocca</h1>
+                <span style={{ fontSize: "25px", fontFamily: "'Open Sans', Helvetica, sans-serif" }}>
+                  <i className="fa fa-quote-left fa-1x fa-pull-left" aria-hidden="false"></i>
+                  <em>Going forward, one line at a time.</em><br />
+                  <i className="fa fa-quote-right fa-1x fa-pull-right" aria-hidden="false"></i>
+                </span>
+              </div>
             </div>
-            <div className="tagline column">
-              <h1>Facundo La Rocca</h1>
-              <h3><em>As better you think, as better you are...</em></h3>
+            <div className="Container row jc-left" style={{ backgroundColor: "rgba(245, 245, 245, 1)" }}>
+              <span className="Container column jc-center" style={{ alignText: "center", color: "white", backgroundColor: "rgba(76, 165, 208, 1)", marginBottom: "5%", width: "100px", height: "35px" }}>
+                <span style={{ color: "white" }}>Developer</span>
+              </span>
             </div>
+            <AppHeader languageSet={this.state.languageSet} />
+            <AppBody languageSet={this.state.languageSet} />
+            <AppFooter languageSet={this.state.languageSet} />
+            <UpButton />
           </div>
-          <div className="Container row jc-left" style={{ backgroundColor: "rgba(245, 245, 245, 1)" }}>
-            <span className="Container column jc-center" style={{ alignText: "center", color: "white", backgroundColor: "rgba(76, 165, 208, 1)", marginBottom: "5%", width: "100px", height: "35px" }}>
-              <span style={{ color: "white" }}>Developer</span>
-            </span>
-          </div>
-          <AppHeader languageSet={this.state.languageSet} />
-          <AppBody languageSet={this.state.languageSet} />
-          <AppFooter languageSet={this.state.languageSet} />
-          <UpButton />
         </div>
       </div>
     );

@@ -3,13 +3,13 @@ import AppStore from '../stores/AppStore';
 import ImageProvider from '../services/ImageProvider';
 import { Element, scroller } from 'react-scroll';
 import WEB from '../images/cloud.svg';
-import MOBILE from '../images/mobile.svg';
 
 import VisualStudio from '../images/svg/VisualStudio';
 import ElasticSearch from '../images/svg/ElasticSearch';
 import NodeJS from '../images/svg/NodeJS';
 import ReactImg from '../images/svg/ReactImg';
 import Cloud from '../images/svg/Cloud';
+import Mobile from '../images/svg/Mobile';
 
 import VS from '../images/vs_1.png';
 import SQL from '../images/sql_1.png';
@@ -63,7 +63,7 @@ export default class WhatIDo extends Component {
             </p>
           </div>
           <div className="detail-list-item" style={{ color: "rgba(76, 165, 208, 1)" }}>
-            <img src={MOBILE} style={styles.image} alt="logo" />
+            <Mobile className="image-desc" innerColor="rgba(245, 245, 245, 1)" outerColor="rgba(76, 165, 208, 1)" />
             <h2 style={{ color: "rgba(76, 165, 208, 1)" }}>{this.state.languageSet.MOBILE_APPS}</h2>
             <p className="text" style={{ color: "dimgray" }}>
               Development of mobile solutions<br />
