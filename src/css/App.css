@@ -25,6 +25,10 @@
   flex-direction: row;
 }
 
+.fixed{
+  position: fixed;
+}
+
 .co-medium {
   width: 70%;
   height: 100%;

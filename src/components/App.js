@@ -12,6 +12,7 @@ import AppHeader from './AppHeader';
 import AppFooter from './AppFooter';
 import AppBody from './AppBody';
 import UpButton from './UpButton';
+import ThemeSelector from './ThemeSelector';
 import AppActions from '../actions/AppActions';
 import AppStore from '../stores/AppStore';
 import { Element } from 'react-scroll';
@@ -38,6 +39,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="App column" style={{ color:"dimgray", backgroundImage: `url(${BackgroundImage})`, backgroundRepeat: "repeat" }}>
+       <ThemeSelector/>
         <Element name="TOP" />
         <div className="Container column co-medium" style={{ alignSelf: "center" }}>
           <div className="Container row jc-right" style={{ paddingRight: "1%" }}>
