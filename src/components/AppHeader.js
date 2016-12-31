@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import AppLanguagueSelector from './AppLanguagueSelector';
 import AppActions from '../actions/AppActions';
 import AppStore from '../stores/AppStore';
 import ImageProvider from '../services/ImageProvider';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import '../css/App.css';
 
 export default class AppHeader extends Component {

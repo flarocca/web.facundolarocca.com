@@ -2,6 +2,20 @@ import React, { Component } from 'react';
 import AppActions from '../actions/AppActions';
 import ImageProvider from '../services/ImageProvider';
 
+var styles = {
+  container: {
+    display: "flex",
+    flexDirection: "row",
+    position: "fixed",
+    right: "1%"
+  },
+  icon: {
+    height: "20px",
+    width: "30px",
+    margin: "5px"
+  }
+}
+
 export default class AppLanguagueSelector extends Component {
   constructor(props) {
     super(props);
@@ -33,19 +47,5 @@ export default class AppLanguagueSelector extends Component {
       this.setState({ engSelectedClass: 'App-header-lan' });
     }
     AppActions.languageChanged(language);
-  }
-}
-
-var styles = {
-  container: {
-    display: "flex",
-    flexDirection: "row",
-    position: "fixed",
-    right: "1%"
-  },
-  icon: {
-    height: "20px",
-    width: "30px",
-    margin: "5px"
   }
 }

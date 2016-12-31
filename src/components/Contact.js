@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import AppStore from '../stores/AppStore';
 import { Element, scroller } from 'react-scroll';
 
+var styles = {
+  footer: {
+    flex: 1,
+    display: "flex",
+    justifyContent: "flex-end"
+  }
+}
+
 export default class Contact extends Component {
   constructor(props) {
     super(props);
@@ -84,7 +92,7 @@ export default class Contact extends Component {
       <em className="err-lbl">{field ? '' : message}</em>
     );
   }
-  //alignSelf: "center", marginTop: "3%", width: "40%"
+  
   render() {
     return (
       <div className="Container column jc-center" style={{ marginBottom: "5%" }}>
@@ -117,13 +125,5 @@ export default class Contact extends Component {
         </div>
       </div>
     );
-  }
-}
-
-var styles = {
-  footer: {
-    flex: 1,
-    display: "flex",
-    justifyContent: "flex-end"
   }
 }

@@ -2,6 +2,17 @@ import React, { Component } from 'react';
 import ImageProvider from '../services/ImageProvider';
 import { scroller } from 'react-scroll';
 
+var styles = {
+  link: {
+    backgroundColor: "transparent",
+    position: "fixed",
+    bottom: "30px",
+    right: "30px",
+    borderRadius: "5px",
+    border: "2px solid transparent"
+  }
+}
+
 export default class UpButton extends Component {
   constructor(props) {
     super(props);
@@ -29,16 +40,5 @@ export default class UpButton extends Component {
         <img title="Go to home" src={this._imageProvider.getImage('UPW')} className="App-up-btn" alt="logo" />
       </a>
     );
-  }
-}
-
-var styles = {
-  link: {
-    backgroundColor: "transparent",
-    position: "fixed",
-    bottom: "30px",
-    right: "30px",
-    borderRadius: "5px",
-    border: "2px solid transparent"
   }
 }

@@ -42,28 +42,3 @@ export default class AppBody extends Component {
     );
   }
 }
-
-var styles = {
-  back: {
-    backgroundColor: "rgba(252,110,81,1)",
-    height: "20px",
-    padding: "20px",
-    display: "block"
-  },
-  tools: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignContent: "center",
-    alignItems: "center",
-    backgroundColor: "rgba(34, 34, 34, 1)",
-    width: "100%",
-    height: "200px"
-  },
-  image: {
-    backgroundColor: "transparent",
-    height: "130px",
-    marginLeft: "50px",
-    marginRight: "50px"
-  }
-}

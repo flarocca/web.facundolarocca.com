@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import AppStore from '../stores/AppStore';
 import ImageProvider from '../services/ImageProvider';
 import { Element, scroller } from 'react-scroll';
-import WEB from '../images/cloud.svg';
 
 import VisualStudio from '../images/svg/VisualStudio';
 import ElasticSearch from '../images/svg/ElasticSearch';
@@ -10,11 +9,6 @@ import NodeJS from '../images/svg/NodeJS';
 import ReactImg from '../images/svg/ReactImg';
 import Cloud from '../images/svg/Cloud';
 import Mobile from '../images/svg/Mobile';
-
-import VS from '../images/vs_1.png';
-import SQL from '../images/sql_1.png';
-import ELASTIC from '../images/elastic.png';
-import NODE from '../images/nodejs.png';
 
 export default class WhatIDo extends Component {
   constructor(props) {
@@ -82,14 +76,5 @@ export default class WhatIDo extends Component {
         </div>
       </div>
     );
-  }
-}
-
-var styles = {
-  image: {
-    backgroundColor: "transparent",
-    height: "130px",
-    marginLeft: "50px",
-    marginRight: "50px"
   }
 }

@@ -51,7 +51,7 @@ export default class App extends Component {
           <div style={{ backgroundColor: "rgba(245, 245, 245, 1)" }}>
             <div className="pre-hdr row">
               <div className="profile-pic">
-                <img src={profilePic} height="180" width="180" alt="Profile picture." style={{ borderRadius: "90px" }} />
+                <img src={profilePic} height="180" width="180" alt="Profile" style={{ borderRadius: "90px" }} />
               </div>
               <div className="tagline column jc-left" style={{ textAlign: "left" }}>
                 <h1 style={{ fontSize: "60px" }}>Facundo La Rocca</h1>
