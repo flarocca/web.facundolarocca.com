@@ -17,7 +17,8 @@ export default class WhatIDo extends Component {
     this._onAppSessionChange = this._onAppSessionChange.bind(this);
     this._imageProvider = new ImageProvider();
     this.state = {
-      languageSet: this.props.languageSet
+      languageSet: this.props.languageSet,
+      theme: this.props.theme,
     }
   }
 
@@ -26,7 +27,11 @@ export default class WhatIDo extends Component {
   }
 
   _onAppSessionChange() {
-    this.setState({ languageSet: AppStore.getLanguageSet() });
+    this.setState({
+      languageSet: AppStore.getLanguageSet(),
+      theme: AppStore.getThemeSelected()
+    });
+    
     var menu = AppStore.getMenuSelected();
     if (menu === 'WHAT_I_DO') {
       scroller.scrollTo(menu, {
@@ -43,30 +48,30 @@ export default class WhatIDo extends Component {
       <div className="Container column jc-center">
         <Element name="WHAT_I_DO" />
         <div>
-          <h1 style={{ color: "rgba(76, 165, 208, 1)" }}>{this.state.languageSet.WHAT_I_DO}</h1>
+          <h1 style={{ color: this.state.theme.MAIN_COLOR }}>{this.state.languageSet.WHAT_I_DO}</h1>
           <hr />
         </div>
         <div className="Container row jc-center detail-list">
-          <div className="detail-list-item" style={{ color: "rgba(76, 165, 208, 1)" }}>
-            <Cloud className="image-desc" innerColor="rgba(245, 245, 245, 1)" outerColor="rgba(76, 165, 208, 1)" />
-            <h2 style={{ color: "rgba(76, 165, 208, 1)" }}>{this.state.languageSet.WEB_APPS}</h2>
+          <div className="detail-list-item" style={{ color: this.state.theme.MAIN_COLOR }}>
+            <Cloud className="image-desc" innerColor="rgba(245, 245, 245, 1)" outerColor={this.state.theme.MAIN_COLOR} />
+            <h2 style={{ color: this.state.theme.MAIN_COLOR }}>{this.state.languageSet.WEB_APPS}</h2>
             <p className="text" style={{ color: "dimgray" }}>
               Development of dynamic and versatile <br />
               web solutions to generate the value <br />
               your business needs
             </p>
           </div>
-          <div className="detail-list-item" style={{ color: "rgba(76, 165, 208, 1)" }}>
-            <Mobile className="image-desc" innerColor="rgba(245, 245, 245, 1)" outerColor="rgba(76, 165, 208, 1)" />
-            <h2 style={{ color: "rgba(76, 165, 208, 1)" }}>{this.state.languageSet.MOBILE_APPS}</h2>
+          <div className="detail-list-item" style={{ color: this.state.theme.MAIN_COLOR }}>
+            <Mobile className="image-desc" innerColor="rgba(245, 245, 245, 1)" outerColor={this.state.theme.MAIN_COLOR} />
+            <h2 style={{ color: this.state.theme.MAIN_COLOR }}>{this.state.languageSet.MOBILE_APPS}</h2>
             <p className="text" style={{ color: "dimgray" }}>
               Development of mobile solutions<br />
               for mobile phones and tablets
             </p>
           </div>
         </div>
-        <div className="Container row jc-center" style={{ height: "25%"}}>
-          <div className="nav-bar" style={{ width: "30%"}}>
+        <div className="Container row jc-center" style={{ height: "25%" }}>
+          <div className="nav-bar" style={{ width: "30%" }}>
             <span className="column column-item-x5 nav-bar-item "><VisualStudio innerColor="dimgray" outerColor="transparent" /></span>
             <span className="column column-item-x5 nav-bar-item "><ElasticSearch innerColor="dimgray" outerColor="transparent" /></span>
             <span className="column column-item-x5 nav-bar-item "><NodeJS innerColor="dimgray" outerColor="transparent" /></span>

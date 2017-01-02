@@ -12,7 +12,6 @@ import AppHeader from './AppHeader';
 import AppFooter from './AppFooter';
 import AppBody from './AppBody';
 import UpButton from './UpButton';
-import ThemeSelector from './ThemeSelector';
 import AppActions from '../actions/AppActions';
 import AppStore from '../stores/AppStore';
 import { Element } from 'react-scroll';
@@ -23,7 +22,8 @@ export default class App extends Component {
 
     this._onAppSessionChange = this._onAppSessionChange.bind(this);
     this.state = {
-      languageSet: AppStore.getLanguageSet()
+      languageSet: AppStore.getLanguageSet(),
+      theme: AppStore.getThemeSelected()
     };
   }
 
@@ -38,8 +38,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="App column" style={{ color:"dimgray", backgroundImage: `url(${BackgroundImage})`, backgroundRepeat: "repeat" }}>
-       <ThemeSelector/>
+      <div className="App column" style={{ color: "dimgray", backgroundImage: `url(${BackgroundImage})`, backgroundRepeat: "repeat" }}>
         <Element name="TOP" />
         <div className="Container column co-medium" style={{ alignSelf: "center" }}>
           <div className="Container row jc-right" style={{ paddingRight: "1%" }}>
@@ -67,8 +66,8 @@ export default class App extends Component {
                 <span style={{ color: "white" }}>Developer</span>
               </span>
             </div>
-            <AppHeader languageSet={this.state.languageSet} />
-            <AppBody languageSet={this.state.languageSet} />
+            <AppHeader languageSet={this.state.languageSet} theme={this.state.theme}/>
+            <AppBody languageSet={this.state.languageSet} theme={this.state.theme}/>
             <AppFooter languageSet={this.state.languageSet} />
             <UpButton />
           </div>

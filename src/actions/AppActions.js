@@ -19,6 +19,12 @@ var AppActions = {
       actionType: AppConstants.MENU_SELECTED,
       data: menu
     });
+  },
+  themeSelected(themeName){
+    Dispatcher.handleViewAction({
+      actionType: AppConstants.THEME_SELECTED,
+      data: themeName
+    });
   }
 }
 module.exports = AppActions;

@@ -14,6 +14,7 @@ export default class AppHeader extends Component {
     this._fixHeader = this._fixHeader.bind(this);
     this.state = {
       languageSet: this.props.languageSet,
+      theme: this.props.theme,
       headerClass: 'hdr'
     }
   }
@@ -36,17 +37,20 @@ export default class AppHeader extends Component {
     return (
       <div id="Header" className="Container row hdr">
         <div className={this.state.headerClass}>
-          <span className="column column-item-x4 hr-menu-item " style={{ backgroundColor: "rgba(76, 165, 208, 1)" }}><a href="#" onClick={() => this._onClick('WHO_I_AM')} className="link-btn" style={{ color: "white" }}><b>{this.state.languageSet.WHO_I_AM}</b></a></span>
-          <span className="column column-item-x4 hr-menu-item " style={{ backgroundColor: "rgba(76, 165, 208, 1)" }}><a href="#" onClick={() => this._onClick('WHAT_I_DO')} className="link-btn" style={{ color: "white" }}><b>{this.state.languageSet.WHAT_I_DO}</b></a></span>
-          <span className="column column-item-x4 hr-menu-item " style={{ backgroundColor: "rgba(76, 165, 208, 1)" }}><a href="#" onClick={() => this._onClick('EXPERIENCE')} className="link-btn" style={{ color: "white" }}><b>{this.state.languageSet.EXPERIENCE}</b></a></span>
-          <span className="column column-item-x4 hr-menu-item " style={{ backgroundColor: "rgba(76, 165, 208, 1)" }}><a href="#" onClick={() => this._onClick('CONTACT')} className="link-btn" style={{ color: "white" }}><b>{this.state.languageSet.CONTACT}</b></a></span>
+          <span className="column column-item-x4 hr-menu-item " style={{ backgroundColor: this.state.theme.MAIN_COLOR }}><a href="#" onClick={() => this._onClick('WHO_I_AM')} className="link-btn" style={{ color: this.state.theme.BACKGROUND_COLOR }}><b>{this.state.languageSet.WHO_I_AM}</b></a></span>
+          <span className="column column-item-x4 hr-menu-item " style={{ backgroundColor: this.state.theme.MAIN_COLOR }}><a href="#" onClick={() => this._onClick('WHAT_I_DO')} className="link-btn" style={{ color: this.state.theme.BACKGROUND_COLOR }}><b>{this.state.languageSet.WHAT_I_DO}</b></a></span>
+          <span className="column column-item-x4 hr-menu-item " style={{ backgroundColor: this.state.theme.MAIN_COLOR }}><a href="#" onClick={() => this._onClick('EXPERIENCE')} className="link-btn" style={{ color: this.state.theme.BACKGROUND_COLOR }}><b>{this.state.languageSet.EXPERIENCE}</b></a></span>
+          <span className="column column-item-x4 hr-menu-item " style={{ backgroundColor: this.state.theme.MAIN_COLOR }}><a href="#" onClick={() => this._onClick('CONTACT')} className="link-btn" style={{ color: this.state.theme.BACKGROUND_COLOR }}><b>{this.state.languageSet.CONTACT}</b></a></span>
         </div>
       </div>
     );
   }
 
   _onAppSessionChange() {
-    this.setState({ languageSet: AppStore.getLanguageSet() });
+    this.setState({ 
+      languageSet: AppStore.getLanguageSet(),
+      theme: AppStore.getThemeSelected()
+    });
   }
 
   _onClick(id) {

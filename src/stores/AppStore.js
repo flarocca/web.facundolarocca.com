@@ -3,12 +3,15 @@ import assign from 'object-assign';
 import AppConstants from '../constants/AppConstants';
 import AppDispatcher from '../dispatcher/Dispatcher';
 import TranslationProvider from '../services/TranslationProvider';
+import ThemeManager from '../services/ThemeManager';
+import LIGHT_BLUE_THEME from '../constants/themes/LIGHT_BLUE_THEME';
 
 var _translationProvider = new TranslationProvider();
 
 var CHANGE_EVENT = 'change';
 var _languageSet = null;
 var _menuSelected = null;
+var _themeSelected = null;
 
 var AppStore = assign({}, EventEmitter.prototype, {
   emitChange: function () {
@@ -28,6 +31,9 @@ var AppStore = assign({}, EventEmitter.prototype, {
   },
   getMenuSelected() {
     return _menuSelected;
+  },
+  getThemeSelected() {
+    return ThemeManager.getTheme(_themeSelected);
   }
 });
 
@@ -48,6 +54,12 @@ AppStore.dispatchToken = AppDispatcher.register(function (action) {
       _menuSelected = action.data;
       AppStore.emitChange();
       break;
+
+    case AppConstants.THEME_SELECTED:
+      _themeSelected = action.data;
+      AppStore.emitChange();
+      break;
+
     default:
       AppStore.emitChange();
       break;

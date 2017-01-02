@@ -5,20 +5,22 @@ import Experience from './Experience';
 import Contact from './Contact';
 import WhoIAm from './WhoIAm';
 import WhatIDo from './WhatIDo';
+import ThemeSelector from './ThemeSelector';
 
 export default class AppBody extends Component {
   constructor(props) {
     super(props);
 
-
     this._onAppSessionChange = this._onAppSessionChange.bind(this);
     this.state = {
-      languageSet: this.props.languageSet
+      languageSet: this.props.languageSet,
+      theme: this.props.theme
     }
   }
 
   _onAppSessionChange() {
     this.setState({ languageSet: AppStore.getLanguageSet() });
+
     var menu = AppStore.getMenuSelected();
     if (menu === 'HOME') {
       scroller.scrollTo(menu, {
@@ -34,10 +36,11 @@ export default class AppBody extends Component {
     return (
       <div>
         <Element name="HOME" />
-        <WhoIAm languageSet={this.state.languageSet} />
-        <WhatIDo languageSet={this.state.languageSet} />
-        <Experience languageSet={this.state.languageSet} />
-        <Contact languageSet={this.state.languageSet} />
+        <ThemeSelector mainColor="rgba(76, 165, 208, 1)" innerColor="rgba(245, 245, 245, 1)" backgroundColor="rgba(190, 190, 190, 1)" textColor="dimgray" />
+        <WhoIAm languageSet={this.state.languageSet} theme={this.state.theme}/>
+        <WhatIDo languageSet={this.state.languageSet} theme={this.state.theme}/>
+        <Experience languageSet={this.state.languageSet} theme={this.state.theme}/>
+        <Contact languageSet={this.state.languageSet} theme={this.state.theme}/>
       </div>
     );
   }
