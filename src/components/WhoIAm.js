@@ -10,7 +10,8 @@ export default class WhoIAm extends Component {
     this._onAppSessionChange = this._onAppSessionChange.bind(this);
     this._imageProvider = new ImageProvider();
     this.state = {
-      languageSet: this.props.languageSet
+      languageSet: this.props.languageSet,
+      theme: this.props.theme
     }
   }
 
@@ -19,7 +20,11 @@ export default class WhoIAm extends Component {
   }
 
   _onAppSessionChange() {
-    this.setState({ languageSet: AppStore.getLanguageSet() });
+    this.setState({
+      languageSet: AppStore.getLanguageSet(),
+      theme: AppStore.getThemeSelected()
+    });
+
     var menu = AppStore.getMenuSelected();
     if (menu === 'WHO_I_AM') {
       scroller.scrollTo(menu, {
@@ -33,12 +38,12 @@ export default class WhoIAm extends Component {
 
   render() {
     return (
-      <div className="Container column" style={{ backgroundColor: "rgba(245, 245, 245, 1)" }}>
+      <div className="Container column" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
         <Element name="WHO_I_AM" />
         <div>
-          <h1 style={{ color: "rgba(76, 165, 208, 1)" }}>{this.state.languageSet.WHO_I_AM}</h1>
+          <h1 style={{ color: this.state.theme.MAIN_COLOR }}>{this.state.languageSet.WHO_I_AM}</h1>
           <hr />
-          <p className="text" style={{ color: "dimgray" }}>
+          <p className="text" style={{ color: this.state.theme.FONT_COLOR }}>
             This is a line of text. This is a line of text.<br />
             This is a line of text. This is a line of text.<br />
             This is a line of text. This is a line of text.<br />

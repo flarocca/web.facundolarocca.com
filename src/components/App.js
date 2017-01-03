@@ -33,22 +33,25 @@ export default class App extends Component {
   }
 
   _onAppSessionChange() {
-    this.setState({ languageSet: AppStore.getLanguageSet() });
+    this.setState({
+      languageSet: AppStore.getLanguageSet(),
+      theme: AppStore.getThemeSelected()
+    });
   }
 
   render() {
     return (
       <div className="App column" style={{ color: "dimgray", backgroundImage: `url(${BackgroundImage})`, backgroundRepeat: "repeat" }}>
         <Element name="TOP" />
-        <div className="Container column co-medium" style={{ alignSelf: "center" }}>
+        <div className="Container column co-medium" style={{ alignSelf: "center", backgroundColor: "transparent" }}>
           <div className="Container row jc-right" style={{ paddingRight: "1%" }}>
             <a className="Container column jc-center" href={ImageSources.FACEBOOK_PROFILE}><Facebook className="icon" innerColor="dimgray" outerColor="transparent" /></a>
             <a className="Container column jc-center" href={ImageSources.STACKOVERFLOW_PROFILE}><StackOverflow className="icon-med" innerColor="dimgray" outerColor="transparent" /></a>
             <a className="Container column jc-center" href={ImageSources.LINKEDIN_PROFILE}><LinkedIn className="icon-large" innerColor="dimgray" outerColor="transparent" /></a>
             <a className="Container column jc-center" href={ImageSources.GITHUB_PROFILE}><GitHub className="icon" innerColor="dimgray" outerColor="transparent" /></a>
           </div>
-          <div style={{ backgroundColor: "rgba(245, 245, 245, 1)" }}>
-            <div className="pre-hdr row">
+          <div style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
+            <div className="pre-hdr row" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
               <div className="profile-pic">
                 <img src={profilePic} height="180" width="180" alt="Profile" style={{ borderRadius: "90px" }} />
               </div>
@@ -61,14 +64,14 @@ export default class App extends Component {
                 </span>
               </div>
             </div>
-            <div className="Container row jc-left" style={{ backgroundColor: "rgba(245, 245, 245, 1)" }}>
-              <span className="Container column jc-center" style={{ alignText: "center", color: "white", backgroundColor: "rgba(76, 165, 208, 1)", marginBottom: "5%", width: "100px", height: "35px" }}>
+            <div className="Container row jc-left" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
+              <span className="Container column jc-center" style={{ alignText: "center", color: "white", backgroundColor: this.state.theme.MAIN_COLOR, marginBottom: "5%", width: "100px", height: "35px" }}>
                 <span style={{ color: "white" }}>Developer</span>
               </span>
             </div>
-            <AppHeader languageSet={this.state.languageSet} theme={this.state.theme}/>
-            <AppBody languageSet={this.state.languageSet} theme={this.state.theme}/>
-            <AppFooter languageSet={this.state.languageSet} />
+            <AppHeader languageSet={this.state.languageSet} theme={this.state.theme} />
+            <AppBody languageSet={this.state.languageSet} theme={this.state.theme} />
+            <AppFooter languageSet={this.state.languageSet} theme={this.state.theme} />
             <UpButton />
           </div>
         </div>

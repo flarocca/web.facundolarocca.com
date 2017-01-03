@@ -5,5 +5,7 @@ export default {
     BACKGROUND_IMAGE: `url(${BackgroundImage})`,
     BACKGROUND_COLOR: 'rgba(245, 245, 245, 1)',
     MAIN_COLOR: '#E57373',
-    FONT_COLOR: 'dimgray'
+    FONT_COLOR: 'dimgray',
+    TEXTBOX_COLOR: 'white',
+    BUTTON_COLOR: '#E57373'
 }

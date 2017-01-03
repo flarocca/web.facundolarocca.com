@@ -1,0 +1,7 @@
+import DARK_GREEN_THEME from './DARK_GREEN_THEME'
+import LIGHT_BLUE_THEME from './LIGHT_BLUE_THEME'
+import LIGHT_RED_THEME from './LIGHT_RED_THEME'
+
+module.exports = () => {
+  return [LIGHT_BLUE_THEME, LIGHT_RED_THEME, DARK_GREEN_THEME];
+};

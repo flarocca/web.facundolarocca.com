@@ -144,9 +144,8 @@ h1 {
   text-decoration: none;
   display: flex;
   height: 40px;
-  background-color: rgba(76, 165, 208, 1);
-  border: 2px solid rgba(76, 165, 208, 1);
   border-radius: 5px;
+  border: none;
 }
 
 .square {
@@ -160,6 +159,7 @@ h1 {
   padding-left: 1%;
   padding-right: 1%;
   margin-top: 3%;
+  font-family: 'Open Sans', Helvetica, sans-serif;
 }
 
 hr {

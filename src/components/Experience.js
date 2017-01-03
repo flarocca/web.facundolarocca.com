@@ -11,7 +11,8 @@ export default class Experience extends Component {
     this._imageProvider = new ImageProvider();
     this._onAppSessionChange = this._onAppSessionChange.bind(this);
     this.state = {
-      languageSet: this.props.languageSet
+      languageSet: this.props.languageSet,
+      theme: this.props.theme
     }
   }
 
@@ -20,7 +21,11 @@ export default class Experience extends Component {
   }
 
   _onAppSessionChange() {
-    this.setState({ languageSet: AppStore.getLanguageSet() });
+    this.setState({
+      languageSet: AppStore.getLanguageSet(),
+      theme: AppStore.getThemeSelected()
+    });
+
     var menu = AppStore.getMenuSelected();
     if (menu === 'EXPERIENCE') {
       scroller.scrollTo(menu, {
@@ -34,25 +39,25 @@ export default class Experience extends Component {
 
   render() {
     return (
-      <div className="Container column">
+      <div className="Container column" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
         <Element name="EXPERIENCE" />
         <div>
-          <h1 style={{ color: "rgba(76, 165, 208, 1)" }}>{this.state.languageSet.EXPERIENCE}</h1>
+          <h1 style={{ color: this.state.theme.MAIN_COLOR }}>{this.state.languageSet.EXPERIENCE}</h1>
           <hr />
           <div className="Container row jc-center detail-list">
-            <div className="detail-list-item" style={{ color: "rgba(76, 165, 208, 1)" }}>
-              <h2 style={{ color: "rgba(76, 165, 208, 1)" }}>{this.state.languageSet.PROFESSIONAL}</h2>
-              <p className="text" style={{ color: "dimgray" }}>
+            <div className="detail-list-item" style={{ color: this.state.theme.MAIN_COLOR }}>
+              <h2 style={{ color: this.state.theme.MAIN_COLOR }}>{this.state.languageSet.PROFESSIONAL}</h2>
+              <p className="text" style={{ color: this.state.theme.FONT_COLOR }}>
                 I Actually work as Fullstack .NET Engineer III for Web.com, <br />
                 a company with a strong position in the North American eCommerce market. <br />
                 Maintenance and new software requirements both back-end and front-end <br />
                 of the ticketing web portal of the company. <br />
               </p>
-              <span className="container column jc-center button"><Link className="link-btn" style={{ color: "white" }} to="/experience/professional">{this.state.languageSet.VIEW_MORE}</Link></span>
+              <span className="Container column jc-center button" style={{ backgroundColor: this.state.theme.BUTTON_COLOR }}><Link className="link-btn" style={{ color: "white" }} to="/experience/professional">{this.state.languageSet.VIEW_MORE}</Link></span>
             </div>
-            <div className="detail-list-item" style={{ color: "rgba(76, 165, 208, 1)" }}>
-              <h2 style={{ color: "rgba(76, 165, 208, 1)" }}>{this.state.languageSet.PERSONAL}</h2>
-              <p className="text" style={{ color: "dimgray" }}>
+            <div className="detail-list-item" style={{ color: this.state.theme.MAIN_COLOR }}>
+              <h2 style={{ color: this.state.theme.MAIN_COLOR }}>{this.state.languageSet.PERSONAL}</h2>
+              <p className="text" style={{ color: this.state.theme.FONT_COLOR }}>
                 Web and mobile applications development using <em>NodeJS</em>, <em>ReactJS</em>, <em>ReactNative</em> <br />
                 and non-relational databases such as <em>ElasticSearch</em> and <em>MongoDB</em>
               </p>
