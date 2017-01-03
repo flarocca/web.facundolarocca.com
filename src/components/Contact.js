@@ -92,29 +92,45 @@ export default class Contact extends Component {
 
   render() {
     return (
-      <div className="Container column jc-center" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR, paddingBottom: "5%" }}>
+      <div id="contact" className="Container column jc-center" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
         <Element name="CONTACT" />
-        <h1 style={{ color: this.state.theme.MAIN_COLOR }}>{this.state.languageSet.CONTACT}</h1>
+        <span style={{ textAlign: "left", fontSize: "40px", color: this.state.theme.MAIN_COLOR }}>
+          <b>{this.state.languageSet.CONTACT}</b>
+        </span>
         <hr />
-        <div className="Container row" style={{ width: "70%", marginTop: "7%", marginLeft: "7%", alignSelf: "flex-start" }}>
-          <div className="Container column jc-left" style={{ width: "35%" }}>
+        <div className="Container row" style={{ alignSelf: "center", width: "100%" }}>
+          <div id="personal-information" className="Container column jc-left" style={{ width: "45%" }}>
+            <b style={{ alignSelf: "flex-start", color: this.state.theme.MAIN_COLOR }}>Contact information</b>
             <p className="text-special" style={{ textAlign: "left", color: "gray" }}>
-              <b style={{ color: this.state.theme.FONT_COLOR }}>Facundo La Rocca</b>
-              <br /><br />
-              Software developer & engineer.
-           </p>
+              <i className="fa fa-user">
+                <b style={{ color: this.state.theme.FONT_COLOR, fontSize: "small", fontFamily: "'Open Sans', Helvetica, sans-serif", paddingLeft: "10px" }}>Facundo La Rocca</b>
+              </i>
+              <br />
+              <em style={{ color: this.state.theme.FONT_COLOR, fontSize: "small", fontFamily: "'Open Sans', Helvetica, sans-serif", paddingLeft: "7%" }}>Software developer & engineer.</em>
+              <br />
+              <br />
+              <i className="fa fa-envelope-o">
+                <span style={{ color: this.state.theme.FONT_COLOR, fontSize: "small", fontFamily: "'Open Sans', Helvetica, sans-serif", paddingLeft: "10px" }}>facundo_larocca@yahoo.com.ar<br /></span>
+              </i>
+            </p>
           </div>
-          <div className="Container column jc-left" style={{ marginLeft: "5%", width: "65%" }}>
-            <div className="Container column" style={{ width: "100%" }}>
-              <div className="Container row jc-center">
-                <input className="input" style={{ marginRight:"1.5%", border: "1px solid gray", backgroundColor: this.state.theme.TEXTBOX_COLOR, color: this.state.theme.FONT_COLOR }} value={this.state.firstName} onChange={this._firstNameChange} id="first-name" type="text" placeholder={this.state.languageSet.FIRST_NAME} />
-                {this._renderRequiredFieldMsg(this.state.firstName, this.state.firstNameErrorMsg)}
-                <input className="input" style={{ marginLeft:"1.5%", border: "1px solid gray", backgroundColor: this.state.theme.TEXTBOX_COLOR, color: this.state.theme.FONT_COLOR }} value={this.state.lastName} onChange={this._lastNameChange} id="last-name" type="text" placeholder={this.state.languageSet.LAST_NAME} />
-                {this._renderRequiredFieldMsg(this.state.lastName, this.state.lastNameErrorMsg)}
+          <div style={{ width: "1px", border: "2px #B4B2B2 solid", backgroundColor: "#B4B2B2" }} />
+          <div className="Container column jc-left" style={{ paddingLeft: "5%", width: "55%" }}>
+            <b style={{ alignSelf: "flex-start", color: this.state.theme.MAIN_COLOR }}>Sendme a message</b>
+            <div className="Container column">
+              <div className="Container row" style={{width:"100%"}}>
+                <div className="Container column" style={{width:"50%"}}>
+                  <input className="input" style={{ marginRight: "1.5%", backgroundColor: this.state.theme.TEXTBOX_COLOR, color: this.state.theme.FONT_COLOR }} value={this.state.firstName} onChange={this._firstNameChange} id="first-name" type="text" placeholder={this.state.languageSet.FIRST_NAME} />
+                  {this._renderRequiredFieldMsg(this.state.firstName, this.state.firstNameErrorMsg)}
+                </div>
+                <div className="Container column" style={{width:"50%"}}>
+                  <input className="input" style={{ marginLeft: "1.5%", backgroundColor: this.state.theme.TEXTBOX_COLOR, color: this.state.theme.FONT_COLOR }} value={this.state.lastName} onChange={this._lastNameChange} id="last-name" type="text" placeholder={this.state.languageSet.LAST_NAME} />
+                  {this._renderRequiredFieldMsg(this.state.lastName, this.state.lastNameErrorMsg)}
+                </div>
               </div>
-              <input className="input" style={{ border: "1px solid gray", backgroundColor: this.state.theme.TEXTBOX_COLOR, color: this.state.theme.FONT_COLOR }} value={this.state.email} onChange={this._emailChange} id="mail" type="text" placeholder={this.state.languageSet.MAIL} />
+              <input className="input" style={{ backgroundColor: this.state.theme.TEXTBOX_COLOR, color: this.state.theme.FONT_COLOR }} value={this.state.email} onChange={this._emailChange} id="mail" type="text" placeholder={this.state.languageSet.MAIL} />
               {this._renderRequiredFieldMsg(this.state.email, this.state.emailNameErrorMsg)}
-              <textarea className="input" style={{ border: "1px solid gray", backgroundColor: this.state.theme.TEXTBOX_COLOR, color: this.state.theme.FONT_COLOR, height: "120px" }} value={this.state.message} onChange={this._messageChange} id="message" rows="5" placeholder={this.state.languageSet.MESSAGE} />
+              <textarea className="input" style={{ backgroundColor: this.state.theme.TEXTBOX_COLOR, color: this.state.theme.FONT_COLOR, height: "120px" }} value={this.state.message} onChange={this._messageChange} id="message" rows="5" placeholder={this.state.languageSet.MESSAGE} />
               {this._renderRequiredFieldMsg(this.state.message, this.state.messageNameErrorMsg)}
               <div className="Container jc-right">
                 <button onClick={this._onClick} type='button' className="jc-center button" style={{ marginTop: "5%", width: "40%", backgroundColor: this.state.theme.BUTTON_COLOR }}><b style={{ color: "white" }}>{this.state.languageSet.SEND}</b></button>

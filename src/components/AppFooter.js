@@ -32,7 +32,7 @@ export default class AppFooter extends Component {
 
   render() {
     return (
-      <div className="Container row" style={{ justifyContent: "space-between", backgroundColor: this.state.theme.MAIN_COLOR }}>
+      <div id="footer" className="Container row" style={{ justifyContent: "space-between", backgroundColor: this.state.theme.MAIN_COLOR }}>
         <div className="Container row" style={{ width: "75%" }}>
           <p className="text" style={{ marginLeft: "5%", fontSize: "small", color: "white" }}>
             Copyright &copy; 2017 Facundo La Rocca. All right reserved.

@@ -32,7 +32,7 @@
 .co-medium {
   width: 70%;
   height: 100%;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 .column-item-x4 {
@@ -90,7 +90,7 @@
 
 .profile-pic {
   display: block;
-  margin-left: 15%;
+  margin-left: 10%;
 }
 
 .tagline {
@@ -114,6 +114,7 @@
 
 h1 {
   font-size: 40px;
+  padding-bottom: 0;
 }
 
 .jc-center {
@@ -134,9 +135,6 @@ h1 {
 
 .detail-list-item {
   margin-top: 5%;
-  margin-left: 5%;
-  margin-right: 5%;
-  width: 30%;
 }
 
 .button {
@@ -153,17 +151,20 @@ h1 {
 }
 
 .input {
-  flex: 1;
-  font-size: large;
-  height: 30px;
+  font-size: medium;
+  height: 25px;
   padding-left: 1%;
   padding-right: 1%;
   margin-top: 3%;
   font-family: 'Open Sans', Helvetica, sans-serif;
+  border-color: #B4B2B2;
+  border-width: 1px; 
+  border-style: solid;
 }
 
 hr {
-   width: 50%; 
+   margin-bottom: 5%;
+   width: 100%; 
    height: 3px; 
    border: 0; 
    box-shadow: 0 10px 10px -10px dimgray inset;
@@ -298,6 +299,47 @@ input[type='checkbox']:checked ~ label {
   transform: translate3d(-150px, 0, 0);
 }
 
+#whatido {
+  padding-top: 10%;
+}
+
+#contact {
+  padding-bottom: 10%;
+  padding-top: 10%;
+}
+
+#body {
+  padding-left: 8%;
+  padding-right: 8%;
+}
+
+#professional {
+  margin-right: 10%;
+}
+
+#personal {
+  margin-left: 10%;
+}
+
+#web {
+  margin-right: 10%;
+}
+
+#mobile {
+  margin-left: 10%;
+}
+
+#tools {
+  height: 25%;
+}
+
+#nav-bar {
+  width: 30%;
+}
+
+#header {
+  margin-bottom: 5%;
+}
 
 
 

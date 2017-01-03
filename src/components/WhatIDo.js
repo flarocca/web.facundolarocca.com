@@ -45,14 +45,14 @@ export default class WhatIDo extends Component {
 
   render() {
     return (
-      <div className="Container column jc-center" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
+      <div id="whatido" className="Container column jc-center" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
         <Element name="WHAT_I_DO" />
-        <div>
-          <h1 style={{ color: this.state.theme.MAIN_COLOR }}>{this.state.languageSet.WHAT_I_DO}</h1>
-          <hr />
-        </div>
-        <div className="Container row jc-center detail-list">
-          <div className="detail-list-item" style={{ color: this.state.theme.MAIN_COLOR }}>
+        <span style={{ textAlign: "left", fontSize: "40px", color: this.state.theme.MAIN_COLOR }}>
+          <b>{this.state.languageSet.WHAT_I_DO}</b>
+        </span>
+        <hr />
+        <div className="Container row jc-center">
+          <div id="web" style={{ color: this.state.theme.MAIN_COLOR }}>
             <Cloud className="image-desc" innerColor={this.state.theme.BACKGROUND_COLOR} outerColor={this.state.theme.MAIN_COLOR} />
             <h2 style={{ color: this.state.theme.MAIN_COLOR }}>{this.state.languageSet.WEB_APPS}</h2>
             <p className="text" style={{ color: this.state.theme.FONT_COLOR }}>
@@ -61,7 +61,7 @@ export default class WhatIDo extends Component {
               your business needs
             </p>
           </div>
-          <div className="detail-list-item" style={{ color: this.state.theme.MAIN_COLOR }}>
+          <div id="mobile" style={{ color: this.state.theme.MAIN_COLOR }}>
             <Mobile className="image-desc" innerColor={this.state.theme.BACKGROUND_COLOR} outerColor={this.state.theme.MAIN_COLOR} />
             <h2 style={{ color: this.state.theme.MAIN_COLOR }}>{this.state.languageSet.MOBILE_APPS}</h2>
             <p className="text" style={{ color: this.state.theme.FONT_COLOR }}>
@@ -70,8 +70,8 @@ export default class WhatIDo extends Component {
             </p>
           </div>
         </div>
-        <div className="Container row jc-center" style={{ height: "25%" }}>
-          <div className="nav-bar" style={{ width: "30%" }}>
+        <div id="tools" className="Container row jc-center">
+          <div id="nav-bar" className="nav-bar">
             <span className="column column-item-x5 nav-bar-item "><VisualStudio innerColor={this.state.theme.FONT_COLOR} outerColor="transparent" /></span>
             <span className="column column-item-x5 nav-bar-item "><ElasticSearch innerColor={this.state.theme.FONT_COLOR} outerColor="transparent" /></span>
             <span className="column column-item-x5 nav-bar-item "><NodeJS innerColor={this.state.theme.FONT_COLOR} outerColor="transparent" /></span>

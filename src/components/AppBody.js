@@ -38,7 +38,7 @@ export default class AppBody extends Component {
 
   render() {
     return (
-      <div>
+      <div id="body">
         <Element name="HOME" />
         <ThemeSelector theme={this.state.theme} themes={getAllThemes()} />
         <WhoIAm languageSet={this.state.languageSet} theme={this.state.theme} />
