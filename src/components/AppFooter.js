@@ -32,7 +32,7 @@ export default class AppFooter extends Component {
 
   render() {
     return (
-      <div id="footer" className="Container row" style={{ justifyContent: "space-between", backgroundColor: this.state.theme.MAIN_COLOR }}>
+      <div id="footer" className="Container row" style={{ justifyContent: "space-between", backgroundColor: this.state.theme.COLOR_4 }}>
         <div className="Container row" style={{ width: "75%" }}>
           <p className="text" style={{ marginLeft: "5%", fontSize: "small", color: "white" }}>
             Copyright &copy; 2017 Facundo La Rocca. All right reserved.
@@ -44,7 +44,7 @@ export default class AppFooter extends Component {
           <a className="Container column jc-center" href={ImageSources.FACEBOOK_PROFILE}><Facebook className="icon" innerColor="white" outerColor="transparent" /></a>
           <a className="Container column jc-center" href={ImageSources.STACKOVERFLOW_PROFILE}><StackOverflow className="icon-med" innerColor="white" outerColor="transparent" /></a>
           <a className="Container column jc-center" href={ImageSources.LINKEDIN_PROFILE}><LinkedIn className="icon-large" innerColor="white" outerColor="transparent" /></a>
-          <a className="Container column jc-center" href={ImageSources.GITHUB_PROFILE}><GitHub className="icon" innerColor="white" outerColor={this.state.theme.MAIN_COLOR} /></a>
+          <a className="Container column jc-center" href={ImageSources.GITHUB_PROFILE}><GitHub className="icon" innerColor="white" outerColor={this.state.theme.COLOR_4} /></a>
         </div>
       </div>
     );

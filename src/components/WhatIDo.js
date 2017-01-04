@@ -47,23 +47,23 @@ export default class WhatIDo extends Component {
     return (
       <div id="whatido" className="Container column jc-center" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
         <Element name="WHAT_I_DO" />
-        <span style={{ textAlign: "left", fontSize: "40px", color: this.state.theme.MAIN_COLOR }}>
+        <span style={{ textAlign: "left", fontSize: "40px", color: this.state.theme.COLOR_2 }}>
           <b>{this.state.languageSet.WHAT_I_DO}</b>
         </span>
         <hr />
         <div className="Container row jc-center">
-          <div id="web" style={{ color: this.state.theme.MAIN_COLOR }}>
-            <Cloud className="image-desc" innerColor={this.state.theme.BACKGROUND_COLOR} outerColor={this.state.theme.MAIN_COLOR} />
-            <h2 style={{ color: this.state.theme.MAIN_COLOR }}>{this.state.languageSet.WEB_APPS}</h2>
+          <div id="web" style={{ color: this.state.theme.COLOR_2 }}>
+            <Cloud className="image-desc" innerColor={this.state.theme.BACKGROUND_COLOR} outerColor={this.state.theme.COLOR_2} />
+            <h2 style={{ color: this.state.theme.COLOR_2 }}>{this.state.languageSet.WEB_APPS}</h2>
             <p className="text" style={{ color: this.state.theme.FONT_COLOR }}>
               Development of dynamic and versatile <br />
               web solutions to generate the value <br />
               your business needs
             </p>
           </div>
-          <div id="mobile" style={{ color: this.state.theme.MAIN_COLOR }}>
-            <Mobile className="image-desc" innerColor={this.state.theme.BACKGROUND_COLOR} outerColor={this.state.theme.MAIN_COLOR} />
-            <h2 style={{ color: this.state.theme.MAIN_COLOR }}>{this.state.languageSet.MOBILE_APPS}</h2>
+          <div id="mobile" style={{ color: this.state.theme.COLOR_2 }}>
+            <Mobile className="image-desc" innerColor={this.state.theme.BACKGROUND_COLOR} outerColor={this.state.theme.COLOR_2} />
+            <h2 style={{ color: this.state.theme.COLOR_2 }}>{this.state.languageSet.MOBILE_APPS}</h2>
             <p className="text" style={{ color: this.state.theme.FONT_COLOR }}>
               Development of mobile solutions<br />
               for mobile phones and tablets

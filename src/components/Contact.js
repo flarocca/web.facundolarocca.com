@@ -79,7 +79,7 @@ export default class Contact extends Component {
         duration: 1000,
         delay: 0,
         smooth: true,
-        offset: -40
+        offset: -50
       });
     }
   }
@@ -94,13 +94,13 @@ export default class Contact extends Component {
     return (
       <div id="contact" className="Container column jc-center" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
         <Element name="CONTACT" />
-        <span style={{ textAlign: "left", fontSize: "40px", color: this.state.theme.MAIN_COLOR }}>
+        <span style={{ textAlign: "left", fontSize: "40px", color: this.state.theme.COLOR_4 }}>
           <b>{this.state.languageSet.CONTACT}</b>
         </span>
         <hr />
         <div className="Container row" style={{ alignSelf: "center", width: "100%" }}>
           <div id="personal-information" className="Container column jc-left" style={{ width: "45%" }}>
-            <b style={{ alignSelf: "flex-start", color: this.state.theme.MAIN_COLOR }}>Contact information</b>
+            <b style={{ alignSelf: "flex-start", color: this.state.theme.COLOR_4 }}>Contact information</b>
             <p className="text-special" style={{ textAlign: "left", color: "gray" }}>
               <i className="fa fa-user">
                 <b style={{ color: this.state.theme.FONT_COLOR, fontSize: "small", fontFamily: "'Open Sans', Helvetica, sans-serif", paddingLeft: "10px" }}>Facundo La Rocca</b>
@@ -116,7 +116,7 @@ export default class Contact extends Component {
           </div>
           <div style={{ width: "1px", border: "2px #B4B2B2 solid", backgroundColor: "#B4B2B2" }} />
           <div className="Container column jc-left" style={{ paddingLeft: "5%", width: "55%" }}>
-            <b style={{ alignSelf: "flex-start", color: this.state.theme.MAIN_COLOR }}>Sendme a message</b>
+            <b style={{ alignSelf: "flex-start", color: this.state.theme.COLOR_4 }}>Sendme a message</b>
             <div className="Container column">
               <div className="Container row" style={{width:"100%"}}>
                 <div className="Container column" style={{width:"50%"}}>
@@ -133,7 +133,7 @@ export default class Contact extends Component {
               <textarea className="input" style={{ backgroundColor: this.state.theme.TEXTBOX_COLOR, color: this.state.theme.FONT_COLOR, height: "120px" }} value={this.state.message} onChange={this._messageChange} id="message" rows="5" placeholder={this.state.languageSet.MESSAGE} />
               {this._renderRequiredFieldMsg(this.state.message, this.state.messageNameErrorMsg)}
               <div className="Container jc-right">
-                <button onClick={this._onClick} type='button' className="jc-center button" style={{ marginTop: "5%", width: "40%", backgroundColor: this.state.theme.BUTTON_COLOR }}><b style={{ color: "white" }}>{this.state.languageSet.SEND}</b></button>
+                <button onClick={this._onClick} type='button' className="jc-center button" style={{ marginTop: "5%", width: "40%", backgroundColor: this.state.theme.COLOR_4 }}><b style={{ color: "white" }}>{this.state.languageSet.SEND}</b></button>
               </div>
             </div>
           </div>
