@@ -29,6 +29,12 @@ export default class Contact extends Component {
 
   componentDidMount() {
     AppStore.addChangeListener(this._onAppSessionChange);
+
+    window.addEventListener('scroll', () => {
+      if (event.srcElement.body.scrollTop >= 2000) {
+        this.setState({ checked: true });
+      }
+    });
   }
 
   _onClick() {
@@ -94,8 +100,9 @@ export default class Contact extends Component {
     return (
       <div id="contact" className="Container column jc-center" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
         <Element name="CONTACT" />
-        <span style={{ textAlign: "left", fontSize: "40px", color: this.state.theme.COLOR_4 }}>
-          <b>{this.state.languageSet.CONTACT}</b>
+        <span style={{ fontSize: "40px", color: this.state.theme.COLOR_4 }}>
+          <input type="checkbox" id="Contact-chk" style={{ display: "none" }} checked={this.state.checked} />
+          <b id="Contact-title">{this.state.languageSet.CONTACT}</b>
         </span>
         <hr />
         <div className="Container row" style={{ alignSelf: "center", width: "100%" }}>

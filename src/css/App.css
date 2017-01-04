@@ -61,6 +61,24 @@
   width: 30%;
 }
 
+.hr-menu-item-fix {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  -webkit-transition: all 200ms ease-in-out 0ms;
+  -moz-transition: all 200ms ease-in-out 0ms;
+  transition: all 200ms ease-in-out 0ms;
+  font-size: large;
+}
+
+.hr-menu-item-fix:hover {
+  -webkit-transition: all 200ms ease-in-out 0ms;
+  -moz-transition: all 200ms ease-in-out 0ms;
+  transition: all 200ms ease-in-out 0ms;
+  height: 130%;
+  width: 30%;
+}
+
 .hdr {
   flex: 1;
   display: flex;
@@ -277,7 +295,6 @@ input[type='checkbox'] {
   width: 150px;
   height: 100%;
   position: relative;
-  right: 0px;
   -moz-transition: all 200ms ease-in;
   -webkit-transition: all 200ms ease-in;
   -o-transition: all 200ms ease-in;
@@ -341,7 +358,94 @@ input[type='checkbox']:checked ~ label {
   margin-bottom: 5%;
 }
 
+.up-btn {
+  height: 7%;
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+  -webkit-transition: all 200ms ease-in;
+  -moz-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+}
 
+.up-btn:hover {
+  transform: scale(1.15, 1.15);
+  -webkit-transition: all 200ms ease-in;
+  -moz-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+}
+
+#WhoIAm-title {
+  display: inline-block;
+  -webkit-transition: color 200ms ease-in;
+  -moz-transition: color 200ms ease-in;
+  transition: color 200ms ease-in;
+
+  -webkit-transition: right 500ms ease-in;
+  -moz-transition: right 500ms ease-in;
+  transition: right 500ms ease-in;
+
+  position: relative;
+  right: -38%;
+}
+
+#WhatIDo-title {
+  display: inline-block;
+  -webkit-transition: color 200ms ease-in;
+  -moz-transition: color 200ms ease-in;
+  transition: color 200ms ease-in;
+
+  -webkit-transition: right 500ms ease-in;
+  -moz-transition: right 500ms ease-in;
+  transition: right 500ms ease-in;
+
+  position: relative;
+  right: -37%;
+}
+
+#Experience-title {
+  display: inline-block;
+  -webkit-transition: color 200ms ease-in;
+  -moz-transition: color 200ms ease-in;
+  transition: color 200ms ease-in;
+
+  -webkit-transition: right 500ms ease-in;
+  -moz-transition: right 500ms ease-in;
+  transition: right 500ms ease-in;
+
+  position: relative;
+  right: -36%;
+}
+
+#Contact-title {
+  display: inline-block;
+  -webkit-transition: color 200ms ease-in;
+  -moz-transition: color 200ms ease-in;
+  transition: color 200ms ease-in;
+
+  -webkit-transition: right 500ms ease-in;
+  -moz-transition: right 500ms ease-in;
+  transition: right 500ms ease-in;
+
+  position: relative;
+  right: -39%;
+}
+
+#WhoIAm-chk:checked ~ #WhoIAm-title {
+  right: 38%;
+}
+
+#WhatIDo-chk:checked ~ #WhatIDo-title {
+  right: 37%;
+}
+
+#Experience-chk:checked ~ #Experience-title {
+  right: 36%;
+}
+
+#Contact-chk:checked ~ #Contact-title {
+  right: 39%;
+}
 
 
 
@@ -386,20 +490,4 @@ input[type='checkbox']:checked ~ label {
 .App-contact-send:active {
   transform: translateY(1px);
   transition: all 0ms ease-in;
-}
-
-.App-up-btn {
-  background-color: transparent;
-  height: 7%;
-  width: 4%;
-  position: fixed;
-  bottom: 2%;
-  right: 2%;
-  border-radius: 5px;
-  border: 2px solid transparent;
-}
-
-.App-up-btn:hover{
-  border: 2px solid rgba(71,105,160,1);
-  background-color: rgba(71,105,160,1);
 }

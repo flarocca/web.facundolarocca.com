@@ -24,6 +24,12 @@ export default class WhatIDo extends Component {
 
   componentDidMount() {
     AppStore.addChangeListener(this._onAppSessionChange);
+
+    window.addEventListener('scroll', () => {
+      if (event.srcElement.body.scrollTop >= 620) {
+        this.setState({ checked: true });
+      }
+    });
   }
 
   _onAppSessionChange() {
@@ -47,8 +53,9 @@ export default class WhatIDo extends Component {
     return (
       <div id="whatido" className="Container column jc-center" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
         <Element name="WHAT_I_DO" />
-        <span style={{ textAlign: "left", fontSize: "40px", color: this.state.theme.COLOR_2 }}>
-          <b>{this.state.languageSet.WHAT_I_DO}</b>
+        <span style={{ fontSize: "40px", color: this.state.theme.COLOR_2 }}>
+          <input type="checkbox" id="WhatIDo-chk" style={{ display: "none" }} checked={this.state.checked} />
+          <b id="WhatIDo-title">{this.state.languageSet.WHAT_I_DO}</b>
         </span>
         <hr />
         <div className="Container row jc-center">

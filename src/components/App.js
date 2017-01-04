@@ -54,7 +54,7 @@ export default class App extends Component {
             <AppHeader languageSet={this.state.languageSet} theme={this.state.theme} />
             <AppBody languageSet={this.state.languageSet} theme={this.state.theme} />
             <AppFooter languageSet={this.state.languageSet} theme={this.state.theme} />
-            <UpButton />
+            <UpButton theme={this.state.theme} />
           </div>
         </div>
       </div>

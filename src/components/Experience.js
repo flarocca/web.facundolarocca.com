@@ -18,6 +18,12 @@ export default class Experience extends Component {
 
   componentDidMount() {
     AppStore.addChangeListener(this._onAppSessionChange);
+
+    window.addEventListener('scroll', () => {
+      if (event.srcElement.body.scrollTop >= 1000) {
+        this.setState({ checked: true });
+      }
+    });
   }
 
   _onAppSessionChange() {
@@ -41,8 +47,9 @@ export default class Experience extends Component {
     return (
       <div id="experience" className="Container column" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
         <Element name="EXPERIENCE" />
-        <span style={{ textAlign: "left", fontSize: "40px", color: this.state.theme.COLOR_3 }}>
-          <b>{this.state.languageSet.EXPERIENCE}</b>
+        <span style={{ fontSize: "40px", color: this.state.theme.COLOR_3 }}>
+          <input type="checkbox" id="Experience-chk" style={{ display: "none" }} checked={this.state.checked} />
+          <b id="Experience-title">{this.state.languageSet.EXPERIENCE}</b>
         </span>
         <hr />
         <div className="Container row jc-center">

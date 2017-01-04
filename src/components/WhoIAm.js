@@ -11,12 +11,19 @@ export default class WhoIAm extends Component {
     this._imageProvider = new ImageProvider();
     this.state = {
       languageSet: this.props.languageSet,
-      theme: this.props.theme
+      theme: this.props.theme,
+      checked: false
     }
   }
 
   componentDidMount() {
     AppStore.addChangeListener(this._onAppSessionChange);
+
+    window.addEventListener('scroll', () => {
+      if (event.srcElement.body.scrollTop >= 220) {
+        this.setState({ checked: true });
+      }
+    });
   }
 
   _onAppSessionChange() {
@@ -40,8 +47,9 @@ export default class WhoIAm extends Component {
     return (
       <div id="whoiam" className="Container column" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
         <Element name="WHO_I_AM" />
-        <span style={{ textAlign: "left", fontSize: "40px", color: this.state.theme.COLOR_1 }}>
-          <b>{this.state.languageSet.WHO_I_AM}</b>
+        <span style={{ fontSize: "40px", color: this.state.theme.COLOR_1 }}>
+          <input type="checkbox" id="WhoIAm-chk" style={{ display: "none" }} checked={this.state.checked} />
+          <b id="WhoIAm-title">{this.state.languageSet.WHO_I_AM}</b>
         </span>
         <hr />
         <div>

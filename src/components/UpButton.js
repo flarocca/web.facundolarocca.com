@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ImageProvider from '../services/ImageProvider';
+import AppStore from '../stores/AppStore';
+import Up from '../images/svg/Up';
 import { scroller } from 'react-scroll';
 
 var styles = {
@@ -19,25 +21,34 @@ export default class UpButton extends Component {
 
     this._imageProvider = new ImageProvider();
     this._goToHome = this._goToHome.bind(this);
+    this._onAppSessionChange = this._onAppSessionChange.bind(this);
+    this.state = {
+      theme: this.props.theme
+    }
   }
 
   componentDidMount() {
+    AppStore.addChangeListener(this._onAppSessionChange);
+  }
 
+  _onAppSessionChange() {
+    this.setState({
+      theme: AppStore.getThemeSelected()
+    });
   }
 
   _goToHome() {
     scroller.scrollTo('TOP', {
       duration: 1000,
       delay: 0,
-      smooth: true,
-      offset: -40
+      smooth: true
     });
   }
 
   render() {
     return (
       <a href="#" onClick={this._goToHome} style={styles.link}>
-        <img title="Go to home" src={this._imageProvider.getImage('UPW')} className="App-up-btn" alt="logo" />
+        <Up className="up-btn" outerColor={this.state.theme.COLOR_4} />
       </a>
     );
   }

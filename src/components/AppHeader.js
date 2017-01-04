@@ -16,7 +16,8 @@ export default class AppHeader extends Component {
     this.state = {
       languageSet: this.props.languageSet,
       theme: this.props.theme,
-      headerClass: 'hdr'
+      headerClass: 'hdr',
+      itemClass: 'column column-item-x4 hr-menu-item'
     }
   }
 
@@ -28,9 +29,9 @@ export default class AppHeader extends Component {
 
   _fixHeader(event) {
     if (event.srcElement.body.scrollTop >= 620) {
-      this.setState({ headerClass: 'hdr-fix' });
+      this.setState({ headerClass: 'hdr-fix', itemClass: 'column column-item-x4 hr-menu-item-fix' });
     } else {
-      this.setState({ headerClass: 'hdr' });
+      this.setState({ headerClass: 'hdr', itemClass: 'column column-item-x4 hr-menu-item' });
     }
   }
 
@@ -57,10 +58,10 @@ export default class AppHeader extends Component {
         </div>
         <div id="Header" className="Container row hdr">
           <div className={this.state.headerClass}>
-            <span className="column column-item-x4 hr-menu-item " style={{ backgroundColor: this.state.theme.COLOR_1 }}><a href="#" onClick={() => this._onClick('WHO_I_AM')} className="link-btn" style={{ color: this.state.theme.BACKGROUND_COLOR }}><b>{this.state.languageSet.WHO_I_AM}</b></a></span>
-            <span className="column column-item-x4 hr-menu-item " style={{ backgroundColor: this.state.theme.COLOR_2 }}><a href="#" onClick={() => this._onClick('WHAT_I_DO')} className="link-btn" style={{ color: this.state.theme.BACKGROUND_COLOR }}><b>{this.state.languageSet.WHAT_I_DO}</b></a></span>
-            <span className="column column-item-x4 hr-menu-item " style={{ backgroundColor: this.state.theme.COLOR_3 }}><a href="#" onClick={() => this._onClick('EXPERIENCE')} className="link-btn" style={{ color: this.state.theme.BACKGROUND_COLOR }}><b>{this.state.languageSet.EXPERIENCE}</b></a></span>
-            <span className="column column-item-x4 hr-menu-item " style={{ backgroundColor: this.state.theme.COLOR_4 }}><a href="#" onClick={() => this._onClick('CONTACT')} className="link-btn" style={{ color: this.state.theme.BACKGROUND_COLOR }}><b>{this.state.languageSet.CONTACT}</b></a></span>
+            <span className={this.state.itemClass} style={{ backgroundColor: this.state.theme.COLOR_1 }}><a href="#" onClick={() => this._onClick('WHO_I_AM')} className="link-btn" style={{ color: this.state.theme.BACKGROUND_COLOR }}><b>{this.state.languageSet.WHO_I_AM}</b></a></span>
+            <span className={this.state.itemClass} style={{ backgroundColor: this.state.theme.COLOR_2 }}><a href="#" onClick={() => this._onClick('WHAT_I_DO')} className="link-btn" style={{ color: this.state.theme.BACKGROUND_COLOR }}><b>{this.state.languageSet.WHAT_I_DO}</b></a></span>
+            <span className={this.state.itemClass} style={{ backgroundColor: this.state.theme.COLOR_3 }}><a href="#" onClick={() => this._onClick('EXPERIENCE')} className="link-btn" style={{ color: this.state.theme.BACKGROUND_COLOR }}><b>{this.state.languageSet.EXPERIENCE}</b></a></span>
+            <span className={this.state.itemClass} style={{ backgroundColor: this.state.theme.COLOR_4 }}><a href="#" onClick={() => this._onClick('CONTACT')} className="link-btn" style={{ color: this.state.theme.BACKGROUND_COLOR }}><b>{this.state.languageSet.CONTACT}</b></a></span>
           </div>
         </div>
       </div>
