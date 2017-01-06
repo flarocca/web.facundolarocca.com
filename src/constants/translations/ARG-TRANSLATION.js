@@ -3,7 +3,7 @@ import React from 'react';
 export default {
     WHO_I_AM: 'QUIÉN SOY',
     WHAT_I_DO: 'QUÉ HAGO',
-    EXPERIENCE: 'EXPERIENCIA',
+    RESUME: 'RESÚMEN',
     CONTACT: 'CONTACTO',
     APP_UNDER_CONSTRUCTION: 'El sitio se encuentra en contrucción.',
     FIRST_NAME: 'Nombre',

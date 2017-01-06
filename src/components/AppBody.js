@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AppStore from '../stores/AppStore';
 import { Element, scroller } from 'react-scroll';
-import Experience from './Experience';
+import Resume from './Resume';
 import Contact from './Contact';
 import WhoIAm from './WhoIAm';
 import WhatIDo from './WhatIDo';
@@ -43,7 +43,7 @@ export default class AppBody extends Component {
         <ThemeSelector theme={this.state.theme} themes={getAllThemes()} />
         <WhoIAm languageSet={this.state.languageSet} theme={this.state.theme} />
         <WhatIDo languageSet={this.state.languageSet} theme={this.state.theme} />
-        <Experience languageSet={this.state.languageSet} theme={this.state.theme} />
+        <Resume languageSet={this.state.languageSet} theme={this.state.theme} />
         <Contact languageSet={this.state.languageSet} theme={this.state.theme} />
       </div>
     );

@@ -57,14 +57,6 @@
   font-size: large;
 }
 
-.hr-menu-item:hover {
-  -webkit-transition: all 200ms ease-in-out 0ms;
-  -moz-transition: all 200ms ease-in-out 0ms;
-  transition: all 200ms ease-in-out 0ms;
-  height: 115%;
-  width: 30%;
-}
-
 .hr-menu-item-fix {
   display: flex;
   height: 100%;
@@ -86,7 +78,7 @@
 .hdr {
   flex: 1;
   display: flex;
-  position: relative;
+  align-items: center;
   height: 160px;
   z-index: 1;
   -webkit-transition: all 200ms ease-in 0;
@@ -106,8 +98,60 @@
   transition: all 200ms ease-in 0;
 }
 
-.link-btn {
+.link-btn-menu {
+  height: 110px;
+  width: 110px;
+  overflow: hidden;
+  display: inline-flex;
+  flex-direction: column;
   text-decoration: none;
+  border-radius: 100%;
+  border-color: white;
+  border-style: solid;
+  border-width: 2px;
+  align-self: center;
+}
+
+.link-btn-menu:hover .icon-btn-menu {
+  top: -100%;
+}
+
+.link-btn-menu:hover .text-btn {
+  top: 0%;
+}
+
+.link-btn-menu:hover #text-folder {
+  top: 5%;
+}
+
+.link-btn-menu:hover #text-user {
+  top: 5%;
+}
+
+.icon-btn-menu {
+  position: relative;
+  top: 15px;
+  transition: all 0.2s ease;
+}
+.text-btn {
+  position: relative;
+  top: 150%;
+  transition: all 0.2s ease;
+}
+#icon-folder {
+  right: -5px;
+}
+#text-user {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.link-btn-menu-fixed {
+  text-decoration: none;
+}
+
+.icon-btn-menu-fixed {
+  display: none;
 }
 
 .profile-pic {
@@ -399,7 +443,7 @@ input[type='checkbox']:checked ~ label {
   right: -37%;
 }
 
-#Experience-title {
+#Resume-title {
   display: inline-block;
   -webkit-transition: color 200ms ease-in;
   -moz-transition: color 200ms ease-in;
@@ -435,7 +479,7 @@ input[type='checkbox']:checked ~ label {
   right: 37%;
 }
 
-#Experience-chk:checked ~ #Experience-title {
+#Resume-chk:checked ~ #Resume-title {
   right: 36%;
 }
 

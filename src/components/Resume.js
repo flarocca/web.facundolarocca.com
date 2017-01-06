@@ -4,7 +4,7 @@ import { Element, scroller } from 'react-scroll';
 import ImageProvider from '../services/ImageProvider';
 import { Link } from 'react-router'
 
-export default class Experience extends Component {
+export default class Resume extends Component {
   constructor(props) {
     super(props);
 
@@ -34,7 +34,7 @@ export default class Experience extends Component {
     });
 
     var menu = AppStore.getMenuSelected();
-    if (menu === 'EXPERIENCE') {
+    if (menu === 'Resume') {
       scroller.scrollTo(menu, {
         duration: 1000,
         delay: 0,
@@ -46,11 +46,11 @@ export default class Experience extends Component {
 
   render() {
     return (
-      <div id="experience" className="Container column" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
-        <Element name="EXPERIENCE" />
+      <div id="resume" className="Container column" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
+        <Element name="RESUME" />
         <span style={{ fontSize: "40px", color: this.state.theme.COLOR_3 }}>
-          <input type="checkbox" id="Experience-chk" style={{ display: "none" }} checked={this.state.checked} />
-          <b id="Experience-title">{this.state.languageSet.EXPERIENCE}</b>
+          <input type="checkbox" id="Resume-chk" style={{ display: "none" }} checked={this.state.checked} />
+          <b id="Resume-title">{this.state.languageSet.RESUME}</b>
         </span>
         <hr />
         <div className="Container row jc-center">
@@ -62,7 +62,7 @@ export default class Experience extends Component {
               Maintenance and new software requirements both back-end and front-end <br />
               of the ticketing web portal of the company. <br />
             </p>
-            <span className="Container column jc-center button" style={{ backgroundColor: this.state.theme.COLOR_3 }}><Link className="link-btn" style={{ color: "white" }} to="/experience/professional">{this.state.languageSet.VIEW_MORE}</Link></span>
+            <span className="Container column jc-center button" style={{ backgroundColor: this.state.theme.COLOR_3 }}><Link className="link-btn" style={{ color: "white" }} to="/resume/professional">{this.state.languageSet.VIEW_MORE}</Link></span>
           </div>
           <div className="Container column jc-start column-item-x2" id="personal" style={{ color: this.state.theme.COLOR_3 }}>
             <h2 style={{ color: this.state.theme.COLOR_3 }}>{this.state.languageSet.PERSONAL}</h2>
