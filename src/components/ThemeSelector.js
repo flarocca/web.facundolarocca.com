@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Setting from '../images/svg/Setting';
 import AppActions from '../actions/AppActions';
 import AppStore from '../stores/AppStore';
-import ThemeManager from '../services/ThemeManager';
+
 import LIGHT_BLUE_THEME from '../constants/themes/LIGHT_BLUE_THEME';
 import LIGHT_RED_THEME from '../constants/themes/LIGHT_RED_THEME';
 import DARK_GREEN_THEME from '../constants/themes/DARK_GREEN_THEME';

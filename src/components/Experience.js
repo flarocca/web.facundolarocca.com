@@ -12,7 +12,8 @@ export default class Experience extends Component {
     this._onAppSessionChange = this._onAppSessionChange.bind(this);
     this.state = {
       languageSet: this.props.languageSet,
-      theme: this.props.theme
+      theme: this.props.theme,
+      checked: false
     }
   }
 
@@ -53,7 +54,7 @@ export default class Experience extends Component {
         </span>
         <hr />
         <div className="Container row jc-center">
-          <div id="professional" style={{ color: this.state.theme.COLOR_3 }}>
+          <div className="Container column jc-start column-item-x2" id="professional" style={{ color: this.state.theme.COLOR_3 }}>
             <h2 style={{ color: this.state.theme.COLOR_3 }}>{this.state.languageSet.PROFESSIONAL}</h2>
             <p className="text" style={{ color: this.state.theme.FONT_COLOR }}>
               I Actually work as Fullstack .NET Engineer III for Web.com, <br />
@@ -63,7 +64,7 @@ export default class Experience extends Component {
             </p>
             <span className="Container column jc-center button" style={{ backgroundColor: this.state.theme.COLOR_3 }}><Link className="link-btn" style={{ color: "white" }} to="/experience/professional">{this.state.languageSet.VIEW_MORE}</Link></span>
           </div>
-          <div id="personal" style={{ color: this.state.theme.COLOR_3 }}>
+          <div className="Container column jc-start column-item-x2" id="personal" style={{ color: this.state.theme.COLOR_3 }}>
             <h2 style={{ color: this.state.theme.COLOR_3 }}>{this.state.languageSet.PERSONAL}</h2>
             <p className="text" style={{ color: this.state.theme.FONT_COLOR }}>
               Web and mobile applications development using <em>NodeJS</em>, <em>ReactJS</em>, <em>ReactNative</em> <br />

@@ -23,7 +23,8 @@ export default class Contact extends Component {
       firstName: '',
       lastName: '',
       email: '',
-      message: ''
+      message: '',
+      checked: false
     }
   }
 
@@ -113,7 +114,7 @@ export default class Contact extends Component {
                 <b style={{ color: this.state.theme.FONT_COLOR, fontSize: "small", fontFamily: "'Open Sans', Helvetica, sans-serif", paddingLeft: "10px" }}>Facundo La Rocca</b>
               </i>
               <br />
-              <em style={{ color: this.state.theme.FONT_COLOR, fontSize: "small", fontFamily: "'Open Sans', Helvetica, sans-serif", paddingLeft: "7%" }}>Software developer & engineer.</em>
+              <em style={{ color: this.state.theme.FONT_COLOR, fontSize: "small", fontFamily: "'Open Sans', Helvetica, sans-serif", paddingLeft: "7%" }}>Software engineering & development.</em>
               <br />
               <br />
               <i className="fa fa-envelope-o">
@@ -123,7 +124,7 @@ export default class Contact extends Component {
           </div>
           <div style={{ width: "1px", border: "2px #B4B2B2 solid", backgroundColor: "#B4B2B2" }} />
           <div className="Container column jc-left" style={{ paddingLeft: "5%", width: "55%" }}>
-            <b style={{ alignSelf: "flex-start", color: this.state.theme.COLOR_4 }}>Sendme a message</b>
+            <b style={{ alignSelf: "flex-start", color: this.state.theme.COLOR_4 }}>Send me a message</b>
             <div className="Container column">
               <div className="Container row" style={{width:"100%"}}>
                 <div className="Container column" style={{width:"50%"}}>

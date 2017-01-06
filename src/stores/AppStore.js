@@ -4,7 +4,6 @@ import AppConstants from '../constants/AppConstants';
 import AppDispatcher from '../dispatcher/Dispatcher';
 import TranslationProvider from '../services/TranslationProvider';
 import ThemeManager from '../services/ThemeManager';
-import LIGHT_BLUE_THEME from '../constants/themes/LIGHT_BLUE_THEME';
 
 var _translationProvider = new TranslationProvider();
 

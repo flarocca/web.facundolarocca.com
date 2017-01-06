@@ -16,7 +16,7 @@ export default {
     VIEW_MORE: 'View more',
     MY_DESCRIPTION: (
         <p className="Section-Text">
-            This is a line of text. This is a line of text.<br />
+            I am a Software Developer who loves programming<br />
             This is a line of text. This is a line of text.<br />
             This is a line of text. This is a line of text.<br />
             This is a line of text. This is a line of text.<br />
@@ -29,8 +29,8 @@ export default {
     WEB_APPS_DESC: (
         <p className="Section-Text">
             Development of dynamic and versatile <br />
-            web solutions to generate the value <br />
-            your business needs
+            web solutions to generate value <br />
+            to your business needs
         </p>
     ),
     MOBILE_APPS_DESC: (
