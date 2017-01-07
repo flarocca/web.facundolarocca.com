@@ -10,8 +10,6 @@ import LIGHT_PURPLE_THEME from '../constants/themes/LIGHT_PURPLE_THEME';
 class ThemeManager {
     getTheme(theme) {
         switch (theme) {
-            case 'COLORFUL_THEME':
-                return COLORFUL_THEME;
             case 'LIGHT_YELLOW_THEME':
                 return LIGHT_YELLOW_THEME;
             case 'DARK_YELLOW_THEME':
@@ -25,8 +23,10 @@ class ThemeManager {
             case 'LIGHT_PURPLE_THEME':
                 return LIGHT_PURPLE_THEME;
             case 'LIGHT_BLUE_THEME':
-            default:
                 return LIGHT_BLUE_THEME;
+            case 'COLORFUL_THEME':
+            default:
+                return COLORFUL_THEME;
         }
     }
 

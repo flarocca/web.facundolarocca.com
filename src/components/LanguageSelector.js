@@ -14,7 +14,7 @@ export default class LanguageSelector extends Component {
 
   render() {
     return (
-      <div className="Container row fixed main" style={{ right: "0px", top: "15%" }}>
+      <div className="Container row fixed main" style={{ right: "0px", top: "20%" }}>
         <input type="checkbox" id="language" />
         <label id="languageLabel" htmlFor="language" style={{ background: "rgb(200, 200, 200)" }}>
           <b style={{ color: "white", position: "relative", top: "12px" }}>{this.state.languageSelected}</b>

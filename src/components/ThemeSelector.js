@@ -45,10 +45,6 @@ export default class ThemeSelector extends Component {
   _renderMainThemes() {
     return (
       <div className="Container row" style={{ height: "80px", marginRight: "10%", marginLeft: "5%" }}>
-        <div onClick={() => this._onThemeSelected(LIGHT_BLUE_THEME.NAME)} style={{ height: "50px", width: "50%", marginTop: "8%", marginBottom: "8%", marginLeft: "8%", marginRight: "4%", display: "relative" }}>
-          <div style={{ position: "relative", top: "0", left: "0", height: "80%", width: "80%", backgroundColor: LIGHT_BLUE_THEME.BACKGROUND_COLOR, display: "block" }} />
-          <div style={{ position: "relative", top: "-60%", right: "-20%", height: "80%", width: "80%", backgroundColor: LIGHT_BLUE_THEME.COLOR_1, display: "block" }} />
-        </div>
         <div onClick={() => this._onThemeSelected(COLORFUL_THEME.NAME)} style={{ height: "50px", width: "50%", marginTop: "8%", marginBottom: "8%", marginLeft: "4%", marginRight: "8%", display: "absolute" }}>
           <div style={{ position: "relative", top: "0", left: "0", height: "80%", width: "80%", backgroundColor: COLORFUL_THEME.BACKGROUND_COLOR, display: "block" }} />
           <div style={{ position: "relative", top: "-60%", right: "-20%", height: "80%", width: "80%", display: "flex", flexDirection: "row", flexWrap: "wrap" }} >
@@ -57,6 +53,10 @@ export default class ThemeSelector extends Component {
             <div style={{ display: "inline-block", width: "50%", height: "50%", backgroundColor: COLORFUL_THEME.COLOR_3 }}></div>
             <div style={{ display: "inline-block", width: "50%", height: "50%", backgroundColor: COLORFUL_THEME.COLOR_4 }}></div>
           </div>
+        </div>
+        <div onClick={() => this._onThemeSelected(LIGHT_BLUE_THEME.NAME)} style={{ height: "50px", width: "50%", marginTop: "8%", marginBottom: "8%", marginLeft: "8%", marginRight: "4%", display: "relative" }}>
+          <div style={{ position: "relative", top: "0", left: "0", height: "80%", width: "80%", backgroundColor: LIGHT_BLUE_THEME.BACKGROUND_COLOR, display: "block" }} />
+          <div style={{ position: "relative", top: "-60%", right: "-20%", height: "80%", width: "80%", backgroundColor: LIGHT_BLUE_THEME.COLOR_1, display: "block" }} />
         </div>
       </div>
     );
@@ -80,7 +80,7 @@ export default class ThemeSelector extends Component {
 
   render() {
     return (
-      <div className="Container row fixed main" style={{ right: "0px", top: "35%" }}>
+      <div className="Container row fixed main" style={{ right: "0px", top: "40%" }}>
         <input type="checkbox" id="theme" />
         <label id="themeLabel" htmlFor="theme" style={{ background: "rgb(200, 200, 200)" }}>
           <Setting className="setting" innerColor="white" outerColor="rgb(200, 200, 200)" />

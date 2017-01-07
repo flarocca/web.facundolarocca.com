@@ -21,7 +21,7 @@ export default class Resume extends Component {
     AppStore.addChangeListener(this._onAppSessionChange);
 
     window.addEventListener('scroll', () => {
-      if (event.srcElement.body.scrollTop >= 1000) {
+      if (event.srcElement.body.scrollTop >= 1400) {
         this.setState({ checked: true });
       }
     });
