@@ -6,6 +6,7 @@ import Contact from './Contact';
 import WhoIAm from './WhoIAm';
 import WhatIDo from './WhatIDo';
 import ThemeSelector from './ThemeSelector';
+import LanguageSelector from './LanguageSelector';
 import getAllThemes from '../constants/themes/getAllThemes';
 
 export default class AppBody extends Component {
@@ -40,7 +41,8 @@ export default class AppBody extends Component {
     return (
       <div id="body">
         <Element name="HOME" />
-        <ThemeSelector theme={this.state.theme} themes={getAllThemes()} />
+        <LanguageSelector initialLanguage="ARG"/>
+        <ThemeSelector themes={getAllThemes()} />
         <WhoIAm languageSet={this.state.languageSet} theme={this.state.theme} />
         <WhatIDo languageSet={this.state.languageSet} theme={this.state.theme} />
         <Resume languageSet={this.state.languageSet} theme={this.state.theme} />

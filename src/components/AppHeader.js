@@ -74,7 +74,8 @@ export default class AppHeader extends Component {
               <a href="#" onClick={() => this._onClick('WHO_I_AM')} className={this.state.linkClass} style={{ color: this.state.theme.BACKGROUND_COLOR }}>
                 <div className={this.state.iconClass}><i className="fa fa-user fa-4x"></i></div>
                 <div className="text-btn" id="text-user"><b>{this.state.languageSet.WHO_I_AM}</b></div>
-              </a></span>
+              </a>
+            </span>
             <span className={this.state.itemClass} style={{ backgroundColor: this.state.theme.COLOR_2 }}>
               <a href="#" onClick={() => this._onClick('WHAT_I_DO')} className={this.state.linkClass} style={{ color: this.state.theme.BACKGROUND_COLOR }}>
                 <div className={this.state.iconClass} id="icon-folder"><i className="fa fa-folder-open fa-4x"></i></div>

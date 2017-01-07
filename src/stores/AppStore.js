@@ -56,6 +56,7 @@ AppStore.dispatchToken = AppDispatcher.register(function (action) {
 
     case AppConstants.THEME_SELECTED:
       _themeSelected = action.data;
+      _menuSelected = null;
       AppStore.emitChange();
       break;
 

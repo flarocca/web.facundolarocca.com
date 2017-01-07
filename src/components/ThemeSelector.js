@@ -81,13 +81,13 @@ export default class ThemeSelector extends Component {
   render() {
     return (
       <div className="Container row fixed main" style={{ right: "0px", top: "35%" }}>
-        <input type="checkbox" id="navigation" />
-        <label htmlFor="navigation" style={{ background: "rgb(200, 200, 200)" }}>
+        <input type="checkbox" id="theme" />
+        <label id="themeLabel" htmlFor="theme" style={{ background: "rgb(200, 200, 200)" }}>
           <Setting className="setting" innerColor="white" outerColor="rgb(200, 200, 200)" />
         </label>
         <div className="right column jc-center" style={{ backgroundColor: "rgb(200, 200, 200)" }}>
           <div className="Container column jc-center" style={{ color: "dimgray", textAlign: "center", height: "30px" }}>
-            Theme Selector
+            <b>Theme Selector</b>
           </div>
           {this._renderMainThemes()}
           <div className="Container row" style={{ flexWrap: "wrap", height: "60%" }}>

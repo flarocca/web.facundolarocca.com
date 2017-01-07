@@ -34,7 +34,7 @@ export default class Resume extends Component {
     });
 
     var menu = AppStore.getMenuSelected();
-    if (menu === 'Resume') {
+    if (menu === 'RESUME') {
       scroller.scrollTo(menu, {
         duration: 1000,
         delay: 0,

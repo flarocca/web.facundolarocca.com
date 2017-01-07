@@ -117,15 +117,15 @@
 }
 
 .link-btn-menu:hover .text-btn {
-  top: 0%;
+  top: -25%;
 }
 
 .link-btn-menu:hover #text-folder {
-  top: 5%;
+  top: -25%;
 }
 
 .link-btn-menu:hover #text-user {
-  top: 5%;
+  top: -25%;
 }
 
 .icon-btn-menu {
@@ -135,7 +135,7 @@
 }
 .text-btn {
   position: relative;
-  top: 150%;
+  top: 100%;
   transition: all 0.2s ease;
 }
 #icon-folder {
@@ -311,7 +311,8 @@ err-lbl {
   transition: all 200ms ease-in 0ms;
 }
 
-label {
+#themeLabel, 
+#languageLabel {
   display: block;
   -moz-transition: all 200ms ease-in;
   -webkit-transition: all 200ms ease-in;
@@ -334,7 +335,10 @@ label {
   top: 7.25px;
 }
 
-input[type='checkbox'] {
+#theme, 
+#language, 
+#argLan, 
+#engLan {
   display: none;
 }
 
@@ -350,14 +354,16 @@ input[type='checkbox'] {
   right: -150px;
 }
 
-input[type='checkbox']:checked ~ .right {
+#theme:checked ~ .right,
+#language:checked ~ .right {
   -webkit-transform: translate3d(-150px, 0, 0);
   -moz-transform: translate3d(-150px, 0, 0);
   -o-transform: translate3d(-150px, 0, 0);
   transform: translate3d(-150px, 0, 0);
 }
 
-input[type='checkbox']:checked ~ label {
+#theme:checked ~ #themeLabel,
+#language:checked ~ #languageLabel {
   -webkit-transform: translate3d(-150px, 0, 0);
   -moz-transform: translate3d(-150px, 0, 0);
   -o-transform: translate3d(-150px, 0, 0);
@@ -487,6 +493,52 @@ input[type='checkbox']:checked ~ label {
   right: 39%;
 }
 
+#lanItem {
+  border: 2px white solid; 
+  height: 45px;
+  width: 45px;
+  border-radius: 100%;
+  margin-top: 10%;
+}
+
+.lanItem-btn {
+  display: table;
+  position: relative;
+}
+
+#argLan-label {
+  display: table-cell;
+  vertical-align: middle;
+  height: 45px;
+  width: 45px;
+  background-color: transparent;
+  border-radius: 100%;
+  transition: 200ms ease-in;
+  color: white;
+}
+
+#argLan:checked ~ #argLan-label {
+  background-color: white;
+  color: gray;
+  transition: 200ms ease-in;
+}
+
+#engLan-label {
+  display: table-cell;
+  vertical-align: middle;
+  height: 45px;
+  width: 45px;
+  background-color: transparent;
+  border-radius: 100%;
+  transition: 200ms ease-in;
+  color: white;
+}
+
+#engLan:checked ~ #engLan-label {
+  background-color: white;
+  color: gray;
+  transition: 200ms ease-in;
+}
 
 
 
