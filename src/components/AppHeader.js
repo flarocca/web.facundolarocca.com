@@ -64,8 +64,8 @@ export default class AppHeader extends Component {
           </div>
         </div>
         <div className="Container row jc-left" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
-          <span className="Container column jc-center" style={{ alignText: "center", color: "white", backgroundColor: this.state.theme.COLOR_1, marginBottom: "5%", width: "100px", height: "35px" }}>
-            <span style={{ color: "white" }}>Developer</span>
+          <span className="Container column jc-center" style={{ alignText: "center", color: "white", backgroundColor: this.state.theme.COLOR_1, marginBottom: "5%", width: "110px", height: "35px" }}>
+            <span style={{ color: "white" }}>{this.state.languageSet.DEVELOPER}</span>
           </span>
         </div>
         <div id="Header" className="Container row hdr">

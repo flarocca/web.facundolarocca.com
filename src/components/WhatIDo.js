@@ -59,17 +59,14 @@ export default class WhatIDo extends Component {
             <Cloud className="image-desc" innerColor={this.state.theme.BACKGROUND_COLOR} outerColor={this.state.theme.COLOR_2} />
             <h2 style={{ color: this.state.theme.COLOR_2 }}>{this.state.languageSet.WEB_APPS}</h2>
             <p className="text" style={{ color: this.state.theme.FONT_COLOR }}>
-              Development of dynamic and versatile <br />
-              web solutions to generate the value <br />
-              your business needs
+              {this.state.languageSet.WEB_APPS_DESC}
             </p>
           </div>
           <div className="Container column jc-start column-item-x2" id="mobile" style={{ color: this.state.theme.COLOR_2 }}>
             <Mobile className="image-desc" innerColor={this.state.theme.BACKGROUND_COLOR} outerColor={this.state.theme.COLOR_2} />
             <h2 style={{ color: this.state.theme.COLOR_2 }}>{this.state.languageSet.MOBILE_APPS}</h2>
             <p className="text" style={{ color: this.state.theme.FONT_COLOR }}>
-              Development of mobile solutions<br />
-              for mobile phones and tablets
+              {this.state.languageSet.MOBILE_APPS_DESC}
             </p>
           </div>
         </div>

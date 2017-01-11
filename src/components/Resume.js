@@ -57,18 +57,14 @@ export default class Resume extends Component {
           <div className="Container column jc-start column-item-x2" id="professional" style={{ color: this.state.theme.COLOR_3 }}>
             <h2 style={{ color: this.state.theme.COLOR_3 }}>{this.state.languageSet.PROFESSIONAL}</h2>
             <p className="text" style={{ color: this.state.theme.FONT_COLOR }}>
-              I Actually work as Fullstack .NET Engineer III for Web.com, <br />
-              a company with a strong position in the North American eCommerce market. <br />
-              Maintenance and new software requirements both back-end and front-end <br />
-              of the ticketing web portal of the company. <br />
+              {this.state.languageSet.PROF_DESC}
             </p>
             <span className="Container column jc-center button" style={{ backgroundColor: this.state.theme.COLOR_3 }}><Link className="link-btn" style={{ color: "white" }} to="/resume/professional">{this.state.languageSet.VIEW_MORE}</Link></span>
           </div>
           <div className="Container column jc-start column-item-x2" id="personal" style={{ color: this.state.theme.COLOR_3 }}>
             <h2 style={{ color: this.state.theme.COLOR_3 }}>{this.state.languageSet.PERSONAL}</h2>
             <p className="text" style={{ color: this.state.theme.FONT_COLOR }}>
-              Web and mobile applications development using <em>NodeJS</em>, <em>ReactJS</em>, <em>ReactNative</em> <br />
-              and non-relational databases such as <em>ElasticSearch</em> and <em>MongoDB</em>
+              {this.state.languageSet.PER_DESC}
             </p>
           </div>
         </div>

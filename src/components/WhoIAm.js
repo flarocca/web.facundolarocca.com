@@ -54,15 +54,7 @@ export default class WhoIAm extends Component {
         <hr />
         <div className="Container column jc-center">
           <p className="text" style={{ textAlign: "justify", color: this.state.theme.FONT_COLOR }}>
-            I am a Software Developer who loves programming and building valuable, reliable and high quality software.<br />
-            I started programming when I was sixteen using some games and an old C++ book. Little by little I got
-            into this fantastic world and I learnt to build software.<br />
-            When I was twenty five I got in touch with Agiles Methodologies using XP and Scrum.
-            Since then I can't think about managing a project without using Agiles Methodologies.
-            A couple of years later I discovered Test Driven Development, methodology that I have used until right now.<br />
-            Although I have worked almost all my professional life with C# and .Net technologies, I have found in JavaScript
-            and all its powerful and simplicity an incredible world which has not been totally discovered yet, and I want to.
-            <br />
+            {this.state.languageSet.MY_DESCRIPTION}
           </p>
           <span className="column" style={{ textAlign: "right" }}><em style={{ fontSize: "26px" }}>Facundo La Rocca.</em></span>
         </div>
