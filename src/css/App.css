@@ -384,12 +384,20 @@ err-lbl {
   padding-right: 8%;
 }
 
-#professional, #web {
+#web {
   margin-right: 5%;
 }
 
-#personal, #mobile {
+#professional {
+  margin-right: 2%;
+}
+
+#mobile {
   margin-left: 5%;
+}
+
+#personal {
+  margin-left: 2%;
 }
 
 #tools {
@@ -460,7 +468,7 @@ err-lbl {
   transition: right 500ms ease-in;
 
   position: relative;
-  right: -40%;
+  right: 0%;
 }
 
 #Contact-title {
@@ -538,4 +546,55 @@ err-lbl {
   background-color: white;
   color: gray;
   transition: 200ms ease-in;
+}
+
+.resume-list {
+  height: 300px;
+  overflow-y: scroll;
+  list-style-type: none;
+  list-style-position: outside;
+  border-left: 10px solid rgb(215, 215, 215);
+}
+
+.resume-list::-webkit-scrollbar-track
+{
+	border-radius: 10px;
+  border: 8px solid rgb(245, 245, 245);
+  background-color: rgb(215, 215, 215);
+  width: 50px;
+}
+
+.resume-list::-webkit-scrollbar
+{
+	width: 20px;
+  border-radius: 10px;
+}
+
+.resume-list::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: red;
+  height: 20px;
+}
+
+.resume-exp-dot{
+  position: relative;
+  display: inline-block;
+  align-self: center;
+  height: 15px;
+  width: 15px;
+  border-radius: 10px;
+  right: 40px;
+}
+
+.resume-exp-date {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border-radius: 7px;
+  display: inline-block;
+  position: relative;
+  font-size: medium;
+  right: 15px;
 }

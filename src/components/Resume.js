@@ -55,11 +55,26 @@ export default class Resume extends Component {
         <hr />
         <div className="Container row jc-center">
           <div className="Container column jc-start column-item-x2" id="professional" style={{ color: this.state.theme.COLOR_3 }}>
-            <h2 style={{ color: this.state.theme.COLOR_3 }}>{this.state.languageSet.PROFESSIONAL}</h2>
-            <p className="text" style={{ color: this.state.theme.FONT_COLOR }}>
-              {this.state.languageSet.PROF_DESC}
-            </p>
-            <span className="Container column jc-center button" style={{ backgroundColor: this.state.theme.COLOR_3 }}><Link className="link-btn" style={{ color: "white" }} to="/resume/professional">{this.state.languageSet.VIEW_MORE}</Link></span>
+            <div className="Container row">
+              <div className="Container column" style={{backgroundColor: "#B4B2B2", display: "block", width: "10px", marginTop: "20px", marginRight: "30px"}}></div>
+              <div>
+                <h2 style={{ color: this.state.theme.COLOR_3 }}>{this.state.languageSet.PROFESSIONAL}</h2>
+                <div className="Container column">
+                  <div className="Container row">
+                    <div className="resume-exp-dot" style={{ backgroundColor: this.state.theme.COLOR_3 }}></div>
+                    <div style={{ position: "relative" }}>
+                      <span className="resume-exp-date" style={{ color: "white", backgroundColor: this.state.theme.COLOR_3 }}><b>Nov 2016 - Present</b></span>
+                    </div>
+                  </div>
+                  <div style={{ textAlign: "left" }}>
+                    <h2>Web.com</h2>
+                    <p style={{ color: this.state.theme.FONT_COLOR }}>
+                      {this.state.languageSet.PROF_DESC}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="Container column jc-start column-item-x2" id="personal" style={{ color: this.state.theme.COLOR_3 }}>
             <h2 style={{ color: this.state.theme.COLOR_3 }}>{this.state.languageSet.PERSONAL}</h2>
