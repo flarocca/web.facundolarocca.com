@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import AppStore from '../stores/AppStore';
 import { Element, scroller } from 'react-scroll';
 import ImageProvider from '../services/ImageProvider';
-import { Link } from 'react-router'
 
 export default class Resume extends Component {
   constructor(props) {
@@ -10,6 +9,12 @@ export default class Resume extends Component {
 
     this._imageProvider = new ImageProvider();
     this._onAppSessionChange = this._onAppSessionChange.bind(this);
+    this._renderWebDotComExp = this._renderWebDotComExp.bind(this);
+    this._renderIsbanExp = this._renderIsbanExp.bind(this);
+    this._renderAndreaniExp = this._renderAndreaniExp.bind(this);
+    this._renderOpenSolutionsExp = this._renderOpenSolutionsExp.bind(this);
+    this._rederSkill = this._rederSkill.bind(this);
+    this._renderSkillPoints = this._renderSkillPoints.bind(this);
     this.state = {
       languageSet: this.props.languageSet,
       theme: this.props.theme,
@@ -56,32 +61,144 @@ export default class Resume extends Component {
         <div className="Container row jc-center">
           <div className="Container column jc-start column-item-x2" id="professional" style={{ color: this.state.theme.COLOR_3 }}>
             <div className="Container row">
-              <div className="Container column" style={{backgroundColor: "#B4B2B2", display: "block", width: "10px", marginTop: "20px", marginRight: "30px"}}></div>
-              <div>
+              <div style={{ backgroundColor: "#B4B2B2", display: "block", width: "5px", marginTop: "26px", marginBottom: "18px", marginRight: "30px" }}></div>
+              <div style={{ textAlign: "left" }}>
                 <h2 style={{ color: this.state.theme.COLOR_3 }}>{this.state.languageSet.PROFESSIONAL}</h2>
-                <div className="Container column">
-                  <div className="Container row">
-                    <div className="resume-exp-dot" style={{ backgroundColor: this.state.theme.COLOR_3 }}></div>
-                    <div style={{ position: "relative" }}>
-                      <span className="resume-exp-date" style={{ color: "white", backgroundColor: this.state.theme.COLOR_3 }}><b>Nov 2016 - Present</b></span>
-                    </div>
-                  </div>
-                  <div style={{ textAlign: "left" }}>
-                    <h2>Web.com</h2>
-                    <p style={{ color: this.state.theme.FONT_COLOR }}>
-                      {this.state.languageSet.PROF_DESC}
-                    </p>
-                  </div>
-                </div>
+                {this._renderWebDotComExp()}
+                {this._renderIsbanExp()}
+                {this._renderAndreaniExp()}
+                {this._renderOpenSolutionsExp()}
               </div>
             </div>
           </div>
           <div className="Container column jc-start column-item-x2" id="personal" style={{ color: this.state.theme.COLOR_3 }}>
-            <h2 style={{ color: this.state.theme.COLOR_3 }}>{this.state.languageSet.PERSONAL}</h2>
-            <p className="text" style={{ color: this.state.theme.FONT_COLOR }}>
-              {this.state.languageSet.PER_DESC}
-            </p>
+            <div className="Container row">
+              <div style={{ backgroundColor: "#B4B2B2", display: "block", width: "2px", marginTop: "26px", marginBottom: "0px", marginRight: "30px" }}></div>
+              <div style={{ textAlign: "left" }}>
+                <h2 style={{ color: this.state.theme.COLOR_3 }}>SKILLS</h2>
+                <div className="Container column">
+                  {this._rederSkill(9, "C#")}
+                  {this._rederSkill(7, "JavaScript")}
+                  {this._rederSkill(6, "CSS / HTML")}
+                  {this._rederSkill(7, "SQL Server")}
+                  {this._rederSkill(7, "ORACLE")}
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+      </div>
+    );
+  }
+  /*
+          <div style={{ position: "relative" }}>
+            <span className="resume-item" style={{ color: "white", backgroundColor: this.state.theme.COLOR_3 }}><b>{text}</b></span>
+          </div>
+  */
+
+  _rederSkill(points, text) {
+    return (
+      <div>
+        <div className="Container row">
+          <div className="dot" style={{ backgroundColor: this.state.theme.COLOR_3 }} />
+          <div style={{ position: "relative" }}>
+            <span className="resume-item" style={{ paddingLeft: "3px", paddingBottom: "6px", textAlign: "left", color: this.state.theme.COLOR_3 }}><b>{text}</b></span>
+          </div>
+        </div>
+        {this._renderSkillPoints(points, this.state.theme.COLOR_3)}
+      </div>
+    );
+  }
+
+  _renderSkillPoints(points, color) {
+    var renderedPoints = [];
+
+    for (let i = 0; i < points; i++) {
+      renderedPoints.push(<div className="dot-skill" style={{ backgroundColor: color }} />);
+    }
+
+    for (let i = 0; i < (10 - points); i++) {
+      renderedPoints.push(<div className="dot-skill" style={{ backgroundColor: "#B4B2B2" }} />);
+    }
+
+    return (
+      <div className="Container row" style={{ marginBottom: "20px" }}>
+        {renderedPoints}
+      </div>
+    );
+  }
+
+  _renderWebDotComExp() {
+    return (
+      <div className="Container column">
+        <div className="Container row">
+          <div className="dot" style={{ backgroundColor: this.state.theme.COLOR_3 }}></div>
+          <div style={{ position: "relative" }}>
+            <span className="resume-item" style={{ color: "white", backgroundColor: this.state.theme.COLOR_3 }}><b>Nov 2016 - Present</b></span>
+          </div>
+        </div>
+        <div style={{ textAlign: "left" }}>
+          <h3>Web.com</h3>
+          <p style={{ color: this.state.theme.FONT_COLOR }}>
+            {this.state.languageSet.PROF_DESC}
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  _renderIsbanExp() {
+    return (
+      <div className="Container column">
+        <div className="Container row">
+          <div className="dot" style={{ backgroundColor: this.state.theme.COLOR_3 }}></div>
+          <div style={{ position: "relative" }}>
+            <span className="resume-item" style={{ color: "white", backgroundColor: this.state.theme.COLOR_3 }}><b>Nov 2016 - Present</b></span>
+          </div>
+        </div>
+        <div style={{ textAlign: "left" }}>
+          <h3>Isban</h3>
+          <p style={{ color: this.state.theme.FONT_COLOR }}>
+            {this.state.languageSet.PROF_DESC}
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  _renderAndreaniExp() {
+    return (
+      <div className="Container column">
+        <div className="Container row">
+          <div className="dot" style={{ backgroundColor: this.state.theme.COLOR_3 }}></div>
+          <div style={{ position: "relative" }}>
+            <span className="resume-item" style={{ color: "white", backgroundColor: this.state.theme.COLOR_3 }}><b>Nov 2016 - Present</b></span>
+          </div>
+        </div>
+        <div style={{ textAlign: "left" }}>
+          <h3>Andreani</h3>
+          <p style={{ color: this.state.theme.FONT_COLOR }}>
+            {this.state.languageSet.PROF_DESC}
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  _renderOpenSolutionsExp() {
+    return (
+      <div className="Container column">
+        <div className="Container row">
+          <div className="dot" style={{ backgroundColor: this.state.theme.COLOR_3 }}></div>
+          <div style={{ position: "relative" }}>
+            <span className="resume-item" style={{ color: "white", backgroundColor: this.state.theme.COLOR_3 }}><b>Nov 2016 - Present</b></span>
+          </div>
+        </div>
+        <div style={{ textAlign: "left" }}>
+          <h3>Open Solutions</h3>
+          <p style={{ color: this.state.theme.FONT_COLOR }}>
+            {this.state.languageSet.PROF_DESC}
+          </p>
         </div>
       </div>
     );
