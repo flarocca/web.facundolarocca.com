@@ -32,7 +32,7 @@ export default class Contact extends Component {
     AppStore.addChangeListener(this._onAppSessionChange);
 
     window.addEventListener('scroll', () => {
-      if (event.srcElement.body.scrollTop >= 2000) {
+      if (event.srcElement.body.scrollTop >= 2800) {
         this.setState({ checked: true });
       }
     });
