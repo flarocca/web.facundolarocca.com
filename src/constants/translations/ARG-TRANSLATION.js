@@ -47,19 +47,53 @@ export default {
     ),
     PROFESSIONAL: 'PROFESIONAL',
     PERSONAL: 'PERSONAL',
-    PROF_DESC: (
+    WEB_DOT_COM: (
         <span>
-            Actualmente trabajo como Engineer III Fullstack .NET en Web.com, <br />
+            Actualmente trabajo como Engineer III Fullstack .NET en Web.com,
             una compañía con fuerte posición en el mercado norteamericano de eCommerce. <br />
-            Realizo mantenimiento y nuevos desarrollos tanto back-end como front-end <br />
-            del portal de ticketing de la compañía. <br />
+            Realizo mantenimiento y nuevos desarrollos tanto back-end como front-end
+            del portal de ticketing de la compañía.
         </span>
     ),
-    PER_DESC: (
+    MYSELF: (
         <span>
             Desarrollo de aplicaciones web y móviles con <em>NodeJS</em>, <em>ReactJS</em> y <em>ReactNative</em> <br />
             y bases de datos no relacionales como <em>ElasticSearch</em> y <em>MongoDB</em>
         </span>
     ),
-    FIELD_REQUIRED_MSG: 'Este campo es obligatorio.'
+    ISBAN: (
+        <span>
+            Gestión y desarrollo de diferentes proyectos de software, incluyendo
+            captura de requrimientos, análisis y diseño. Relecamiento y análisis de las
+            necesidades del cliente tanto para clientes internos como para clientes finales.<br />
+            Desarrollo y diseño de servicios web.
+        </span>
+    ),
+    ANDREANI: (
+        <span>
+            Relevamiento y desarrollo de requerimientos para los sistemas Internos.
+            Desarrollo e implementación de metodologías TDD y XP, así como también
+            gestión y desarrollo con Scrum.<br />
+            Líder técnico del equipo encargado del soporte al equipo de desarrollo y QA,
+            del diseño y arquitectura de los servicios web destinados a eCommerce.<br />
+            Capacitación a pasantes.
+        </span>
+    ),
+    OPEN_SOLUTIONS: (
+        <span>
+            Relevamiento y desarrollo de requerimientos de los distintos clientes y sus
+            respectivos sistemas.
+            Diseño y arquitectura de los distintos sistemas y servicios brindados por
+            la compañia. Capacitación a pasantes.
+        </span>
+    ),
+    FIELD_REQUIRED_MSG: 'Este campo es obligatorio.',
+    JAN: 'Ene',
+    FEB: 'Feb',
+    SEP: 'Sep',
+    OCT: 'Oct',
+    NOV: 'Nov',
+    PRESENT: 'Presente',
+    SKILLS: 'HABILIDADES',
+    OTHER_SKILLS: 'OTRAS HABILIDADES'
 }

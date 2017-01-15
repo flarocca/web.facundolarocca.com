@@ -468,7 +468,7 @@ err-lbl {
   transition: right 500ms ease-in;
 
   position: relative;
-  right: 0%;
+  right: -40.5%;
 }
 
 #Contact-title {
@@ -586,4 +586,9 @@ err-lbl {
   position: relative;
   font-size: medium;
   right: 15px;
+}
+
+.skill {
+  margin-right: 5px;
+  margin-bottom: 5px;
 }

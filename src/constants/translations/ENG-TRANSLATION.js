@@ -47,19 +47,55 @@ export default {
     ),
     PROFESSIONAL: 'PROFESSIONAL',
     PERSONAL: 'PERSONAL',
-    PROF_DESC: (
+    WEB_DOT_COM: (
         <span>
-            I Actually work as Fullstack .NET Engineer III for Web.com, <br />
+            I Actually work as Fullstack .NET Engineer III for Web.com,
             a company with a strong position in the North American eCommerce market. <br />
-            Maintenance and new software requirements both back-end and front-end <br />
-            of the ticketing web portal of the company. <br />
+            Maintenance and new software requirements both back-end and front-end
+            of the ticketing web portal of the company.
         </span>
     ),
-    PER_DESC: (
+    MYSELF: (
         <span>
-            Web and mobile applications development using <em>NodeJS</em>, <em>ReactJS</em>, <em>ReactNative</em> <br />
-            and non-relational databases such as <em>ElasticSearch</em> and <em>MongoDB</em>
+            Desarrollo de aplicaciones web y móviles con <em>NodeJS</em>, <em>ReactJS</em> y <em>ReactNative</em> <br />
+            y bases de datos no relacionales como <em>ElasticSearch</em> y <em>MongoDB</em>
         </span>
     ),
-    FIELD_REQUIRED_MSG: 'This field is required..'
+    ISBAN: (
+        <span>
+            Process Management over the development of different projects, 
+            analysis and solutions design also including internal systems maintenance, 
+            Project management over “Software Factory Mode”.
+            Functional Analysis over customer needs
+            Functional Analysis Requirements over internal and external customers
+            Requirements development for internal Enterprise systems
+            Services Design and development.
+        </span>
+    ),
+    ANDREANI: (
+        <span>
+            Requirements development for internal Enterprise systems
+            Development and implementation of TDD and XP methodology
+            Scrum software development and management methodology
+            Technical Lead. Programming code QA. Support on development team and functional team. Web Services Design and development.   
+            Architecture and Design     
+        </span>
+    ),
+    OPEN_SOLUTIONS: (
+        <span>
+            Functional Analysis over customer needs
+            Functional Analysis Requirements over internal and external customers
+            Analysis, Design and Architecture of solutions over the systems supported by the company
+            Learning training over new resources.
+        </span>
+    ),
+    FIELD_REQUIRED_MSG: 'This field is required...',
+    JAN: 'Jan',
+    FEB: 'Feb', 
+    SEP: 'Sep',
+    OCT: 'Oct',
+    NOV: 'Nov',
+    PRESENT: 'Present',
+    SKILLS: 'SKILLS',
+    OTHER_SKILLS: 'OTHER SKILLS'
 } 
