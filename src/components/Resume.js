@@ -138,11 +138,11 @@ export default class Resume extends Component {
     var renderedPoints = [];
 
     for (let i = 0; i < points; i++) {
-      renderedPoints.push(<div className="dot-skill" style={{ backgroundColor: color }} />);
+      renderedPoints.push(<div key={i} className="dot-skill" style={{ backgroundColor: color }} />);
     }
 
-    for (let i = 0; i < (10 - points); i++) {
-      renderedPoints.push(<div className="dot-skill" style={{ backgroundColor: "#B4B2B2" }} />);
+    for (let i = points; i < 10; i++) {
+      renderedPoints.push(<div key={i} className="dot-skill" style={{ backgroundColor: "#B4B2B2" }} />);
     }
 
     return (

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import AppActions from '../actions/AppActions';
-import Setting from '../images/svg/Setting';
 
 export default class LanguageSelector extends Component {
   constructor(props) {
