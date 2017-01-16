@@ -61,8 +61,7 @@ export default class Resume extends Component {
         <hr />
         <div className="Container row jc-center">
           <div className="Container column jc-start column-item-x2" id="professional" style={{ color: this.state.theme.COLOR_3 }}>
-            <div className="Container row">
-              <div style={{ backgroundColor: "#B4B2B2", display: "inline-block", width: "10px", marginTop: "26px", marginBottom: "18px", marginRight: "30px" }}></div>
+            <div className="Container row" style={{ borderLeft: "solid 2px #B4B2B2", paddingLeft: "30px" }}>
               <div style={{ textAlign: "left" }}>
                 <h2 style={{ color: this.state.theme.COLOR_3 }}>{this.state.languageSet.PROFESSIONAL}</h2>
                 {this._renderWebDotComExp()}
@@ -73,8 +72,7 @@ export default class Resume extends Component {
             </div>
           </div>
           <div className="Container column jc-start column-item-x2" id="personal" style={{ color: this.state.theme.COLOR_3 }}>
-            <div className="Container row">
-              <div style={{ backgroundColor: "#B4B2B2", display: "block", width: "3px", marginTop: "26px", marginBottom: "0px", marginRight: "30px" }}></div>
+            <div className="Container row" style={{ borderLeft: "solid 2px #B4B2B2", paddingLeft: "30px" }}>
               <div style={{ textAlign: "left" }}>
                 <h2 style={{ color: this.state.theme.COLOR_3 }}>{this.state.languageSet.SKILLS}</h2>
                 <div className="Container column">
@@ -89,8 +87,7 @@ export default class Resume extends Component {
               </div>
             </div>
 
-            <div className="Container row">
-              <div style={{ backgroundColor: "#B4B2B2", display: "block", width: "6px", marginTop: "26px", marginBottom: "0px", marginRight: "30px" }}></div>
+            <div className="Container row" style={{ borderLeft: "solid 2px #B4B2B2", paddingLeft: "30px" }}>
               <div style={{ textAlign: "left" }}>
                 <h3 style={{ color: this.state.theme.COLOR_3 }}>{this.state.languageSet.OTHER_SKILLS}</h3>
                 <div className="Container row" style={{ marginLeft: "15px", flexWrap: "wrap" }}>

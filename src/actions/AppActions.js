@@ -1,5 +1,6 @@
 import AppConstants from '../constants/AppConstants';
 import Dispatcher from '../dispatcher/Dispatcher';
+import Mailer from '../services/Mailer';
 
 var AppActions = {
   initializeApp: function () {
@@ -14,17 +15,40 @@ var AppActions = {
       data: language
     });
   },
-  menuSelected(menu){
+  menuSelected(menu) {
     Dispatcher.handleViewAction({
       actionType: AppConstants.MENU_SELECTED,
       data: menu
     });
   },
-  themeSelected(themeName){
+  themeSelected(themeName) {
     Dispatcher.handleViewAction({
       actionType: AppConstants.THEME_SELECTED,
       data: themeName
     });
+  },
+  sendMail(firstName, lastName, message, email) {
+    Dispatcher.handleViewAction({
+      actionType: AppConstants.SENDING_MAIL
+    });
+
+    Mailer.sendMail(firstName, lastName, message, email)
+      .then((resp) => {
+        Dispatcher.handleViewAction({
+          actionType: AppConstants.MAIL_SENDED
+        });
+      }, (cause) => {
+        Dispatcher.handleViewAction({
+          actionType: AppConstants.ERROR_SENDING_MAIL,
+          data: cause
+        });
+      })
+      .catch((error) => {
+        Dispatcher.handleViewAction({
+          actionType: AppConstants.ERROR_SENDING_MAIL,
+          data: error
+        });
+      });
   }
 }
 module.exports = AppActions;
