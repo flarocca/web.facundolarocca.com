@@ -32,23 +32,14 @@ var AppActions = {
       actionType: AppConstants.SENDING_MAIL
     });
 
-    Mailer.sendMail(firstName, lastName, message, email)
-      .then((resp) => {
-        Dispatcher.handleViewAction({
-          actionType: AppConstants.MAIL_SENDED
-        });
-      }, (cause) => {
-        Dispatcher.handleViewAction({
-          actionType: AppConstants.ERROR_SENDING_MAIL,
-          data: cause
-        });
-      })
-      .catch((error) => {
-        Dispatcher.handleViewAction({
-          actionType: AppConstants.ERROR_SENDING_MAIL,
-          data: error
-        });
-      });
+    Dispatcher.handleViewAction({
+      actionType: AppConstants.MAIL_SENDED
+    });
+
+    Dispatcher.handleViewAction({
+      actionType: AppConstants.ERROR_SENDING_MAIL,
+      data: cause
+    });
   }
 }
 module.exports = AppActions;
