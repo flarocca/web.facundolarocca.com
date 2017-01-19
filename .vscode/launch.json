@@ -16,6 +16,13 @@
             "request": "attach",
             "name": "Attach to Process",
             "port": 5858
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug",
+            "program": "${workspaceRoot}\\server.js",
+            "cwd": "${workspaceRoot}"
         }
     ]
 }
