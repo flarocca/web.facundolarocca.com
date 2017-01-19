@@ -14,6 +14,7 @@ export default {
     MAIL: 'EMail',
     MESSAGE: 'Message',
     SEND: 'Send',
+    SENDING: 'Sending...',
     MESSAGE_SENT: 'Message has been sent.',
     MESSAGE_ERROR: '* You must complete all fields.',
     VIEW_MORE: 'View more',

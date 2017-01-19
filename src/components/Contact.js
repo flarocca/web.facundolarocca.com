@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 import AppStore from '../stores/AppStore';
+import AppActions from '../actions/AppActions';
 import { Element, scroller } from 'react-scroll';
 
 export default class Contact extends Component {
   constructor(props) {
     super(props);
 
-    this._onAppSessionChange = this._onAppSessionChange.bind(this);
+    this._onAppStoreChange = this._onAppStoreChange.bind(this);
     this._onClick = this._onClick.bind(this);
     this._firstNameChange = this._firstNameChange.bind(this);
     this._lastNameChange = this._lastNameChange.bind(this);
     this._emailChange = this._emailChange.bind(this);
     this._messageChange = this._messageChange.bind(this);
     this._renderRequiredFieldMsg = this._renderRequiredFieldMsg.bind(this);
+    this._renderSendButton = this._renderSendButton.bind(this);
+    this._renderSendMessage = this._renderSendMessage.bind(this);
     this.state = {
       firstNameErrorMsg: '',
       lastNameErrorMsg: '',
@@ -24,18 +27,27 @@ export default class Contact extends Component {
       lastName: '',
       email: '',
       message: '',
-      checked: false
+      checked: false,
+      isSendingMail: false,
+      errorSendingMail: '',
+      mailSent: false
     }
   }
 
   componentDidMount() {
-    AppStore.addChangeListener(this._onAppSessionChange);
+    AppStore.addChangeListener(this._onAppStoreChange);
 
     window.addEventListener('scroll', () => {
       if (event.srcElement.body.scrollTop >= 2800) {
         this.setState({ checked: true });
       }
     });
+  }
+
+  componentWillUnmount() {
+    AppStore.removeChangeListener(this._onAppStoreChange);
+
+    window.removeEventListener('scroll');
   }
 
   _onClick() {
@@ -45,16 +57,7 @@ export default class Contact extends Component {
     this.setState({ messageNameErrorMsg: !this.state.message ? this.state.languageSet.FIELD_REQUIRED_MSG : '' });
 
     if (this.state.firstName && this.state.lastName && this.state.email && this.state.message) {
-      this.setState({
-        firstNameErrorMsg: '',
-        lastNameErrorMsg: '',
-        emailNameErrorMsg: '',
-        messageNameErrorMsg: '',
-        firstName: '',
-        lastName: '',
-        email: '',
-        message: ''
-      });
+      AppActions.sendMail(this.state.firstName, this.state.lastName, this.state.message, this.state.email);
     }
   }
 
@@ -74,10 +77,25 @@ export default class Contact extends Component {
     this.setState({ message: e.target.value });
   }
 
-  _onAppSessionChange() {
+  _onAppStoreChange() {
     this.setState({
       languageSet: AppStore.getLanguageSet(),
-      theme: AppStore.getThemeSelected()
+      theme: AppStore.getThemeSelected(),
+      isSendingMail: AppStore.isSendingMail(),
+      errorSendingMail: AppStore.getErrorSendingMail(),
+      mailSent: AppStore.mailSent()
+    }, () => {
+      if (!this.state.isSendingMail && !this.state.errorSendingMail)
+        this.setState({
+          firstNameErrorMsg: '',
+          lastNameErrorMsg: '',
+          emailNameErrorMsg: '',
+          messageNameErrorMsg: '',
+          firstName: '',
+          lastName: '',
+          email: '',
+          message: ''
+        });
     });
 
     var menu = AppStore.getMenuSelected();
@@ -95,6 +113,29 @@ export default class Contact extends Component {
     return (
       <em className="err-lbl">{field ? '' : message}</em>
     );
+  }
+
+  _renderSendButton() {
+    if (this.state.isSendingMail)
+      return (
+        <button onClick={this._onClick} type='button' className="jc-center button" style={{ color: "white", marginTop: "5%", width: "40%", backgroundColor: this.state.theme.COLOR_4 }}>
+          <i className="fa fa-spinner fa-pulse fa-1x fa-fw" style={{ marginRight: "3px" }}></i>
+          <span>{this.state.languageSet.SENDING}</span>
+        </button>
+      );
+
+    return (
+      <button onClick={this._onClick} type='button' className="jc-center button" style={{ marginTop: "5%", width: "40%", backgroundColor: this.state.theme.COLOR_4 }}><b style={{ color: "white" }}>{this.state.languageSet.SEND}</b></button>
+    );
+  }
+
+  _renderSendMessage() {
+    if (this.state.mailSent)
+      return (
+        <div style={{ alignSelf: "flex-start" }}>{this.state.languageSet.MESSAGE_SENT}</div>
+      );
+
+    return null;
   }
 
   render() {
@@ -126,12 +167,12 @@ export default class Contact extends Component {
           <div className="Container column jc-left" style={{ paddingLeft: "5%", width: "55%" }}>
             <b style={{ alignSelf: "flex-start", color: this.state.theme.COLOR_4 }}>{this.state.languageSet.SEND_ME_A_MESSAGE}</b>
             <div className="Container column">
-              <div className="Container row" style={{width:"100%"}}>
-                <div className="Container column" style={{width:"50%"}}>
+              <div className="Container row" style={{ width: "100%" }}>
+                <div className="Container column" style={{ width: "50%" }}>
                   <input className="input" style={{ marginRight: "1.5%", backgroundColor: this.state.theme.TEXTBOX_COLOR, color: this.state.theme.FONT_COLOR }} value={this.state.firstName} onChange={this._firstNameChange} id="first-name" type="text" placeholder={this.state.languageSet.FIRST_NAME} />
                   {this._renderRequiredFieldMsg(this.state.firstName, this.state.firstNameErrorMsg)}
                 </div>
-                <div className="Container column" style={{width:"50%"}}>
+                <div className="Container column" style={{ width: "50%" }}>
                   <input className="input" style={{ marginLeft: "1.5%", backgroundColor: this.state.theme.TEXTBOX_COLOR, color: this.state.theme.FONT_COLOR }} value={this.state.lastName} onChange={this._lastNameChange} id="last-name" type="text" placeholder={this.state.languageSet.LAST_NAME} />
                   {this._renderRequiredFieldMsg(this.state.lastName, this.state.lastNameErrorMsg)}
                 </div>
@@ -140,8 +181,9 @@ export default class Contact extends Component {
               {this._renderRequiredFieldMsg(this.state.email, this.state.emailNameErrorMsg)}
               <textarea className="input" style={{ backgroundColor: this.state.theme.TEXTBOX_COLOR, color: this.state.theme.FONT_COLOR, height: "120px" }} value={this.state.message} onChange={this._messageChange} id="message" rows="5" placeholder={this.state.languageSet.MESSAGE} />
               {this._renderRequiredFieldMsg(this.state.message, this.state.messageNameErrorMsg)}
-              <div className="Container jc-right">
-                <button onClick={this._onClick} type='button' className="jc-center button" style={{ marginTop: "5%", width: "40%", backgroundColor: this.state.theme.COLOR_4 }}><b style={{ color: "white" }}>{this.state.languageSet.SEND}</b></button>
+              <div className="Container row jc-right">
+                {this._renderSendMessage()}
+                {this._renderSendButton()}
               </div>
             </div>
           </div>

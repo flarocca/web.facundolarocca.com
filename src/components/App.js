@@ -31,6 +31,10 @@ export default class App extends Component {
     AppActions.initializeApp();
   }
 
+  componentWillUnmount() {
+    AppStore.removeChangeListener(this._onAppSessionChange);
+  }
+
   _onAppSessionChange() {
     this.setState({
       languageSet: AppStore.getLanguageSet(),

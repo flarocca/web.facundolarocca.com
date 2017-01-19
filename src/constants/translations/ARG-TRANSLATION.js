@@ -14,6 +14,7 @@ export default {
     MAIL: 'Correo electrónico',
     MESSAGE: 'Mensaje',
     SEND: 'Enviar',
+    SENDING: 'Enviando...',
     MESSAGE_SENT: 'El mensaje ha sido enviado.',
     VIEW_MORE: 'Ver más',
     MY_DESCRIPTION: (
