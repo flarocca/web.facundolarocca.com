@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import AppActions from '../actions/AppActions';
 import AppStore from '../stores/AppStore';
-import ImageProvider from '../services/ImageProvider';
-import profilePic from '../images/profile-pic.jpg';
 import '../css/App.css';
 
 export default class AppHeader extends Component {
   constructor(props) {
     super(props);
 
-    this._imageProvider = new ImageProvider();
     this._onAppSessionChange = this._onAppSessionChange.bind(this);
     this._onClick = this._onClick.bind(this);
     this._fixHeader = this._fixHeader.bind(this);
@@ -51,9 +48,7 @@ export default class AppHeader extends Component {
     return (
       <div id="header">
         <div className="pre-hdr row" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
-          <div className="profile-pic">
-            <img src={profilePic} height="180" width="180" alt="Profile" style={{ borderRadius: "90px" }} />
-          </div>
+          <div className="profile-pic" />
           <div className="tagline column jc-left" style={{ textAlign: "left" }}>
             <h1 style={{ fontSize: "60px" }}>Facundo La Rocca</h1>
             <span style={{ fontSize: "25px", fontFamily: "'Open Sans', Helvetica, sans-serif" }}>

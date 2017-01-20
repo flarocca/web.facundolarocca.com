@@ -4,14 +4,13 @@ import GitHub from '../images/svg/GitHub';
 import LinkedIn from '../images/svg/LinkedIn';
 import StackOverflow from '../images/svg/StackOverflow'
 import ImageSources from '../constants/ImageSources';
-import ImageProvider from '../services/ImageProvider';
+import REACT from '../images/react-logo.svg';
 import AppStore from '../stores/AppStore';
 
 export default class AppFooter extends Component {
   constructor(props) {
     super(props);
 
-    this._imageProvider = new ImageProvider();
     this._onAppSessionChange = this._onAppSessionChange.bind(this);
     this.state = {
       languageSet: this.props.languageSet,
@@ -37,7 +36,7 @@ export default class AppFooter extends Component {
           <p className="text" style={{ marginLeft: "5%", fontSize: "small", color: "white" }}>
             Copyright &copy; 2017 Facundo La Rocca. All right reserved.
             Made with <i><a href={ImageSources.REACT} className="text" style={{ fontSize: "small", color: "white" }}>ReactJS.</a></i>
-            <a href={ImageSources.REACT}><img src={this._imageProvider.getImage('REC')} className="logo" alt="ReactJs" style={{ height: "20px" }} /></a>
+            <a href={ImageSources.REACT}><img src={REACT} className="logo" alt="ReactJs" style={{ height: "20px" }} /></a>
           </p>
         </div>
         <div className="Container row" style={{ marginRight: "2%" }}>

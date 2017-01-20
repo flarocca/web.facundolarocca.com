@@ -155,8 +155,16 @@
 }
 
 .profile-pic {
+  width: 180px;
+  height: 180px;
+  border-radius: 100%;
   display: block;
   margin-left: 10%;
+  background-clip: content-box;
+  background-size: 180px 180px;
+  background-repeat: no-repeat;
+  background-image: url('../images/profile-pic.png');
+  background-position: center;
 }
 
 .tagline {

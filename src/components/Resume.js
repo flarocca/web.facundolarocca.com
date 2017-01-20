@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import AppStore from '../stores/AppStore';
 import { Element, scroller } from 'react-scroll';
-import ImageProvider from '../services/ImageProvider';
 
 export default class Resume extends Component {
   constructor(props) {
     super(props);
 
-    this._imageProvider = new ImageProvider();
     this._onAppSessionChange = this._onAppSessionChange.bind(this);
     this._renderWebDotComExp = this._renderWebDotComExp.bind(this);
     this._renderIsbanExp = this._renderIsbanExp.bind(this);

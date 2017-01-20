@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import AppStore from '../stores/AppStore';
-import ImageProvider from '../services/ImageProvider';
 import { Element, scroller } from 'react-scroll';
 
 export default class WhoIAm extends Component {
@@ -8,7 +7,6 @@ export default class WhoIAm extends Component {
     super(props);
 
     this._onAppSessionChange = this._onAppSessionChange.bind(this);
-    this._imageProvider = new ImageProvider();
     this.state = {
       languageSet: this.props.languageSet,
       theme: this.props.theme,

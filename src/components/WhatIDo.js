@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import AppStore from '../stores/AppStore';
-import ImageProvider from '../services/ImageProvider';
 import { Element, scroller } from 'react-scroll';
 import Cloud from '../images/svg/Cloud';
 import Mobile from '../images/svg/Mobile';
@@ -10,7 +9,6 @@ export default class WhatIDo extends Component {
     super(props);
 
     this._onAppSessionChange = this._onAppSessionChange.bind(this);
-    this._imageProvider = new ImageProvider();
     this.state = {
       languageSet: this.props.languageSet,
       theme: this.props.theme,
