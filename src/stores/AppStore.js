@@ -85,6 +85,13 @@ AppStore.dispatchToken = AppDispatcher.register(function (action) {
       AppStore.emitChange();
       break;
 
+    case AppConstants.ERROR_SENDING_MAIL:
+      _isSendingMail = false;
+      _errorSendingMail = action.error;
+      _mailSent = false;
+      AppStore.emitChange();
+      break;
+
     default:
       AppStore.emitChange();
       break;

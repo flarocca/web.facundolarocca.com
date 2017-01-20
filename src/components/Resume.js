@@ -52,7 +52,7 @@ export default class Resume extends Component {
     return (
       <div id="resume" className="Container column" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
         <Element name="RESUME" />
-        <span style={{ fontSize: "40px", color: this.state.theme.COLOR_3 }}>
+        <span style={{ textAlign: "left", fontSize: "40px", color: this.state.theme.COLOR_3 }}>
           <input type="checkbox" id="Resume-chk" style={{ display: "none" }} checked={this.state.checked} />
           <b id="Resume-title">{this.state.languageSet.RESUME}</b>
         </span>

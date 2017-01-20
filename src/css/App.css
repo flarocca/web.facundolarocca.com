@@ -437,7 +437,7 @@ err-lbl {
   transition: all 200ms ease-in;
 }
 
-#WhoIAm-title {
+/*#WhoIAm-title {
   display: inline-block;
   -webkit-transition: color 200ms ease-in;
   -moz-transition: color 200ms ease-in;
@@ -449,9 +449,9 @@ err-lbl {
 
   position: relative;
   right: -38%;
-}
+}*/
 
-#WhatIDo-title {
+/*#WhatIDo-title {
   display: inline-block;
   -webkit-transition: color 200ms ease-in;
   -moz-transition: color 200ms ease-in;
@@ -463,9 +463,12 @@ err-lbl {
 
   position: relative;
   right: -37%;
-}
+}*/
 
-#Resume-title {
+#Resume-title,
+#Contact-title,
+#WhatIDo-title,
+#WhoIAm-title {
   display: inline-block;
   -webkit-transition: color 200ms ease-in;
   -moz-transition: color 200ms ease-in;
@@ -475,11 +478,15 @@ err-lbl {
   -moz-transition: right 500ms ease-in;
   transition: right 500ms ease-in;
 
+  /*position: relative;
+  right: -40.5%;*/
   position: relative;
-  right: -40.5%;
+  right: -100%;
+  transform: translateX(-100%);
+  transition: right 1s, transform 1s;
 }
 
-#Contact-title {
+/*#Contact-title {
   display: inline-block;
   -webkit-transition: color 200ms ease-in;
   -moz-transition: color 200ms ease-in;
@@ -491,23 +498,27 @@ err-lbl {
 
   position: relative;
   right: -39%;
-}
+}*/
 
-#WhoIAm-chk:checked ~ #WhoIAm-title {
+/*#WhoIAm-chk:checked ~ #WhoIAm-title {
   right: 38%;
 }
 
 #WhatIDo-chk:checked ~ #WhatIDo-title {
   right: 37%;
-}
+}*/
 
-#Resume-chk:checked ~ #Resume-title {
-  right: 40.5%;
-}
-
+#Resume-chk:checked ~ #Resume-title,
+#WhatIDo-chk:checked ~ #WhatIDo-title,
+#WhoIAm-chk:checked ~ #WhoIAm-title,
 #Contact-chk:checked ~ #Contact-title {
-  right: 39%;
+  right: 0%;
+  transform: translateX(0%);
 }
+
+/*#Contact-chk:checked ~ #Contact-title {
+  right: 39%;
+}*/
 
 #lanItem {
   border: 2px white solid; 

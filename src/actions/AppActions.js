@@ -1,5 +1,6 @@
 import AppConstants from '../constants/AppConstants';
 import Dispatcher from '../dispatcher/Dispatcher';
+import Mailer from '../services/Mailer';
 
 var AppActions = {
   initializeApp: function () {
@@ -31,16 +32,24 @@ var AppActions = {
       actionType: AppConstants.SENDING_MAIL
     });
 
-    setTimeout(() => {
-      Dispatcher.handleViewAction({
-        actionType: AppConstants.MAIL_SENDED
+    let mail = {
+      "firstName": firstName,
+      "lastName": lastName,
+      "message": message,
+      "email": email
+    };
+
+    Mailer.send(mail)
+      .then(() => {
+        Dispatcher.handleViewAction({
+          actionType: AppConstants.MAIL_SENDED
+        });
+      }, (cause) => {
+        Dispatcher.handleViewAction({
+          actionType: AppConstants.ERROR_SENDING_MAIL,
+          error: cause.message
+        });
       });
-    }, 5000);
-
-
-    // Dispatcher.handleViewAction({
-    //   actionType: AppConstants.ERROR_SENDING_MAIL
-    // });
   }
 }
 module.exports = AppActions;

@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "web.facundolarocca.com",
-            "program": "${workspaceRoot}\\src\\index.js",
+            "program": "${workspaceRoot}\\server.js",
             "cwd": "${workspaceRoot}"
         },
         {
@@ -16,13 +16,6 @@
             "request": "attach",
             "name": "Attach to Process",
             "port": 5858
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Debug",
-            "program": "${workspaceRoot}\\server.js",
-            "cwd": "${workspaceRoot}"
         }
     ]
 }

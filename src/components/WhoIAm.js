@@ -45,7 +45,7 @@ export default class WhoIAm extends Component {
     return (
       <div id="whoiam" className="Container column" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
         <Element name="WHO_I_AM" />
-        <span style={{ fontSize: "40px", color: this.state.theme.COLOR_1 }}>
+        <span style={{ textAlign: "left", fontSize: "40px", color: this.state.theme.COLOR_1 }}>
           <input type="checkbox" id="WhoIAm-chk" style={{ display: "none" }} checked={this.state.checked} />
           <b id="WhoIAm-title">{this.state.languageSet.WHO_I_AM}</b>
         </span>
