@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default {
+    PHRASE: 'Trabaja duro, siempre listo para el desafío',
     DEVELOPER: 'Desarrollador',
     WHO_I_AM: 'QUIÉN SOY',
     WHAT_I_DO: 'QUÉ HAGO',

@@ -20,7 +20,6 @@ export default class Mailer {
                     then((error) => {
                         return Promise.reject(error);
                     });
-
             });
     }
 }

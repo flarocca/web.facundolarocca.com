@@ -8,15 +8,13 @@ import LIGHT_RED_THEME from '../constants/themes/LIGHT_RED_THEME';
 import DARK_GREEN_THEME from '../constants/themes/DARK_GREEN_THEME';
 import DARK_RED_THEME from '../constants/themes/DARK_RED_THEME';
 import COLORFUL_THEME from '../constants/themes/COLORFUL_THEME';
-import DARK_YELLOW_THEME from '../constants/themes/DARK_YELLOW_THEME';
-import LIGHT_YELLOW_THEME from '../constants/themes/LIGHT_YELLOW_THEME';
 import LIGHT_PURPLE_THEME from '../constants/themes/LIGHT_PURPLE_THEME';
 
 export default class ThemeSelector extends Component {
   constructor(props) {
     super(props);
 
-    this._themes = [LIGHT_RED_THEME, LIGHT_YELLOW_THEME, LIGHT_PURPLE_THEME, DARK_RED_THEME, DARK_YELLOW_THEME, DARK_GREEN_THEME];
+    this._themes = [LIGHT_RED_THEME, LIGHT_PURPLE_THEME, DARK_RED_THEME, DARK_GREEN_THEME];
 
     this._renderMainThemes = this._renderMainThemes.bind(this);
     this._renderThemes = this._renderThemes.bind(this);

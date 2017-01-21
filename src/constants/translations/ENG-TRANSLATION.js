@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default {
+    PHRASE: 'Work hard, be ready for the challenge',
     DEVELOPER: 'Developer',
     WHO_I_AM: 'WHO I AM',
     WHAT_I_DO: 'WHAT I DO',
@@ -36,8 +37,8 @@ export default {
     WEB_APPS_DESC: (
         <span>
             Development of dynamic and versatile <br />
-            web solutions to generate value <br />
-            to your business needs
+            web solutions to generate the value <br />
+            your business needs
         </span>
     ),
     MOBILE_APPS_DESC: (

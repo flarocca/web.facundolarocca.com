@@ -2,32 +2,35 @@ import AppConstants from '../constants/AppConstants';
 import Dispatcher from '../dispatcher/Dispatcher';
 import Mailer from '../services/Mailer';
 
-var AppActions = {
-  initializeApp: function () {
-
+class AppActions {
+  static initializeApp() {
     Dispatcher.handleViewAction({
       actionType: AppConstants.INIT_APP,
     });
-  },
-  languageChanged(language) {
+  }
+
+  static languageChanged(language) {
     Dispatcher.handleViewAction({
       actionType: AppConstants.LANGUAGE_CHANGED,
       data: language
     });
-  },
-  menuSelected(menu) {
+  }
+
+  static menuSelected(menu) {
     Dispatcher.handleViewAction({
       actionType: AppConstants.MENU_SELECTED,
       data: menu
     });
-  },
-  themeSelected(themeName) {
+  }
+
+  static themeSelected(themeName) {
     Dispatcher.handleViewAction({
       actionType: AppConstants.THEME_SELECTED,
       data: themeName
     });
-  },
-  sendMail(firstName, lastName, message, email) {
+  }
+
+  static sendMail(firstName, lastName, message, email) {
     Dispatcher.handleViewAction({
       actionType: AppConstants.SENDING_MAIL
     });

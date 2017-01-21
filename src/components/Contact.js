@@ -118,21 +118,21 @@ export default class Contact extends Component {
   _renderSendButton() {
     if (this.state.isSendingMail)
       return (
-        <button onClick={this._onClick} type='button' className="jc-center button" style={{ color: "white", marginTop: "5%", width: "40%", backgroundColor: this.state.theme.COLOR_4 }}>
+        <button onClick={this._onClick} type='button' className="jc-center button" style={{ alignSelf: "flex-end", color: "white", width: "40%", backgroundColor: this.state.theme.COLOR_4 }}>
           <i className="fa fa-spinner fa-pulse fa-1x fa-fw" style={{ marginRight: "3px" }}></i>
           <span>{this.state.languageSet.SENDING}</span>
         </button>
       );
 
     return (
-      <button onClick={this._onClick} type='button' className="jc-center button" style={{ marginTop: "5%", width: "40%", backgroundColor: this.state.theme.COLOR_4 }}><b style={{ color: "white" }}>{this.state.languageSet.SEND}</b></button>
+      <button onClick={this._onClick} type='button' className="jc-center button" style={{ alignSelf: "flex-end", width: "40%", backgroundColor: this.state.theme.COLOR_4 }}><b style={{ color: "white" }}>{this.state.languageSet.SEND}</b></button>
     );
   }
 
   _renderSendMessage() {
     if (this.state.mailSent)
       return (
-        <div style={{ alignSelf: "flex-start" }}>{this.state.languageSet.MESSAGE_SENT}</div>
+        <div className="column" style={{ flex: "1" }}><em>{this.state.languageSet.MESSAGE_SENT}</em></div>
       );
 
     return null;
@@ -181,7 +181,7 @@ export default class Contact extends Component {
               {this._renderRequiredFieldMsg(this.state.email, this.state.emailNameErrorMsg)}
               <textarea className="input" style={{ backgroundColor: this.state.theme.TEXTBOX_COLOR, color: this.state.theme.FONT_COLOR, height: "120px" }} value={this.state.message} onChange={this._messageChange} id="message" rows="5" placeholder={this.state.languageSet.MESSAGE} />
               {this._renderRequiredFieldMsg(this.state.message, this.state.messageNameErrorMsg)}
-              <div className="Container row jc-right">
+              <div className="Container row jc-right" style={{ marginTop: "5%", textAlign: "left" }}>
                 {this._renderSendMessage()}
                 {this._renderSendButton()}
               </div>
