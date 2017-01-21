@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "web.facundolarocca.com",
-            "program": "${workspaceRoot}\\src\\index.js",
+            "program": "${workspaceRoot}\\server.js",
             "cwd": "${workspaceRoot}"
         },
         {

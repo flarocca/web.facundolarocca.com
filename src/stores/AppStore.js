@@ -3,14 +3,19 @@ import assign from 'object-assign';
 import AppConstants from '../constants/AppConstants';
 import AppDispatcher from '../dispatcher/Dispatcher';
 import TranslationProvider from '../services/TranslationProvider';
+import ThemeManager from '../services/ThemeManager';
 
-var _translationProvider = new TranslationProvider();
+let _translationProvider = new TranslationProvider();
 
-var CHANGE_EVENT = 'change';
-var _languageSet = null;
-var _menuSelected = null;
+let CHANGE_EVENT = 'change';
+let _languageSet = null;
+let _menuSelected = null;
+let _themeSelected = null;
+let _isSendingMail = false;
+let _errorSendingMail = null;
+let _mailSent = false;
 
-var AppStore = assign({}, EventEmitter.prototype, {
+let AppStore = assign({}, EventEmitter.prototype, {
   emitChange: function () {
     this.emit(CHANGE_EVENT);
   },
@@ -28,6 +33,18 @@ var AppStore = assign({}, EventEmitter.prototype, {
   },
   getMenuSelected() {
     return _menuSelected;
+  },
+  getThemeSelected() {
+    return ThemeManager.getTheme(_themeSelected);
+  },
+  isSendingMail() {
+    return _isSendingMail;
+  },
+  getErrorSendingMail() {
+    return _errorSendingMail;
+  },
+  mailSent(){
+    return _mailSent;
   }
 });
 
@@ -48,6 +65,33 @@ AppStore.dispatchToken = AppDispatcher.register(function (action) {
       _menuSelected = action.data;
       AppStore.emitChange();
       break;
+
+    case AppConstants.THEME_SELECTED:
+      _themeSelected = action.data;
+      _menuSelected = null;
+      AppStore.emitChange();
+      break;
+
+    case AppConstants.SENDING_MAIL:
+      _isSendingMail = true;
+      _errorSendingMail = null;
+      AppStore.emitChange();
+      break;
+
+    case AppConstants.MAIL_SENDED:
+      _isSendingMail = false;
+      _errorSendingMail = null;
+      _mailSent = true;
+      AppStore.emitChange();
+      break;
+
+    case AppConstants.ERROR_SENDING_MAIL:
+      _isSendingMail = false;
+      _errorSendingMail = action.error;
+      _mailSent = false;
+      AppStore.emitChange();
+      break;
+
     default:
       AppStore.emitChange();
       break;

@@ -4,10 +4,9 @@ import ENG_TRANSLATION from '../constants/translations/ENG-TRANSLATION';
 export default class TranslationProvider {
     getTranslation(languague) {
         switch (languague) {
-            case 'ARG':
-                return ARG_TRANSLATION;
             case 'ENG':
                 return ENG_TRANSLATION;
+            case 'ARG':
             default:
                 return ARG_TRANSLATION;
         }
