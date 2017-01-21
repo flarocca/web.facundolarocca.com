@@ -135,6 +135,11 @@ export default class Contact extends Component {
         <div className="column" style={{ flex: "1" }}><em>{this.state.languageSet.MESSAGE_SENT}</em></div>
       );
 
+    if (!this.state.mailSent && this.state.errorSendingMail)
+      return (
+        <div className="column" style={{ flex: "1" }}><em>{this.state.errorSendingMail}</em></div>
+      );
+
     return null;
   }
 

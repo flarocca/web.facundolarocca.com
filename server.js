@@ -5,69 +5,41 @@ var Mail = require('./server/Mail');
 var Mailer = require('./server/Mailer');
 var app = express();
 var mailer = new Mailer();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3001;
 
-app.use(express.static(path.join(__dirname, '/build')));
+var getNewMail = (mailBody) => {
+  var body = '<p>';
+  body += 'First name: ' + mailBody.firstName + '.<br/>';
+  body += 'Last name: ' + mailBody.lastName + '.<br/>';
+  body += 'Mail name: ' + mailBody.email + '.<br/>';
+  body += 'Message name: ' + mailBody.message + '.<br/>';
+  body += '</p>';
+
+  return new Mail('facu.gmail@gmail.com', 'facundo_larocca@yahoo.com.ar', body, 'Contact - www.facundolarocca.com.ar');
+};
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-// var getNewMail = function (firstName, lastName, message, email) {
-//   let mailText = "<p>";
-//   mailText += "First name: " + firstName + ".<br/>";
-//   mailText += "Last name: " + lastName + ".<br/>";
-//   mailText += "EMail: " + email + ".<br/>";
-//   mailText += "Message: " + message + ".<br/>";
-//   mailText += "</p>";
-
-
-//   return {
-//     from: "facu.larocca@gmail.com",
-//     to: "facundo_larocca@yahoo.com.ar",
-//     subject: "Contact - www.facundolarocca.com.ar",
-//     html: mailText
-//   };
-// }
-
-// var getMailer = function () {
-//   let mailer = require("nodemailer");
-//   let smtpTransport = require('nodemailer-smtp-transport');
-
-//   let options = {
-//     service: 'gmail',
-//     secure: true,
-//     auth: {
-//       user: 'facu.larocca@gmail.com',
-//       pass: 'Microsoft2016'
-//     }
-//   };
-
-//   return mailer.createTransport(smtpTransport(options));
-// };
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.setHeader('Access-Control-Allow-Methods', 'POST');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+app.use(express.static(path.join(__dirname, '/build')));
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/build/index.html')
 });
 
 app.post('/contactme', (req, res) => {
-  var mail = new Mail(req.body.firstName, req.body.lastName, req.body.message, req.body.email);
+  var mail = getNewMail(req.body);
   mailer.send(mail)
     .then(() => {
       res.status(200).json({ code: 200, message: 'Mail has been sent.' });
     }, (cause) => {
       res.status(400).json({ code: 200, message: 'Mail could not be sent.', error: cause });
     });
-  // let mailer = getMailer();
-  // let mail = getNewMail(req.body.firstName, req.body.lastName, req.body.message, req.body.email);
-
-  // mailer.sendMail(mail, (error, response) => {
-  //   if (error) {
-  //     res.status(500).json({ code: 200, message: 'Mail could not be sent.', error: error });
-  //   } else {
-  //     res.status(200).json({ code: 200, message: 'Mail has been sent.'});
-  //   }
-
-  //   mailer.close();
-  // });
 });
 
 app.listen(PORT, (error) => {

@@ -1,6 +1,6 @@
 import AppConstants from '../constants/AppConstants';
 import Dispatcher from '../dispatcher/Dispatcher';
-import Mailer from '../services/Mailer';
+import ApiService from '../services/ApiService';
 
 class AppActions {
   static initializeApp() {
@@ -42,7 +42,7 @@ class AppActions {
       "email": email
     };
 
-    Mailer.send(mail)
+    ApiService.sendMail(mail)
       .then(() => {
         Dispatcher.handleViewAction({
           actionType: AppConstants.MAIL_SENDED

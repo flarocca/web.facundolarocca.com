@@ -1,6 +1,6 @@
-var Mail = require('../Mail');
+var Mail = require('./Mail');
 
-export default class Mailer {
+class Mailer {
   constructor() {
     this._getNewMail = this._getNewMail.bind(this);
     this._getMailer = this._getMailer.bind(this);
@@ -9,8 +9,9 @@ export default class Mailer {
   send(mail) {
     return new Promise((resolve, reject) => {
       let mailToSend = this._getNewMail(mail);
+      let mailer = this._getMailer();
 
-      this._getMailer().sendMail(mailToSend.toJson(), (error, response) => {
+      mailer.sendMail(mailToSend.toJson(), (error, response) => {
         mailer.close();
 
         if (error)
@@ -23,7 +24,7 @@ export default class Mailer {
 
   _getNewMail(mail) {
     if (mail instanceof Mail)
-      return mailM
+      return mail;
 
     return new Mail(mail.from, mail.to, mail.body, mail.options);
   }
@@ -44,3 +45,5 @@ export default class Mailer {
     return mailer.createTransport(smtpTransport(options));
   }
 }
+
+module.exports = Mailer;

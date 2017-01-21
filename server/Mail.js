@@ -3,6 +3,7 @@ class Mail {
     this.from = from;
     this.to = to;
     this.body = body;
+    this.subject = subject;
 
     if (options) {
       this.cc = options.cc;
@@ -21,3 +22,5 @@ class Mail {
     };
   }
 }
+
+module.exports = Mail;
