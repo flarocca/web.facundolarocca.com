@@ -1,29 +1,31 @@
 import React, { Component } from 'react';
 import AppStore from '../stores/AppStore';
 import { Element, scroller } from 'react-scroll';
-import Experience from './Experience';
+import Resume from './Resume';
 import Contact from './Contact';
 import WhoIAm from './WhoIAm';
 import WhatIDo from './WhatIDo';
-import VS from '../images/vs_1.png';
-import SQL from '../images/sql_1.png';
-import REACT from '../images/react.png';
-import ELASTIC from '../images/elastic.png';
-import NODE from '../images/nodejs.png';
+import ThemeSelector from './ThemeSelector';
+import LanguageSelector from './LanguageSelector';
+import getAllThemes from '../constants/themes/getAllThemes';
 
 export default class AppBody extends Component {
   constructor(props) {
     super(props);
 
-
     this._onAppSessionChange = this._onAppSessionChange.bind(this);
     this.state = {
-      languageSet: this.props.languageSet
+      languageSet: this.props.languageSet,
+      theme: this.props.theme
     }
   }
 
   _onAppSessionChange() {
-    this.setState({ languageSet: AppStore.getLanguageSet() });
+    this.setState({
+      languageSet: AppStore.getLanguageSet(),
+      theme: AppStore.getThemeSelected()
+    });
+
     var menu = AppStore.getMenuSelected();
     if (menu === 'HOME') {
       scroller.scrollTo(menu, {
@@ -37,46 +39,15 @@ export default class AppBody extends Component {
 
   render() {
     return (
-      <div>
-        <div style={styles.back}></div>
+      <div id="body">
         <Element name="HOME" />
-        <WhoIAm languageSet={this.state.languageSet} />
-        <WhatIDo languageSet={this.state.languageSet} />
-        <div style={styles.tools}>
-          <span><img src={VS} style={styles.image} alt="logo" /></span>
-          <span><img src={SQL} style={styles.image} alt="logo" /></span>
-          <span><img src={REACT} style={styles.image} alt="logo" /></span>
-          <span><img src={ELASTIC} style={styles.image} alt="logo" /></span>
-          <span><img src={NODE} style={styles.image} alt="logo" /></span>
-        </div>
-        <Experience languageSet={this.state.languageSet} />
-        <Contact languageSet={this.state.languageSet} />
+        <LanguageSelector initialLanguage="ARG"/>
+        <ThemeSelector themes={getAllThemes()} />
+        <WhoIAm languageSet={this.state.languageSet} theme={this.state.theme} />
+        <WhatIDo languageSet={this.state.languageSet} theme={this.state.theme} />
+        <Resume languageSet={this.state.languageSet} theme={this.state.theme} />
+        <Contact languageSet={this.state.languageSet} theme={this.state.theme} />
       </div>
     );
-  }
-}
-
-var styles = {
-  back: {
-    backgroundColor: "rgba(252,110,81,1)",
-    height: "20px",
-    padding: "20px",
-    display: "block"
-  },
-  tools: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignContent: "center",
-    alignItems: "center",
-    backgroundColor: "rgba(34, 34, 34, 1)",
-    width: "100%",
-    height: "200px"
-  },
-  image: {
-    backgroundColor: "transparent",
-    height: "130px",
-    marginLeft: "50px",
-    marginRight: "50px"
   }
 }
