@@ -1,4 +1,5 @@
 var Mail = require('./Mail');
+var config = require('config');
 
 class Mailer {
   constructor() {
@@ -34,11 +35,11 @@ class Mailer {
     let smtpTransport = require('nodemailer-smtp-transport');
 
     let options = {
-      service: 'gmail',
+      service: config.service,
       secure: true,
       auth: {
-        user: 'facu.larocca@gmail.com',
-        pass: 'Microsoft2016'
+        user: config.user,
+        pass: config.password
       }
     };
 
