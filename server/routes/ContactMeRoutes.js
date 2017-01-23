@@ -1,5 +1,6 @@
 var Validator = require('no-if-validator').Validator;
 var NotNullOrUndefinedCondition = require('no-if-validator').NotNullOrUndefinedCondition;
+var config = require('config');
 var Routes = require('./Routes');
 var Mail = require('../Mail');
 var Mailer = require('../Mailer');

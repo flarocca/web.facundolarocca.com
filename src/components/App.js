@@ -48,7 +48,6 @@ export default class App extends Component {
         <Element name="TOP" />
         <div id="main" className="Container column co-medium" style={{ alignSelf: "center", backgroundColor: "transparent" }}>
           <div className="Container row jc-right" style={{ paddingRight: "1%" }}>
-            <a target="_blank" className="Container column jc-center" href={ImageSources.FACEBOOK_PROFILE}><Facebook className="icon" innerColor="dimgray" outerColor="transparent" /></a>
             <a target="_blank" className="Container column jc-center" href={ImageSources.STACKOVERFLOW_PROFILE}><StackOverflow className="icon-med" innerColor="dimgray" outerColor="transparent" /></a>
             <a target="_blank" className="Container column jc-center" href={ImageSources.LINKEDIN_PROFILE}><LinkedIn className="icon-large" innerColor="dimgray" outerColor="transparent" /></a>
             <a target="_blank" className="Container column jc-center" href={ImageSources.GITHUB_PROFILE}><GitHub className="icon" innerColor="dimgray" outerColor="transparent" /></a>

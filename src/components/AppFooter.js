@@ -40,7 +40,6 @@ export default class AppFooter extends Component {
           </p>
         </div>
         <div className="Container row" style={{ marginRight: "2%" }}>
-          <a target="_blank" className="Container column jc-center" href={ImageSources.FACEBOOK_PROFILE}><Facebook className="icon" innerColor="white" outerColor="transparent" /></a>
           <a target="_blank" className="Container column jc-center" href={ImageSources.STACKOVERFLOW_PROFILE}><StackOverflow className="icon-med" innerColor="white" outerColor="transparent" /></a>
           <a target="_blank" className="Container column jc-center" href={ImageSources.LINKEDIN_PROFILE}><LinkedIn className="icon-large" innerColor="white" outerColor="transparent" /></a>
           <a target="_blank" className="Container column jc-center" href={ImageSources.GITHUB_PROFILE}><GitHub className="icon" innerColor="white" outerColor={this.state.theme.COLOR_4} /></a>
