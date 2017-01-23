@@ -43,18 +43,18 @@ export default class AppHeader extends Component {
       });
     }
   }
-
+//style={{ fontSize: "60px" }}
   render() {
     return (
       <div id="header">
         <div className="pre-hdr row" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
           <div className="profile-pic" />
           <div className="tagline column jc-left" style={{ textAlign: "left" }}>
-            <h1 style={{ fontSize: "60px" }}>Facundo La Rocca</h1>
+            <h1 id="my" >Facundo La Rocca</h1>
             <span style={{ fontSize: "25px", fontFamily: "'Open Sans', Helvetica, sans-serif" }}>
-              <i className="fa fa-quote-left fa-1x fa-pull-left" aria-hidden="false"></i>
+              <i className="fa fa-quote-left fa-1x fa-pull-left" aria-hidden="false" />
               <em>{this.state.languageSet.PHRASE}</em><br />
-              <i className="fa fa-quote-right fa-1x fa-pull-right" aria-hidden="false"></i>
+              <i className="fa fa-quote-right fa-1x fa-pull-right" aria-hidden="false" />
             </span>
           </div>
         </div>

@@ -1,6 +1,22 @@
 .App {
   display: flex;
   justify-content: center;
+  min-width: 700px;
+}
+
+#main {
+  max-width: 1000px;
+  min-width: 600px;
+}
+
+#my {
+  font-size: 60px;
+}
+
+@media screen and (max-width: 1280px) {
+    #my {
+        font-size: 40px;
+    }
 }
 
 .pre-hdr {
@@ -84,6 +100,8 @@
   -webkit-transition: all 200ms ease-in 0;
   -moz-transition: all 200ms ease-in 0;
   transition: all 200ms ease-in 0;
+  max-width: 1000px;
+  min-width: 600px;
 }
 
 .hdr-fix {
@@ -96,6 +114,8 @@
   -webkit-transition: all 200ms ease-in 0;
   -moz-transition: all 200ms ease-in 0;
   transition: all 200ms ease-in 0;
+  max-width: 1000px;
+  min-width: 600px;
 }
 
 .link-btn-menu {
@@ -247,7 +267,6 @@ hr {
 
 err-lbl {
   color: red;
-  align-self: flex-start;
   margin-top: 1%;
   margin-bottom: 0.5%;
   margin-left: 2%;
@@ -421,7 +440,7 @@ err-lbl {
 }
 
 .up-btn {
-  height: 7%;
+  height: 40px;
   position: fixed;
   bottom: 2%;
   right: 2%;
@@ -436,34 +455,6 @@ err-lbl {
   -moz-transition: all 200ms ease-in;
   transition: all 200ms ease-in;
 }
-
-/*#WhoIAm-title {
-  display: inline-block;
-  -webkit-transition: color 200ms ease-in;
-  -moz-transition: color 200ms ease-in;
-  transition: color 200ms ease-in;
-
-  -webkit-transition: right 500ms ease-in;
-  -moz-transition: right 500ms ease-in;
-  transition: right 500ms ease-in;
-
-  position: relative;
-  right: -38%;
-}*/
-
-/*#WhatIDo-title {
-  display: inline-block;
-  -webkit-transition: color 200ms ease-in;
-  -moz-transition: color 200ms ease-in;
-  transition: color 200ms ease-in;
-
-  -webkit-transition: right 500ms ease-in;
-  -moz-transition: right 500ms ease-in;
-  transition: right 500ms ease-in;
-
-  position: relative;
-  right: -37%;
-}*/
 
 #Resume-title,
 #Contact-title,
