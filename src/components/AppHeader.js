@@ -43,7 +43,7 @@ export default class AppHeader extends Component {
       });
     }
   }
-//style={{ fontSize: "60px" }}
+
   render() {
     return (
       <div id="header">
