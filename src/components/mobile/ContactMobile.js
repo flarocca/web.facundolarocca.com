@@ -125,7 +125,7 @@ export default class ContactMobile extends Component {
       );
 
     return (
-      <button onClick={this._onClick} type='button' className="jc-center button-mobile" style={{ alignSelf: "flex-end", width: "40%", backgroundColor: this.state.theme.COLOR_4 }}><b style={{ color: "white" }}>{this.state.languageSet.SEND}</b></button>
+      <button onClick={this._onClick} type='button' className="button-mobile" style={{ alignSelf: "flex-end", width: "40%", backgroundColor: this.state.theme.COLOR_4 }}><b style={{ width: "100%", color: "white" }}>{this.state.languageSet.SEND}</b></button>
     );
   }
 

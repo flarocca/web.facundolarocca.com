@@ -13,7 +13,7 @@ export default class LanguageSelectorMobile extends Component {
 
   render() {
     return (
-      <div className="Container row fixed main" style={{ zIndex: 1000, right: "0px", top: "20%" }}>
+      <div className="Container row fixed" style={{ zIndex: 1000, right: "0px", top: "20%" }}>
         <input type="checkbox" id="language-mobile" />
         <label id="languageLabel-mobile" htmlFor="language-mobile" style={{ background: "rgb(200, 200, 200)" }}>
           <b style={{ color: "white", position: "relative", top: "12px" }}>{this.state.languageSelected}</b>
@@ -22,8 +22,8 @@ export default class LanguageSelectorMobile extends Component {
           <div className="Container column jc-center" style={{ color: "dimgray", textAlign: "center", height: "30px" }}>
             <b>Language</b>
           </div>
-          <div className="Container column jc-center">
-            <div id="lanItem-mobile">
+          <div className="Container column" style={{marginBottom: "10%"}}>
+            <div id="lanItem-mobile" style={{ alignSelf: "center" }}>
               <div className="lanItem-btn">
                 <input onChange={() => this._changeLanguage('ARG')} type="radio" name="language" id="argLan" checked={this.state.languageSelected === "ARG"} />
                 <label id="argLan-label" htmlFor="argLan">
@@ -31,7 +31,7 @@ export default class LanguageSelectorMobile extends Component {
                 </label>
               </div>
             </div>
-            <div id="lanItem-mobile">
+            <div id="lanItem-mobile" style={{ alignSelf: "center" }}>
               <div className="lanItem-btn">
                 <input onChange={() => this._changeLanguage('ENG')} type="radio" name="language" id="engLan" checked={this.state.languageSelected === "ENG"} />
                 <label id="engLan-label" htmlFor="engLan">
