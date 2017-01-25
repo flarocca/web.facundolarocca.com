@@ -1,0 +1,129 @@
+.App-mobile {
+  display: flex;
+  justify-content: center;
+  font-size: 10px;
+  text-align: center;
+}
+
+.hdr-mobile{
+  display: flex;
+  position: fixed;
+  top: 0;
+  height: 30px;
+  width: 100%;
+  z-index: 1000;
+}
+.hdr-item-mobile {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.none-decoration {
+  text-decoration: none;
+}
+
+.icon-mobile {
+  height: 30px;
+  width: 30px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+#footer-mobile{
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  align-self: center;
+}
+
+#language-mobile{
+  display: none;
+}
+
+#languageLabel-mobile {
+  display: block;
+  -moz-transition: all 200ms ease-in;
+  -webkit-transition: all 200ms ease-in;
+  -o-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+  z-index: 500;
+  height: 30px;
+  width: 30px;
+  position: relative;
+  right: -80px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  justify-content: center;
+}
+
+#language-mobile:checked ~ #languageLabel-mobile {
+  -webkit-transform: translate3d(-80px, 0, 0);
+  -moz-transform: translate3d(-80px, 0, 0);
+  -o-transform: translate3d(-80px, 0, 0);
+  transform: translate3d(-80px, 0, 0);
+}
+
+#language-mobile:checked ~ .right-mobile {
+  -webkit-transform: translate3d(-80px, 0, 0);
+  -moz-transform: translate3d(-80px, 0, 0);
+  -o-transform: translate3d(-80px, 0, 0);
+  transform: translate3d(-80px, 0, 0);
+}
+
+#lanItem-mobile {
+  border: 2px white solid; 
+  height: 45px;
+  width: 45px;
+  border-radius: 100%;
+  margin-top: 10%;
+}
+
+.right-mobile {
+  display: inline-block;
+  width: 80px;
+  height: 100%;
+  position: relative;
+  -moz-transition: all 200ms ease-in;
+  -webkit-transition: all 200ms ease-in;
+  -o-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+  right: -80px;
+}
+
+#whoiam-mobile {
+  padding: 40px 30px 0px 30px;
+}
+
+#whatido-mobile,
+#resume-mobile,
+#contact-mobile {
+ padding: 30px 30px 0px 30px; 
+}
+
+#Resume-title-mobile,
+#Contact-title-mobile,
+#WhatIDo-title-mobile,
+#WhoIAm-title-mobile {
+  display: inline-block;
+}
+
+.contact-section-title-mobile{
+  font-size: 16px;
+  align-self: flex-start;
+}
+
+.button-mobile {
+  font-size: medium;
+  text-decoration: none;
+  display: flex;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+}
+
+.image-desc-mobile {
+  height: 50px;
+}

@@ -36,7 +36,7 @@ export default class AppFooter extends Component {
           <p className="text" style={{ marginLeft: "5%", fontSize: "small", color: "white" }}>
             Copyright &copy; 2017 Facundo La Rocca. All right reserved.
             Made with <i><a href={ImageSources.REACT} className="text" style={{ fontSize: "small", color: "white" }}>ReactJS.</a></i>
-            <a href={ImageSources.REACT}><img src={REACT} className="logo" alt="ReactJs" style={{ height: "20px" }} /></a>
+            <a href={ImageSources.REACT}><img src={REACT} className="logo" alt="ReactJs" style={{ verticalAlign: "middle",height: "20px" }} /></a>
           </p>
         </div>
         <div className="Container row" style={{ marginRight: "2%" }}>

@@ -14,9 +14,15 @@
 }
 
 @media screen and (max-width: 1280px) {
-    #my {
-        font-size: 40px;
-    }
+  #my {
+      font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .up-btn{
+    left: 2%;
+  }
 }
 
 .pre-hdr {
@@ -39,6 +45,10 @@
 
 .row {
   flex-direction: row;
+}
+
+.row-reverse {
+  flex-direction: row-reverse;  
 }
 
 .fixed{
@@ -185,6 +195,8 @@
   background-repeat: no-repeat;
   background-image: url('../images/profile-pic.png');
   background-position: center;
+  min-width: 180px;
+  min-height: 180px;
 }
 
 .tagline {
@@ -355,6 +367,23 @@ err-lbl {
   justify-content: center;
 }
 
+#themeLabelLeft,
+#languageLabelLeft {
+  display: block;
+  -moz-transition: all 200ms ease-in;
+  -webkit-transition: all 200ms ease-in;
+  -o-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+  z-index: 500;
+  height: 50px;
+  width: 50px;
+  position: relative;
+  left: -150px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  justify-content: center;
+}
+
 .setting {
   height: 35px;
   width: 35px;
@@ -363,7 +392,9 @@ err-lbl {
 }
 
 #theme, 
+#themeLeft, 
 #language, 
+#languageLeft, 
 #argLan, 
 #engLan {
   display: none;
@@ -381,6 +412,18 @@ err-lbl {
   right: -150px;
 }
 
+.left {
+  display: inline-block;
+  width: 150px;
+  height: 100%;
+  position: relative;
+  -moz-transition: all 200ms ease-in;
+  -webkit-transition: all 200ms ease-in;
+  -o-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+  left: -150px;
+}
+
 #theme:checked ~ .right,
 #language:checked ~ .right {
   -webkit-transform: translate3d(-150px, 0, 0);
@@ -389,12 +432,28 @@ err-lbl {
   transform: translate3d(-150px, 0, 0);
 }
 
+#themeLeft:checked ~ .left,
+#languageLeft:checked ~ .left {
+  -webkit-transform: translate3d(150px, 0, 0);
+  -moz-transform: translate3d(150px, 0, 0);
+  -o-transform: translate3d(150px, 0, 0);
+  transform: translate3d(150px, 0, 0);
+}
+
 #theme:checked ~ #themeLabel,
 #language:checked ~ #languageLabel {
   -webkit-transform: translate3d(-150px, 0, 0);
   -moz-transform: translate3d(-150px, 0, 0);
   -o-transform: translate3d(-150px, 0, 0);
   transform: translate3d(-150px, 0, 0);
+}
+
+#themeLeft:checked ~ #themeLabelLeft,
+#languageLeft:checked ~ #languageLabelLeft {
+  -webkit-transform: translate3d(150px, 0, 0);
+  -moz-transform: translate3d(150px, 0, 0);
+  -o-transform: translate3d(150px, 0, 0);
+  transform: translate3d(150px, 0, 0);
 }
 
 #whatido {
@@ -469,35 +528,11 @@ err-lbl {
   -moz-transition: right 500ms ease-in;
   transition: right 500ms ease-in;
 
-  /*position: relative;
-  right: -40.5%;*/
   position: relative;
   right: -100%;
   transform: translateX(-100%);
   transition: right 1s, transform 1s;
 }
-
-/*#Contact-title {
-  display: inline-block;
-  -webkit-transition: color 200ms ease-in;
-  -moz-transition: color 200ms ease-in;
-  transition: color 200ms ease-in;
-
-  -webkit-transition: right 500ms ease-in;
-  -moz-transition: right 500ms ease-in;
-  transition: right 500ms ease-in;
-
-  position: relative;
-  right: -39%;
-}*/
-
-/*#WhoIAm-chk:checked ~ #WhoIAm-title {
-  right: 38%;
-}
-
-#WhatIDo-chk:checked ~ #WhatIDo-title {
-  right: 37%;
-}*/
 
 #Resume-chk:checked ~ #Resume-title,
 #WhatIDo-chk:checked ~ #WhatIDo-title,
@@ -506,10 +541,6 @@ err-lbl {
   right: 0%;
   transform: translateX(0%);
 }
-
-/*#Contact-chk:checked ~ #Contact-title {
-  right: 39%;
-}*/
 
 #lanItem {
   border: 2px white solid; 
