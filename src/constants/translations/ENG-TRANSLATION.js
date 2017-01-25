@@ -34,19 +34,8 @@ export default {
     ),
     MOBILE_APPS: 'MOBILE APPLICATIONS',
     WEB_APPS: 'WEB APPLICATIONS',
-    WEB_APPS_DESC: (
-        <span>
-            Development of dynamic and versatile <br />
-            web solutions to generate the value <br />
-            your business needs
-        </span>
-    ),
-    MOBILE_APPS_DESC: (
-        <span>
-            Development of mobile solutions<br />
-            for smart phones and tablets
-        </span>
-    ),
+    WEB_APPS_DESC: 'Development of dynamic, responsive and versatile web solutions to generate the value your business needs',
+    MOBILE_APPS_DESC: 'Development of mobile solutions for smart phones and tablets. Real native apps for Andoird and iOS.',
     PROFESSIONAL: 'PROFESSIONAL',
     PERSONAL: 'PERSONAL',
     WEB_DOT_COM: (

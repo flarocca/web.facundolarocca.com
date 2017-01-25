@@ -34,19 +34,8 @@ export default {
     ),
     MOBILE_APPS: 'APLICACIONES MÓVILES',
     WEB_APPS: 'APLICACIONES WEB',
-    WEB_APPS_DESC: (
-        <span>
-            Desarrollo de soluciones web<br />
-            dinámicas y versátiles para generar <br />
-            el valor que tu negocio necesita
-        </span>
-    ),
-    MOBILE_APPS_DESC: (
-        <span>
-            Desarrollo de aplicaiones móviles<br />
-            para smartphones y tablets
-        </span>
-    ),
+    WEB_APPS_DESC: 'Desarrollo de soluciones web dinámicas, responsive y versátiles para generar el valor que tu negocio necesita',
+    MOBILE_APPS_DESC: 'Desarrollo de aplicaiones móviles para smartphones y tablets. Apps verdaderamente nativas para Android y iOS.',
     PROFESSIONAL: 'PROFESIONAL',
     PERSONAL: 'PERSONAL',
     WEB_DOT_COM: (
