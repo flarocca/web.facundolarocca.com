@@ -13,7 +13,7 @@ class Mailer {
       let mailer = this._getMailer();
 
       mailer.sendMail(mailToSend.toJson(), (error, response) => {
-        //mailer.close();
+        mailer.close();
 
         if (error)
           return reject(error);
