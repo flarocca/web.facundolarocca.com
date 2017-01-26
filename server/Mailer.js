@@ -13,7 +13,7 @@ class Mailer {
       let mailer = this._getMailer();
 
       mailer.sendMail(mailToSend.toJson(), (error, response) => {
-        mailer.close();
+        //mailer.close();
 
         if (error)
           return reject(error);
@@ -35,11 +35,11 @@ class Mailer {
     let smtpTransport = require('nodemailer-smtp-transport');
 
     let options = {
-      service: config.service,
+      service: config.mailService.service,
       secure: true,
       auth: {
-        user: config.user,
-        pass: config.password
+        user: config.mailService.user,
+        pass: config.mailService.password
       }
     };
 
