@@ -6,7 +6,8 @@ export default class WhoIAm extends Component {
   constructor(props) {
     super(props);
 
-    this._onAppSessionChange = this._onAppSessionChange.bind(this);
+    this._onStoreChange = this._onStoreChange.bind(this);
+    this._onScroll = this._onScroll.bind(this);
     this.state = {
       languageSet: this.props.languageSet,
       theme: this.props.theme,
@@ -15,30 +16,14 @@ export default class WhoIAm extends Component {
   }
 
   componentDidMount() {
-    AppStore.addChangeListener(this._onAppSessionChange);
+    AppStore.addChangeListener(this._onStoreChange);
 
-    window.addEventListener('scroll', () => {
-      if (event.srcElement.body.scrollTop >= 220) {
-        this.setState({ checked: true });
-      }
-    });
+    window.addEventListener('scroll', this._onScroll);
   }
 
-  _onAppSessionChange() {
-    this.setState({
-      languageSet: AppStore.getLanguageSet(),
-      theme: AppStore.getThemeSelected()
-    });
-
-    var menu = AppStore.getMenuSelected();
-    if (menu === 'WHO_I_AM') {
-      scroller.scrollTo(menu, {
-        duration: 1000,
-        delay: 0,
-        smooth: true,
-        offset: -50
-      });
-    }
+  componentWillUnmount() {
+    AppStore.removeChangeListener(this._onStoreChange);
+    window.removeEventListener('scroll', this._onScroll, false);
   }
 
   render() {
@@ -58,5 +43,28 @@ export default class WhoIAm extends Component {
         </div>
       </div>
     );
+  }
+
+  _onScroll(event) {
+    if (event.srcElement.body.scrollTop >= 220) {
+      this.setState({ checked: true });
+    }
+  }
+
+  _onStoreChange() {
+    this.setState({
+      languageSet: AppStore.getLanguageSet(),
+      theme: AppStore.getThemeSelected()
+    });
+
+    var menu = AppStore.getMenuSelected();
+    if (menu === 'WHO_I_AM') {
+      scroller.scrollTo(menu, {
+        duration: 1000,
+        delay: 0,
+        smooth: true,
+        offset: -50
+      });
+    }
   }
 }

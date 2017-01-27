@@ -7,7 +7,7 @@ export default class AppHeader extends Component {
   constructor(props) {
     super(props);
 
-    this._onAppSessionChange = this._onAppSessionChange.bind(this);
+    this._onStoreChange = this._onStoreChange.bind(this);
     this._onClick = this._onClick.bind(this);
     this._fixHeader = this._fixHeader.bind(this);
     this.state = {
@@ -21,9 +21,13 @@ export default class AppHeader extends Component {
   }
 
   componentDidMount() {
-    AppStore.addChangeListener(this._onAppSessionChange);
-
+    AppStore.addChangeListener(this._onStoreChange);
     window.addEventListener('scroll', this._fixHeader);
+  }
+
+  componentWillUnmount() {
+    AppStore.removeChangeListener(this._onStoreChange);
+    window.removeEventListener('scroll', this._fixHeader, false);
   }
 
   _fixHeader(event) {
@@ -94,7 +98,7 @@ export default class AppHeader extends Component {
     );
   }
 
-  _onAppSessionChange() {
+  _onStoreChange() {
     this.setState({
       languageSet: AppStore.getLanguageSet(),
       theme: AppStore.getThemeSelected()

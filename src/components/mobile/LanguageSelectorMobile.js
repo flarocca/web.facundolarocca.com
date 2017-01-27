@@ -16,7 +16,7 @@ export default class LanguageSelectorMobile extends Component {
       <div className="Container row fixed" style={{ zIndex: 1000, right: "0px", top: "20%" }}>
         <input type="checkbox" id="language-mobile" />
         <label id="languageLabel-mobile" htmlFor="language-mobile" style={{ background: "rgb(200, 200, 200)" }}>
-          <b style={{ color: "white", position: "relative", top: "12px" }}>{this.state.languageSelected}</b>
+          <b style={{ color: "white", position: "relative", top: "7px" }}>{this.state.languageSelected}</b>
         </label>
         <div className="right-mobile column jc-center" style={{ backgroundColor: "rgb(200, 200, 200)" }}>
           <div className="Container column jc-center" style={{ color: "dimgray", textAlign: "center", height: "30px" }}>

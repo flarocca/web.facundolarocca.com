@@ -6,7 +6,7 @@ export default class AppHeaderMobile extends Component {
   constructor(props) {
     super(props);
 
-    this._onAppSessionChange = this._onAppSessionChange.bind(this);
+    this._onStoreChange = this._onStoreChange.bind(this);
     this._onClick = this._onClick.bind(this);
     this.state = {
       languageSet: this.props.languageSet,
@@ -15,7 +15,11 @@ export default class AppHeaderMobile extends Component {
   }
 
   componentDidMount() {
-    AppStore.addChangeListener(this._onAppSessionChange);
+    AppStore.addChangeListener(this._onStoreChange);
+  }
+
+  componentWillUnmount() {
+    AppStore.removeChangeListener(this._onStoreChange);
   }
 
   render() {
@@ -47,7 +51,7 @@ export default class AppHeaderMobile extends Component {
     );
   }
 
-  _onAppSessionChange() {
+  _onStoreChange() {
     this.setState({
       languageSet: AppStore.getLanguageSet(),
       theme: AppStore.getThemeSelected()

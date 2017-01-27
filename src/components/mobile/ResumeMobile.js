@@ -6,7 +6,8 @@ export default class ResumeMobile extends Component {
   constructor(props) {
     super(props);
 
-    this._onAppSessionChange = this._onAppSessionChange.bind(this);
+    this._onStoreChange = this._onStoreChange.bind(this);
+    this._onScroll = this._onScroll.bind(this);
     this._renderWebDotComExp = this._renderWebDotComExp.bind(this);
     this._renderIsbanExp = this._renderIsbanExp.bind(this);
     this._renderAndreaniExp = this._renderAndreaniExp.bind(this);
@@ -22,16 +23,22 @@ export default class ResumeMobile extends Component {
   }
 
   componentDidMount() {
-    AppStore.addChangeListener(this._onAppSessionChange);
-
-    window.addEventListener('scroll', () => {
-      if (event.srcElement.body.scrollTop >= 1400) {
-        this.setState({ checked: true });
-      }
-    });
+    AppStore.addChangeListener(this._onStoreChange);
+    window.addEventListener('scroll', this._onScroll);
   }
 
-  _onAppSessionChange() {
+  componentWillUnmount() {
+    AppStore.removeChangeListener(this._onStoreChange);
+    window.removeEventListener('scroll', this._onScroll, false);
+  }
+
+  _onScroll(event) {
+    if (event.srcElement.body.scrollTop >= 1400) {
+      this.setState({ checked: true });
+    }
+  }
+
+  _onStoreChange() {
     this.setState({
       languageSet: AppStore.getLanguageSet(),
       theme: AppStore.getThemeSelected()
@@ -156,8 +163,8 @@ export default class ResumeMobile extends Component {
           </div>
         </div>
         <div style={{ textAlign: "left" }}>
-          <h3>Web.com</h3>
-          <p style={{ color: this.state.theme.FONT_COLOR }}>
+          <h2>Web.com</h2>
+          <p className="text" style={{ color: this.state.theme.FONT_COLOR }}>
             {this.state.languageSet.WEB_DOT_COM}
           </p>
         </div>
@@ -175,8 +182,8 @@ export default class ResumeMobile extends Component {
           </div>
         </div>
         <div style={{ textAlign: "left" }}>
-          <h3>Isban</h3>
-          <p style={{ color: this.state.theme.FONT_COLOR }}>
+          <h2>Isban</h2>
+          <p className="text" style={{ color: this.state.theme.FONT_COLOR }}>
             {this.state.languageSet.ISBAN}
           </p>
         </div>
@@ -194,8 +201,8 @@ export default class ResumeMobile extends Component {
           </div>
         </div>
         <div style={{ textAlign: "left" }}>
-          <h3>Andreani</h3>
-          <p style={{ color: this.state.theme.FONT_COLOR }}>
+          <h2>Andreani</h2>
+          <p className="text" style={{ color: this.state.theme.FONT_COLOR }}>
             {this.state.languageSet.ANDREANI}
           </p>
         </div>
@@ -213,8 +220,8 @@ export default class ResumeMobile extends Component {
           </div>
         </div>
         <div style={{ textAlign: "left" }}>
-          <h3>Open Solutions</h3>
-          <p style={{ color: this.state.theme.FONT_COLOR }}>
+          <h2>Open Solutions</h2>
+          <p className="text" style={{ color: this.state.theme.FONT_COLOR }}>
             {this.state.languageSet.OPEN_SOLUTIONS}
           </p>
         </div>

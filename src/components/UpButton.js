@@ -19,17 +19,21 @@ export default class UpButton extends Component {
     super(props);
 
     this._goToHome = this._goToHome.bind(this);
-    this._onAppSessionChange = this._onAppSessionChange.bind(this);
+    this._onStoreChange = this._onStoreChange.bind(this);
     this.state = {
       theme: this.props.theme
     }
   }
 
   componentDidMount() {
-    AppStore.addChangeListener(this._onAppSessionChange);
+    AppStore.addChangeListener(this._onStoreChange);
   }
 
-  _onAppSessionChange() {
+  componentWillUnmount() {
+    AppStore.removeChangeListener(this._onStoreChange);
+  }
+
+  _onStoreChange() {
     this.setState({
       theme: AppStore.getThemeSelected()
     });

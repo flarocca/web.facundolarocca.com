@@ -6,7 +6,8 @@ export default class WhoIAmMobile extends Component {
   constructor(props) {
     super(props);
 
-    this._onAppSessionChange = this._onAppSessionChange.bind(this);
+    this._onStoreChange = this._onStoreChange.bind(this);
+    this._onScroll = this._onScroll.bind(this);
     this.state = {
       languageSet: this.props.languageSet,
       theme: this.props.theme,
@@ -15,16 +16,23 @@ export default class WhoIAmMobile extends Component {
   }
 
   componentDidMount() {
-    AppStore.addChangeListener(this._onAppSessionChange);
+    AppStore.addChangeListener(this._onStoreChange);
 
-    window.addEventListener('scroll', () => {
-      if (event.srcElement.body.scrollTop >= 220) {
-        this.setState({ checked: true });
-      }
-    });
+    window.addEventListener('scroll', this._onScroll);
   }
 
-  _onAppSessionChange() {
+  componentWillUnmount() {
+    AppStore.removeChangeListener(this._onStoreChange);
+    window.removeEventListener('scroll', this._onScroll, false);
+  }
+
+  _onScroll(event) {
+    if (event.srcElement.body.scrollTop >= 220) {
+      this.setState({ checked: true });
+    }
+  }
+
+  _onStoreChange() {
     this.setState({
       languageSet: AppStore.getLanguageSet(),
       theme: AppStore.getThemeSelected()

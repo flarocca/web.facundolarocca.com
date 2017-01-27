@@ -23,7 +23,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
 
-    this._onAppSessionChange = this._onAppSessionChange.bind(this);
+    this._onStoreChange = this._onStoreChange.bind(this);
     this.state = {
       languageSet: AppStore.getLanguageSet(),
       theme: AppStore.getThemeSelected()
@@ -31,15 +31,15 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    AppStore.addChangeListener(this._onAppSessionChange);
+    AppStore.addChangeListener(this._onStoreChange);
     AppActions.initializeApp();
   }
 
   componentWillUnmount() {
-    AppStore.removeChangeListener(this._onAppSessionChange);
+    AppStore.removeChangeListener(this._onStoreChange);
   }
 
-  _onAppSessionChange() {
+  _onStoreChange() {
     this.setState({
       languageSet: AppStore.getLanguageSet(),
       theme: AppStore.getThemeSelected()
@@ -67,7 +67,7 @@ export default class App extends Component {
             </div>
           </div>
         </MediaQuery>
-        <MediaQuery query='(max-device-width: 1223px)'>
+        <MediaQuery query='(max-device-width: 1224px)'>
           <div id="app-mobile" className="App-mobile column" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
             <AppHeaderMobile languageSet={this.state.languageSet} theme={this.state.theme} />
             <AppBodyMobile languageSet={this.state.languageSet} theme={this.state.theme} />

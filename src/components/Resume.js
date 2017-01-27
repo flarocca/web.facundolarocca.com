@@ -6,7 +6,8 @@ export default class Resume extends Component {
   constructor(props) {
     super(props);
 
-    this._onAppSessionChange = this._onAppSessionChange.bind(this);
+    this._onStoreChange = this._onStoreChange.bind(this);
+    this._onScroll = this._onScroll.bind(this);
     this._renderWebDotComExp = this._renderWebDotComExp.bind(this);
     this._renderIsbanExp = this._renderIsbanExp.bind(this);
     this._renderAndreaniExp = this._renderAndreaniExp.bind(this);
@@ -22,30 +23,13 @@ export default class Resume extends Component {
   }
 
   componentDidMount() {
-    AppStore.addChangeListener(this._onAppSessionChange);
-
-    window.addEventListener('scroll', () => {
-      if (event.srcElement.body.scrollTop >= 1400) {
-        this.setState({ checked: true });
-      }
-    });
+    AppStore.addChangeListener(this._onStoreChange);
+    window.addEventListener('scroll', this._onScroll);
   }
 
-  _onAppSessionChange() {
-    this.setState({
-      languageSet: AppStore.getLanguageSet(),
-      theme: AppStore.getThemeSelected()
-    });
-
-    var menu = AppStore.getMenuSelected();
-    if (menu === 'RESUME') {
-      scroller.scrollTo(menu, {
-        duration: 1000,
-        delay: 0,
-        smooth: true,
-        offset: -50
-      });
-    }
+  componentWillUnmount() {
+    AppStore.removeChangeListener(this._onStoreChange);
+    window.removeEventListener('scroll', this._onScroll, false);
   }
 
   render() {
@@ -109,9 +93,32 @@ export default class Resume extends Component {
     );
   }
 
+  _onStoreChange() {
+    this.setState({
+      languageSet: AppStore.getLanguageSet(),
+      theme: AppStore.getThemeSelected()
+    });
+
+    var menu = AppStore.getMenuSelected();
+    if (menu === 'RESUME') {
+      scroller.scrollTo(menu, {
+        duration: 1000,
+        delay: 0,
+        smooth: true,
+        offset: -50
+      });
+    }
+  }
+
+  _onScroll(event) {
+    if (event.srcElement.body.scrollTop >= 1400) {
+      this.setState({ checked: true });
+    }
+  }
+
   _rederOtherSkill(text) {
     return (
-      <span className="resume-item skill" style={{ fontSize: "small",  color: "white", backgroundColor: this.state.theme.COLOR_3 }}>{text}</span>
+      <span className="resume-item skill" style={{ fontSize: "small", color: "white", backgroundColor: this.state.theme.COLOR_3 }}>{text}</span>
     );
   }
 

@@ -17,8 +17,8 @@ export default class ApiService {
                             });
                     }
 
-                    return response.json().
-                        then((error) => {
+                    return response.json()
+                        .then((error) => {
                             return Promise.reject(error);
                         });
                 })
@@ -26,7 +26,7 @@ export default class ApiService {
                     return Promise.reject(error);
                 });
         } catch (error) {
-            return Promise.reject(error);;
+            return Promise.reject(error);
         }
     }
 }

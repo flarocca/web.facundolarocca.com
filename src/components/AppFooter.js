@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Facebook from '../images/svg/Facebook'
 import GitHub from '../images/svg/GitHub';
 import LinkedIn from '../images/svg/LinkedIn';
 import StackOverflow from '../images/svg/StackOverflow'
@@ -11,7 +10,7 @@ export default class AppFooter extends Component {
   constructor(props) {
     super(props);
 
-    this._onAppSessionChange = this._onAppSessionChange.bind(this);
+    this._onStoreChange = this._onStoreChange.bind(this);
     this.state = {
       languageSet: this.props.languageSet,
       theme: this.props.theme
@@ -19,10 +18,14 @@ export default class AppFooter extends Component {
   }
 
   componentDidMount() {
-    AppStore.addChangeListener(this._onAppSessionChange);
+    AppStore.addChangeListener(this._onStoreChange);
   }
 
-  _onAppSessionChange() {
+  componentWillUnmount() {
+    AppStore.removeChangeListener(this._onStoreChange);
+  }
+
+  _onStoreChange() {
     this.setState({
       languageSet: AppStore.getLanguageSet(),
       theme: AppStore.getThemeSelected()
