@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AppStore from '../stores/AppStore';
 import { Element, scroller } from 'react-scroll';
+import isElementInViewport from '../helpers/isElementInViewport';
 
 export default class WhoIAm extends Component {
   constructor(props) {
@@ -8,6 +9,7 @@ export default class WhoIAm extends Component {
 
     this._onStoreChange = this._onStoreChange.bind(this);
     this._onScroll = this._onScroll.bind(this);
+
     this.state = {
       languageSet: this.props.languageSet,
       theme: this.props.theme,
@@ -32,7 +34,7 @@ export default class WhoIAm extends Component {
         <Element name="WHO_I_AM" />
         <span style={{ textAlign: "left", fontSize: "40px", color: this.state.theme.COLOR_1 }}>
           <input type="checkbox" id="WhoIAm-chk" style={{ display: "none" }} checked={this.state.checked} />
-          <b id="WhoIAm-title">{this.state.languageSet.WHO_I_AM}</b>
+          <b id="WhoIAm-title" ref="title">{this.state.languageSet.WHO_I_AM}</b>
         </span>
         <hr />
         <div className="Container column jc-center">
@@ -46,7 +48,8 @@ export default class WhoIAm extends Component {
   }
 
   _onScroll(event) {
-    if (event.srcElement.body.scrollTop >= 220) {
+    let isInViewport = isElementInViewport(this.refs.title);
+    if(isInViewport && !this.state.checked){
       this.setState({ checked: true });
     }
   }

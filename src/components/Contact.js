@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AppStore from '../stores/AppStore';
 import AppActions from '../actions/AppActions';
+import isElementInViewport from '../helpers/isElementInViewport';
 import { Element, scroller } from 'react-scroll';
 
 export default class Contact extends Component {
@@ -17,6 +18,7 @@ export default class Contact extends Component {
     this._renderRequiredFieldMsg = this._renderRequiredFieldMsg.bind(this);
     this._renderSendButton = this._renderSendButton.bind(this);
     this._renderSendMessage = this._renderSendMessage.bind(this);
+
     this.state = {
       firstNameErrorMsg: '',
       lastNameErrorMsg: '',
@@ -46,7 +48,8 @@ export default class Contact extends Component {
   }
 
   _onScroll(event) {
-    if (event.srcElement.body.scrollTop >= 2800) {
+    let isInViewport = isElementInViewport(this.refs.title);
+    if (isInViewport && !this.state.checked) {
       this.setState({ checked: true });
     }
   }
@@ -150,10 +153,10 @@ export default class Contact extends Component {
         <Element name="CONTACT" />
         <span style={{ textAlign: "left", fontSize: "40px", color: this.state.theme.COLOR_4 }}>
           <input type="checkbox" id="Contact-chk" style={{ display: "none" }} checked={this.state.checked} />
-          <b id="Contact-title">{this.state.languageSet.CONTACT}</b>
+          <b id="Contact-title" ref="title">{this.state.languageSet.CONTACT}</b>
         </span>
         <hr />
-        <div className="Container row" style={{ alignSelf: "center", width: "100%" }}>
+        <div className="Container row" style={{ marginTop: "30px", alignSelf: "center", width: "100%" }}>
           <div id="personal-information" className="Container column jc-left" style={{ width: "45%" }}>
             <b style={{ alignSelf: "flex-start", color: this.state.theme.COLOR_4 }}>{this.state.languageSet.CONTACT_INFORMATION}</b>
             <p className="text-special" style={{ textAlign: "left", color: "gray" }}>

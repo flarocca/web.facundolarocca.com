@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AppStore from '../stores/AppStore';
 import { Element, scroller } from 'react-scroll';
+import isElementInViewport from '../helpers/isElementInViewport';
 
 export default class Resume extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ export default class Resume extends Component {
     this._rederSkill = this._rederSkill.bind(this);
     this._renderSkillPoints = this._renderSkillPoints.bind(this);
     this._rederOtherSkill = this._rederOtherSkill.bind(this);
+
     this.state = {
       languageSet: this.props.languageSet,
       theme: this.props.theme,
@@ -34,14 +36,14 @@ export default class Resume extends Component {
 
   render() {
     return (
-      <div id="resume" className="Container column" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
+      <div id="resume" className="Container column" style={{ marginTop: "50px", backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
         <Element name="RESUME" />
         <span style={{ textAlign: "left", fontSize: "40px", color: this.state.theme.COLOR_3 }}>
           <input type="checkbox" id="Resume-chk" style={{ display: "none" }} checked={this.state.checked} />
-          <b id="Resume-title">{this.state.languageSet.RESUME}</b>
+          <b id="Resume-title" ref="title">{this.state.languageSet.RESUME}</b>
         </span>
         <hr />
-        <div className="Container row jc-center">
+        <div className="Container row jc-center" style={{ marginTop: "30px" }}>
           <div className="Container column jc-start column-item-x2" id="professional" style={{ color: this.state.theme.COLOR_3 }}>
             <div className="Container row" style={{ borderLeft: "solid 2px #B4B2B2", paddingLeft: "30px" }}>
               <div style={{ textAlign: "left" }}>
@@ -111,7 +113,8 @@ export default class Resume extends Component {
   }
 
   _onScroll(event) {
-    if (event.srcElement.body.scrollTop >= 1400) {
+    let isInViewport = isElementInViewport(this.refs.title);
+    if(isInViewport && !this.state.checked){
       this.setState({ checked: true });
     }
   }
