@@ -258,11 +258,11 @@ h1 {
   justify-content: center;
 }
 
-.jc-left, jc-start {
+.jc-left, .jc-start {
   justify-content: flex-start;
 }
 
-.jc-right, jc-end {
+.jc-right, .jc-end {
   justify-content: flex-end;
 }
 

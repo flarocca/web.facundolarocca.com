@@ -114,7 +114,7 @@ export default class Resume extends Component {
 
   _onScroll(event) {
     let isInViewport = isElementInViewport(this.refs.title);
-    if(isInViewport && !this.state.checked){
+    if (isInViewport && !this.state.checked) {
       this.setState({ checked: true });
     }
   }
