@@ -283,6 +283,7 @@ h1 {
   border-radius: 5px;
   border: none;
   align-items: center;
+  cursor: pointer;
 }
 
 .square {

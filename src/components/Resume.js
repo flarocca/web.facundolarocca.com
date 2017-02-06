@@ -46,7 +46,7 @@ export default class Resume extends Component {
         <div className="Container row jc-center" style={{ marginTop: "30px" }}>
           <div className="Container column jc-start column-item-x2" id="professional" style={{ color: this.state.theme.COLOR_3 }}>
             <div className="Container row" style={{ borderLeft: "solid 2px #B4B2B2", paddingLeft: "30px" }}>
-              <div style={{ textAlign: "left" }}>
+              <div style={{ textAlign: "left", width: "100%" }}>
                 <h2 style={{ color: this.state.theme.COLOR_3 }}>{this.state.languageSet.PROFESSIONAL}</h2>
                 {this._renderWebDotComExp()}
                 {this._renderIsbanExp()}
@@ -72,7 +72,7 @@ export default class Resume extends Component {
             </div>
 
             <div className="Container row" style={{ borderLeft: "solid 2px #B4B2B2", paddingLeft: "30px" }}>
-              <div style={{ textAlign: "left" }}>
+              <div style={{ textAlign: "left", width: "100%" }}>
                 <h3 style={{ color: this.state.theme.COLOR_3 }}>{this.state.languageSet.OTHER_SKILLS}</h3>
                 <div className="Container row" style={{ marginLeft: "15px", flexWrap: "wrap" }}>
                   {this._rederOtherSkill("TDD")}
