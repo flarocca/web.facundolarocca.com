@@ -35,8 +35,8 @@ class ContactMeRoutes extends Routes {
         var body = '<p>';
         body += 'First name: ' + mailBody.firstName + '.<br/>';
         body += 'Last name: ' + mailBody.lastName + '.<br/>';
-        body += 'Mail name: ' + mailBody.email + '.<br/>';
-        body += 'Message name: ' + mailBody.message + '.<br/>';
+        body += 'Mail: ' + mailBody.email + '.<br/>';
+        body += 'Message: ' + mailBody.message + '.<br/>';
         body += '</p>';
 
         return new Mail(config.sendFromMail, config.sendToMail, body, 'Contact - www.facundolarocca.com.ar');
