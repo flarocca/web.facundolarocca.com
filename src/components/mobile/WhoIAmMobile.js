@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import AppStore from '../../stores/AppStore';
-import { Element, scroller } from 'react-scroll';
+import { Element } from 'react-scroll';
 
 export default class WhoIAmMobile extends Component {
   constructor(props) {
     super(props);
-
-    this._onStoreChange = this._onStoreChange.bind(this);
+    
     this._onScroll = this._onScroll.bind(this);
     this.state = {
       checked: false
@@ -14,31 +12,16 @@ export default class WhoIAmMobile extends Component {
   }
 
   componentDidMount() {
-    AppStore.addChangeListener(this._onStoreChange);
-
     window.addEventListener('scroll', this._onScroll);
   }
 
   componentWillUnmount() {
-    AppStore.removeChangeListener(this._onStoreChange);
     window.removeEventListener('scroll', this._onScroll, false);
   }
 
   _onScroll(event) {
     if (event.srcElement.body.scrollTop >= 220) {
       this.setState({ checked: true });
-    }
-  }
-
-  _onStoreChange() {
-    var menu = AppStore.getMenuSelected();
-    if (menu === 'WHO_I_AM') {
-      scroller.scrollTo(menu, {
-        duration: 3500,
-        delay: 0,
-        smooth: true,
-        offset: -50
-      });
     }
   }
 

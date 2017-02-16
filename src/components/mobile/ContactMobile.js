@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AppStore from '../../stores/AppStore';
 import AppActions from '../../actions/AppActions';
-import { Element, scroller } from 'react-scroll';
+import { Element } from 'react-scroll';
 
 export default class ContactMobile extends Component {
   constructor(props) {
@@ -95,16 +95,6 @@ export default class ContactMobile extends Component {
           message: ''
         });
     });
-
-    var menu = AppStore.getMenuSelected();
-    if (menu === 'CONTACT') {
-      scroller.scrollTo(menu, {
-        duration: 3500,
-        delay: 0,
-        smooth: true,
-        offset: -50
-      });
-    }
   }
 
   _renderRequiredFieldMsg(field, message) {

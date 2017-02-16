@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import '../css/App.css';
 import '../css/AppMobile.css';
 import '../font-awesome/css/font-awesome.min.css';
@@ -17,13 +18,15 @@ import AppFooterMobile from './mobile/AppFooterMobile';
 import AppActions from '../actions/AppActions';
 import AppStore from '../stores/AppStore';
 import MediaQuery from 'react-responsive';
-import { Element } from 'react-scroll';
+import getDefaultLanguagueSet from '../reducers/AppReducers';
+import { Element, scroller } from 'react-scroll';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
 
     this._onStoreChange = this._onStoreChange.bind(this);
+    this._scrollTo = this._scrollTo.bind(this);
     this.state = {
       languageSet: AppStore.getLanguageSet(),
       theme: AppStore.getThemeSelected()
@@ -39,11 +42,41 @@ export default class App extends Component {
     AppStore.removeChangeListener(this._onStoreChange);
   }
 
+  _scrollTo(menu, offset) {
+    scroller.scrollTo(menu, {
+      duration: 1000,
+      delay: 0,
+      smooth: true,
+      offset: offset
+    });
+  }
+
   _onStoreChange() {
     this.setState({
       languageSet: AppStore.getLanguageSet(),
       theme: AppStore.getThemeSelected()
     });
+
+    var menu = AppStore.getMenuSelected();
+    switch (menu) {
+      case 'HOME':
+        this._scrollTo(menu, -40);
+        break;
+      case 'CONTACT':
+        this._scrollTo(menu, -50);
+        break;
+      case 'RESUME':
+        this._scrollTo(menu, -50);
+        break;
+      case 'WHAT_I_DO':
+        this._scrollTo(menu, -50);
+        break;
+      case 'WHO_I_AM':
+        this._scrollTo(menu, -50);
+        break;
+      default:
+        break;
+    }
   }
 
   render() {

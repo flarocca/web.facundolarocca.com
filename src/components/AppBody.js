@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import AppStore from '../stores/AppStore';
-import { Element, scroller } from 'react-scroll';
+import { Element } from 'react-scroll';
 import Resume from './Resume';
 import Contact from './Contact';
 import WhoIAm from './WhoIAm';
@@ -13,24 +12,6 @@ import getAllThemes from '../constants/themes/getAllThemes';
 import MediaQuery from 'react-responsive';
 
 export default class AppBody extends Component {
-  constructor(props) {
-    super(props);
-
-    this._onStoreChange = this._onStoreChange.bind(this);
-  }
-
-  _onStoreChange() {
-    var menu = AppStore.getMenuSelected();
-    if (menu === 'HOME') {
-      scroller.scrollTo(menu, {
-        duration: 1000,
-        delay: 0,
-        smooth: true,
-        offset: -40
-      });
-    }
-  }
-
   render() {
     return (
       <div id="body">

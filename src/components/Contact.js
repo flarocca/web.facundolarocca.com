@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import AppStore from '../stores/AppStore';
 import AppActions from '../actions/AppActions';
-import isElementInViewport from '../helpers/isElementInViewport';
-import { Element, scroller } from 'react-scroll';
+import SectionTitle from './common/SectionTitle';
+import { Element } from 'react-scroll';
 
 export default class Contact extends Component {
   constructor(props) {
@@ -10,7 +10,6 @@ export default class Contact extends Component {
 
     this._onStoreChange = this._onStoreChange.bind(this);
     this._onClick = this._onClick.bind(this);
-    this._onScroll = this._onScroll.bind(this);
     this._firstNameChange = this._firstNameChange.bind(this);
     this._lastNameChange = this._lastNameChange.bind(this);
     this._emailChange = this._emailChange.bind(this);
@@ -37,19 +36,10 @@ export default class Contact extends Component {
 
   componentDidMount() {
     AppStore.addChangeListener(this._onStoreChange);
-    window.addEventListener('scroll', this._onScroll);
   }
 
   componentWillUnmount() {
     AppStore.removeChangeListener(this._onStoreChange);
-    window.removeEventListener('scroll', this._onScroll, false);
-  }
-
-  _onScroll(event) {
-    let isInViewport = isElementInViewport(this.refs.title);
-    if (isInViewport && !this.state.checked) {
-      this.setState({ checked: true });
-    }
   }
 
   _onClick() {
@@ -97,16 +87,6 @@ export default class Contact extends Component {
           message: ''
         });
     });
-
-    var menu = AppStore.getMenuSelected();
-    if (menu === 'CONTACT') {
-      scroller.scrollTo(menu, {
-        duration: 1000,
-        delay: 0,
-        smooth: true,
-        offset: -50
-      });
-    }
   }
 
   _renderRequiredFieldMsg(field, message) {
@@ -147,10 +127,7 @@ export default class Contact extends Component {
     return (
       <div id="contact" className="Container column jc-center" style={{ backgroundColor: this.props.theme.BACKGROUND_COLOR }}>
         <Element name="CONTACT" />
-        <span style={{ textAlign: "left", fontSize: "40px", color: this.props.theme.COLOR_4 }}>
-          <input type="checkbox" id="Contact-chk" style={{ display: "none" }} checked={this.state.checked} />
-          <b id="Contact-title" ref="title">{this.props.languageSet.CONTACT}</b>
-        </span>
+        <SectionTitle title={this.props.languageSet.CONTACT} color={this.props.theme.COLOR_4} id={"Contact"}/>
         <hr />
         <div className="Container row" style={{ marginTop: "30px", alignSelf: "center", width: "100%" }}>
           <div id="personal-information" className="Container column jc-left" style={{ width: "45%" }}>

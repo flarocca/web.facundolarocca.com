@@ -1,0 +1,7 @@
+export const INIT_APP = 'INIT_APP';
+export const LANGUAGE_CHANGED = 'LANGUAGE_CHANGED';
+export const MENU_SELECTED = 'MENU_SELECTED';
+export const MAIL_SENDED = 'MAIL_SENDED';
+export const ERROR_SENDING_MAIL = 'ERROR_SENDING_MAIL';
+export const SENDING_MAIL = 'SENDING_MAIL';
+export const THEME_SELECTED = 'THEME_SELECTED';

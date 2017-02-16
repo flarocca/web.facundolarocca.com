@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import AppStore from '../../stores/AppStore';
-import { Element, scroller } from 'react-scroll';
+import { Element } from 'react-scroll';
 import Cloud from '../../images/svg/Cloud';
 import Mobile from '../../images/svg/Mobile';
 
@@ -8,7 +7,6 @@ export default class WhatIDoMobile extends Component {
   constructor(props) {
     super(props);
 
-    this._onStoreChange = this._onStoreChange.bind(this);
     this._onScroll = this._onScroll.bind(this);
     this.state = {
       checked: false
@@ -16,25 +14,11 @@ export default class WhatIDoMobile extends Component {
   }
 
   componentDidMount() {
-    AppStore.addChangeListener(this._onStoreChange);
     window.addEventListener('scroll', this._onScroll);
   }
 
   componentWillUnmount() {
-    AppStore.removeChangeListener(this._onStoreChange);
     window.removeEventListener('scroll', this._onScroll, false);
-  }
-
-  _onStoreChange() {
-    var menu = AppStore.getMenuSelected();
-    if (menu === 'WHAT_I_DO') {
-      scroller.scrollTo(menu, {
-        duration: 3500,
-        delay: 0,
-        smooth: true,
-        offset: -50
-      });
-    }
   }
 
   _onScroll(event) {

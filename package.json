@@ -18,10 +18,12 @@
     "react-addons-css-transition-group": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-flipcard": "^0.2.1",
+    "react-redux": "^5.0.2",
     "react-responsive": "^1.2.6",
     "react-router": "^3.0.0",
     "react-scroll": "^1.4.4",
     "react-slick": "^0.14.5",
+    "redux": "^3.6.0",
     "sync-queue": "0.0.2"
   },
   "scripts": {

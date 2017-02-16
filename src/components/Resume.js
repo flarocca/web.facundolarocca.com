@@ -1,55 +1,46 @@
 import React, { Component } from 'react';
-import AppStore from '../stores/AppStore';
-import { Element, scroller } from 'react-scroll';
-import isElementInViewport from '../helpers/isElementInViewport';
+import { Element } from 'react-scroll';
+import ResumeExperience from './ResumeExperience';
+import ResumeSkill from './ResumeSkill';
+import ResumeOtherSkill from './ResumeOtherSkill';
+import SectionTitle from './common/SectionTitle';
 
 export default class Resume extends Component {
-  constructor(props) {
-    super(props);
-
-    this._onStoreChange = this._onStoreChange.bind(this);
-    this._onScroll = this._onScroll.bind(this);
-    this._renderWebDotComExp = this._renderWebDotComExp.bind(this);
-    this._renderIsbanExp = this._renderIsbanExp.bind(this);
-    this._renderAndreaniExp = this._renderAndreaniExp.bind(this);
-    this._renderOpenSolutionsExp = this._renderOpenSolutionsExp.bind(this);
-    this._rederSkill = this._rederSkill.bind(this);
-    this._renderSkillPoints = this._renderSkillPoints.bind(this);
-    this._rederOtherSkill = this._rederOtherSkill.bind(this);
-
-    this.state = {
-      checked: false
-    }
-  }
-
-  componentDidMount() {
-    AppStore.addChangeListener(this._onStoreChange);
-    window.addEventListener('scroll', this._onScroll);
-  }
-
-  componentWillUnmount() {
-    AppStore.removeChangeListener(this._onStoreChange);
-    window.removeEventListener('scroll', this._onScroll, false);
-  }
-
   render() {
     return (
       <div id="resume" className="Container column" style={{ marginTop: "50px", backgroundColor: this.props.theme.BACKGROUND_COLOR }}>
         <Element name="RESUME" />
-        <span style={{ textAlign: "left", fontSize: "40px", color: this.props.theme.COLOR_3 }}>
-          <input type="checkbox" id="Resume-chk" style={{ display: "none" }} checked={this.state.checked} />
-          <b id="Resume-title" ref="title">{this.props.languageSet.RESUME}</b>
-        </span>
+        <SectionTitle title={this.props.languageSet.RESUME} color={this.props.theme.COLOR_3} id={"Resume"}/>
         <hr />
         <div className="Container row jc-center" style={{ marginTop: "30px" }}>
           <div className="Container column jc-start column-item-x2" id="professional" style={{ color: this.props.theme.COLOR_3 }}>
             <div className="Container row" style={{ borderLeft: "solid 2px #B4B2B2", paddingLeft: "30px" }}>
               <div style={{ textAlign: "left", width: "100%" }}>
                 <h2 style={{ color: this.props.theme.COLOR_3 }}>{this.props.languageSet.PROFESSIONAL}</h2>
-                {this._renderWebDotComExp()}
-                {this._renderIsbanExp()}
-                {this._renderAndreaniExp()}
-                {this._renderOpenSolutionsExp()}
+                <ResumeExperience
+                  backgroundColor={this.props.theme.COLOR_3}
+                  fontColor={this.props.theme.FONT_COLOR}
+                  title={'Web.com'}
+                  description={this.props.languageSet.WEB_DOT_COM}
+                  period={this.props.languageSet.NOV + " 2016 - " + this.props.languageSet.PRESENT} />
+                <ResumeExperience
+                  backgroundColor={this.props.theme.COLOR_3}
+                  fontColor={this.props.theme.FONT_COLOR}
+                  title={'Isban'}
+                  description={this.props.languageSet.ISBAN}
+                  period={this.props.languageSet.FEB + " 2015 - " + this.props.languageSet.NOV + " 2016"} />
+                <ResumeExperience
+                  backgroundColor={this.props.theme.COLOR_3}
+                  fontColor={this.props.theme.FONT_COLOR}
+                  title={'Andreani'}
+                  description={this.props.languageSet.ANDREANI}
+                  period={this.props.languageSet.OCT + " 2012 - " + this.props.languageSet.FEB + " 2015"} />
+                <ResumeExperience
+                  backgroundColor={this.props.theme.COLOR_3}
+                  fontColor={this.props.theme.FONT_COLOR}
+                  title={'Open Solutions'}
+                  description={this.props.languageSet.OPEN_SOLUTIONS}
+                  period={this.props.languageSet.NOV + " 2008 - " + this.props.languageSet.SEP + " 2012"} />
               </div>
             </div>
           </div>
@@ -58,169 +49,35 @@ export default class Resume extends Component {
               <div style={{ textAlign: "left" }}>
                 <h2 style={{ color: this.props.theme.COLOR_3 }}>{this.props.languageSet.SKILLS}</h2>
                 <div className="Container column">
-                  {this._rederSkill(9, "C#")}
-                  {this._rederSkill(7, "JavaScript")}
-                  {this._rederSkill(6, "ReactJS / React-Native")}
-                  {this._rederSkill(6, "NodeJS")}
-                  {this._rederSkill(8, "CSS / HTML")}
-                  {this._rederSkill(7, "SQL Server")}
-                  {this._rederSkill(7, "ORACLE")}
+                  <ResumeSkill color={this.props.theme.COLOR_3} points={9} text={"C#"} />
+                  <ResumeSkill color={this.props.theme.COLOR_3} points={7} text={"JavaScript"} />
+                  <ResumeSkill color={this.props.theme.COLOR_3} points={6} text={"ReactJS / React-Native"} />
+                  <ResumeSkill color={this.props.theme.COLOR_3} points={6} text={"NodeJS"} />
+                  <ResumeSkill color={this.props.theme.COLOR_3} points={8} text={"CSS / HTML"} />
+                  <ResumeSkill color={this.props.theme.COLOR_3} points={7} text={"SQL Server"} />
+                  <ResumeSkill color={this.props.theme.COLOR_3} points={7} text={"ORACLE"} />
                 </div>
               </div>
             </div>
-
             <div className="Container row" style={{ borderLeft: "solid 2px #B4B2B2", paddingLeft: "30px" }}>
               <div style={{ textAlign: "left", width: "100%" }}>
                 <h3 style={{ color: this.props.theme.COLOR_3 }}>{this.props.languageSet.OTHER_SKILLS}</h3>
                 <div className="Container row" style={{ marginLeft: "15px", flexWrap: "wrap" }}>
-                  {this._rederOtherSkill("TDD")}
-                  {this._rederOtherSkill("Scrum")}
-                  {this._rederOtherSkill("MongoDB")}
-                  {this._rederOtherSkill("ElasticSearch")}
-                  {this._rederOtherSkill("Flux")}
-                  {this._rederOtherSkill("Firebase")}
-                  {this._rederOtherSkill(".Net MVC 5")}
-                  {this._rederOtherSkill("REST Services")}
-                  {this._rederOtherSkill("SOA")}
-                  {this._rederOtherSkill("OAuth")}
-                  {this._rederOtherSkill("ExpressJS")}
+                  <ResumeOtherSkill color={this.props.theme.COLOR_3} text={"TDD"} />
+                  <ResumeOtherSkill color={this.props.theme.COLOR_3} text={"Scrum"} />
+                  <ResumeOtherSkill color={this.props.theme.COLOR_3} text={"MongoDB"} />
+                  <ResumeOtherSkill color={this.props.theme.COLOR_3} text={"ElasticSearch"} />
+                  <ResumeOtherSkill color={this.props.theme.COLOR_3} text={"Flux"} />
+                  <ResumeOtherSkill color={this.props.theme.COLOR_3} text={".Net MVC 5"} />
+                  <ResumeOtherSkill color={this.props.theme.COLOR_3} text={"REST Services"} />
+                  <ResumeOtherSkill color={this.props.theme.COLOR_3} text={"SOA"} />
+                  <ResumeOtherSkill color={this.props.theme.COLOR_3} text={"OAuth"} />
+                  <ResumeOtherSkill color={this.props.theme.COLOR_3} text={"ExpressJS"} />
+                  <ResumeOtherSkill color={this.props.theme.COLOR_3} text={"Firebase"} />
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    );
-  }
-
-  _onStoreChange() {
-    var menu = AppStore.getMenuSelected();
-    if (menu === 'RESUME') {
-      scroller.scrollTo(menu, {
-        duration: 1000,
-        delay: 0,
-        smooth: true,
-        offset: -50
-      });
-    }
-  }
-
-  _onScroll(event) {
-    let isInViewport = isElementInViewport(this.refs.title);
-    if (isInViewport && !this.state.checked) {
-      this.setState({ checked: true });
-    }
-  }
-
-  _rederOtherSkill(text) {
-    return (
-      <span className="resume-item skill" style={{ fontSize: "small", color: "white", backgroundColor: this.props.theme.COLOR_3 }}>{text}</span>
-    );
-  }
-
-  _rederSkill(points, text) {
-    return (
-      <div>
-        <div className="Container row">
-          <div className="dot" style={{ backgroundColor: this.props.theme.COLOR_3 }} />
-          <div style={{ position: "relative" }}>
-            <span className="resume-item" style={{ paddingLeft: "3px", paddingBottom: "6px", textAlign: "left", color: this.props.theme.COLOR_3 }}><b>{text}</b></span>
-          </div>
-        </div>
-        {this._renderSkillPoints(points, this.props.theme.COLOR_3)}
-      </div>
-    );
-  }
-
-  _renderSkillPoints(points, color) {
-    var renderedPoints = [];
-
-    for (let i = 0; i < points; i++) {
-      renderedPoints.push(<div key={i} className="dot-skill" style={{ backgroundColor: color }} />);
-    }
-
-    for (let i = points; i < 10; i++) {
-      renderedPoints.push(<div key={i} className="dot-skill" style={{ backgroundColor: "#B4B2B2" }} />);
-    }
-
-    return (
-      <div className="Container row" style={{ marginBottom: "20px" }}>
-        {renderedPoints}
-      </div>
-    );
-  }
-
-  _renderWebDotComExp() {
-    return (
-      <div className="Container column">
-        <div className="Container row">
-          <div className="dot" style={{ backgroundColor: this.props.theme.COLOR_3 }}></div>
-          <div style={{ position: "relative" }}>
-            <span className="resume-item" style={{ color: "white", backgroundColor: this.props.theme.COLOR_3 }}><b>{this.props.languageSet.NOV + " 2016 - " + this.props.languageSet.PRESENT}</b></span>
-          </div>
-        </div>
-        <div style={{ textAlign: "left" }}>
-          <h3>Web.com</h3>
-          <p style={{ color: this.props.theme.FONT_COLOR }}>
-            {this.props.languageSet.WEB_DOT_COM}
-          </p>
-        </div>
-      </div>
-    );
-  }
-
-  _renderIsbanExp() {
-    return (
-      <div className="Container column">
-        <div className="Container row">
-          <div className="dot" style={{ backgroundColor: this.props.theme.COLOR_3 }}></div>
-          <div style={{ position: "relative" }}>
-            <span className="resume-item" style={{ color: "white", backgroundColor: this.props.theme.COLOR_3 }}><b>{this.props.languageSet.FEB + " 2015 - " + this.props.languageSet.NOV + " 2016"}</b></span>
-          </div>
-        </div>
-        <div style={{ textAlign: "left" }}>
-          <h3>Isban</h3>
-          <p style={{ color: this.props.theme.FONT_COLOR }}>
-            {this.props.languageSet.ISBAN}
-          </p>
-        </div>
-      </div>
-    );
-  }
-
-  _renderAndreaniExp() {
-    return (
-      <div className="Container column">
-        <div className="Container row">
-          <div className="dot" style={{ backgroundColor: this.props.theme.COLOR_3 }}></div>
-          <div style={{ position: "relative" }}>
-            <span className="resume-item" style={{ color: "white", backgroundColor: this.props.theme.COLOR_3 }}><b>{this.props.languageSet.OCT + " 2012 - " + this.props.languageSet.FEB + " 2015"}</b></span>
-          </div>
-        </div>
-        <div style={{ textAlign: "left" }}>
-          <h3>Andreani</h3>
-          <p style={{ color: this.props.theme.FONT_COLOR }}>
-            {this.props.languageSet.ANDREANI}
-          </p>
-        </div>
-      </div>
-    );
-  }
-
-  _renderOpenSolutionsExp() {
-    return (
-      <div className="Container column">
-        <div className="Container row">
-          <div className="dot" style={{ backgroundColor: this.props.theme.COLOR_3 }}></div>
-          <div style={{ position: "relative" }}>
-            <span className="resume-item" style={{ color: "white", backgroundColor: this.props.theme.COLOR_3 }}><b>{this.props.languageSet.NOV + " 2008 - " + this.props.languageSet.SEP + " 2012"}</b></span>
-          </div>
-        </div>
-        <div style={{ textAlign: "left" }}>
-          <h3>Open Solutions</h3>
-          <p style={{ color: this.props.theme.FONT_COLOR }}>
-            {this.props.languageSet.OPEN_SOLUTIONS}
-          </p>
         </div>
       </div>
     );
