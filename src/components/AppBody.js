@@ -17,18 +17,9 @@ export default class AppBody extends Component {
     super(props);
 
     this._onStoreChange = this._onStoreChange.bind(this);
-    this.state = {
-      languageSet: this.props.languageSet,
-      theme: this.props.theme
-    }
   }
 
   _onStoreChange() {
-    this.setState({
-      languageSet: AppStore.getLanguageSet(),
-      theme: AppStore.getThemeSelected()
-    });
-
     var menu = AppStore.getMenuSelected();
     if (menu === 'HOME') {
       scroller.scrollTo(menu, {
@@ -52,10 +43,10 @@ export default class AppBody extends Component {
           <LanguageSelector initialLanguage="ARG" />
           <ThemeSelector themes={getAllThemes()} />
         </MediaQuery>
-        <WhoIAm languageSet={this.state.languageSet} theme={this.state.theme} />
-        <WhatIDo languageSet={this.state.languageSet} theme={this.state.theme} />
-        <Resume languageSet={this.state.languageSet} theme={this.state.theme} />
-        <Contact languageSet={this.state.languageSet} theme={this.state.theme} />
+        <WhoIAm languageSet={this.props.languageSet} theme={this.props.theme} />
+        <WhatIDo languageSet={this.props.languageSet} theme={this.props.theme} />
+        <Resume languageSet={this.props.languageSet} theme={this.props.theme} />
+        <Contact languageSet={this.props.languageSet} theme={this.props.theme} />
       </div>
     );
   }

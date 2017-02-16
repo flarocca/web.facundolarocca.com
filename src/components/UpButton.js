@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import AppStore from '../stores/AppStore';
 import Up from '../images/svg/Up';
 import { scroller } from 'react-scroll';
 
@@ -19,24 +18,6 @@ export default class UpButton extends Component {
     super(props);
 
     this._goToHome = this._goToHome.bind(this);
-    this._onStoreChange = this._onStoreChange.bind(this);
-    this.state = {
-      theme: this.props.theme
-    }
-  }
-
-  componentDidMount() {
-    AppStore.addChangeListener(this._onStoreChange);
-  }
-
-  componentWillUnmount() {
-    AppStore.removeChangeListener(this._onStoreChange);
-  }
-
-  _onStoreChange() {
-    this.setState({
-      theme: AppStore.getThemeSelected()
-    });
   }
 
   _goToHome() {
@@ -50,7 +31,7 @@ export default class UpButton extends Component {
   render() {
     return (
       <a href="#" onClick={this._goToHome} style={styles.link}>
-        <Up className="up-btn" outerColor={this.state.theme.COLOR_4} />
+        <Up className="up-btn" outerColor={this.props.theme.COLOR_4} />
       </a>
     );
   }

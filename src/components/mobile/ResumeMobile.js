@@ -16,8 +16,6 @@ export default class ResumeMobile extends Component {
     this._renderSkillPoints = this._renderSkillPoints.bind(this);
     this._rederOtherSkill = this._rederOtherSkill.bind(this);
     this.state = {
-      languageSet: this.props.languageSet,
-      theme: this.props.theme,
       checked: false
     }
   }
@@ -39,11 +37,6 @@ export default class ResumeMobile extends Component {
   }
 
   _onStoreChange() {
-    this.setState({
-      languageSet: AppStore.getLanguageSet(),
-      theme: AppStore.getThemeSelected()
-    });
-
     var menu = AppStore.getMenuSelected();
     if (menu === 'RESUME') {
       scroller.scrollTo(menu, {
@@ -57,15 +50,15 @@ export default class ResumeMobile extends Component {
 
   render() {
     return (
-      <div id="resume-mobile" className="Container column" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
+      <div id="resume-mobile" className="Container column" style={{ backgroundColor: this.props.theme.BACKGROUND_COLOR }}>
         <Element name="RESUME" />
-        <span style={{ textAlign: "left", fontSize: "20px", color: this.state.theme.COLOR_3 }}>
-          <b id="Resume-title-mobile">{this.state.languageSet.RESUME}</b>
+        <span style={{ textAlign: "left", fontSize: "20px", color: this.props.theme.COLOR_3 }}>
+          <b id="Resume-title-mobile">{this.props.languageSet.RESUME}</b>
         </span>
         <hr />
         <div className="Container column jc-center">
-          <h2 style={{ alignSelf: "flex-start", color: this.state.theme.COLOR_3 }}>{this.state.languageSet.PROFESSIONAL}</h2>
-          <div className="Container column jc-start" style={{ color: this.state.theme.COLOR_3 }}>
+          <h2 style={{ alignSelf: "flex-start", color: this.props.theme.COLOR_3 }}>{this.props.languageSet.PROFESSIONAL}</h2>
+          <div className="Container column jc-start" style={{ color: this.props.theme.COLOR_3 }}>
             <div className="Container row" style={{ borderLeft: "solid 2px #B4B2B2", paddingLeft: "30px" }}>
               <div style={{ textAlign: "left" }}>
                 {this._renderWebDotComExp()}
@@ -75,8 +68,8 @@ export default class ResumeMobile extends Component {
               </div>
             </div>
           </div>
-          <h2 style={{ alignSelf: "flex-start", color: this.state.theme.COLOR_3 }}>{this.state.languageSet.SKILLS}</h2>
-          <div className="Container column jc-start" style={{ color: this.state.theme.COLOR_3 }}>
+          <h2 style={{ alignSelf: "flex-start", color: this.props.theme.COLOR_3 }}>{this.props.languageSet.SKILLS}</h2>
+          <div className="Container column jc-start" style={{ color: this.props.theme.COLOR_3 }}>
             <div className="Container row" style={{ borderLeft: "solid 2px #B4B2B2", paddingLeft: "30px" }}>
               <div style={{ textAlign: "left" }}>
                 <div className="Container column">
@@ -93,7 +86,7 @@ export default class ResumeMobile extends Component {
 
             <div className="Container row" style={{ borderLeft: "solid 2px #B4B2B2", paddingLeft: "30px" }}>
               <div style={{ textAlign: "left" }}>
-                <h3 style={{ color: this.state.theme.COLOR_3 }}>{this.state.languageSet.OTHER_SKILLS}</h3>
+                <h3 style={{ color: this.props.theme.COLOR_3 }}>{this.props.languageSet.OTHER_SKILLS}</h3>
                 <div className="Container row" style={{ marginLeft: "15px", flexWrap: "wrap" }}>
                   {this._rederOtherSkill("TDD")}
                   {this._rederOtherSkill("Scrum")}
@@ -117,7 +110,7 @@ export default class ResumeMobile extends Component {
 
   _rederOtherSkill(text) {
     return (
-      <span className="resume-item skill" style={{ fontSize: "small", color: "white", backgroundColor: this.state.theme.COLOR_3 }}>{text}</span>
+      <span className="resume-item skill" style={{ fontSize: "small", color: "white", backgroundColor: this.props.theme.COLOR_3 }}>{text}</span>
     );
   }
 
@@ -125,12 +118,12 @@ export default class ResumeMobile extends Component {
     return (
       <div>
         <div className="Container row">
-          <div className="dot" style={{ backgroundColor: this.state.theme.COLOR_3 }} />
+          <div className="dot" style={{ backgroundColor: this.props.theme.COLOR_3 }} />
           <div style={{ position: "relative" }}>
-            <span className="resume-item" style={{ paddingLeft: "3px", paddingBottom: "6px", textAlign: "left", color: this.state.theme.COLOR_3 }}><b>{text}</b></span>
+            <span className="resume-item" style={{ paddingLeft: "3px", paddingBottom: "6px", textAlign: "left", color: this.props.theme.COLOR_3 }}><b>{text}</b></span>
           </div>
         </div>
-        {this._renderSkillPoints(points, this.state.theme.COLOR_3)}
+        {this._renderSkillPoints(points, this.props.theme.COLOR_3)}
       </div>
     );
   }
@@ -157,15 +150,15 @@ export default class ResumeMobile extends Component {
     return (
       <div className="Container column">
         <div className="Container row">
-          <div className="dot" style={{ backgroundColor: this.state.theme.COLOR_3 }}></div>
+          <div className="dot" style={{ backgroundColor: this.props.theme.COLOR_3 }}></div>
           <div style={{ position: "relative" }}>
-            <span className="resume-item" style={{ color: "white", backgroundColor: this.state.theme.COLOR_3 }}><b>{this.state.languageSet.NOV + " 2016 - " + this.state.languageSet.PRESENT}</b></span>
+            <span className="resume-item" style={{ color: "white", backgroundColor: this.props.theme.COLOR_3 }}><b>{this.props.languageSet.NOV + " 2016 - " + this.props.languageSet.PRESENT}</b></span>
           </div>
         </div>
         <div style={{ textAlign: "left" }}>
           <h2>Web.com</h2>
-          <p className="text" style={{ color: this.state.theme.FONT_COLOR }}>
-            {this.state.languageSet.WEB_DOT_COM}
+          <p className="text" style={{ color: this.props.theme.FONT_COLOR }}>
+            {this.props.languageSet.WEB_DOT_COM}
           </p>
         </div>
       </div>
@@ -176,15 +169,15 @@ export default class ResumeMobile extends Component {
     return (
       <div className="Container column">
         <div className="Container row">
-          <div className="dot" style={{ backgroundColor: this.state.theme.COLOR_3 }}></div>
+          <div className="dot" style={{ backgroundColor: this.props.theme.COLOR_3 }}></div>
           <div style={{ position: "relative" }}>
-            <span className="resume-item" style={{ color: "white", backgroundColor: this.state.theme.COLOR_3 }}><b>{this.state.languageSet.FEB + " 2015 - " + this.state.languageSet.NOV + " 2016"}</b></span>
+            <span className="resume-item" style={{ color: "white", backgroundColor: this.props.theme.COLOR_3 }}><b>{this.props.languageSet.FEB + " 2015 - " + this.props.languageSet.NOV + " 2016"}</b></span>
           </div>
         </div>
         <div style={{ textAlign: "left" }}>
           <h2>Isban</h2>
-          <p className="text" style={{ color: this.state.theme.FONT_COLOR }}>
-            {this.state.languageSet.ISBAN}
+          <p className="text" style={{ color: this.props.theme.FONT_COLOR }}>
+            {this.props.languageSet.ISBAN}
           </p>
         </div>
       </div>
@@ -195,15 +188,15 @@ export default class ResumeMobile extends Component {
     return (
       <div className="Container column">
         <div className="Container row">
-          <div className="dot" style={{ backgroundColor: this.state.theme.COLOR_3 }}></div>
+          <div className="dot" style={{ backgroundColor: this.props.theme.COLOR_3 }}></div>
           <div style={{ position: "relative" }}>
-            <span className="resume-item" style={{ color: "white", backgroundColor: this.state.theme.COLOR_3 }}><b>{this.state.languageSet.OCT + " 2012 - " + this.state.languageSet.FEB + " 2015"}</b></span>
+            <span className="resume-item" style={{ color: "white", backgroundColor: this.props.theme.COLOR_3 }}><b>{this.props.languageSet.OCT + " 2012 - " + this.props.languageSet.FEB + " 2015"}</b></span>
           </div>
         </div>
         <div style={{ textAlign: "left" }}>
           <h2>Andreani</h2>
-          <p className="text" style={{ color: this.state.theme.FONT_COLOR }}>
-            {this.state.languageSet.ANDREANI}
+          <p className="text" style={{ color: this.props.theme.FONT_COLOR }}>
+            {this.props.languageSet.ANDREANI}
           </p>
         </div>
       </div>
@@ -214,15 +207,15 @@ export default class ResumeMobile extends Component {
     return (
       <div className="Container column">
         <div className="Container row">
-          <div className="dot" style={{ backgroundColor: this.state.theme.COLOR_3 }}></div>
+          <div className="dot" style={{ backgroundColor: this.props.theme.COLOR_3 }}></div>
           <div style={{ position: "relative" }}>
-            <span className="resume-item" style={{ color: "white", backgroundColor: this.state.theme.COLOR_3 }}><b>{this.state.languageSet.NOV + " 2008 - " + this.state.languageSet.SEP + " 2012"}</b></span>
+            <span className="resume-item" style={{ color: "white", backgroundColor: this.props.theme.COLOR_3 }}><b>{this.props.languageSet.NOV + " 2008 - " + this.props.languageSet.SEP + " 2012"}</b></span>
           </div>
         </div>
         <div style={{ textAlign: "left" }}>
           <h2>Open Solutions</h2>
-          <p className="text" style={{ color: this.state.theme.FONT_COLOR }}>
-            {this.state.languageSet.OPEN_SOLUTIONS}
+          <p className="text" style={{ color: this.props.theme.FONT_COLOR }}>
+            {this.props.languageSet.OPEN_SOLUTIONS}
           </p>
         </div>
       </div>

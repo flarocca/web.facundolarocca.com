@@ -12,18 +12,9 @@ export default class AppBodyMobile extends Component {
     super(props);
 
     this._onStoreChange = this._onStoreChange.bind(this);
-    this.state = {
-      languageSet: this.props.languageSet,
-      theme: this.props.theme
-    }
   }
 
   _onStoreChange() {
-    this.setState({
-      languageSet: AppStore.getLanguageSet(),
-      theme: AppStore.getThemeSelected()
-    });
-
     var menu = AppStore.getMenuSelected();
     if (menu === 'HOME') {
       scroller.scrollTo(menu, {
@@ -40,10 +31,10 @@ export default class AppBodyMobile extends Component {
       <div id="body-mobile">
         <Element name="HOME" />
         <LanguageSelectorMobile initialLanguage="ARG" />
-        <WhoIAmMobile languageSet={this.state.languageSet} theme={this.state.theme} />
-        <WhatIDoMobile languageSet={this.state.languageSet} theme={this.state.theme} />
-        <ResumeMobile languageSet={this.state.languageSet} theme={this.state.theme} />
-        <ContactMobile languageSet={this.state.languageSet} theme={this.state.theme} />
+        <WhoIAmMobile languageSet={this.props.languageSet} theme={this.props.theme} />
+        <WhatIDoMobile languageSet={this.props.languageSet} theme={this.props.theme} />
+        <ResumeMobile languageSet={this.props.languageSet} theme={this.props.theme} />
+        <ContactMobile languageSet={this.props.languageSet} theme={this.props.theme} />
       </div>
     );
   }

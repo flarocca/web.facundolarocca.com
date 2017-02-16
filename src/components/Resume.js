@@ -18,8 +18,6 @@ export default class Resume extends Component {
     this._rederOtherSkill = this._rederOtherSkill.bind(this);
 
     this.state = {
-      languageSet: this.props.languageSet,
-      theme: this.props.theme,
       checked: false
     }
   }
@@ -36,18 +34,18 @@ export default class Resume extends Component {
 
   render() {
     return (
-      <div id="resume" className="Container column" style={{ marginTop: "50px", backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
+      <div id="resume" className="Container column" style={{ marginTop: "50px", backgroundColor: this.props.theme.BACKGROUND_COLOR }}>
         <Element name="RESUME" />
-        <span style={{ textAlign: "left", fontSize: "40px", color: this.state.theme.COLOR_3 }}>
+        <span style={{ textAlign: "left", fontSize: "40px", color: this.props.theme.COLOR_3 }}>
           <input type="checkbox" id="Resume-chk" style={{ display: "none" }} checked={this.state.checked} />
-          <b id="Resume-title" ref="title">{this.state.languageSet.RESUME}</b>
+          <b id="Resume-title" ref="title">{this.props.languageSet.RESUME}</b>
         </span>
         <hr />
         <div className="Container row jc-center" style={{ marginTop: "30px" }}>
-          <div className="Container column jc-start column-item-x2" id="professional" style={{ color: this.state.theme.COLOR_3 }}>
+          <div className="Container column jc-start column-item-x2" id="professional" style={{ color: this.props.theme.COLOR_3 }}>
             <div className="Container row" style={{ borderLeft: "solid 2px #B4B2B2", paddingLeft: "30px" }}>
               <div style={{ textAlign: "left", width: "100%" }}>
-                <h2 style={{ color: this.state.theme.COLOR_3 }}>{this.state.languageSet.PROFESSIONAL}</h2>
+                <h2 style={{ color: this.props.theme.COLOR_3 }}>{this.props.languageSet.PROFESSIONAL}</h2>
                 {this._renderWebDotComExp()}
                 {this._renderIsbanExp()}
                 {this._renderAndreaniExp()}
@@ -55,10 +53,10 @@ export default class Resume extends Component {
               </div>
             </div>
           </div>
-          <div className="Container column jc-start column-item-x2" id="personal" style={{ color: this.state.theme.COLOR_3 }}>
+          <div className="Container column jc-start column-item-x2" id="personal" style={{ color: this.props.theme.COLOR_3 }}>
             <div className="Container row" style={{ borderLeft: "solid 2px #B4B2B2", paddingLeft: "30px" }}>
               <div style={{ textAlign: "left" }}>
-                <h2 style={{ color: this.state.theme.COLOR_3 }}>{this.state.languageSet.SKILLS}</h2>
+                <h2 style={{ color: this.props.theme.COLOR_3 }}>{this.props.languageSet.SKILLS}</h2>
                 <div className="Container column">
                   {this._rederSkill(9, "C#")}
                   {this._rederSkill(7, "JavaScript")}
@@ -73,7 +71,7 @@ export default class Resume extends Component {
 
             <div className="Container row" style={{ borderLeft: "solid 2px #B4B2B2", paddingLeft: "30px" }}>
               <div style={{ textAlign: "left", width: "100%" }}>
-                <h3 style={{ color: this.state.theme.COLOR_3 }}>{this.state.languageSet.OTHER_SKILLS}</h3>
+                <h3 style={{ color: this.props.theme.COLOR_3 }}>{this.props.languageSet.OTHER_SKILLS}</h3>
                 <div className="Container row" style={{ marginLeft: "15px", flexWrap: "wrap" }}>
                   {this._rederOtherSkill("TDD")}
                   {this._rederOtherSkill("Scrum")}
@@ -96,11 +94,6 @@ export default class Resume extends Component {
   }
 
   _onStoreChange() {
-    this.setState({
-      languageSet: AppStore.getLanguageSet(),
-      theme: AppStore.getThemeSelected()
-    });
-
     var menu = AppStore.getMenuSelected();
     if (menu === 'RESUME') {
       scroller.scrollTo(menu, {
@@ -121,7 +114,7 @@ export default class Resume extends Component {
 
   _rederOtherSkill(text) {
     return (
-      <span className="resume-item skill" style={{ fontSize: "small", color: "white", backgroundColor: this.state.theme.COLOR_3 }}>{text}</span>
+      <span className="resume-item skill" style={{ fontSize: "small", color: "white", backgroundColor: this.props.theme.COLOR_3 }}>{text}</span>
     );
   }
 
@@ -129,12 +122,12 @@ export default class Resume extends Component {
     return (
       <div>
         <div className="Container row">
-          <div className="dot" style={{ backgroundColor: this.state.theme.COLOR_3 }} />
+          <div className="dot" style={{ backgroundColor: this.props.theme.COLOR_3 }} />
           <div style={{ position: "relative" }}>
-            <span className="resume-item" style={{ paddingLeft: "3px", paddingBottom: "6px", textAlign: "left", color: this.state.theme.COLOR_3 }}><b>{text}</b></span>
+            <span className="resume-item" style={{ paddingLeft: "3px", paddingBottom: "6px", textAlign: "left", color: this.props.theme.COLOR_3 }}><b>{text}</b></span>
           </div>
         </div>
-        {this._renderSkillPoints(points, this.state.theme.COLOR_3)}
+        {this._renderSkillPoints(points, this.props.theme.COLOR_3)}
       </div>
     );
   }
@@ -161,15 +154,15 @@ export default class Resume extends Component {
     return (
       <div className="Container column">
         <div className="Container row">
-          <div className="dot" style={{ backgroundColor: this.state.theme.COLOR_3 }}></div>
+          <div className="dot" style={{ backgroundColor: this.props.theme.COLOR_3 }}></div>
           <div style={{ position: "relative" }}>
-            <span className="resume-item" style={{ color: "white", backgroundColor: this.state.theme.COLOR_3 }}><b>{this.state.languageSet.NOV + " 2016 - " + this.state.languageSet.PRESENT}</b></span>
+            <span className="resume-item" style={{ color: "white", backgroundColor: this.props.theme.COLOR_3 }}><b>{this.props.languageSet.NOV + " 2016 - " + this.props.languageSet.PRESENT}</b></span>
           </div>
         </div>
         <div style={{ textAlign: "left" }}>
           <h3>Web.com</h3>
-          <p style={{ color: this.state.theme.FONT_COLOR }}>
-            {this.state.languageSet.WEB_DOT_COM}
+          <p style={{ color: this.props.theme.FONT_COLOR }}>
+            {this.props.languageSet.WEB_DOT_COM}
           </p>
         </div>
       </div>
@@ -180,15 +173,15 @@ export default class Resume extends Component {
     return (
       <div className="Container column">
         <div className="Container row">
-          <div className="dot" style={{ backgroundColor: this.state.theme.COLOR_3 }}></div>
+          <div className="dot" style={{ backgroundColor: this.props.theme.COLOR_3 }}></div>
           <div style={{ position: "relative" }}>
-            <span className="resume-item" style={{ color: "white", backgroundColor: this.state.theme.COLOR_3 }}><b>{this.state.languageSet.FEB + " 2015 - " + this.state.languageSet.NOV + " 2016"}</b></span>
+            <span className="resume-item" style={{ color: "white", backgroundColor: this.props.theme.COLOR_3 }}><b>{this.props.languageSet.FEB + " 2015 - " + this.props.languageSet.NOV + " 2016"}</b></span>
           </div>
         </div>
         <div style={{ textAlign: "left" }}>
           <h3>Isban</h3>
-          <p style={{ color: this.state.theme.FONT_COLOR }}>
-            {this.state.languageSet.ISBAN}
+          <p style={{ color: this.props.theme.FONT_COLOR }}>
+            {this.props.languageSet.ISBAN}
           </p>
         </div>
       </div>
@@ -199,15 +192,15 @@ export default class Resume extends Component {
     return (
       <div className="Container column">
         <div className="Container row">
-          <div className="dot" style={{ backgroundColor: this.state.theme.COLOR_3 }}></div>
+          <div className="dot" style={{ backgroundColor: this.props.theme.COLOR_3 }}></div>
           <div style={{ position: "relative" }}>
-            <span className="resume-item" style={{ color: "white", backgroundColor: this.state.theme.COLOR_3 }}><b>{this.state.languageSet.OCT + " 2012 - " + this.state.languageSet.FEB + " 2015"}</b></span>
+            <span className="resume-item" style={{ color: "white", backgroundColor: this.props.theme.COLOR_3 }}><b>{this.props.languageSet.OCT + " 2012 - " + this.props.languageSet.FEB + " 2015"}</b></span>
           </div>
         </div>
         <div style={{ textAlign: "left" }}>
           <h3>Andreani</h3>
-          <p style={{ color: this.state.theme.FONT_COLOR }}>
-            {this.state.languageSet.ANDREANI}
+          <p style={{ color: this.props.theme.FONT_COLOR }}>
+            {this.props.languageSet.ANDREANI}
           </p>
         </div>
       </div>
@@ -218,15 +211,15 @@ export default class Resume extends Component {
     return (
       <div className="Container column">
         <div className="Container row">
-          <div className="dot" style={{ backgroundColor: this.state.theme.COLOR_3 }}></div>
+          <div className="dot" style={{ backgroundColor: this.props.theme.COLOR_3 }}></div>
           <div style={{ position: "relative" }}>
-            <span className="resume-item" style={{ color: "white", backgroundColor: this.state.theme.COLOR_3 }}><b>{this.state.languageSet.NOV + " 2008 - " + this.state.languageSet.SEP + " 2012"}</b></span>
+            <span className="resume-item" style={{ color: "white", backgroundColor: this.props.theme.COLOR_3 }}><b>{this.props.languageSet.NOV + " 2008 - " + this.props.languageSet.SEP + " 2012"}</b></span>
           </div>
         </div>
         <div style={{ textAlign: "left" }}>
           <h3>Open Solutions</h3>
-          <p style={{ color: this.state.theme.FONT_COLOR }}>
-            {this.state.languageSet.OPEN_SOLUTIONS}
+          <p style={{ color: this.props.theme.FONT_COLOR }}>
+            {this.props.languageSet.OPEN_SOLUTIONS}
           </p>
         </div>
       </div>

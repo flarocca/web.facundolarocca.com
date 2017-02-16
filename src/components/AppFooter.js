@@ -4,37 +4,11 @@ import LinkedIn from '../images/svg/LinkedIn';
 import StackOverflow from '../images/svg/StackOverflow'
 import ImageSources from '../constants/ImageSources';
 import REACT from '../images/react-logo.svg';
-import AppStore from '../stores/AppStore';
 
 export default class AppFooter extends Component {
-  constructor(props) {
-    super(props);
-
-    this._onStoreChange = this._onStoreChange.bind(this);
-    this.state = {
-      languageSet: this.props.languageSet,
-      theme: this.props.theme
-    }
-  }
-
-  componentDidMount() {
-    AppStore.addChangeListener(this._onStoreChange);
-  }
-
-  componentWillUnmount() {
-    AppStore.removeChangeListener(this._onStoreChange);
-  }
-
-  _onStoreChange() {
-    this.setState({
-      languageSet: AppStore.getLanguageSet(),
-      theme: AppStore.getThemeSelected()
-    });
-  }
-
   render() {
     return (
-      <div id="footer" className="Container row" style={{ justifyContent: "space-between", backgroundColor: this.state.theme.COLOR_4 }}>
+      <div id="footer" className="Container row" style={{ justifyContent: "space-between", backgroundColor: this.props.theme.COLOR_4 }}>
         <div className="Container row" style={{ width: "75%" }}>
           <p className="text" style={{ marginLeft: "5%", fontSize: "small", color: "white" }}>
             Copyright &copy; 2017 Facundo La Rocca. All right reserved.
@@ -45,7 +19,7 @@ export default class AppFooter extends Component {
         <div className="Container row" style={{ marginRight: "2%" }}>
           <a target="_blank" className="Container column jc-center" href={ImageSources.STACKOVERFLOW_PROFILE}><StackOverflow className="icon-med" innerColor="white" outerColor="transparent" /></a>
           <a target="_blank" className="Container column jc-center" href={ImageSources.LINKEDIN_PROFILE}><LinkedIn className="icon-large" innerColor="white" outerColor="transparent" /></a>
-          <a target="_blank" className="Container column jc-center" href={ImageSources.GITHUB_PROFILE}><GitHub className="icon" innerColor="white" outerColor={this.state.theme.COLOR_4} /></a>
+          <a target="_blank" className="Container column jc-center" href={ImageSources.GITHUB_PROFILE}><GitHub className="icon" innerColor="white" outerColor={this.props.theme.COLOR_4} /></a>
         </div>
       </div>
     );

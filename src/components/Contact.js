@@ -24,8 +24,6 @@ export default class Contact extends Component {
       lastNameErrorMsg: '',
       emailNameErrorMsg: '',
       messageNameErrorMsg: '',
-      languageSet: this.props.languageSet,
-      theme: this.props.theme,
       firstName: '',
       lastName: '',
       email: '',
@@ -83,8 +81,6 @@ export default class Contact extends Component {
 
   _onStoreChange() {
     this.setState({
-      languageSet: AppStore.getLanguageSet(),
-      theme: AppStore.getThemeSelected(),
       isSendingMail: AppStore.isSendingMail(),
       errorSendingMail: AppStore.getErrorSendingMail(),
       mailSent: AppStore.mailSent()
@@ -122,21 +118,21 @@ export default class Contact extends Component {
   _renderSendButton() {
     if (this.state.isSendingMail)
       return (
-        <button onClick={this._onClick} type='button' className="jc-center button" style={{ alignSelf: "flex-end", color: "white", width: "40%", backgroundColor: this.state.theme.COLOR_4 }}>
+        <button onClick={this._onClick} type='button' className="jc-center button" style={{ alignSelf: "flex-end", color: "white", width: "40%", backgroundColor: this.props.theme.COLOR_4 }}>
           <i className="fa fa-spinner fa-pulse fa-1x fa-fw" style={{ marginRight: "3px" }}></i>
-          <span>{this.state.languageSet.SENDING}</span>
+          <span>{this.props.languageSet.SENDING}</span>
         </button>
       );
 
     return (
-      <button onClick={this._onClick} type='button' className="jc-center button" style={{ alignSelf: "flex-end", width: "40%", backgroundColor: this.state.theme.COLOR_4 }}><b style={{ color: "white" }}>{this.state.languageSet.SEND}</b></button>
+      <button onClick={this._onClick} type='button' className="jc-center button" style={{ alignSelf: "flex-end", width: "40%", backgroundColor: this.props.theme.COLOR_4 }}><b style={{ color: "white" }}>{this.props.languageSet.SEND}</b></button>
     );
   }
 
   _renderSendMessage() {
     if (this.state.mailSent)
       return (
-        <div className="column" style={{ flex: "1" }}><em>{this.state.languageSet.MESSAGE_SENT}</em></div>
+        <div className="column" style={{ flex: "1" }}><em>{this.props.languageSet.MESSAGE_SENT}</em></div>
       );
 
     if (!this.state.mailSent && this.state.errorSendingMail)
@@ -149,46 +145,46 @@ export default class Contact extends Component {
 
   render() {
     return (
-      <div id="contact" className="Container column jc-center" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
+      <div id="contact" className="Container column jc-center" style={{ backgroundColor: this.props.theme.BACKGROUND_COLOR }}>
         <Element name="CONTACT" />
-        <span style={{ textAlign: "left", fontSize: "40px", color: this.state.theme.COLOR_4 }}>
+        <span style={{ textAlign: "left", fontSize: "40px", color: this.props.theme.COLOR_4 }}>
           <input type="checkbox" id="Contact-chk" style={{ display: "none" }} checked={this.state.checked} />
-          <b id="Contact-title" ref="title">{this.state.languageSet.CONTACT}</b>
+          <b id="Contact-title" ref="title">{this.props.languageSet.CONTACT}</b>
         </span>
         <hr />
         <div className="Container row" style={{ marginTop: "30px", alignSelf: "center", width: "100%" }}>
           <div id="personal-information" className="Container column jc-left" style={{ width: "45%" }}>
-            <b style={{ alignSelf: "flex-start", color: this.state.theme.COLOR_4 }}>{this.state.languageSet.CONTACT_INFORMATION}</b>
+            <b style={{ alignSelf: "flex-start", color: this.props.theme.COLOR_4 }}>{this.props.languageSet.CONTACT_INFORMATION}</b>
             <p className="text-special" style={{ textAlign: "left", color: "gray" }}>
               <i className="fa fa-user">
-                <b style={{ color: this.state.theme.FONT_COLOR, fontSize: "small", fontFamily: "'Open Sans', Helvetica, sans-serif", paddingLeft: "10px" }}>Facundo La Rocca</b>
+                <b style={{ color: this.props.theme.FONT_COLOR, fontSize: "small", fontFamily: "'Open Sans', Helvetica, sans-serif", paddingLeft: "10px" }}>Facundo La Rocca</b>
               </i>
               <br />
-              <em style={{ color: this.state.theme.FONT_COLOR, fontSize: "small", fontFamily: "'Open Sans', Helvetica, sans-serif", paddingLeft: "7%" }}>Software engineering & development.</em>
+              <em style={{ color: this.props.theme.FONT_COLOR, fontSize: "small", fontFamily: "'Open Sans', Helvetica, sans-serif", paddingLeft: "7%" }}>Software engineering & development.</em>
               <br />
               <br />
               <i className="fa fa-envelope-o">
-                <span style={{ color: this.state.theme.FONT_COLOR, fontSize: "small", fontFamily: "'Open Sans', Helvetica, sans-serif", paddingLeft: "10px" }}>facundo_larocca@yahoo.com.ar<br /></span>
+                <span style={{ color: this.props.theme.FONT_COLOR, fontSize: "small", fontFamily: "'Open Sans', Helvetica, sans-serif", paddingLeft: "10px" }}>facundo_larocca@yahoo.com.ar<br /></span>
               </i>
             </p>
           </div>
           <div style={{ width: "1px", border: "2px #B4B2B2 solid", backgroundColor: "#B4B2B2" }} />
           <div className="Container column jc-left" style={{ paddingLeft: "5%", width: "55%" }}>
-            <b style={{ alignSelf: "flex-start", color: this.state.theme.COLOR_4 }}>{this.state.languageSet.SEND_ME_A_MESSAGE}</b>
+            <b style={{ alignSelf: "flex-start", color: this.props.theme.COLOR_4 }}>{this.props.languageSet.SEND_ME_A_MESSAGE}</b>
             <div className="Container column">
               <div className="Container row" style={{ width: "100%" }}>
                 <div className="Container column" style={{ width: "50%" }}>
-                  <input className="input" style={{ marginRight: "1.5%", backgroundColor: this.state.theme.TEXTBOX_COLOR, color: this.state.theme.FONT_COLOR }} value={this.state.firstName} onChange={this._firstNameChange} id="first-name" type="text" placeholder={this.state.languageSet.FIRST_NAME} />
+                  <input className="input" style={{ marginRight: "1.5%", backgroundColor: this.props.theme.TEXTBOX_COLOR, color: this.props.theme.FONT_COLOR }} value={this.state.firstName} onChange={this._firstNameChange} id="first-name" type="text" placeholder={this.props.languageSet.FIRST_NAME} />
                   {this._renderRequiredFieldMsg(this.state.firstName, this.state.firstNameErrorMsg)}
                 </div>
                 <div className="Container column" style={{ width: "50%" }}>
-                  <input className="input" style={{ marginLeft: "1.5%", backgroundColor: this.state.theme.TEXTBOX_COLOR, color: this.state.theme.FONT_COLOR }} value={this.state.lastName} onChange={this._lastNameChange} id="last-name" type="text" placeholder={this.state.languageSet.LAST_NAME} />
+                  <input className="input" style={{ marginLeft: "1.5%", backgroundColor: this.props.theme.TEXTBOX_COLOR, color: this.props.theme.FONT_COLOR }} value={this.state.lastName} onChange={this._lastNameChange} id="last-name" type="text" placeholder={this.props.languageSet.LAST_NAME} />
                   {this._renderRequiredFieldMsg(this.state.lastName, this.state.lastNameErrorMsg)}
                 </div>
               </div>
-              <input className="input" style={{ backgroundColor: this.state.theme.TEXTBOX_COLOR, color: this.state.theme.FONT_COLOR }} value={this.state.email} onChange={this._emailChange} id="mail" type="text" placeholder={this.state.languageSet.MAIL} />
+              <input className="input" style={{ backgroundColor: this.props.theme.TEXTBOX_COLOR, color: this.props.theme.FONT_COLOR }} value={this.state.email} onChange={this._emailChange} id="mail" type="text" placeholder={this.props.languageSet.MAIL} />
               {this._renderRequiredFieldMsg(this.state.email, this.state.emailNameErrorMsg)}
-              <textarea className="input" style={{ backgroundColor: this.state.theme.TEXTBOX_COLOR, color: this.state.theme.FONT_COLOR, height: "120px" }} value={this.state.message} onChange={this._messageChange} id="message" rows="5" placeholder={this.state.languageSet.MESSAGE} />
+              <textarea className="input" style={{ backgroundColor: this.props.theme.TEXTBOX_COLOR, color: this.props.theme.FONT_COLOR, height: "120px" }} value={this.state.message} onChange={this._messageChange} id="message" rows="5" placeholder={this.props.languageSet.MESSAGE} />
               {this._renderRequiredFieldMsg(this.state.message, this.state.messageNameErrorMsg)}
               <div className="Container row jc-right" style={{ marginTop: "5%", textAlign: "left" }}>
                 {this._renderSendMessage()}
