@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import AppStore from '../stores/AppStore';
 import AppActions from '../actions/AppActions';
 import SectionTitle from './common/SectionTitle';
-import { Element } from 'react-scroll';
 
 export default class Contact extends Component {
   constructor(props) {
@@ -126,9 +125,7 @@ export default class Contact extends Component {
   render() {
     return (
       <div id="contact" className="Container column jc-center" style={{ backgroundColor: this.props.theme.BACKGROUND_COLOR }}>
-        <Element name="CONTACT" />
         <SectionTitle title={this.props.languageSet.CONTACT} color={this.props.theme.COLOR_4} id={"Contact"}/>
-        <hr />
         <div className="Container row" style={{ marginTop: "30px", alignSelf: "center", width: "100%" }}>
           <div id="personal-information" className="Container column jc-left" style={{ width: "45%" }}>
             <b style={{ alignSelf: "flex-start", color: this.props.theme.COLOR_4 }}>{this.props.languageSet.CONTACT_INFORMATION}</b>

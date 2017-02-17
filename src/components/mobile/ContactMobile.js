@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AppStore from '../../stores/AppStore';
 import AppActions from '../../actions/AppActions';
-import { Element } from 'react-scroll';
+import SectionTitleMobile from '../common/SectionTitleMobile';
 
 export default class ContactMobile extends Component {
   constructor(props) {
@@ -16,7 +16,6 @@ export default class ContactMobile extends Component {
     this._renderRequiredFieldMsg = this._renderRequiredFieldMsg.bind(this);
     this._renderSendButton = this._renderSendButton.bind(this);
     this._renderSendMessage = this._renderSendMessage.bind(this);
-    this._onScroll = this._onScroll.bind(this);
 
     this.state = {
       firstNameErrorMsg: '',
@@ -27,7 +26,6 @@ export default class ContactMobile extends Component {
       lastName: '',
       email: '',
       message: '',
-      checked: false,
       isSendingMail: false,
       errorSendingMail: '',
       mailSent: false
@@ -36,18 +34,10 @@ export default class ContactMobile extends Component {
 
   componentDidMount() {
     AppStore.addChangeListener(this._onStoreChange);
-    window.addEventListener('scroll', this._onScroll);
   }
 
   componentWillUnmount() {
     AppStore.removeChangeListener(this._onStoreChange);
-    window.removeEventListener('scroll', this._onScroll, false);
-  }
-
-  _onScroll(event) {
-    if (event.srcElement.body.scrollTop >= 2800) {
-      this.setState({ checked: true });
-    }
   }
 
   _onClick() {
@@ -134,11 +124,7 @@ export default class ContactMobile extends Component {
   render() {
     return (
       <div id="contact-mobile" className="Container column jc-center" style={{ backgroundColor: this.props.theme.BACKGROUND_COLOR }}>
-        <Element name="CONTACT" />
-        <span style={{ textAlign: "left", fontSize: "20px", color: this.props.theme.COLOR_4 }}>
-          <b id="Contact-title-mobile">{this.props.languageSet.CONTACT}</b>
-        </span>
-        <hr />
+        <SectionTitleMobile color={this.props.theme.COLOR_4} id={"Contact"} title={this.props.languageSet.CONTACT} />
         <div className="Container column" style={{ alignSelf: "center", width: "100%" }}>
           <div id="personal-information" className="Container column jc-left">
             <b className="contact-section-title-mobile" style={{ color: this.props.theme.COLOR_4 }}>{this.props.languageSet.CONTACT_INFORMATION}</b>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Element } from 'react-scroll';
 import Cloud from '../images/svg/Cloud';
 import Mobile from '../images/svg/Mobile';
 import SectionTitle from './common/SectionTitle';
@@ -8,9 +7,7 @@ export default class WhatIDo extends Component {
   render() {
     return (
       <div id="whatido" className="Container column jc-center" style={{ backgroundColor: this.props.theme.BACKGROUND_COLOR }}>
-        <Element name="WHAT_I_DO" />
         <SectionTitle title={this.props.languageSet.WHAT_I_DO} color={this.props.theme.COLOR_2} id={"WhatIDo"}/>
-        <hr />
         <div className="Container row jc-center" style={{ marginTop: "30px" }}>
           <div className="Container column jc-start column-item-x2" id="web" style={{ color: this.props.theme.COLOR_2 }}>
             <Cloud className="image-desc" innerColor={this.props.theme.BACKGROUND_COLOR} outerColor={this.props.theme.COLOR_2} />

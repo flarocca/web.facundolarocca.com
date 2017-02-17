@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class ResumeOtherSkill extends Component {
+export default class OtherSkill extends Component {
   render() {
     return (
       <span

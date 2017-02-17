@@ -24,6 +24,7 @@ export default class SectionTitle extends Component {
             <span style={{ textAlign: "left", fontSize: "40px", color: this.props.color }}>
                 <input type="checkbox" id={this.props.id + "-chk"} style={{ display: "none" }} checked={this.state.checked} />
                 <b id={this.props.id + "-title"} ref="title">{this.props.title}</b>
+                <hr />
             </span>
         );
     }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class ResumeExperience extends Component {
+export default class Experience extends Component {
   render() {
     return (
       <div className="Container column">

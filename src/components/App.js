@@ -29,7 +29,8 @@ export default class App extends Component {
     this._scrollTo = this._scrollTo.bind(this);
     this.state = {
       languageSet: AppStore.getLanguageSet(),
-      theme: AppStore.getThemeSelected()
+      theme: AppStore.getThemeSelected(),
+      initialLanguage: 'ARG'
     };
   }
 
@@ -42,7 +43,7 @@ export default class App extends Component {
     AppStore.removeChangeListener(this._onStoreChange);
   }
 
-  _scrollTo(menu, offset) {
+  _scrollTo(menu, offset = 0) {
     scroller.scrollTo(menu, {
       duration: 1000,
       delay: 0,
@@ -59,21 +60,16 @@ export default class App extends Component {
 
     var menu = AppStore.getMenuSelected();
     switch (menu) {
-      case 'HOME':
-        this._scrollTo(menu, -40);
-        break;
-      case 'CONTACT':
-        this._scrollTo(menu, -50);
-        break;
-      case 'RESUME':
-        this._scrollTo(menu, -50);
-        break;
-      case 'WHAT_I_DO':
-        this._scrollTo(menu, -50);
-        break;
       case 'WHO_I_AM':
         this._scrollTo(menu, -50);
         break;
+      case 'HOME':
+      case 'WHAT_I_DO':
+      case 'RESUME':
+      case 'CONTACT':
+        this._scrollTo(menu);
+        break;
+
       default:
         break;
     }
@@ -86,7 +82,7 @@ export default class App extends Component {
           <MediaQuery query='(max-width: 480px)'>
             <div id="app-mobile" className="App-mobile column" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
               <AppHeaderMobile languageSet={this.state.languageSet} theme={this.state.theme} />
-              <AppBodyMobile languageSet={this.state.languageSet} theme={this.state.theme} />
+              <AppBodyMobile initialLanguage={this.state.initialLanguage} languageSet={this.state.languageSet} theme={this.state.theme} />
               <AppFooterMobile languageSet={this.state.languageSet} theme={this.state.theme} />
             </div>
           </MediaQuery>
@@ -101,7 +97,7 @@ export default class App extends Component {
                 </div>
                 <div style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
                   <AppHeader languageSet={this.state.languageSet} theme={this.state.theme} />
-                  <AppBody languageSet={this.state.languageSet} theme={this.state.theme} />
+                  <AppBody initialLanguage={this.state.initialLanguage} languageSet={this.state.languageSet} theme={this.state.theme} />
                   <AppFooter languageSet={this.state.languageSet} theme={this.state.theme} />
                   <UpButton theme={this.state.theme} />
                 </div>
@@ -112,7 +108,7 @@ export default class App extends Component {
         <MediaQuery query='(max-device-width: 1224px)'>
           <div id="app-mobile" className="App-mobile column" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
             <AppHeaderMobile languageSet={this.state.languageSet} theme={this.state.theme} />
-            <AppBodyMobile languageSet={this.state.languageSet} theme={this.state.theme} />
+            <AppBodyMobile initialLanguage={this.state.initialLanguage} languageSet={this.state.languageSet} theme={this.state.theme} />
             <AppFooterMobile languageSet={this.state.languageSet} theme={this.state.theme} />
           </div>
         </MediaQuery>

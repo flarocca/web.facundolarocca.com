@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import AppActions from '../actions/AppActions';
+import AppActions from '../../actions/AppActions';
 
-export default class LanguageSelectorLeft extends Component {
+export default class LanguageSelector extends Component {
   constructor(props) {
     super(props);
 
@@ -13,12 +13,12 @@ export default class LanguageSelectorLeft extends Component {
 
   render() {
     return (
-      <div className="Container row-reverse fixed main" style={{ left: "0px", top: "20%" }}>
-        <input type="checkbox" id="languageLeft" />
-        <label id="languageLabelLeft" htmlFor="languageLeft" style={{ background: "rgb(200, 200, 200)" }}>
+      <div className={this.props.className} style={this.props.style}>
+        <input type="checkbox" id={this.props.checkboxId} />
+        <label id={this.props.labelId} htmlFor={this.props.checkboxId} style={{ background: "rgb(200, 200, 200)" }}>
           <b style={{ color: "white", position: "relative", top: "12px" }}>{this.state.languageSelected}</b>
         </label>
-        <div className="left column jc-center" style={{ backgroundColor: "rgb(200, 200, 200)" }}>
+        <div className={this.props.float + " column jc-center"} style={{ backgroundColor: "rgb(200, 200, 200)" }}>
           <div className="Container column jc-center" style={{ color: "dimgray", textAlign: "center", height: "30px" }}>
             <b>Language Selector</b>
           </div>

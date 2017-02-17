@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import Setting from '../images/svg/Setting';
-import AppActions from '../actions/AppActions';
-import AppStore from '../stores/AppStore';
+import Setting from '../../images/svg/Setting';
+import AppActions from '../../actions/AppActions';
 
-import LIGHT_BLUE_THEME from '../constants/themes/LIGHT_BLUE_THEME';
-import LIGHT_RED_THEME from '../constants/themes/LIGHT_RED_THEME';
-import DARK_GREEN_THEME from '../constants/themes/DARK_GREEN_THEME';
-import DARK_RED_THEME from '../constants/themes/DARK_RED_THEME';
-import COLORFUL_THEME from '../constants/themes/COLORFUL_THEME';
-import LIGHT_PURPLE_THEME from '../constants/themes/LIGHT_PURPLE_THEME';
+import LIGHT_BLUE_THEME from '../../constants/themes/LIGHT_BLUE_THEME';
+import LIGHT_RED_THEME from '../../constants/themes/LIGHT_RED_THEME';
+import DARK_GREEN_THEME from '../../constants/themes/DARK_GREEN_THEME';
+import DARK_RED_THEME from '../../constants/themes/DARK_RED_THEME';
+import COLORFUL_THEME from '../../constants/themes/COLORFUL_THEME';
+import LIGHT_PURPLE_THEME from '../../constants/themes/LIGHT_PURPLE_THEME';
 
 export default class ThemeSelector extends Component {
   constructor(props) {
@@ -19,21 +18,14 @@ export default class ThemeSelector extends Component {
     this._renderMainThemes = this._renderMainThemes.bind(this);
     this._renderThemes = this._renderThemes.bind(this);
     this._onThemeSelected = this._onThemeSelected.bind(this);
-    this._onAppSessionChange = this._onAppSessionChange.bind(this);
 
     this.state = {
-      languageSet: this.props.languageSet
+      positionStyle: this.props.position === 'RIGHT' ? { right: "0px", top: "40%" } : { left: "0px", top: "40%" },
+      checkboxId: this.props.position === 'RIGHT' ? 'theme' : 'themeLeft',
+      labelId: this.props.position === 'RIGHT' ? 'themeLabel' : 'themeLabelLeft',
+      containerClass: this.props.position === 'RIGHT' ? 'Container row fixed main' : 'Container row-reverse fixed main',
+      float: this.props.position === 'RIGHT' ? 'right' : 'left'
     }
-  }
-
-  componentDidMount() {
-
-  }
-
-  _onAppSessionChange() {
-    this.setState({
-      languageSet: AppStore.getLanguageSet()
-    });
   }
 
   _onThemeSelected(themeName) {
@@ -78,12 +70,12 @@ export default class ThemeSelector extends Component {
 
   render() {
     return (
-      <div className="Container row fixed main" style={{ right: "0px", top: "40%" }}>
-        <input type="checkbox" id="theme" />
-        <label id="themeLabel" htmlFor="theme" style={{ background: "rgb(200, 200, 200)" }}>
+      <div id={"ThemeSelector"} className={this.state.containerClass} style={this.state.positionStyle}>
+        <input type="checkbox" id={this.state.checkboxId} />
+        <label id={this.state.labelId} htmlFor={this.state.checkboxId} style={{ background: "rgb(200, 200, 200)" }}>
           <Setting className="setting" innerColor="white" outerColor="rgb(200, 200, 200)" />
         </label>
-        <div className="right column jc-center" style={{ backgroundColor: "rgb(200, 200, 200)" }}>
+        <div className={this.state.float + " column jc-center"} style={{ backgroundColor: "rgb(200, 200, 200)" }}>
           <div className="Container column jc-center" style={{ color: "dimgray", textAlign: "center", height: "30px" }}>
             <b>Theme Selector</b>
           </div>

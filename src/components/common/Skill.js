@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class ResumeSkill extends Component {
+export default class Skill extends Component {
   render() {
     return (
       <div>
