@@ -137,7 +137,7 @@ export default class ContactMobile extends Component {
               <br />
               <br />
               <i className="fa fa-envelope-o">
-                <span style={{ color: this.props.theme.FONT_COLOR, fontSize: "small", fontFamily: "'Open Sans', Helvetica, sans-serif", paddingLeft: "10px" }}>facundo_larocca@yahoo.com.ar<br /></span>
+                <span style={{ color: this.props.theme.FONT_COLOR, fontSize: "small", fontFamily: "'Open Sans', Helvetica, sans-serif", paddingLeft: "10px" }}>facu.larocca@gmail.com<br /></span>
               </i>
             </p>
           </div>

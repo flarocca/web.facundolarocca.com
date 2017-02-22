@@ -20,7 +20,7 @@ export default {
     VIEW_MORE: 'Ver más',
     MY_DESCRIPTION: (
         <span>
-            Soy Desarrollador al que le encanta programar y construir software que aporte valor, que sea confiable y de alta calidad.<br />
+            Soy un Desarrollador al que le encanta programar y construir software que aporte valor, que sea confiable y de alta calidad.<br />
             Comencé a programar cuando tenía dieciseis años con algunos juegos y con un viejo libro de C++. Poco a poco me fuí
             sumergiendo en este fantástico mundo y aprendí a construir software.<br />
             A los veinticinco tomé contacto con Metodologías Ágiles de la mano de XP y Scrum.
@@ -43,13 +43,7 @@ export default {
             Actualmente trabajo como Engineer III Fullstack .NET en Web.com,
             una compañía con fuerte posición en el mercado norteamericano de eCommerce. <br />
             Realizo mantenimiento y nuevos desarrollos tanto back-end como front-end
-            del portal de ticketing de la compañía.
-        </span>
-    ),
-    MYSELF: (
-        <span>
-            Desarrollo de aplicaciones web y móviles con <em>NodeJS</em>, <em>ReactJS</em> y <em>ReactNative</em> <br />
-            y bases de datos no relacionales como <em>ElasticSearch</em> y <em>MongoDB</em>
+            en distintos proyectos.
         </span>
     ),
     ISBAN: (

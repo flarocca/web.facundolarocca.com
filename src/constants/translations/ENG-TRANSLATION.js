@@ -43,13 +43,7 @@ export default {
             I Actually work as Fullstack .NET Engineer III for Web.com,
             a company with a strong position in the North American eCommerce market. <br />
             Maintenance and new software requirements both back-end and front-end
-            of the ticketing web portal of the company.
-        </span>
-    ),
-    MYSELF: (
-        <span>
-            Desarrollo de aplicaciones web y móviles con <em>NodeJS</em>, <em>ReactJS</em> y <em>ReactNative</em> <br />
-            y bases de datos no relacionales como <em>ElasticSearch</em> y <em>MongoDB</em>
+            on differents proyects.
         </span>
     ),
     ISBAN: (
