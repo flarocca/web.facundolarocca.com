@@ -5,23 +5,20 @@ import ResumeMobile from './ResumeMobile';
 import ContactMobile from './ContactMobile';
 import WhoIAmMobile from './WhoIAmMobile';
 import WhatIDoMobile from './WhatIDoMobile';
-import ThemeSelector from '../ThemeSelector';
 import LanguageSelectorMobile from './LanguageSelectorMobile';
-import getAllThemes from '../../constants/themes/getAllThemes';
-import MediaQuery from 'react-responsive';
 
 export default class AppBodyMobile extends Component {
   constructor(props) {
     super(props);
 
-    this._onAppSessionChange = this._onAppSessionChange.bind(this);
+    this._onStoreChange = this._onStoreChange.bind(this);
     this.state = {
       languageSet: this.props.languageSet,
       theme: this.props.theme
     }
   }
 
-  _onAppSessionChange() {
+  _onStoreChange() {
     this.setState({
       languageSet: AppStore.getLanguageSet(),
       theme: AppStore.getThemeSelected()

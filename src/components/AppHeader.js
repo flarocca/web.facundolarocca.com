@@ -7,7 +7,7 @@ export default class AppHeader extends Component {
   constructor(props) {
     super(props);
 
-    this._onAppSessionChange = this._onAppSessionChange.bind(this);
+    this._onStoreChange = this._onStoreChange.bind(this);
     this._onClick = this._onClick.bind(this);
     this._fixHeader = this._fixHeader.bind(this);
     this.state = {
@@ -16,30 +16,39 @@ export default class AppHeader extends Component {
       headerClass: 'hdr',
       itemClass: 'column column-item-x4 hr-menu-item',
       linkClass: 'link-btn-menu',
-      iconClass: 'icon-btn-menu'
+      iconClass: 'icon-btn-menu',
+      btnClass: 'text-btn'
     }
   }
 
   componentDidMount() {
-    AppStore.addChangeListener(this._onAppSessionChange);
-
+    AppStore.addChangeListener(this._onStoreChange);
     window.addEventListener('scroll', this._fixHeader);
   }
 
+  componentWillUnmount() {
+    AppStore.removeChangeListener(this._onStoreChange);
+    window.removeEventListener('scroll', this._fixHeader, false);
+  }
+
   _fixHeader(event) {
-    if (event.srcElement.body.scrollTop >= 620) {
+    var top = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+
+    if (top >= 620) {
       this.setState({
         headerClass: 'hdr-fix',
         itemClass: 'column column-item-x4 hr-menu-item-fix',
         linkClass: 'link-btn-menu-fixed',
-        iconClass: 'icon-btn-menu-fixed'
+        iconClass: 'icon-btn-menu-fixed',
+        btnClass: 'text-btn-fixed'
       });
     } else {
       this.setState({
         headerClass: 'hdr',
         itemClass: 'column column-item-x4 hr-menu-item',
         linkClass: 'link-btn-menu',
-        iconClass: 'icon-btn-menu'
+        iconClass: 'icon-btn-menu',
+        btnClass: 'text-btn'
       });
     }
   }
@@ -58,8 +67,8 @@ export default class AppHeader extends Component {
             </span>
           </div>
         </div>
-        <div className="Container row jc-left" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
-          <span className="Container column jc-center" style={{ alignText: "center", color: "white", backgroundColor: this.state.theme.COLOR_1, marginBottom: "5%", width: "110px", height: "35px" }}>
+        <div className="Container row jc-left" style={{ marginBottom: "5%", backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
+          <span className="Container column jc-center" style={{ alignText: "center", color: "white", backgroundColor: this.state.theme.COLOR_1, width: "110px", height: "35px" }}>
             <span style={{ color: "white" }}>{this.state.languageSet.DEVELOPER}</span>
           </span>
         </div>
@@ -68,33 +77,34 @@ export default class AppHeader extends Component {
             <span className={this.state.itemClass} style={{ backgroundColor: this.state.theme.COLOR_1 }}>
               <a href="#" onClick={() => this._onClick('WHO_I_AM')} className={this.state.linkClass} style={{ color: this.state.theme.BACKGROUND_COLOR }}>
                 <div className={this.state.iconClass}><i className="fa fa-user fa-4x"></i></div>
-                <div className="text-btn" id="text-user"><b>{this.state.languageSet.WHO_I_AM}</b></div>
+                <div className={this.state.btnClass} id="text-user"><b>{this.state.languageSet.WHO_I_AM}</b></div>
               </a>
             </span>
             <span className={this.state.itemClass} style={{ backgroundColor: this.state.theme.COLOR_2 }}>
               <a href="#" onClick={() => this._onClick('WHAT_I_DO')} className={this.state.linkClass} style={{ color: this.state.theme.BACKGROUND_COLOR }}>
                 <div className={this.state.iconClass} id="icon-folder"><i className="fa fa-folder-open fa-4x"></i></div>
-                <div className="text-btn" id="text-folder"><b>{this.state.languageSet.WHAT_I_DO}</b></div>
+                <div className={this.state.btnClass} id="text-folder"><b>{this.state.languageSet.WHAT_I_DO}</b></div>
               </a>
             </span>
             <span className={this.state.itemClass} style={{ backgroundColor: this.state.theme.COLOR_3 }}>
               <a href="#" onClick={() => this._onClick('RESUME')} className={this.state.linkClass} style={{ color: this.state.theme.BACKGROUND_COLOR }}>
                 <div className={this.state.iconClass}><i className="fa fa-file-text fa-4x"></i></div>
-                <div className="text-btn"><b>{this.state.languageSet.RESUME}</b></div>
+                <div className={this.state.btnClass}><b>{this.state.languageSet.RESUME}</b></div>
               </a>
             </span>
             <span className={this.state.itemClass} style={{ backgroundColor: this.state.theme.COLOR_4 }}>
               <a href="#" onClick={() => this._onClick('CONTACT')} className={this.state.linkClass} style={{ color: this.state.theme.BACKGROUND_COLOR }}>
                 <div className={this.state.iconClass}><i className="fa fa-envelope fa-4x"></i></div>
-                <div className="text-btn"><b>{this.state.languageSet.CONTACT}</b></div>
-              </a></span>
+                <div className={this.state.btnClass}><b>{this.state.languageSet.CONTACT}</b></div>
+              </a>
+            </span>
           </div>
         </div>
       </div>
     );
   }
 
-  _onAppSessionChange() {
+  _onStoreChange() {
     this.setState({
       languageSet: AppStore.getLanguageSet(),
       theme: AppStore.getThemeSelected()

@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import AppStore from '../stores/AppStore';
 import AppActions from '../actions/AppActions';
+import isElementInViewport from '../helpers/isElementInViewport';
 import { Element, scroller } from 'react-scroll';
 
 export default class Contact extends Component {
   constructor(props) {
     super(props);
 
-    this._onAppStoreChange = this._onAppStoreChange.bind(this);
+    this._onStoreChange = this._onStoreChange.bind(this);
     this._onClick = this._onClick.bind(this);
+    this._onScroll = this._onScroll.bind(this);
     this._firstNameChange = this._firstNameChange.bind(this);
     this._lastNameChange = this._lastNameChange.bind(this);
     this._emailChange = this._emailChange.bind(this);
@@ -16,6 +18,7 @@ export default class Contact extends Component {
     this._renderRequiredFieldMsg = this._renderRequiredFieldMsg.bind(this);
     this._renderSendButton = this._renderSendButton.bind(this);
     this._renderSendMessage = this._renderSendMessage.bind(this);
+
     this.state = {
       firstNameErrorMsg: '',
       lastNameErrorMsg: '',
@@ -35,19 +38,20 @@ export default class Contact extends Component {
   }
 
   componentDidMount() {
-    AppStore.addChangeListener(this._onAppStoreChange);
-
-    window.addEventListener('scroll', () => {
-      if (event.srcElement.body.scrollTop >= 2800) {
-        this.setState({ checked: true });
-      }
-    });
+    AppStore.addChangeListener(this._onStoreChange);
+    window.addEventListener('scroll', this._onScroll);
   }
 
   componentWillUnmount() {
-    AppStore.removeChangeListener(this._onAppStoreChange);
+    AppStore.removeChangeListener(this._onStoreChange);
+    window.removeEventListener('scroll', this._onScroll, false);
+  }
 
-    window.removeEventListener('scroll');
+  _onScroll(event) {
+    let isInViewport = isElementInViewport(this.refs.title);
+    if (isInViewport && !this.state.checked) {
+      this.setState({ checked: true });
+    }
   }
 
   _onClick() {
@@ -77,7 +81,7 @@ export default class Contact extends Component {
     this.setState({ message: e.target.value });
   }
 
-  _onAppStoreChange() {
+  _onStoreChange() {
     this.setState({
       languageSet: AppStore.getLanguageSet(),
       theme: AppStore.getThemeSelected(),
@@ -149,10 +153,10 @@ export default class Contact extends Component {
         <Element name="CONTACT" />
         <span style={{ textAlign: "left", fontSize: "40px", color: this.state.theme.COLOR_4 }}>
           <input type="checkbox" id="Contact-chk" style={{ display: "none" }} checked={this.state.checked} />
-          <b id="Contact-title">{this.state.languageSet.CONTACT}</b>
+          <b id="Contact-title" ref="title">{this.state.languageSet.CONTACT}</b>
         </span>
         <hr />
-        <div className="Container row" style={{ alignSelf: "center", width: "100%" }}>
+        <div className="Container row" style={{ marginTop: "30px", alignSelf: "center", width: "100%" }}>
           <div id="personal-information" className="Container column jc-left" style={{ width: "45%" }}>
             <b style={{ alignSelf: "flex-start", color: this.state.theme.COLOR_4 }}>{this.state.languageSet.CONTACT_INFORMATION}</b>
             <p className="text-special" style={{ textAlign: "left", color: "gray" }}>

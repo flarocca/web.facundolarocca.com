@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import AppStore from '../stores/AppStore';
 import { Element, scroller } from 'react-scroll';
+import isElementInViewport from '../helpers/isElementInViewport';
 
 export default class Resume extends Component {
   constructor(props) {
     super(props);
 
-    this._onAppSessionChange = this._onAppSessionChange.bind(this);
+    this._onStoreChange = this._onStoreChange.bind(this);
+    this._onScroll = this._onScroll.bind(this);
     this._renderWebDotComExp = this._renderWebDotComExp.bind(this);
     this._renderIsbanExp = this._renderIsbanExp.bind(this);
     this._renderAndreaniExp = this._renderAndreaniExp.bind(this);
@@ -14,6 +16,7 @@ export default class Resume extends Component {
     this._rederSkill = this._rederSkill.bind(this);
     this._renderSkillPoints = this._renderSkillPoints.bind(this);
     this._rederOtherSkill = this._rederOtherSkill.bind(this);
+
     this.state = {
       languageSet: this.props.languageSet,
       theme: this.props.theme,
@@ -22,45 +25,28 @@ export default class Resume extends Component {
   }
 
   componentDidMount() {
-    AppStore.addChangeListener(this._onAppSessionChange);
-
-    window.addEventListener('scroll', () => {
-      if (event.srcElement.body.scrollTop >= 1400) {
-        this.setState({ checked: true });
-      }
-    });
+    AppStore.addChangeListener(this._onStoreChange);
+    window.addEventListener('scroll', this._onScroll);
   }
 
-  _onAppSessionChange() {
-    this.setState({
-      languageSet: AppStore.getLanguageSet(),
-      theme: AppStore.getThemeSelected()
-    });
-
-    var menu = AppStore.getMenuSelected();
-    if (menu === 'RESUME') {
-      scroller.scrollTo(menu, {
-        duration: 1000,
-        delay: 0,
-        smooth: true,
-        offset: -50
-      });
-    }
+  componentWillUnmount() {
+    AppStore.removeChangeListener(this._onStoreChange);
+    window.removeEventListener('scroll', this._onScroll, false);
   }
 
   render() {
     return (
-      <div id="resume" className="Container column" style={{ backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
+      <div id="resume" className="Container column" style={{ marginTop: "50px", backgroundColor: this.state.theme.BACKGROUND_COLOR }}>
         <Element name="RESUME" />
         <span style={{ textAlign: "left", fontSize: "40px", color: this.state.theme.COLOR_3 }}>
           <input type="checkbox" id="Resume-chk" style={{ display: "none" }} checked={this.state.checked} />
-          <b id="Resume-title">{this.state.languageSet.RESUME}</b>
+          <b id="Resume-title" ref="title">{this.state.languageSet.RESUME}</b>
         </span>
         <hr />
-        <div className="Container row jc-center">
+        <div className="Container row jc-center" style={{ marginTop: "30px" }}>
           <div className="Container column jc-start column-item-x2" id="professional" style={{ color: this.state.theme.COLOR_3 }}>
             <div className="Container row" style={{ borderLeft: "solid 2px #B4B2B2", paddingLeft: "30px" }}>
-              <div style={{ textAlign: "left" }}>
+              <div style={{ textAlign: "left", width: "100%" }}>
                 <h2 style={{ color: this.state.theme.COLOR_3 }}>{this.state.languageSet.PROFESSIONAL}</h2>
                 {this._renderWebDotComExp()}
                 {this._renderIsbanExp()}
@@ -86,7 +72,7 @@ export default class Resume extends Component {
             </div>
 
             <div className="Container row" style={{ borderLeft: "solid 2px #B4B2B2", paddingLeft: "30px" }}>
-              <div style={{ textAlign: "left" }}>
+              <div style={{ textAlign: "left", width: "100%" }}>
                 <h3 style={{ color: this.state.theme.COLOR_3 }}>{this.state.languageSet.OTHER_SKILLS}</h3>
                 <div className="Container row" style={{ marginLeft: "15px", flexWrap: "wrap" }}>
                   {this._rederOtherSkill("TDD")}
@@ -109,9 +95,33 @@ export default class Resume extends Component {
     );
   }
 
+  _onStoreChange() {
+    this.setState({
+      languageSet: AppStore.getLanguageSet(),
+      theme: AppStore.getThemeSelected()
+    });
+
+    var menu = AppStore.getMenuSelected();
+    if (menu === 'RESUME') {
+      scroller.scrollTo(menu, {
+        duration: 1000,
+        delay: 0,
+        smooth: true,
+        offset: -50
+      });
+    }
+  }
+
+  _onScroll(event) {
+    let isInViewport = isElementInViewport(this.refs.title);
+    if (isInViewport && !this.state.checked) {
+      this.setState({ checked: true });
+    }
+  }
+
   _rederOtherSkill(text) {
     return (
-      <span className="resume-item skill" style={{ fontSize: "small",  color: "white", backgroundColor: this.state.theme.COLOR_3 }}>{text}</span>
+      <span className="resume-item skill" style={{ fontSize: "small", color: "white", backgroundColor: this.state.theme.COLOR_3 }}>{text}</span>
     );
   }
 

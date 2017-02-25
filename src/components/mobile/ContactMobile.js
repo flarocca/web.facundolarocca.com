@@ -7,7 +7,7 @@ export default class ContactMobile extends Component {
   constructor(props) {
     super(props);
 
-    this._onAppStoreChange = this._onAppStoreChange.bind(this);
+    this._onStoreChange = this._onStoreChange.bind(this);
     this._onClick = this._onClick.bind(this);
     this._firstNameChange = this._firstNameChange.bind(this);
     this._lastNameChange = this._lastNameChange.bind(this);
@@ -16,6 +16,8 @@ export default class ContactMobile extends Component {
     this._renderRequiredFieldMsg = this._renderRequiredFieldMsg.bind(this);
     this._renderSendButton = this._renderSendButton.bind(this);
     this._renderSendMessage = this._renderSendMessage.bind(this);
+    this._onScroll = this._onScroll.bind(this);
+
     this.state = {
       firstNameErrorMsg: '',
       lastNameErrorMsg: '',
@@ -35,19 +37,19 @@ export default class ContactMobile extends Component {
   }
 
   componentDidMount() {
-    AppStore.addChangeListener(this._onAppStoreChange);
-
-    window.addEventListener('scroll', () => {
-      if (event.srcElement.body.scrollTop >= 2800) {
-        this.setState({ checked: true });
-      }
-    });
+    AppStore.addChangeListener(this._onStoreChange);
+    window.addEventListener('scroll', this._onScroll);
   }
 
   componentWillUnmount() {
-    AppStore.removeChangeListener(this._onAppStoreChange);
+    AppStore.removeChangeListener(this._onStoreChange);
+    window.removeEventListener('scroll', this._onScroll, false);
+  }
 
-    window.removeEventListener('scroll');
+  _onScroll(event) {
+    if (event.srcElement.body.scrollTop >= 2800) {
+      this.setState({ checked: true });
+    }
   }
 
   _onClick() {
@@ -77,7 +79,7 @@ export default class ContactMobile extends Component {
     this.setState({ message: e.target.value });
   }
 
-  _onAppStoreChange() {
+  _onStoreChange() {
     this.setState({
       languageSet: AppStore.getLanguageSet(),
       theme: AppStore.getThemeSelected(),

@@ -3,12 +3,15 @@ import AppStore from '../stores/AppStore';
 import { Element, scroller } from 'react-scroll';
 import Cloud from '../images/svg/Cloud';
 import Mobile from '../images/svg/Mobile';
+import isElementInViewport from '../helpers/isElementInViewport';
 
 export default class WhatIDo extends Component {
   constructor(props) {
     super(props);
 
-    this._onAppSessionChange = this._onAppSessionChange.bind(this);
+    this._onStoreChange = this._onStoreChange.bind(this);
+    this._onScroll = this._onScroll.bind(this);
+
     this.state = {
       languageSet: this.props.languageSet,
       theme: this.props.theme,
@@ -17,16 +20,23 @@ export default class WhatIDo extends Component {
   }
 
   componentDidMount() {
-    AppStore.addChangeListener(this._onAppSessionChange);
-
-    window.addEventListener('scroll', () => {
-      if (event.srcElement.body.scrollTop >= 620) {
-        this.setState({ checked: true });
-      }
-    });
+    AppStore.addChangeListener(this._onStoreChange);
+    window.addEventListener('scroll', this._onScroll);
   }
 
-  _onAppSessionChange() {
+  componentWillUnmount() {
+    AppStore.removeChangeListener(this._onStoreChange);
+    window.removeEventListener('scroll', this._onScroll, false);
+  }
+
+  _onScroll(event) {
+    let isInViewport = isElementInViewport(this.refs.title);
+    if (isInViewport && !this.state.checked) {
+      this.setState({ checked: true });
+    }
+  }
+
+  _onStoreChange() {
     this.setState({
       languageSet: AppStore.getLanguageSet(),
       theme: AppStore.getThemeSelected()
@@ -49,10 +59,10 @@ export default class WhatIDo extends Component {
         <Element name="WHAT_I_DO" />
         <span style={{ textAlign: "left", fontSize: "40px", color: this.state.theme.COLOR_2 }}>
           <input type="checkbox" id="WhatIDo-chk" style={{ display: "none" }} checked={this.state.checked} />
-          <b id="WhatIDo-title">{this.state.languageSet.WHAT_I_DO}</b>
+          <b id="WhatIDo-title" ref="title">{this.state.languageSet.WHAT_I_DO}</b>
         </span>
         <hr />
-        <div className="Container row jc-center">
+        <div className="Container row jc-center" style={{ marginTop: "30px" }}>
           <div className="Container column jc-start column-item-x2" id="web" style={{ color: this.state.theme.COLOR_2 }}>
             <Cloud className="image-desc" innerColor={this.state.theme.BACKGROUND_COLOR} outerColor={this.state.theme.COLOR_2} />
             <h2 style={{ color: this.state.theme.COLOR_2 }}>{this.state.languageSet.WEB_APPS}</h2>

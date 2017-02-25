@@ -27,8 +27,8 @@ export default {
             Desde entonces no puedo pensar en la idea de encarar un proyecto de software sin emplear Metodologías Ágiles.
             Un par de años despúes conocí una metodología ágil para desarrollo de software llamada Test Driven Development (Desarrollo Guiado por Pruebas),
             metodología que sigo utilizando hasta el día de hoy.<br />
-            A pesar de haber trabajado casi toda mi vida profesional con C# and tecnologías .Net, encontré en JavaScript
-            y en todo su poder, versatilidad y simplicidad un mundo increible que no ha sido totalmente descubierto ni explotado aún, y quiero hacerlo.
+            A pesar de haber trabajado casi toda mi vida profesional con C# y tecnologías .Net, encontré en JavaScript
+            y en todo su poder, versatilidad y simplicidad un mundo increible que no ha sido totalmente descubierto ni explotado aún.
             <br />
         </span>
     ),
