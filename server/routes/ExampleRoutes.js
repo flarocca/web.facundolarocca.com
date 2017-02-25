@@ -1,5 +1,5 @@
-
 let Routes = require('./Routes');
+let path = require('path');
 
 class ExampleRoutes extends Routes {
     _addAllRoutes(server) {

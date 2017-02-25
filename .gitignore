@@ -8,6 +8,7 @@ coverage
 
 # production
 /build/
+/examples/
 
 # misc
 .DS_Store

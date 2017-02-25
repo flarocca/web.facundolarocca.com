@@ -1,5 +1,5 @@
-var Validator = require('no-if-validator').Validator;
-var NotNullOrUndefinedCondition = require('no-if-validator').NotNullOrUndefinedCondition;
+let Validator = require('no-if-validator').Validator;
+let NotNullOrUndefinedCondition = require('no-if-validator').NotNullOrUndefinedCondition;
 
 class Routes {
     constructor() { 

@@ -1,11 +1,11 @@
-var Validator = require('no-if-validator').Validator;
-var NotNullOrUndefinedCondition = require('no-if-validator').NotNullOrUndefinedCondition;
-var config = require('config');
-var Routes = require('./Routes');
-var Mail = require('../Mail');
-var Mailer = require('../Mailer');
+let Validator = require('no-if-validator').Validator;
+let NotNullOrUndefinedCondition = require('no-if-validator').NotNullOrUndefinedCondition;
+let config = require('config');
+let Routes = require('./Routes');
+let Mail = require('../Mail');
+let Mailer = require('../Mailer');
 
-var mailer = null;
+let mailer = null;
 
 class ContactMeRoutes extends Routes {
     constructor() {
