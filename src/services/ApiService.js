@@ -4,7 +4,7 @@ export default class ApiService {
         _headers.append('Content-Type', 'application/json');
 
         try {
-            return fetch("http://localhost:3001/contactme", {
+            return fetch("http://www.facundolarocca.com/contactme", {
                 method: 'POST',
                 headers: _headers,
                 body: JSON.stringify(mail)
