@@ -1,8 +1,8 @@
-var express = require('express');
-var ConfigureServer = require('./server/ConfigureServer');
-var config = require('config');
-var server = express();
-var PORT = process.env.PORT || config.port;
+let express = require('express');
+let ConfigureServer = require('./server/ConfigureServer');
+let config = require('config');
+let server = express();
+let PORT = process.env.PORT || config.port;
 
 ConfigureServer(server, express, PORT);
 

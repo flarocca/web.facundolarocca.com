@@ -1,5 +1,5 @@
-var Mail = require('./Mail');
-var config = require('config');
+let Mail = require('./Mail');
+let config = require('config');
 
 class Mailer {
   constructor() {
@@ -13,7 +13,7 @@ class Mailer {
       let mailer = this._getMailer();
 
       mailer.sendMail(mailToSend.toJson(), (error, response) => {
-        //mailer.close();
+        mailer.close();
 
         if (error)
           return reject(error);
