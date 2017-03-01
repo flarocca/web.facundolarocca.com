@@ -1,53 +1,53 @@
-import React, { Component } from 'react';
-import AppActions from '../../actions/AppActions';
+import React, { Component } from 'react'
+import AppActions from '../../actions/AppActions'
 
 export default class LanguageSelector extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
 
-    this._changeLanguage = this._changeLanguage.bind(this);
+    this._changeLanguage = this._changeLanguage.bind(this)
     this.state = {
       languageSelected: this.props.initialLanguage
     }
   }
 
-  render() {
+  render () {
     return (
       <div className={this.props.className} style={this.props.style}>
-        <input type="checkbox" id={this.props.checkboxId} />
-        <label id={this.props.labelId} htmlFor={this.props.checkboxId} style={{ background: "rgb(200, 200, 200)" }}>
-          <b style={{ color: "white", position: "relative", top: "12px" }}>{this.state.languageSelected}</b>
+        <input type='checkbox' id={this.props.checkboxId} />
+        <label id={this.props.labelId} htmlFor={this.props.checkboxId} style={{ background: 'rgb(200, 200, 200)' }}>
+          <b style={{ color: 'white', position: 'relative', top: '12px' }}>{this.state.languageSelected}</b>
         </label>
-        <div className={this.props.float + " column jc-center"} style={{ backgroundColor: "rgb(200, 200, 200)" }}>
-          <div className="Container column jc-center" style={{ color: "dimgray", textAlign: "center", height: "30px" }}>
+        <div className={this.props.float + ' column jc-center'} style={{ backgroundColor: 'rgb(200, 200, 200)' }}>
+          <div className='Container column jc-center' style={{ color: 'dimgray', textAlign: 'center', height: '30px' }}>
             <b>Language Selector</b>
           </div>
-          <div className="Container row" style={{ height: "80px", marginRight: "10%", marginLeft: "10%" }}>
-            <div id="lanItem" style={{ marginRight: "10%" }}>
-              <div className="lanItem-btn">
-                <input onChange={() => this._changeLanguage('ARG')} type="radio" name="language" id="argLan" checked={this.state.languageSelected === "ARG"} />
-                <label id="argLan-label" htmlFor="argLan">
-                  <b style={{ position: "relative", marginTop: "10%" }}>ARG</b>
+          <div className='Container row' style={{ height: '80px', marginRight: '10%', marginLeft: '10%' }}>
+            <div id='lanItem' style={{ marginRight: '10%' }}>
+              <div className='lanItem-btn'>
+                <input onChange={() => this._changeLanguage('ARG')} type='radio' name='language' id='argLan' checked={this.state.languageSelected === 'ARG'} />
+                <label id='argLan-label' htmlFor='argLan'>
+                  <b style={{ position: 'relative', marginTop: '10%' }}>ARG</b>
                 </label>
               </div>
             </div>
-            <div id="lanItem" style={{ marginLeft: "10%" }}>
-              <div className="lanItem-btn">
-                <input onChange={() => this._changeLanguage('ENG')} type="radio" name="language" id="engLan" checked={this.state.languageSelected === "ENG"} />
-                <label id="engLan-label" htmlFor="engLan">
-                  <b style={{ position: "relative", marginTop: "10%" }}>ENG</b>
+            <div id='lanItem' style={{ marginLeft: '10%' }}>
+              <div className='lanItem-btn'>
+                <input onChange={() => this._changeLanguage('ENG')} type='radio' name='language' id='engLan' checked={this.state.languageSelected === 'ENG'} />
+                <label id='engLan-label' htmlFor='engLan'>
+                  <b style={{ position: 'relative', marginTop: '10%' }}>ENG</b>
                 </label>
               </div>
             </div>
           </div>
         </div>
       </div>
-    );
+    )
   }
 
-  _changeLanguage(language) {
+  _changeLanguage (language) {
     this.setState({ languageSelected: language }, () => {
-      AppActions.languageChanged(language);
-    });
+      AppActions.languageChanged(language)
+    })
   }
 }
