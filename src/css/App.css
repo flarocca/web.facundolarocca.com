@@ -443,6 +443,7 @@ err-lbl {
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
   justify-content: center;
+  cursor: pointer;
 
   -moz-transition: all 200ms ease-in;
   -webkit-transition: all 200ms ease-in;
@@ -461,6 +462,7 @@ err-lbl {
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
   justify-content: center;
+  cursor: pointer;
 
   -moz-transition: all 200ms ease-in;
   -webkit-transition: all 200ms ease-in;
@@ -752,4 +754,14 @@ err-lbl {
 .skill {
   margin-right: 5px;
   margin-bottom: 5px;
+}
+
+#up-button{
+  background-color: transparent;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  cursor: pointer;
 }

@@ -42,10 +42,10 @@ export default class Contact extends Component {
   }
 
   _onClick () {
-    this.setState({ firstNameErrorMsg: !this.state.firstName ? this.state.languageSet.FIELD_REQUIRED_MSG : '' })
-    this.setState({ lastNameErrorMsg: !this.state.lastName ? this.state.languageSet.FIELD_REQUIRED_MSG : '' })
-    this.setState({ emailNameErrorMsg: !this.state.email ? this.state.languageSet.FIELD_REQUIRED_MSG : '' })
-    this.setState({ messageNameErrorMsg: !this.state.message ? this.state.languageSet.FIELD_REQUIRED_MSG : '' })
+    this.setState({ firstNameErrorMsg: !this.state.firstName ? this.props.languageSet.FIELD_REQUIRED_MSG : '' })
+    this.setState({ lastNameErrorMsg: !this.state.lastName ? this.props.languageSet.FIELD_REQUIRED_MSG : '' })
+    this.setState({ emailNameErrorMsg: !this.state.email ? this.props.languageSet.FIELD_REQUIRED_MSG : '' })
+    this.setState({ messageNameErrorMsg: !this.state.message ? this.props.languageSet.FIELD_REQUIRED_MSG : '' })
 
     if (this.state.firstName && this.state.lastName && this.state.email && this.state.message) {
       AppActions.sendMail(this.state.firstName, this.state.lastName, this.state.message, this.state.email)
