@@ -14,6 +14,7 @@ let ConfigureServer = (server, express, PORT) => {
   })
   server.use('/', express.static(path.join(__dirname, '../build')))
   server.use('/examples/redux-calculator', express.static(path.join(__dirname, '../examples/redux-calculator')))
+  server.use('/examples/react-redux-websocket', express.static(path.join(__dirname, '../examples/react-redux-websocket')))
 
   router.addAll(server)
 }

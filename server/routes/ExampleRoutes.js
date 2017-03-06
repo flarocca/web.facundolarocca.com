@@ -6,6 +6,10 @@ class ExampleRoutes extends Routes {
     server.get('/examples/redux-calculator', (req, res) => {
       res.sendFile(path.join(__dirname, '../../examples/redux-calculator/index.html'))
     })
+
+    server.get('/examples/react-redux-websocket', (req, res) => {
+      res.sendFile(path.join(__dirname, '../../examples/react-redux-websocket/index.html'))
+    })
   }
 
 }
