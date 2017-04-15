@@ -43,7 +43,7 @@ export default {
             I Actually work as Fullstack .NET Engineer III for Web.com,
             a company with a strong position in the North American eCommerce market. <br />
             Maintenance and new software requirements both back-end and front-end
-            on differents proyects.
+            on differents proyects. Design and arquitecture of Microservices and components.
         </span>
     ),
   ISBAN: (
@@ -54,7 +54,7 @@ export default {
             Functional Analysis over customer needs
             Functional Analysis Requirements over internal and external customers
             Requirements development for internal Enterprise systems
-            Services Design and development.
+            Services Design, arquitecture and development.
         </span>
     ),
   ANDREANI: (
@@ -62,7 +62,7 @@ export default {
             Requirements development for internal Enterprise systems
             Development and implementation of TDD and XP methodology
             Scrum software development and management methodology
-            Technical Lead. Programming code QA. Support on development team and functional team. Web Services Design and development.
+            Technical Lead and Arquitect. Programming code QA. Support on development team and functional team. Web Services Design and development.
             Architecture and Design
         </span>
     ),
