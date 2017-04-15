@@ -16,6 +16,8 @@ export default class OtherSkillsContainer extends Component {
         <OtherSkill color={this.props.color} text={'OAuth'} />
         <OtherSkill color={this.props.color} text={'ExpressJS'} />
         <OtherSkill color={this.props.color} text={'Firebase'} />
+        <OtherSkill color={this.props.color} text={'Redux'} />
+        <OtherSkill color={this.props.color} text={'Azure Services'} />
       </div>
     )
   }
