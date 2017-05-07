@@ -1,57 +1,27 @@
-import React, { Component } from 'react';
-import AppStore from '../stores/AppStore';
-import Up from '../images/svg/Up';
-import { scroller } from 'react-scroll';
-
-var styles = {
-  link: {
-    backgroundColor: "transparent",
-    position: "fixed",
-    bottom: "30px",
-    right: "30px",
-    borderRadius: "5px",
-    border: "2px solid transparent"
-  }
-}
+import React, { Component } from 'react'
+import Up from '../images/svg/Up'
+import { scroller } from 'react-scroll'
 
 export default class UpButton extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
 
-    this._goToHome = this._goToHome.bind(this);
-    this._onStoreChange = this._onStoreChange.bind(this);
-    this.state = {
-      theme: this.props.theme
-    }
+    this._goToHome = this._goToHome.bind(this)
   }
 
-  componentDidMount() {
-    AppStore.addChangeListener(this._onStoreChange);
-  }
-
-  componentWillUnmount() {
-    AppStore.removeChangeListener(this._onStoreChange);
-  }
-
-  _onStoreChange() {
-    this.setState({
-      theme: AppStore.getThemeSelected()
-    });
-  }
-
-  _goToHome() {
+  _goToHome () {
     scroller.scrollTo('TOP', {
       duration: 1000,
       delay: 0,
       smooth: true
-    });
+    })
   }
 
-  render() {
+  render () {
     return (
-      <a href="#" onClick={this._goToHome} style={styles.link}>
-        <Up className="up-btn" outerColor={this.state.theme.COLOR_4} />
-      </a>
-    );
+      <span id='up-button' onClick={this._goToHome}>
+        <Up className='up-btn' outerColor={this.props.theme.COLOR_4} />
+      </span>
+    )
   }
 }
