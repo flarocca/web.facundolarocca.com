@@ -7,8 +7,12 @@ node_modules
 coverage
 
 # production
+/build/
+/examples/
+/config/
 
 # misc
 .DS_Store
 .env
 npm-debug.log
+/.vscode/

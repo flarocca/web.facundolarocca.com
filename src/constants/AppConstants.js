@@ -1,4 +1,4 @@
-var keyMirror = require('keymirror');
+var keyMirror = require('keymirror')
 
 module.exports = keyMirror({
   INIT_APP: null,
@@ -8,4 +8,4 @@ module.exports = keyMirror({
   ERROR_SENDING_MAIL: null,
   SENDING_MAIL: null,
   THEME_SELECTED: null
-});
+})

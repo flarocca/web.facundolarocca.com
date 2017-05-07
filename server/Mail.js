@@ -1,17 +1,17 @@
 class Mail {
-  constructor(from, to, body, subject, options) {
-    this.from = from;
-    this.to = to;
-    this.body = body;
-    this.subject = subject;
+  constructor (from, to, body, subject, options) {
+    this.from = from
+    this.to = to
+    this.body = body
+    this.subject = subject
 
     if (options) {
-      this.cc = options.cc;
-      this.cco = options.cco;
+      this.cc = options.cc
+      this.cco = options.cco
     }
   }
 
-  toJson() {
+  toJson () {
     return {
       from: this.from,
       to: this.to,
@@ -19,8 +19,8 @@ class Mail {
       cc: this.cc,
       cco: this.cco,
       html: this.body
-    };
+    }
   }
 }
 
-module.exports = Mail;
+module.exports = Mail
