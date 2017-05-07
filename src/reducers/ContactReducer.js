@@ -20,7 +20,7 @@ export default function ContactReducer(state = initialState, action) {
       return Object.assign({}, state, {
         isSendingMail: true
       })
-    case ActionType.MAIL_SENDED:
+    case ActionType.MAIL_SENT:
       return Object.assign({}, state, {
         isSendingMail: false,
         mailSent: true
