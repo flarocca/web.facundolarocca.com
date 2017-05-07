@@ -17,6 +17,7 @@ export default {
   SEND: 'Send',
   SENDING: 'Sending...',
   MESSAGE_SENT: 'Message has been sent.',
+  SERVER_IS_BUSY: 'Server is busy now, please try again later.',
   MESSAGE_ERROR: '* You must complete all fields.',
   VIEW_MORE: 'View more',
   MY_DESCRIPTION: (

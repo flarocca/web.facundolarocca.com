@@ -17,6 +17,7 @@ export default {
   SEND: 'Enviar',
   SENDING: 'Enviando...',
   MESSAGE_SENT: 'El mensaje ha sido enviado.',
+  SERVER_IS_BUSY: 'El servidor está ocupado ahora, por favor intenta en unos minutos.',
   VIEW_MORE: 'Ver más',
   MY_DESCRIPTION: (
     <span>

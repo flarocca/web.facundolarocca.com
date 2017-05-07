@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import * as ContactActions from '../../actions/ContactActions'
-import SectionTitleMobile from '../common/SectionTitleMobile'
-import SendButton from '../SendButton'
+import * as ContactActions from '../actions/ContactActions'
+import SectionTitle from '../components/common/SectionTitle'
+import SendButton from '../components/SendButton'
 
-class ContactMobile extends Component {
+class Contact extends Component { 
   constructor(props) {
     super(props)
 
@@ -14,12 +14,6 @@ class ContactMobile extends Component {
 
   _onClick() {
     this.props.dispatch(ContactActions.sendMail(this.refs.firstName.value, this.refs.lastName.value, this.refs.message.value, this.refs.email.value))
-  }
-
-  _renderRequiredFieldMsg(field, message) {
-    return (
-      <em className='err-lbl'>{field ? '' : message}</em>
-    )
   }
 
   _renderSendMessage() {
@@ -40,11 +34,11 @@ class ContactMobile extends Component {
 
   render() {
     return (
-      <div id='contact-mobile' className='Container column jc-center' style={{ backgroundColor: this.props.theme.BACKGROUND_COLOR }}>
-        <SectionTitleMobile color={this.props.theme.COLOR_4} id={'Contact'} title={this.props.languageSet.CONTACT} />
-        <div className='Container column' style={{ alignSelf: 'center', width: '100%' }}>
-          <div id='personal-information' className='Container column jc-left'>
-            <b className='contact-section-title-mobile' style={{ color: this.props.theme.COLOR_4 }}>{this.props.languageSet.CONTACT_INFORMATION}</b>
+      <div id='contact' className='Container column jc-center' style={{ backgroundColor: this.props.theme.BACKGROUND_COLOR }}>
+        <SectionTitle title={this.props.languageSet.CONTACT} color={this.props.theme.COLOR_4} id={'Contact'} />
+        <div className='Container row' style={{ marginTop: '30px', alignSelf: 'center', width: '100%' }}>
+          <div id='personal-information' className='Container column jc-left' style={{ width: '45%' }}>
+            <b style={{ alignSelf: 'flex-start', color: this.props.theme.COLOR_4 }}>{this.props.languageSet.CONTACT_INFORMATION}</b>
             <p className='text-special' style={{ textAlign: 'left', color: 'gray' }}>
               <i className='fa fa-user'>
                 <b style={{ color: this.props.theme.FONT_COLOR, fontSize: 'small', fontFamily: "'Open Sans', Helvetica, sans-serif", paddingLeft: '10px' }}>Facundo La Rocca</b>
@@ -58,8 +52,9 @@ class ContactMobile extends Component {
               </i>
             </p>
           </div>
-          <div className='Container column jc-left' style={{ paddingTop: '5%' }}>
-            <b className='contact-section-title-mobile' style={{ color: this.props.theme.COLOR_4 }}>{this.props.languageSet.SEND_ME_A_MESSAGE}</b>
+          <div style={{ width: '1px', border: '2px #B4B2B2 solid', backgroundColor: '#B4B2B2' }} />
+          <div className='Container column jc-left' style={{ paddingLeft: '5%', width: '55%' }}>
+            <b style={{ alignSelf: 'flex-start', color: this.props.theme.COLOR_4 }}>{this.props.languageSet.SEND_ME_A_MESSAGE}</b>
             <div className='Container column'>
               <div className='Container row' style={{ width: '100%' }}>
                 <div className='Container column' style={{ width: '50%' }}>
@@ -93,7 +88,6 @@ class ContactMobile extends Component {
   }
 }
 
-
 let mapStateToProps = state => {
   return {
     firstNameErrorMsg: state.ContactReducer.firstNameErrorMsg,
@@ -106,4 +100,4 @@ let mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(ContactMobile)
+export default connect(mapStateToProps)(Contact)
